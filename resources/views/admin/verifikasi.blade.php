@@ -56,6 +56,7 @@
                     @php
                         $i = 1;
                     @endphp
+                    
                   <tr>
                     <td>@php
                         echo $i++;
