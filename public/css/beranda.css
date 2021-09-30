@@ -1,0 +1,159 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+.rowFirst {
+  background-color: white;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: space-between;
+  /* margin-top: -120px; */
+}
+.new {
+  color: black;
+}
+.col {
+  font-family: "Montserrat", sans-serif;
+}
+h1 {
+  font-weight: 600;
+  color: #198754;
+  margin-top: 163px;
+  margin-left: 120px;
+}
+p {
+  font-weight: 300;
+  color: #000000;
+  margin-left: 120px;
+  width: 85%;
+  text-align: justify;
+  font-size: 22px;
+}
+p.cardContent {
+  margin-left: 70px;
+  text-align: justify;
+  margin-top: -20px;
+}
+img {
+  image-rendering: auto;
+}
+.rowSecond {
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+h2 {
+  margin-right: 460px;
+  margin-top: 80px;
+  font-weight: 700;
+  color: #198754;
+}
+.vectLeft {
+  width: 540px;
+  height: 400px;
+  margin-left: 70px;
+}
+.col-2 {
+  width: 800px;
+}
+.coLeft {
+  margin-top: 30px;
+  margin-left: 20px;
+}
+.titleCard {
+  width: 1000px;
+}
+.cardMan {
+  width: 600px;
+  height: 280px;
+  margin: 10px;
+  margin-bottom: 10px;
+  margin-left: 70px;
+  border-radius: 15px;
+  position: relative;
+  background-color: white;
+  box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.1);
+}
+h5 {
+  text-align: center;
+}
+.bodyCard {
+  padding: 10px 15px;
+}
+.bodyCard svg {
+  width: 31px;
+  position: absolute;
+  bottom: 7px;
+  right: 20px;
+}
+h5 {
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 550px) {
+  .card {
+    grid-column: span 4;
+  }
+}
+@media screen and (min-width: 760px) {
+  .card {
+    width: 350px;
+    margin: 0 10px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+}
+
+.footer {
+  background-color: #f5f4f4;
+  margin-top: 0;
+  margin-bottom: -30px;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+a:hover {
+  color: #000;
+}
+.text-center {
+  font-size: 18;
+  font-weight: 400;
+  margin-top: 300px;
+  height: auto;
+  background-color: #f5f4f4;
+  /* #f5f4f4 */
+}
+
+.textDetail {
+  margin-top: 15px;
+  text-align: right;
+  text-decoration: underline;
+  font-size: 20px;
+  margin-right: -70px;
+}
+.new {
+  margin-top: 20px;
+}
+h6 {
+  font-size: 16px;
+  font-weight: 600;
+}
+a:link {
+  color: inherit;
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
+a:hover {
+  color: inherit;
+}
+a:active {
+  color: inherit;
+}
