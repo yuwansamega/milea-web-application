@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminVerifikasiController;
 
 
 /*
@@ -20,26 +21,6 @@ use App\Http\Controllers\AdminController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/beranda', function () {
-    return view('beranda');
-});
-Route::get('/data-profil', function () {
-    return view('data-profil');
-});
-Route::get('/lengkapi-profil', function () {
-    return view('lengkapi-profil');
-});
-Route::get('/daftar-kegiatan', function () {
-    return view('daftar-kegiatan');
-});
-Route::get('/detail-kegiatan', function () {
-    return view('detail-kegiatan');
-});Route::get('/riwayat', function () {
-    return view('riwayat');
-});
-
-
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -61,8 +42,8 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
 //For Admin
 Route::group(['middleware' => ['auth', 'role:admin']], function(){
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/verifikasi', [AdminVerifikasiController::class, 'index'])->name('admin.verifikasi');
     
 });
 
 require __DIR__.'/auth.php';
-

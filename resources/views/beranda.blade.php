@@ -1,147 +1,146 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="bootstrap-5.1.1-dist\css\bootstrap.min.css" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="bootstrap-5.1.1-dist\js\bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="/css/beranda.css" />
-    <link rel="stylesheet" href="/css/nav copy.css" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.1/umd/popper.min.js"
-      integrity="sha512-8jeQKzUKh/0pqnK24AfqZYxlQ8JdQjl9gGONwGwKbJiEaAPkD3eoIjz3IuX4IrP+dnxkchGUeWdXLazLHin+UQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Beranda</title>
-  </head>
-  <body>
-    <nav>
-      <div id="logo">
-        <img src="img/Logo-only.png" alt="" height="68px" width="68px" />
-        <h1 class="new" style="margin-top: 13px">MILEA</h1>
-      </div>
-      <ul id="pages">
-        <li>
-          <a href="/beranda" class="selected">Beranda</a>
-        </li>
-        <li>
-          <a href="/daftar-kegiatan">Daftar Kegiatan</a>
-        </li>
-      </ul>
-      <img
-        src="img/navbar-toggle-white.png"
-        alt=""
-        id="toogle-white"
-        width="50px"
-        height="50px"
-        class="dropdown-toggle"
-      />
-      <img
-        src="img/navbar-toggle-black.png"
-        alt=""
-        id="toogle-black"
-        width="50px"
-        height="50px"
-        class="dropdown-toggle"
-      />
-      <ul id="dropdown">
-        <img id="addition" src="img/dropdown-addition.png" alt="" />
-        <a href="/data-profil">
-          <img src="img/navbar-profile.png" alt="" width="19px" height="19px" />
-          <li>Profil</li>
-        </a>
-        <a href="/riwayat">
-          <img src="img/navbar-history.png" alt="" width="19px" height="19px" />
-          <li>Riwayat</li>
-        </a>
-        <a href="#">
-          <img src="img/navbar-signout.png" alt="" width="19px" height="19px" />
-          <li>Keluar</li>
-        </a>
-      </ul>
-    </nav>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Dashboard</title>
 
-    <!-- Content Start -->
-    <div class="rowFirst">
-      <div class="col">
-        <h1>Selamat Datang di MILEA</h1>
-        <p>
-          MILEA merupakan website pendaftaran resmi dari RSUD Siti Fatimah untuk
-          mitra yang ingin mengikuti pelatihan, pendidikan dan pengembangan di
-          RSUD Siti Fatimah.
-        </p>
-      </div>
-      <div class="imgRight">
-        <img src="/img/vect-1.png" width="640" />
-      </div>
-    </div>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="/css/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="/css/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="/css/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="/css/summernote-bs4.min.css">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
 
-    <div class="rowSecond">
-      <div class="col">
-        <div class="vectLeft">
-          <img src="img/vect-4.png" width="540" alt="" />
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index3.html" class="nav-link">Home</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="info">
+          <a href="#" class="d-block">Admin Name</a>
         </div>
       </div>
-      <div class="titleCard">
-        <h2 style="width: 1000px; margin-left: 70px; margin-bottom: 30px">
-          Pelatihan Yang Tersedia
-        </h2>
-        <div class="cardMan">
-          <div class="bodyCard">
-            <h5>Pelatihan Tenaga Pelatih Kesehatan</h5>
-            <div class="container">
-              <hr />
-            </div>
-            <div class="row">
-              <div class="coLeft col-sm-2">
-                <img src="img/calendar.png" width="25" alt="" />
-                <br />
-                <br />
-                <img src="img/location.png" width="25" alt="" />
-              </div>
-              <div class="col-sm-10" style="margin-top: -68px">
-                <p class="cardContent">11 - 15 Oktober, 2021</p>
-                <br />
-                <p class="cardContent">Hotel The Zuri</p>
-                <a href="/detail-kegiatan">
-                  <div class="textDetail">Lihat Detail</div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="copyright">
-      <div class="text-center text-dark p-3">
-        <h6>
-          All Right Reserved © IT Team RSUD Siti Fatimah Kampus Merdeka 2021
-        </h6>
-        <a>Temukan kami di : </a>
-        <a href=""><img src="img/Call.png" width="30" alt="" /></a>
-        <a href=""><img src="img/Gmail.png" width="30" alt="" /></a>
-        <a href=""><img src="img/Facebook.png" width="30" alt="" /></a>
-        <a href=""><img src="img/Youtube.png" width="30" alt="" /></a>
-        <a href=""><img src="img/Instagram.png" width="30" alt="" /></a>
-      </div>
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            <a href="pages/widgets.html" class="nav-link bg-primary">
+              <p>
+                Verifikasi Pelatihan
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/widgets.html" class="nav-link bg-danger">
+              <p style="text-align: center; width: 100%">
+                <b>
+                  Log Out
+                </b>
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
     </div>
-    <script src="/js/utility.js"></script>
-  </body>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard v1</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.1.0
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="/js/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.js"></script>
+</body>
 </html>
-
