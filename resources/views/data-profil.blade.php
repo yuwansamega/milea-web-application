@@ -43,7 +43,7 @@
         </li>
       </ul>
       <img
-        src="img/navbar-toggle-white.png"
+        src="img/navbar-toggle-black.png"
         alt=""
         id="toogle-white"
         width="50px"
@@ -84,13 +84,13 @@
                 <img style="margin-left: 25px;" src="img/image.jpg" width="100" alt="" />
                 </div>
                 <div class="rowFirstCardRight">
-                <h3 class="name">Dilan Almilea, S.Kom.</h3>
-                <h6 class="nip">112233445566</h6>
-                <h6 class="status">Pegawai Negeri Sipil</h6>
+                  <h3 class="name">data-user->name</h3>
+                <h6 class="nip">data-user->position</h6>
+                <h6 class="status">data-user->institute</h6>
                 </div>
             </div>
 
-            <a href="data-profil.html">
+            <a href="/data-profil">
             <div class="row" style="margin-top: 50px; margin-left: 10px; color: #198754;">
                 <img src="img/icon.png" width="20" height="20" alt="">
                 <h6 class="detailProfil" style="margin-left: 15px;">Detail Profil</h6>
@@ -98,7 +98,7 @@
             </a>
 
             <hr>
-            <a href="lengkapi-profil.html">
+            <a href="/lengkapi-profil">
             <div class="row">
                 <img src="img/filemanager.png" width="28" height="20" style="margin-left: 25px;" alt="">
                 <h6 class="detailProfil" style="margin-left: 8px; margin-top: 1px;">Perbarui Profil</h6>
@@ -106,13 +106,18 @@
             </a>
             
             <hr>
-            <a href="#">
+            <form method="POST" action="{{ route('logout') }}">
+              @csrf
+            <a href="route('logout')"
+            onclick="event.preventDefault();
+                        this.closest('form').submit();">
             <div class="row">
                 <img src="img/log_out.png" width="30" height="30" style="margin-left: 15px;" alt="">
                 <h6 class="detailProfil" style="margin-top: 5px; margin-left: 15px;">Keluar</h6>
             </div>
           </div>
           </a>
+        </form>
            
         </div>
       </div>
@@ -131,7 +136,7 @@
                     readonly
                     class="form-control-plaintext"
                     id="Nama"
-                    value="Dilan Almilea, S.Kom."
+                    value="{{ $data_user->fullname }}"
                   />
                 </div>
                 <label for="NIP" class="col-sm-6 col-form-label">NIP</label>
@@ -141,7 +146,20 @@
                     readonly
                     class="form-control-plaintext"
                     id="NIP"
-                    value="112233445566"
+                    @php
+                        if($data_user->nip != null) {
+                          echo ('value="Silakan Perbarui Profil"');
+                        }else {
+                          echo ('value="Silakan Perbarui Profil"');
+                        }
+                          @endphp
+                          
+                          
+                          
+                           
+                        
+                        
+                    
                   />
                 </div>
                 <label for="KTP" class="col-sm-6 col-form-label"

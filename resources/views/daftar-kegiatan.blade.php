@@ -43,7 +43,7 @@
         </li>
       </ul>
       <img
-        src="img/navbar-toggle-white.png"
+        src="img/navbar-toggle-black.png"
         alt=""
         id="toogle-white"
         width="50px"
