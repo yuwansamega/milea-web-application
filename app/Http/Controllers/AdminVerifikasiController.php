@@ -10,9 +10,9 @@ class AdminVerifikasiController extends Controller
 {
     public function index(){
 
-        $data_submission = Submission::all();
-        $user_id = $data_submission->user_id;
-        $data_user = DataUser::where('user_id', $user_id)->first();
+        // $data_submission = Submission::all();
+        // $user_id = $data_submission->user_id;
+        // $data_user = DataUser::where('user_id', $user_id)->first();
         return view ('admin.verifikasi', [
 
         ]);
