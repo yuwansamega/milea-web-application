@@ -15,24 +15,25 @@ class CreateDataUsersTable extends Migration
     {
         Schema::create('data_users', function (Blueprint $table) {
             $table->id();
-            $table->string('fullname');
-            $table->string('image');
-            $table->string('nip');
-            $table->string('nik')->unique();
-            $table->enum('status', ['PNS', 'CPNS', 'Lainnya']);
-            $table->enum('gender', ['Laki-Laki', 'Perempuan']);
-            $table->string('birth_place');
-            $table->date('birth_date');
-            $table->text('address');
-            $table->enum('religion', ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu']);
-            $table->string('email');
-            $table->string('phone');
-            $table->enum('edu_level', ['SMA Sederajat', 'D1', 'D2', 'D3', 'D4', 'S1', 'S2', 'S3']);
+            $table->int('user_id')->nullable();
+            $table->string('fullname')->nullable();
+            $table->string('image')->default('user.png');
+            $table->string('nip')->nullable();
+            $table->string('nik')->nullable();
+            $table->enum('status', ['-', 'PNS', 'CPNS', 'Lainnya'])->nullable()->default('-');
+            $table->enum('gender', ['-', 'Laki-Laki', 'Perempuan'])->nullable()->default('-');
+            $table->string('birth_place')->nullable();
+            $table->date('birth_date')->nullable();
+            $table->text('address')->nullable();
+            $table->enum('religion', ['-', 'Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu'])->nullable()->default('-');
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('edu')->nullable();
             $table->string('level')->nullable();
             $table->string('position')->nullable();
-            $table->string('institue')->nullable();
-            $table->text('institue_addr')->nullable();
-            $table->string('institue_phone')->nullable();
+            $table->string('institute')->nullable();
+            $table->text('institute_addr')->nullable();
+            $table->string('institute_phone')->nullable();
             $table->timestamps();
         });
     }

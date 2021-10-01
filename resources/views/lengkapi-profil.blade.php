@@ -43,7 +43,7 @@
         </li>
       </ul>
       <img
-        src="img/navbar-toggle-white.png"
+        src="img/navbar-toggle-black.png"
         alt=""
         id="toogle-white"
         width="50px"
@@ -68,10 +68,14 @@
           <img src="img/navbar-history.png" alt="" width="19px" height="19px" />
           <li>Riwayat</li>
         </a>
-        <a href="#">
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+        <a href="route('logout')"
+        onclick="event.preventDefault();
+                    this.closest('form').submit();">
           <img src="img/navbar-signout.png" alt="" width="19px" height="19px" />
           <li>Keluar</li>
-        </a>
+        </a></form>
       </ul>
     </nav>
 
@@ -82,16 +86,16 @@
           <div class="card-body">
               <div class="row">
                 <div class="rowFirstCardLeft">
-                <img style="margin-left: 25px;" src="img/image.jpg" width="100" alt="" />
+                <img src="user\ava\{{ $data_user->image }}" style="margin-left: 25px; width: 100px; height:100px; float: left; border-radius:50%; bordered" alt="" />
                 </div>
                 <div class="rowFirstCardRight">
-                <h3 class="name">Dilan Almilea, S.Kom.</h3>
-                <h6 class="nip">112233445566</h6>
-                <h6 class="status">Pegawai Negeri Sipil</h6>
+                  <h3 class="name">{{$data_user->fullname }}</h3>
+                <h6 class="nip">{{$data_user->position }}</h6>
+                <h6 class="status">{{$data_user->institute }}</h6>
                 </div>
             </div>
 
-            <a href="data-profil.html">
+            <a href="/data-profil">
             <div class="row" style="margin-top: 50px; margin-left: 10px;">
                 <img src="img/icon.png" width="20" height="20" alt="">
                 <h6 class="detailProfil" style="margin-left: 15px;">Detail Profil</h6>
@@ -99,7 +103,7 @@
             </a>
 
             <hr>
-            <a href="lengkapi-profil.html">
+            <a href="/lengkapi-profil">
             <div class="row" style=" color: #198754;">
                 <img src="img/filemanager.png" width="28" height="20" style="margin-left: 25px;" alt="">
                 <h6 class="detailProfil" style="margin-left: 8px; margin-top: 1px;">Perbarui Profil</h6>
@@ -107,13 +111,18 @@
             </a>
             
             <hr>
-            <a href="#">
+            <form method="POST" action="{{ route('logout') }}">
+              @csrf
+            <a href="route('logout')"
+            onclick="event.preventDefault();
+                        this.closest('form').submit();">
             <div class="row">
                 <img src="img/log_out.png" width="30" height="30" style="margin-left: 15px;" alt="">
                 <h6 class="detailProfil" style="margin-top: 5px; margin-left: 15px;">Keluar</h6>
             </div>
           </div>
           </a>
+        </form>
            
         </div>
       </div>
@@ -124,14 +133,18 @@
             <h5 class="card-title" style="margin-left: 20px">PERBARUI PROFIL</h5>
             <hr />
             <div class="form">
+              <form action="/update-data-diri/{{ $data_user->id }}" method="post" enctype="multipart/form-data">
+                @csrf
               <div class="form-group row">
                  <label for="pict" class="col-sm-6 col-form-label">Foto Profil</label>
                 <div class="col-sm-6">
                   <input
                     type="file"
                     class="form-control"
+                    style="height: 45px"
                     id="pict"
                     value=""
+                    name="image"
                     placeholder="Pilih Berkas..."
                   />
                 </div>
@@ -141,7 +154,10 @@
                     type="text"
                     class="form-control"
                     id="Nama"
-                    value="Dilan Almilea, S.Kom."
+                    name="fullname"
+                    value="{{ $data_user->fullname }}"
+                    placeholder="Nama Lengkap"
+                    required
                   />
                 </div>
                 <label for="NIP" class="col-sm-6 col-form-label">NIP</label>
@@ -150,7 +166,10 @@
                     type="text"
                     class="form-control"
                     id="NIP"
-                    value="112233445566"
+                    name="nip"
+                    value="{{ $data_user->nip }}"
+                    placeholder="NIP/Jika tidak ada isi '-'"
+                    required
                   />
                 </div>
                 <label for="KTP" class="col-sm-6 col-form-label"
@@ -161,30 +180,33 @@
                     type="text"
                     class="form-control"
                     id="KTP"
-                    value="15712833191283"
+                    name="nik"
+                    value="{{ $data_user->nik }}"
+                    placeholder="NIK"
+                    required
                   />
                 </div>
                 <label for="Status" class="col-sm-6 col-form-label"
                   >Status</label
                 >
                 <div class="col-sm-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="Status"
-                    value="PNS"
-                  />
+                  <select class="form-control" class="form-control"
+                  id="Status" name="status">
+                          <option value="-" {{( $data_user->status === '-') ? 'Selected' : ''}}>-</option>
+                          <option value="CPNS" {{( $data_user->status === 'CPNS') ? 'Selected' : ''}}>CPNS</option>
+                          <option value="PNS" {{( $data_user->status === 'PNS') ? 'Selected' : ''}}>PNS</option>
+                          <option value="Lainnya" {{( $data_user->status === 'Lainnya') ? 'Selected' : ''}}>Lainnya</option>
+                  </select>
                 </div>
-                  <label for="JenisKelamin" class="col-sm-6 col-form-label"
-                    >Jenis Kelamin</label
-                  >
+                  <label for="gender" class="col-sm-6 col-form-label"
+                    >Jenis Kelamin</label>
                   <div class="col-sm-6">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="JenisKelamin"
-                      value="Perempuan"
-                    />
+                    <select class="form-control" class="form-control"
+                  id="gender" name="gender">
+                          <option value="-" {{( $data_user->gender === '-') ? 'Selected' : ''}}>-</option>
+                          <option value="Laki-Laki" {{( $data_user->gender === 'Laki-Laki') ? 'Selected' : ''}}>Laki-Laki</option>
+                          <option value="Perempuan" {{( $data_user->gender === 'Perempuan') ? 'Selected' : ''}}>Perempuan</option>
+                  </select>
                   </div>
                   <label for="TempatLahir" class="col-sm-6 col-form-label"
                     >Tempat Lahir</label
@@ -194,7 +216,10 @@
                       type="text"
                       class="form-control"
                       id="TempatLahir"
-                      value="Madagaskar"
+                      name="birth_place"
+                      placeholder="Tempat Lahir"
+                      value="{{ $data_user->birth_place }}"
+                      required
                     />
                   </div>
                   <label for="TTL" class="col-sm-6 col-form-label"
@@ -202,10 +227,12 @@
                   >
                   <div class="col-sm-6">
                     <input
-                      type="text"
+                      type="date"
                       class="form-control"
                       id="TanggalLahir"
-                      value="11 Februari 2001"
+                      name="birth_date"
+                      value="{{ $data_user->birth_date }}"
+                      required
                     />
                   </div>
                   <label for="alamatDomisili" class="col-sm-6 col-form-label"
@@ -216,29 +243,38 @@
                       type="text"
                       class="form-control"
                       id="alamatDomisili"
+                      name="address"
+                      placeholder="Alamat Domisili Lengkap"
+                      required
                       style="height: 100px; text-align: justify; width: 100%;"
-                    >Jl. Kol, H, Burlian, Kel. Sukabangun, Kec. Sukarami, Palembang. Sumatera Selatan. Indonesia </textarea>
+                    >{{ $data_user->address }}</textarea>
                   </div>
                   <label for="Agama" class="col-sm-6 col-form-label"
                     >Agama</label
                   >
                   <div class="col-sm-6">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="Agama"
-                      value="Islam"
-                    />
+                    <select class="form-control" class="form-control"
+                  id="Agama" name="religion">
+                          <option value="Islam" {{( $data_user->religion === 'Islam') ? 'Selected' : ''}}>Islam</option>
+                          <option value="Kristen" {{( $data_user->religion === 'Kristen') ? 'Selected' : ''}}>Kristen</option>
+                          <option value="Katolik" {{( $data_user->religion === 'Katolik') ? 'Selected' : ''}}>Katolik</option>
+                          <option value="Hindu" {{( $data_user->religion === 'Hindu') ? 'Selected' : ''}}>Hindu</option>
+                          <option value="Buddha" {{( $data_user->religion === 'Buddha') ? 'Selected' : ''}}>Buddha</option>
+                          <option value="Konghucu" {{( $data_user->religion === 'Konghucu') ? 'Selected' : ''}}>Konghucu</option>
+                  </select>
                   </div>
                   <label for="Email" class="col-sm-6 col-form-label"
                     >Email</label
                   >
                   <div class="col-sm-6">
                     <input
-                      type="text"
+                      type="email"
                       class="form-control"
                       id="Email"
-                      value="dilan.milea@gmail.com"
+                      name="email"
+                      value="{{ $data_user->email }}"
+                      placeholder="email@email.com"
+                      required
                     />
                   </div>
                   <label for="hp" class="col-sm-6 col-form-label"
@@ -249,7 +285,10 @@
                       type="text"
                       class="form-control"
                       id="hp"
-                      value="0877-9870-5431"
+                      name="phone"
+                      value="{{ $data_user->phone }}"
+                      placeholder="Nomor WA yang bisa dihubungi"
+                      required
                     />
                   </div>
                   <label for="pendidikan" class="col-sm-6 col-form-label"
@@ -260,29 +299,35 @@
                       type="text"
                       class="form-control"
                       id="pendidikan"
-                      value="S1 - Sistem Informasi"
+                      value="{{ $data_user->edu}}"
+                      placeholder="Contoh : S1 - Keperawatan/ SMA-IPA"
+                      name="edu"
                     />
                   </div>
                   <label for="rank" class="col-sm-6 col-form-label"
-                    >Pangkat/Golongan</label
+                    >Golongan/Pangkat</label
                   >
                   <div class="col-sm-6">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="rank"
-                      value="Pengatur / II C"
-                    />
+                    <select class="form-control" class="form-control"
+                  id="level" name="level">
+                  @foreach($rank_level as $r)
+                    <option value="{{$r}}" {{( $data_user->level ===  $r) ? 'Selected' : ''}}>{{$r}}</option>
+                  @endforeach
+                          
+                  </select>
+                    
                   </div>
                   <label for="jabatan" class="col-sm-6 col-form-label"
-                    >Jabatan / Pekerjaan</label
+                    >Jabatan/Pekerjaan</label
                   >
                   <div class="col-sm-6">
                     <input
                       type="text"
                       class="form-control"
                       id="jabatan"
-                      value="Staf/ Pengelolaan Sumber Daya Manusia"
+                      placeholder="Contoh : Pengelolaan Sumber Daya Manusia"
+                      value="{{$data_user->position}}"
+                      name="position"
                     />
                   </div>
                   <label for="instansi" class="col-sm-6 col-form-label"
@@ -293,7 +338,9 @@
                       type="text"
                       class="form-control"
                       id="instansi"
-                      value="RSUD Siti Fatimah Sumatera Selatan"
+                      placeholder="Contoh : RSUD Siti Fatimah Prov. Sumatera Selatan"
+                      value="{{$data_user->institute}}"
+                      name="institute"
                     />
                   </div>
                   <label for="alamatInstansi" class="col-sm-6 col-form-label"
@@ -305,7 +352,9 @@
                       class="form-control"
                       id="alamatDomisili"
                       style="height: 100px; text-align: justify; width: 100%;"
-                    >Jl. Kol, H, Burlian, Kel. Sukabangun, Kec. Sukarami, Palembang. Sumatera Selatan. Indonesia </textarea>
+                      placeholder="Contoh : Jl. Kol, H, Burlian, Kel. Sukabangun, Kec. Sukarami, Palembang. Sumatera Selatan. Indonesia "
+                      name="institute_addr"
+                    >{{$data_user->institute_addr}}</textarea>
                   </div>
                   <label for="telpInstansi" class="col-sm-6 col-form-label"
                     >Telepon Instansi</label
@@ -315,12 +364,15 @@
                       type="text"
                       class="form-control"
                       id="telpInstansi"
-                      value="0887-2239-1203"
+                      placeholder="Telepon instansi"
+                      value="{{$data_user->institute_phone}}"
+                      name="institute_phone"
                     />
                   </div>
                   </div>
                 </div>
-                 <button type="button" class="btn save btn-success">Simpan</button>
+                <button type="submit" class="btn save btn-success">Simpan</button>
+              </form>
               </div>
             </div>
           </div>
@@ -341,5 +393,7 @@
       </div>
     </div>
       <script src="/js/utility.js"></script>
+      @include('sweetalert::alert')
+
   </body>
 </html>
