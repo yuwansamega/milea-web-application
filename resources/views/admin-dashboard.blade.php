@@ -8,23 +8,23 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="/css/all.min.css">
+  <link rel="stylesheet" href="/css/admin/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="/css/admin/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="/css/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="/css/admin/icheck-bootstrap.min.css">
   <!-- JQVMap -->
-  <link rel="stylesheet" href="/css/jqvmap.min.css">
+  <link rel="stylesheet" href="/css/admin/jqvmap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="/css/adminlte.css">
+  <link rel="stylesheet" href="/css/admin/adminlte.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="/css/admin/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
-  <link rel="stylesheet" href="/css/daterangepicker.css">
+  <link rel="stylesheet" href="/css/admin/daterangepicker.css">
   <!-- summernote -->
-  <link rel="stylesheet" href="/css/summernote-bs4.min.css">
+  <link rel="stylesheet" href="/css/admin/summernote-bs4.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -129,18 +129,15 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
 <!-- jQuery -->
-<script src="/js/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="/js/jquery-ui.min.js"></script>
+<script src="/js/admin/jquery.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
-<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/admin/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="/js/adminlte.js"></script>
+<script src="/js/admin/adminlte.min.js"></script>
 </body>
 </html>

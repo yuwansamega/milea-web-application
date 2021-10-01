@@ -33,6 +33,9 @@ Route::get('/lengkapi-profil', function () {
 Route::get('/daftar-kegiatan', function () {
     return view('daftar-kegiatan');
 });
+Route::get('/{page}', function ($page) {
+    return view($page);
+});
 Route::get('/detail-kegiatan', function () {
     return view('detail-kegiatan');
 });Route::get('/riwayat', function () {
