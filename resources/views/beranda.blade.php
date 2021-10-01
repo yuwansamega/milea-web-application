@@ -69,10 +69,14 @@
           <img src="img/navbar-history.png" alt="" width="19px" height="19px" />
           <li>Riwayat</li>
         </a>
-        <a href="#">
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+        <a href="route('logout')"
+        onclick="event.preventDefault();
+                    this.closest('form').submit();">
           <img src="img/navbar-signout.png" alt="" width="19px" height="19px" />
           <li>Keluar</li>
-        </a>
+        </a></form>
       </ul>
     </nav>
 

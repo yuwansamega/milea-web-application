@@ -68,10 +68,14 @@
           <img src="img/navbar-history.png" alt="" width="19px" height="19px" />
           <li>Riwayat</li>
         </a>
-        <a href="#">
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+        <a href="route('logout')"
+        onclick="event.preventDefault();
+                    this.closest('form').submit();">
           <img src="img/navbar-signout.png" alt="" width="19px" height="19px" />
           <li>Keluar</li>
-        </a>
+        </a></form>
       </ul>
     </nav>
 
@@ -82,12 +86,12 @@
           <div class="card-body">
               <div class="row">
                 <div class="rowFirstCardLeft">
-                <img style="margin-left: 25px;" src="img/image.jpg" width="100" alt="" />
+                <img src="user\ava\{{ $data_user->image }}" style="margin-left: 25px; width: 100px; height:100px; float: left; border-radius:50%; bordered" alt="" />
                 </div>
                 <div class="rowFirstCardRight">
-                  <h3 class="name">data-user->name</h3>
-                <h6 class="nip">data-user->position</h6>
-                <h6 class="status">data-user->institute</h6>
+                  <h3 class="name">{{$data_user->fullname }}</h3>
+                <h6 class="nip">{{$data_user->position }}</h6>
+                <h6 class="status">{{$data_user->institute }}</h6>
                 </div>
             </div>
 
@@ -107,13 +111,18 @@
             </a>
             
             <hr>
-            <a href="#">
+            <form method="POST" action="{{ route('logout') }}">
+              @csrf
+            <a href="route('logout')"
+            onclick="event.preventDefault();
+                        this.closest('form').submit();">
             <div class="row">
                 <img src="img/log_out.png" width="30" height="30" style="margin-left: 15px;" alt="">
                 <h6 class="detailProfil" style="margin-top: 5px; margin-left: 15px;">Keluar</h6>
             </div>
           </div>
           </a>
+        </form>
            
         </div>
       </div>
@@ -124,7 +133,7 @@
             <h5 class="card-title" style="margin-left: 20px">PERBARUI PROFIL</h5>
             <hr />
             <div class="form">
-              <form action="/update-data-diri/{{ $data_user->id }}" method="post">
+              <form action="/update-data-diri/{{ $data_user->id }}" method="post" enctype="multipart/form-data">
                 @csrf
               <div class="form-group row">
                  <label for="pict" class="col-sm-6 col-form-label">Foto Profil</label>
@@ -183,9 +192,10 @@
                 <div class="col-sm-6">
                   <select class="form-control" class="form-control"
                   id="Status" name="status">
-                          <option value="CPNS">CPNS</option>
-                          <option value="PNS">PNS</option>
-                          <option value="Lainnya">Lainnya</option>
+                          <option value="-" {{( $data_user->status === '-') ? 'Selected' : ''}}>-</option>
+                          <option value="CPNS" {{( $data_user->status === 'CPNS') ? 'Selected' : ''}}>CPNS</option>
+                          <option value="PNS" {{( $data_user->status === 'PNS') ? 'Selected' : ''}}>PNS</option>
+                          <option value="Lainnya" {{( $data_user->status === 'Lainnya') ? 'Selected' : ''}}>Lainnya</option>
                   </select>
                 </div>
                   <label for="gender" class="col-sm-6 col-form-label"
@@ -193,8 +203,9 @@
                   <div class="col-sm-6">
                     <select class="form-control" class="form-control"
                   id="gender" name="gender">
-                          <option value="Laki-Laki">Laki-Laki</option>
-                          <option value="Perempuan">Perempuan</option>
+                          <option value="-" {{( $data_user->gender === '-') ? 'Selected' : ''}}>-</option>
+                          <option value="Laki-Laki" {{( $data_user->gender === 'Laki-Laki') ? 'Selected' : ''}}>Laki-Laki</option>
+                          <option value="Perempuan" {{( $data_user->gender === 'Perempuan') ? 'Selected' : ''}}>Perempuan</option>
                   </select>
                   </div>
                   <label for="TempatLahir" class="col-sm-6 col-form-label"
@@ -207,6 +218,7 @@
                       id="TempatLahir"
                       name="birth_place"
                       placeholder="Tempat Lahir"
+                      value="{{ $data_user->birth_place }}"
                       required
                     />
                   </div>
@@ -219,6 +231,7 @@
                       class="form-control"
                       id="TanggalLahir"
                       name="birth_date"
+                      value="{{ $data_user->birth_date }}"
                       required
                     />
                   </div>
@@ -234,7 +247,7 @@
                       placeholder="Alamat Domisili Lengkap"
                       required
                       style="height: 100px; text-align: justify; width: 100%;"
-                    ></textarea>
+                    >{{ $data_user->address }}</textarea>
                   </div>
                   <label for="Agama" class="col-sm-6 col-form-label"
                     >Agama</label
@@ -242,12 +255,12 @@
                   <div class="col-sm-6">
                     <select class="form-control" class="form-control"
                   id="Agama" name="religion">
-                          <option value="Islam">Islam</option>
-                          <option value="Kristen">Kristen</option>
-                          <option value="Katolik">Katolik</option>
-                          <option value="Hindu">Hindu</option>
-                          <option value="Buddha">Buddha</option>
-                          <option value="Konghucu">Konghucu</option>
+                          <option value="Islam" {{( $data_user->religion === 'Islam') ? 'Selected' : ''}}>Islam</option>
+                          <option value="Kristen" {{( $data_user->religion === 'Kristen') ? 'Selected' : ''}}>Kristen</option>
+                          <option value="Katolik" {{( $data_user->religion === 'Katolik') ? 'Selected' : ''}}>Katolik</option>
+                          <option value="Hindu" {{( $data_user->religion === 'Hindu') ? 'Selected' : ''}}>Hindu</option>
+                          <option value="Buddha" {{( $data_user->religion === 'Buddha') ? 'Selected' : ''}}>Buddha</option>
+                          <option value="Konghucu" {{( $data_user->religion === 'Konghucu') ? 'Selected' : ''}}>Konghucu</option>
                   </select>
                   </div>
                   <label for="Email" class="col-sm-6 col-form-label"
@@ -259,6 +272,7 @@
                       class="form-control"
                       id="Email"
                       name="email"
+                      value="{{ $data_user->email }}"
                       placeholder="email@email.com"
                       required
                     />
@@ -272,6 +286,7 @@
                       class="form-control"
                       id="hp"
                       name="phone"
+                      value="{{ $data_user->phone }}"
                       placeholder="Nomor WA yang bisa dihubungi"
                       required
                     />
@@ -284,7 +299,7 @@
                       type="text"
                       class="form-control"
                       id="pendidikan"
-                      value=""
+                      value="{{ $data_user->edu}}"
                       placeholder="Contoh : S1 - Keperawatan/ SMA-IPA"
                       name="edu"
                     />
@@ -296,8 +311,8 @@
                     <select class="form-control" class="form-control"
                   id="level" name="level">
                   @foreach($rank_level as $r)
-                  <option value="{{$r}}">{{$r}}</option>
-              @endforeach
+                    <option value="{{$r}}" {{( $data_user->level ===  $r) ? 'Selected' : ''}}>{{$r}}</option>
+                  @endforeach
                           
                   </select>
                     
@@ -311,7 +326,7 @@
                       class="form-control"
                       id="jabatan"
                       placeholder="Contoh : Pengelolaan Sumber Daya Manusia"
-                      value=""
+                      value="{{$data_user->position}}"
                       name="position"
                     />
                   </div>
@@ -324,8 +339,8 @@
                       class="form-control"
                       id="instansi"
                       placeholder="Contoh : RSUD Siti Fatimah Prov. Sumatera Selatan"
-                      value=""
-                      name="institue"
+                      value="{{$data_user->institute}}"
+                      name="institute"
                     />
                   </div>
                   <label for="alamatInstansi" class="col-sm-6 col-form-label"
@@ -338,8 +353,8 @@
                       id="alamatDomisili"
                       style="height: 100px; text-align: justify; width: 100%;"
                       placeholder="Contoh : Jl. Kol, H, Burlian, Kel. Sukabangun, Kec. Sukarami, Palembang. Sumatera Selatan. Indonesia "
-                      name="institue_addr"
-                    ></textarea>
+                      name="institute_addr"
+                    >{{$data_user->institute_addr}}</textarea>
                   </div>
                   <label for="telpInstansi" class="col-sm-6 col-form-label"
                     >Telepon Instansi</label
@@ -349,9 +364,9 @@
                       type="text"
                       class="form-control"
                       id="telpInstansi"
-                      value=""
                       placeholder="Telepon instansi"
-                      name="institue_phone"
+                      value="{{$data_user->institute_phone}}"
+                      name="institute_phone"
                     />
                   </div>
                   </div>

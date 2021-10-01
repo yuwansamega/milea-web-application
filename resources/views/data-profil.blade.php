@@ -68,10 +68,14 @@
           <img src="img/navbar-history.png" alt="" width="19px" height="19px" />
           <li>Riwayat</li>
         </a>
-        <a href="#">
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+        <a href="route('logout')"
+        onclick="event.preventDefault();
+                    this.closest('form').submit();">
           <img src="img/navbar-signout.png" alt="" width="19px" height="19px" />
           <li>Keluar</li>
-        </a>
+        </a></form>
       </ul>
     </nav>
 
@@ -79,16 +83,16 @@
       <div class="bodyLeft">
         <div class="card kiri">
           <div class="card-body">
-              <div class="row">
-                <div class="rowFirstCardLeft">
-                <img style="margin-left: 25px;" src="img/image.jpg" width="100" alt="" />
-                </div>
-                <div class="rowFirstCardRight">
-                  <h3 class="name">data-user->name</h3>
-                <h6 class="nip">data-user->position</h6>
-                <h6 class="status">data-user->institute</h6>
-                </div>
-            </div>
+            <div class="row">
+              <div class="rowFirstCardLeft">
+              <img src="user\ava\{{ $data_user->image }}" style="margin-left: 25px; width: 100px; height:100px; float: left; border-radius:50%; bordered" alt="" />
+              </div>
+              <div class="rowFirstCardRight">
+                <h3 class="name">{{$data_user->fullname }}</h3>
+              <h6 class="nip">{{$data_user->position }}</h6>
+              <h6 class="status">{{$data_user->institute }}</h6>
+              </div>
+          </div>
 
             <a href="/data-profil">
             <div class="row" style="margin-top: 50px; margin-left: 10px; color: #198754;">
@@ -139,41 +143,66 @@
                     value="{{ $data_user->fullname }}"
                   />
                 </div>
-                <label for="NIP" class="col-sm-6 col-form-label">NIP</label>
-                <div class="col-sm-6">
-                  <input
-                    type="text"
-                    readonly
-                    class="form-control-plaintext"
-                    id="NIP"
-                    @php
-                        if($data_user->nip != null) {
-                          echo ('value="Silakan Perbarui Profil"');
-                        }else {
-                          echo ('value="Silakan Perbarui Profil"');
-                        }
-                          @endphp
-                          
-                          
-                          
-                           
-                        
-                        
-                    
-                  />
-                </div>
-                <label for="KTP" class="col-sm-6 col-form-label"
+                <?php
+                if($data_user->nip === ''){?>
+                    <label for="NIP" class="col-sm-6 col-form-label">NIP</label>
+                    <div class="col-sm-6">
+                      <input
+                        type="text"
+                        readonly
+                        class="form-control-plaintext"
+                        id="NIP"
+                        value="-"  
+                      />
+                    </div>
+                <?php
+                }else{?>
+                  <label for="NIP" class="col-sm-6 col-form-label">NIP</label>
+                  <div class="col-sm-6">
+                    <input
+                      type="text"
+                      readonly
+                      class="form-control-plaintext"
+                      id="NIP"
+                      value="{{ $data_user->nip }}"  
+                    />
+                  </div><?php
+                }
+                
+                ?>
+                
+                <?php
+                if($data_user->nik === ''){?>
+                    <label for="KTP" class="col-sm-6 col-form-label"
+                    >Nomor KTP</label
+                    >
+                    <div class="col-sm-6">
+                    <input
+                      type="text"
+                      readonly
+                      class="form-control-plaintext"
+                      id="KTP"
+                      value="-"  
+                    />
+                    </div>
+                <?php
+                }else{?>
+                  <label for="KTP" class="col-sm-6 col-form-label"
                   >Nomor KTP</label
-                >
-                <div class="col-sm-6">
+                  >
+                  <div class="col-sm-6">
                   <input
                     type="text"
                     readonly
                     class="form-control-plaintext"
                     id="KTP"
-                    value="15712833191283"
+                    value="{{ $data_user->nik }}"  
                   />
-                </div>
+                  </div><?php
+                }
+                
+                ?>
+
                 <label for="Status" class="col-sm-6 col-form-label"
                   >Status</label
                 >
@@ -183,7 +212,7 @@
                     readonly
                     class="form-control-plaintext"
                     id="Status"
-                    value="PNS"
+                    value="{{ $data_user->status }}"  
                   />
                 </div>
                   <label for="JenisKelamin" class="col-sm-6 col-form-label"
@@ -195,10 +224,12 @@
                       readonly
                       class="form-control-plaintext"
                       id="JenisKelamin"
-                      value="Perempuan"
+                      value="{{ $data_user->gender }}"  
                     />
                   </div>
-                  <label for="TempatLahir" class="col-sm-6 col-form-label"
+                  <?php
+                if($data_user->birth_place === ''){?>
+                    <label for="TempatLahir" class="col-sm-6 col-form-label"
                     >Tempat Lahir</label
                   >
                   <div class="col-sm-6">
@@ -206,9 +237,27 @@
                       type="text"
                       class="form-control-plaintext"
                       id="TempatLahir"
-                      value="Madagaskar"
+                      value="-"  
                     />
                   </div>
+                    
+                <?php
+                }else{?>
+                  <label for="TempatLahir" class="col-sm-6 col-form-label"
+                  >Tempat Lahir</label
+                >
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control-plaintext"
+                    id="TempatLahir"
+                    value="{{ $data_user->birth_place }}"  
+                  />
+                </div><?php
+                }
+                
+                ?>
+                  
                   <label for="TTL" class="col-sm-6 col-form-label"
                     >Tanggal Lahir</label
                   >
@@ -217,10 +266,12 @@
                       type="text"
                       class="form-control-plaintext"
                       id="TanggalLahir"
-                      value="11 Februari 2001"
+                      value="{{ tgl_indo($data_user->birth_date) }}" 
                     />
                   </div>
-                  <label for="alamatDomisili" class="col-sm-6 col-form-label"
+                <?php
+                  if($data_user->address === ''){?>
+                    <label for="alamatDomisili" class="col-sm-6 col-form-label"
                     >Alamat Domisili</label
                   >
                    <div class="col-sm-6">
@@ -230,8 +281,27 @@
                       class="form-control-plaintext"
                       id="alamatDomisili"
                       style="height: 110px; text-align: justify; width: 90%;"
-                    >Jl. Kol, H, Burlian, Kel. Sukabangun, Kec. Sukarami, Palembang. Sumatera Selatan. Indonesia </textarea>
+                    >-</textarea>
                   </div>
+                    
+                <?php
+                }else{?>
+                  <label for="alamatDomisili" class="col-sm-6 col-form-label"
+                  >Alamat Domisili</label
+                >
+                 <div class="col-sm-6">
+                  <textarea
+                    type="text"
+                    readonly
+                    class="form-control-plaintext"
+                    id="alamatDomisili"
+                    style="height: 110px; text-align: justify; width: 90%;"
+                  >{{ $data_user->address }} </textarea>
+                </div><?php
+                }
+                
+                ?>
+                  
                   <label for="Agama" class="col-sm-6 col-form-label"
                     >Agama</label
                   >
@@ -241,9 +311,10 @@
                       readonly
                       class="form-control-plaintext"
                       id="Agama"
-                      value="Islam"
+                      value="{{ $data_user->religion}}" 
                     />
                   </div>
+
                   <label for="Email" class="col-sm-6 col-form-label"
                     >Email</label
                   >
@@ -253,93 +324,241 @@
                       readonly
                       class="form-control-plaintext"
                       id="Email"
-                      value="dilan.milea@gmail.com"
+                      value="{{ $data_user->email }}" 
                     />
                   </div>
+
+                  <?php
+                  if($data_user->phone === ''){?>
+                   <label for="hp" class="col-sm-6 col-form-label"
+                   >Nomor HP</label
+                 >
+                 <div class="col-sm-6">
+                   <input
+                     type="text"
+                     readonly
+                     class="form-control-plaintext"
+                     id="hp"
+                     value="-" 
+                   />
+                 </div>
+                    
+                <?php
+                }else{?>
                   <label for="hp" class="col-sm-6 col-form-label"
-                    >Nomor HP</label
-                  >
-                  <div class="col-sm-6">
-                    <input
-                      type="text"
-                      readonly
-                      class="form-control-plaintext"
-                      id="hp"
-                      value="0877-9870-5431"
-                    />
-                  </div>
+                  >Nomor HP</label
+                >
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    readonly
+                    class="form-control-plaintext"
+                    id="hp"
+                    value="{{ $data_user->phone }}" 
+                  />
+                </div><?php
+                }
+                
+                ?>
+                  <?php
+                  if($data_user->edu === ''){?>
+                   <label for="pendidikan" class="col-sm-6 col-form-label"
+                   >Pendidikan Terakhir</label
+                 >
+                 <div class="col-sm-6">
+                   <input
+                     type="text"
+                     readonly
+                     class="form-control-plaintext"
+                     id="pendidikan"
+                     value="-" 
+                   />
+                 </div>
+                    
+                <?php
+                }else{?>
                   <label for="pendidikan" class="col-sm-6 col-form-label"
-                    >Pendidikan Terakhir</label
-                  >
-                  <div class="col-sm-6">
-                    <input
-                      type="text"
-                      readonly
-                      class="form-control-plaintext"
-                      id="pendidikan"
-                      value="S1 - Sistem Informasi"
-                    />
-                  </div>
-                  <label for="rank" class="col-sm-6 col-form-label"
-                    >Pangkat/Golongan</label
-                  >
-                  <div class="col-sm-6">
-                    <input
-                      type="text"
-                      readonly
-                      class="form-control-plaintext"
-                      id="rank"
-                      value="Pengatur / II C"
-                    />
-                  </div>
-                  <label for="jabatan" class="col-sm-6 col-form-label"
-                    >Jabatan / Pekerjaan</label
-                  >
-                  <div class="col-sm-6">
-                    <input
-                      type="text"
-                      readonly
-                      class="form-control-plaintext"
-                      id="jabatan"
-                      value="Staf/ Pengelolaan Sumber Daya Manusia"
-                    />
-                  </div>
-                  <label for="instansi" class="col-sm-6 col-form-label"
-                    >Nama Instansi</label
-                  >
-                  <div class="col-sm-6">
-                    <input
-                      type="text"
-                      readonly
-                      class="form-control-plaintext"
-                      id="instansi"
-                      value="RSUD Siti Fatimah Sumatera Selatan"
-                    />
-                  </div>
-                  <label for="alamatInstansi" class="col-sm-6 col-form-label"
-                    >Alamat Instansi</label
-                  >
-                  <div class="col-sm-6">
-                    <textarea
-                      type="text"
-                      readonly
-                      class="form-control-plaintext"
-                      id="alamatDomisili"
-                      style="height: 110px; text-align: justify; width: 90%;"
-                    >Jl. Kol, H, Burlian, Kel. Sukabangun, Kec. Sukarami, Palembang. Sumatera Selatan. Indonesia </textarea>
-                  </div>
-                  <label for="telpInstansi" class="col-sm-6 col-form-label"
-                    >Telepon Instansi</label
-                  >
-                  <div class="col-sm-6">
-                    <input
-                      type="text"
-                      readonly
-                      class="form-control-plaintext"
-                      id="telpInstansi"
-                      value="0887-2239-1203"
-                    />
-                  </div>
+                  >Pendidikan Terakhir</label
+                >
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    readonly
+                    class="form-control-plaintext"
+                    id="pendidikan"
+                    value="{{ $data_user->edu }}" 
+                  />
+                </div><?php
+              }
+              
+              ?>
+
+              
+              <?php
+              if($data_user->level === ''){?>
+               <label for="rank" class="col-sm-6 col-form-label"
+               >Pangkat/Golongan</label
+             >
+             <div class="col-sm-6">
+               <input
+                 type="text"
+                 readonly
+                 class="form-control-plaintext"
+                 id="rank"
+                 value="-" 
+               />
+             </div>
+                
+            <?php
+            }else{?>
+              <label for="rank" class="col-sm-6 col-form-label"
+              >Pangkat/Golongan</label
+            >
+            <div class="col-sm-6">
+              <input
+                type="text"
+                readonly
+                class="form-control-plaintext"
+                id="rank"
+                value="{{ $data_user->level }}" 
+              />
+            </div><?php
+          }
+          
+          ?>
+          <?php
+          if($data_user->position === ''){?>
+           <label for="jabatan" class="col-sm-6 col-form-label"
+           >Jabatan / Pekerjaan</label
+         >
+         <div class="col-sm-6">
+           <input
+             type="text"
+             readonly
+             class="form-control-plaintext"
+             id="jabatan"
+             value="-" 
+           />
+         </div>
+            
+        <?php
+        }else{?>
+          <label for="jabatan" class="col-sm-6 col-form-label"
+          >Jabatan / Pekerjaan</label
+        >
+        <div class="col-sm-6">
+          <input
+            type="text"
+            readonly
+            class="form-control-plaintext"
+            id="jabatan"
+            value="{{ $data_user->position }}" 
+          />
+        </div><?php
+      }
+      
+      ?>
+      <?php
+      if($data_user->institute === ''){?>
+       <label for="instansi" class="col-sm-6 col-form-label"
+       >Nama Instansi</label
+     >
+     <div class="col-sm-6">
+       <input
+         type="text"
+         readonly
+         class="form-control-plaintext"
+         id="instansi"
+         value="-"
+       />
+     </div>
+        
+    <?php
+    }else{?>
+      <label for="instansi" class="col-sm-6 col-form-label"
+      >Nama Instansi</label
+    >
+    <div class="col-sm-6">
+      <input
+        type="text"
+        readonly
+        class="form-control-plaintext"
+        id="instansi"
+        value="{{ $data_user->institute }}"
+      />
+    </div><?php
+  }
+  
+  ?>
+  <?php
+  if($data_user->institute_addr=== ''){?>
+   <label for="alamatInstansi" class="col-sm-6 col-form-label"
+   >Alamat Instansi</label
+ >
+ <div class="col-sm-6">
+   <textarea
+     type="text"
+     readonly
+     class="form-control-plaintext"
+     id="alamatDomisili"
+     style="height: 110px; text-align: justify; width: 90%;"
+   >-</textarea>
+ </div>
+    
+<?php
+}else{?>
+  <label for="alamatInstansi" class="col-sm-6 col-form-label"
+  >Alamat Instansi</label
+>
+<div class="col-sm-6">
+  <textarea
+    type="text"
+    readonly
+    class="form-control-plaintext"
+    id="alamatDomisili"
+    style="height: 110px; text-align: justify; width: 90%;"
+  >{{ $data_user->institute_addr }}</textarea>
+</div><?php
+}
+
+?>
+ <?php
+ if($data_user->institute_phone=== ''){?>
+  <label for="telpInstansi" class="col-sm-6 col-form-label"
+  >Telepon Instansi</label
+>
+<div class="col-sm-6">
+  <input
+    type="text"
+    readonly
+    class="form-control-plaintext"
+    id="telpInstansi"
+    value="-"
+  />
+</div>
+   
+<?php
+}else{?>
+ <label for="telpInstansi" class="col-sm-6 col-form-label"
+ >Telepon Instansi</label
+>
+<div class="col-sm-6">
+ <input
+   type="text"
+   readonly
+   class="form-control-plaintext"
+   id="telpInstansi"
+   value="{{ $data_user->institute_phone }}"
+ />
+</div><?php
+}
+
+?>              
+                  
+                  
+                  
+                  
+                  
                   </div>
                 </div>
               </div>
@@ -362,5 +581,30 @@
       </div>
     </div>
         <script src="/js/utility.js"></script>
+        <?php
+function tgl_indo($tanggal){
+	$bulan = array (
+		1 =>   'Januari',
+		'Februari',
+		'Maret',
+		'April',
+		'Mei',
+		'Juni',
+		'Juli',
+		'Agustus',
+		'September',
+		'Oktober',
+		'November',
+		'Desember'
+	);
+	$pecahkan = explode('-', $tanggal);
+	
+	// variabel pecahkan 0 = tahun
+	// variabel pecahkan 1 = bulan
+	// variabel pecahkan 2 = tanggal
+ 
+	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+}
+?>
   </body>
 </html>
