@@ -1,34 +1,47 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.admin.main')
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+@section('head')
+    @include('partials.head.admin.dashboard')
+@endsection
 
-    <title>Halaman Beranda</title>
-  </head>
-  <body>
-    <h1>Hello, {{ Auth::user()->name }}!</h1>
+@section('navbar')
+    @include('partials.navbar.admin.dashboard')
+@endsection
 
-    <div class="container">
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-        
-            <x-dropdown-link :href="route('logout')"
-                    onclick="event.preventDefault();
-                                this.closest('form').submit();">
-                {{ __('Log Out') }}
-            </x-dropdown-link>
-        </form>
+@section('content')
+    <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item">Admin</li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div>
+          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
     </div>
+    <!-- /.content-header -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <!-- Main content -->
+    <section class="content">
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+@endsection
 
-    
-  </body>
-</html>
+@section('footer')
+    @include('partials.footer.admin.dashboard')
+@endsection
 
-
+@section('script')
+    @include('partials.script.admin.dashboard')
+@endsection

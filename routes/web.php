@@ -6,6 +6,7 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\DataUserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminVerifikasiController;
 
 
 /*
@@ -68,8 +69,8 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
 //For Admin
 Route::group(['middleware' => ['auth', 'role:admin']], function(){
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/verifikasi', [AdminVerifikasiController::class, 'index'])->name('admin.verifikasi');
     
 });
 
 require __DIR__.'/auth.php';
-
