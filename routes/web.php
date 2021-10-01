@@ -56,16 +56,16 @@ Route::group(['middleware' => ['auth']], function(){
 });
 
 //For User
-Route::group(['middleware' => ['auth', 'role:user']], function(){
-    Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
+// Route::group(['middleware' => ['auth', 'role:user']], function(){
+//     Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
     
-});
+// });
 
 //For Admin
-Route::group(['middleware' => ['auth', 'role:admin']], function(){
-    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+// Route::group(['middleware' => ['auth', 'role:admin']], function(){
+//     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     
-});
+// });
 
 require __DIR__.'/auth.php';
 
