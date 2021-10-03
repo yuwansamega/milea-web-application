@@ -1,18 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
-use App\Models\Workshop;
-use Illuminate\Http\Request;
 
-class BerandaController extends Controller
+use Illuminate\Http\Request;
+use App\Models\Workshop;
+use Illuminate\Support\Facades\DB;
+
+class WSController extends Controller
 {
-    public function index (){
-        $latest= DB::table('workshops')->latest()->first();
+    public function index(){
         $count = DB::table('workshops')->count();
-        return view ('beranda',[
-            "ws" => $latest,
-            "title" => "Beranda",
+        return view ('daftar-kegiatan',[
+            "ws" => Workshop::all(),
+            "title" => "Daftar Kegiatan",
             "count" => $count
         ]);
     }
@@ -21,7 +21,7 @@ class BerandaController extends Controller
         $count = DB::table('workshops')->count();
         return view ('detail-kegiatan',[
             "ws" => $detail_ws,
-            "title" => "Daftar Kegiatan",
+            "title" => $detail_ws->title,
             "count" => $count
         ]);
     }

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="/img/Logo-only.png">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -85,7 +86,7 @@
           <div class="card-body">
             <div class="row">
               <div class="rowFirstCardLeft">
-              <img src="user\ava\{{ $data_user->image }}" style="margin-left: 25px; width: 100px; height:100px; float: left; border-radius:50%; bordered" alt="" />
+              <img src="user\ava\{{ $data_user->image }}" style="margin-left: 25px; width: 120px; height:120px; float: left; border-radius:50%;" alt="" />
               </div>
               <div class="rowFirstCardRight">
                 <h3 class="name">{{$data_user->fullname }}</h3>
@@ -573,11 +574,11 @@
       <div class="text-center text-dark p-3">
         <h6>All Right Reserved © IT Team RSUD Siti Fatimah Kampus Merdeka 2021</h6>
           <a>Temukan kami di : </a>
-          <a href=""><img src="img/Call.png" width="30" alt="" /></a>
-          <a href=""><img src="img/Gmail.png" width="30" alt="" /></a>
-          <a href=""><img src="img/Facebook.png" width="30" alt="" /></a>
-          <a href=""><img src="img/Youtube.png" width="30" alt="" /></a>
-          <a href=""><img src="img/Instagram.png" width="30" alt="" /></a>
+          <a href="https://api.whatsapp.com/send?phone=08117117929" target="output"><img src="img/Call.png" width="30" alt="" /></a>
+        <a href="mailto:sdm.rsudsumsel@gmail.com" target="output"><img src="img/Gmail.png" width="30" alt="" /></a>
+        <a href="https://www.facebook.com/RSUDSitiFatimah" target="output"><img src="img/Facebook.png" width="30" alt="" /></a>
+        <a href="https://www.youtube.com/c/RSUDSitiFatimahProvSumsel" target="output"><img src="img/Youtube.png" width="30" alt="" /></a>
+        <a href="https://www.instagram.com/rsudsitifatimah/" target="output"><img src="img/Instagram.png" width="30" alt="" /></a>
       </div>
     </div>
         <script src="/js/utility.js"></script>

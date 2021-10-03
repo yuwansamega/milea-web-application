@@ -25,6 +25,7 @@ class CreateWorkshopsTable extends Migration
             $table->integer('quota');
             $table->text('cp');
             $table->text('criteria');
+            $table->string('label_1');
             $table->timestamps();
         });
     }
