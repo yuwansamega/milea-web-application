@@ -15,14 +15,15 @@ class CreateSubmissionsTable extends Migration
     {
         Schema::create('submissions', function (Blueprint $table) {
             $table->id();
-            $table->int('user_id');
-            $table->int('ws_id');
+            $table->integer('user_id');
+            $table->integer('ws_id');
             $table->string('file_1');
-            $table->string('file_2');
+            $table->string('file_2')->nullable();
             $table->string('file_3')->nullable();
             $table->string('file_4')->nullable();
             $table->string('file_5')->nullable();
             $table->enum('status', ['Menunggu Verifikasi', 'Ditolak', 'Diterima']);
+            $table->text('message')->nullable();
             $table->timestamps();
         });
     }

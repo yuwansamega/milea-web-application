@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="/img/Logo-only.png">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -26,7 +27,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>Daftar Kegiatan</title>
+    <title>{{ $title }}</title>
   </head>
   <body>
     <nav>
@@ -82,34 +83,44 @@
     <div class="main-content">
       <div class="container">
         <h2>Agenda Pelatihan</h2>
+        <?php $i = 0 ?>
+        @if($count!=0)
         <table class="table">
           <thead>
             <tr>
               <th scope="col">No</th>
               <th scope="col">Status</th>
-              <th scope="col">Nama</th>
+              <th scope="col">Nama Pelatihan</th>
               <th scope="col">Periode Pendaftaran</th>
               <th scope="col">Periode Pelaksanaan</th>
               <th scope="col">Kuota</th>
               <th scope="col">Detail</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td scope="row">1</td>
-              <td>Aktif</td>
-              <td>1 Okt 2021 - 8 Okt 2021</td>
-              <td>11 Okt 2021 - 15 Okt 2021</td>
-              <td>Pelatihan Tenaga Pelatih Kesehatan</td>
-              <td>20</td>
-              <td>
-                <a href="/detail-kegiatan"
-                  ><img src="/img/eye.png" alt="" class="center"
-                /></a>
-              </td>
+          <tbody> 
+                        
+            @foreach ($ws as $ws)
+        <tr>
+        <td scope="row"><?= $i++ ?></td>
+            <td>{{ $ws->status }}</td>
+            <td>{{ $ws->title }}</td>
+            <td>{{ tgl_indo($ws->open_regist) }} - {{ tgl_indo($ws->close_regist) }}</td>
+            <td>{{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</td>
+            <td>{{ $ws->quota }}</td>
+            <td>
+              <a href="/detail-kegiatan/{{ $ws->id }}"
+                ><img src="/img/eye.png" alt="" class="center"
+              /></a>
+            </td>
             </tr>
-            
-          </tbody>
+            @endforeach
+            @else
+            <tr>
+            <div class="alert alert-danger" role="alert" style="width: 1000px">
+                Tidak ada data informasi, Silakan tambahkan melalui tombol 'Tambahkan Informasi'
+              </div></tr>
+            @endif
+        </tbody>
         </table>
       </div>
     </div>
@@ -121,14 +132,39 @@
           All Right Reserved © IT Team RSUD Siti Fatimah Kampus Merdeka 2021
         </h6>
         <a>Temukan kami di : </a>
-        <a href=""><img src="img/Call.png" width="30" alt="" /></a>
-        <a href=""><img src="img/Gmail.png" width="30" alt="" /></a>
-        <a href=""><img src="img/Facebook.png" width="30" alt="" /></a>
-        <a href=""><img src="img/Youtube.png" width="30" alt="" /></a>
-        <a href=""><img src="img/Instagram.png" width="30" alt="" /></a>
+        <a href="https://api.whatsapp.com/send?phone=08117117929" target="output"><img src="img/Call.png" width="30" alt="" /></a>
+        <a href="mailto:sdm.rsudsumsel@gmail.com" target="output"><img src="img/Gmail.png" width="30" alt="" /></a>
+        <a href="https://www.facebook.com/RSUDSitiFatimah" target="output"><img src="img/Facebook.png" width="30" alt="" /></a>
+        <a href="https://www.youtube.com/c/RSUDSitiFatimahProvSumsel" target="output"><img src="img/Youtube.png" width="30" alt="" /></a>
+        <a href="https://www.instagram.com/rsudsitifatimah/" target="output"><img src="img/Instagram.png" width="30" alt="" /></a>
       </div>
     </div>
 
     <script src="/js/utility.js"></script>
+    <?php
+function tgl_indo($tanggal){
+	$bulan = array (
+		1 =>   'Januari',
+		'Februari',
+		'Maret',
+		'April',
+		'Mei',
+		'Juni',
+		'Juli',
+		'Agustus',
+		'September',
+		'Oktober',
+		'November',
+		'Desember'
+	);
+	$pecahkan = explode('-', $tanggal);
+	
+	// variabel pecahkan 0 = tahun
+	// variabel pecahkan 1 = bulan
+	// variabel pecahkan 2 = tanggal
+ 
+	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+}
+?>
   </body>
 </html>

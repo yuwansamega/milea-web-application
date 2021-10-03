@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="/img/Logo-only.png">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -26,12 +27,12 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>Detail Kegiatan</title>
+    <title>{{ $title }}</title>
   </head>
   <body>
     <nav>
       <div id="logo">
-        <img src="img/Logo-only.png" alt="" height="68px" width="68px" />
+        <img src="/img/Logo-only.png" alt="" height="68px" width="68px" />
         <h1 class="new" style="margin-top: 13px">MILEA</h1>
       </div>
       <ul id="pages">
@@ -43,7 +44,7 @@
         </li>
       </ul>
       <img
-        src="img/navbar-toggle-white.png"
+        src="/img/navbar-toggle-black.png"
         alt=""
         id="toogle-white"
         width="50px"
@@ -51,7 +52,7 @@
         class="dropdown-toggle"
       />
       <img
-        src="img/navbar-toggle-black.png"
+        src="/img/navbar-toggle-black.png"
         alt=""
         id="toogle-black"
         width="50px"
@@ -61,11 +62,11 @@
       <ul id="dropdown">
         <img id="addition" src="img/dropdown-addition.png" alt="" />
         <a href="/data-profil">
-          <img src="img/navbar-profile.png" alt="" width="19px" height="19px" />
+          <img src="/img/navbar-profile.png" alt="" width="19px" height="19px" />
           <li>Profil</li>
         </a>
         <a href="/riwayat">
-          <img src="img/navbar-history.png" alt="" width="19px" height="19px" />
+          <img src="/img/navbar-history.png" alt="" width="19px" height="19px" />
           <li>Riwayat</li>
         </a>
         <form method="POST" action="{{ route('logout') }}">
@@ -73,7 +74,7 @@
         <a href="route('logout')"
         onclick="event.preventDefault();
                     this.closest('form').submit();">
-          <img src="img/navbar-signout.png" alt="" width="19px" height="19px" />
+          <img src="/img/navbar-signout.png" alt="" width="19px" height="19px" />
           <li>Keluar</li>
         </a></form>
       </ul>
@@ -97,17 +98,7 @@
               <tr>
                 <td scope="row" style="text-align: justify; padding: 30px">
                   <p>
-                    Materi yang akan diberikan pada pelatihan ini terbagi
-                    menjadi 3, antara lain yaitu terkait dengan Pelatihan Dasar,
-                    Pelatihan Inti dan Pelatihan Penunjang. Peserta nantinya
-                    akan mendapatkan sertifikat yang dikeluarkan langsung oleh
-                    Kementerian RI dengan mendapatkan 41 JPL.
-                  </p>
-                  <p>
-                    Pelatihan Tenaga Kesehatan ini telah terakreditasi BPPSDM
-                    KEMENKES RI serta difasilitator oleh Badan PPSDM Kesehatan
-                    Kemenkes RI, Badan Pelatihan Kesehatan (BAPELKES) dan
-                    tentunya RSUD Siti Fatimah Provinsi Sumatera Selatan.
+                    {{ $ws->describe}}
                   </p>
                 </td>
               </tr>
@@ -133,40 +124,63 @@
             <tbody>
               <tr>
                 <td>&nbsp;&nbsp;&nbsp; Tahun Pelaksanaan</td>
-                <td>2021</td>
+                <td>{{ date('Y',strtotime($ws->close_ws)) }}</td>
               </tr>
               <tr>
                 <td>&nbsp;&nbsp;&nbsp; Nama Pelatihan</td>
-                <td>Pelatihan Tenaga Pelatih Kesehatan</td>
+                <td>{{ $ws->title }}</td>
               </tr>
               <tr>
                 <td>&nbsp;&nbsp;&nbsp; Periode Pendaftaran</td>
-                <td>1 Oktober 2021 - 8 Oktober 2021</td>
+                <td>{{ tgl_indo($ws->open_regist) }} - {{ tgl_indo($ws->close_regist) }}</td>
               </tr>
               <tr>
                 <td>&nbsp;&nbsp;&nbsp; Periode Pelaksanaan</td>
-                <td>11 Oktober 2021 - 15 Oktober 2021</td>
+                <td>{{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</td>
               </tr>
               <tr>
                 <td>&nbsp;&nbsp;&nbsp; Tempat Penyelengaraan</td>
-                <td>Hotel The Zuri Palembang</td>
+                <td>{{ $ws->place }}</td>
               </tr>
               <tr>
                 <td>&nbsp;&nbsp;&nbsp; Kuota</td>
-                <td>30 Peserta</td>
+                <td>{{ $ws->quota }} Peserta</td>
               </tr>
               <tr>
                 <td>&nbsp;&nbsp;&nbsp; Narahubung</td>
                 <td>
-                  Destri Utari (+62819-3028-5427), Intan Septiawati :
-                  (+62821-8467-8527)
+                  {{ $ws->cp }}
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-
+      <div class="row keempat justify-content-center" style="margin-top: 50px">
+        <div class="container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th
+                  scope="col"
+                  style="width: 1288px; font-size: 23px; font-weight: 600"
+                >
+                  &nbsp;&nbsp;&nbsp; Kriteria Peserta
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row" style="text-align: justify; padding: 30px">
+                  <p>
+                    {{ $ws->criteria}}
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
       <div class="row ketiga">
         <div class="col-sm-6 kiri">
           <table class="table">
@@ -186,7 +200,7 @@
                   <div class="row">
                     <div class="col-sm-3">
                       <img
-                        src="img/warning.png"
+                        src="/img/warning.png"
                         style="margin-left: 15px"
                         alt=""
                       />
@@ -218,6 +232,7 @@
             </thead>
             <tbody>
               <tr>
+              </form action="/update_submission/{id}" method="post">
                 <td
                   scope="row"
                   style="text-align: justify; width: 200px; padding-left: 30px"
@@ -237,6 +252,7 @@
                         type="file"
                         class="form-control-file"
                         id="exampleFormControlFile1"
+                        name="file_1"
                       />
                     </div>
                   </div>
@@ -266,12 +282,15 @@
                     </div>
                   </div>
                 </td>
+              
               </tr>
             </tbody>
           </table>
         </div>
+
+        
       </div>
-      <button type="button" class="btn btn-success">Simpan</button>
+      <button type="button" class="btn btn-success">Daftar</button></form>
     </div>
 
     <!-- Footer -->
@@ -281,14 +300,39 @@
           All Right Reserved © IT Team RSUD Siti Fatimah Kampus Merdeka 2021
         </h6>
         <a>Temukan kami di : </a>
-        <a href=""><img src="img/Call.png" width="30" alt="" /></a>
-        <a href=""><img src="img/Gmail.png" width="30" alt="" /></a>
-        <a href=""><img src="img/Facebook.png" width="30" alt="" /></a>
-        <a href=""><img src="img/Youtube.png" width="30" alt="" /></a>
-        <a href=""><img src="img/Instagram.png" width="30" alt="" /></a>
+        <a href="https://api.whatsapp.com/send?phone=08117117929" target="output"><img src="/img/Call.png" width="30" alt="" /></a>
+        <a href="mailto:sdm.rsudsumsel@gmail.com" target="output"><img src="/img/Gmail.png" width="30" alt="" /></a>
+        <a href="https://www.facebook.com/RSUDSitiFatimah" target="output"><img src="/img/Facebook.png" width="30" alt="" /></a>
+        <a href="https://www.youtube.com/c/RSUDSitiFatimahProvSumsel" target="output"><img src="/img/Youtube.png" width="30" alt="" /></a>
+        <a href="https://www.instagram.com/rsudsitifatimah/" target="output"><img src="/img/Instagram.png" width="30" alt="" /></a>
       </div>
     </div>
     <!-- Footer End -->
     <script src="/js/utility.js"></script>
+    <?php
+    function tgl_indo($tanggal){
+      $bulan = array (
+        1 =>   'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+      );
+      $pecahkan = explode('-', $tanggal);
+      
+      // variabel pecahkan 0 = tahun
+      // variabel pecahkan 1 = bulan
+      // variabel pecahkan 2 = tanggal
+     
+      return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+    }
+    ?>
   </body>
 </html>
