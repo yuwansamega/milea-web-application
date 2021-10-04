@@ -22,6 +22,7 @@ class CreateWorkshopsTable extends Migration
             $table->date('close_ws');
             $table->text('title');
             $table->mediumText('describe');
+            $table->string('place');
             $table->integer('quota');
             $table->text('cp');
             $table->text('criteria');

@@ -25,6 +25,7 @@ class CreateSubmissionsTable extends Migration
             $table->enum('status', ['Menunggu Verifikasi', 'Ditolak', 'Diterima']);
             $table->text('message')->nullable();
             $table->timestamps();
+            
         });
     }
 

@@ -41,13 +41,14 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordere">
                   <thead>
                   <tr>
                     <th>No.</th>
                     <th>Nama</th>
                     <th>NIK</th>
                     <th>Pelatihan</th>
+                    <th>Status</th>
                     <th>Aksi</th>
                     
                   </tr>
@@ -56,19 +57,18 @@
                     @php
                         $i = 1;
                     @endphp
-                    
+                  @foreach ($data_sub as $d)
                   <tr>
                     <td>@php
                         echo $i++;
                     @endphp</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
+                    <td>{{ $d->fullname }}</td>
+                    <td>{{ $d->nik }}</td>
+                    <td>{{ $d->title }}</td>
+                    <td>{{ $d->status }}</td>
                     <td><a href="">Detail</a></td>
-                    
                   </tr>
+                  @endforeach
                   
                   
                   </tbody>
