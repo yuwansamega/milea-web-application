@@ -4,6 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="/img/Logo-only.png">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -103,11 +104,11 @@
       </div>
       <div class="titleCard">
         <h2 style="width: 1000px; margin-left: 70px; margin-bottom: 30px">
-          Pelatihan Yang Tersedia
+          Pelatihan Terbaru
         </h2>
         <div class="cardMan">
           <div class="bodyCard">
-            <h5>Pelatihan Tenaga Pelatih Kesehatan</h5>
+            <h5>{{ $ws->title }}</h5>
             <div class="container">
               <hr />
             </div>
@@ -119,10 +120,10 @@
                 <img src="img/location.png" width="25" alt="" />
               </div>
               <div class="col-sm-10" style="margin-top: -68px">
-                <p class="cardContent">11 - 15 Oktober, 2021</p>
+                <p class="cardContent">{{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</p>
                 <br />
-                <p class="cardContent">Hotel The Zuri</p>
-                <a href="/detail-kegiatan">
+                <p class="cardContent">{{ $ws->place }}</p>
+                <a href="/detail-kegiatan/{{ $ws->id }}">
                   <div class="textDetail">Lihat Detail</div>
                 </a>
               </div>
@@ -138,14 +139,39 @@
           All Right Reserved © IT Team RSUD Siti Fatimah Kampus Merdeka 2021
         </h6>
         <a>Temukan kami di : </a>
-        <a href=""><img src="img/Call.png" width="30" alt="" /></a>
-        <a href=""><img src="img/Gmail.png" width="30" alt="" /></a>
-        <a href=""><img src="img/Facebook.png" width="30" alt="" /></a>
-        <a href=""><img src="img/Youtube.png" width="30" alt="" /></a>
-        <a href=""><img src="img/Instagram.png" width="30" alt="" /></a>
+        <a href="https://api.whatsapp.com/send?phone=08117117929" target="output"><img src="img/Call.png" width="30" alt="" /></a>
+        <a href="mailto:sdm.rsudsumsel@gmail.com" target="output"><img src="img/Gmail.png" width="30" alt="" /></a>
+        <a href="https://www.facebook.com/RSUDSitiFatimah" target="output"><img src="img/Facebook.png" width="30" alt="" /></a>
+        <a href="https://www.youtube.com/c/RSUDSitiFatimahProvSumsel" target="output"><img src="img/Youtube.png" width="30" alt="" /></a>
+        <a href="https://www.instagram.com/rsudsitifatimah/" target="output"><img src="img/Instagram.png" width="30" alt="" /></a>
       </div>
     </div>
     <script src="/js/utility.js"></script>
+    <?php
+function tgl_indo($tanggal){
+	$bulan = array (
+		1 =>   'Januari',
+		'Februari',
+		'Maret',
+		'April',
+		'Mei',
+		'Juni',
+		'Juli',
+		'Agustus',
+		'September',
+		'Oktober',
+		'November',
+		'Desember'
+	);
+	$pecahkan = explode('-', $tanggal);
+	
+	// variabel pecahkan 0 = tahun
+	// variabel pecahkan 1 = bulan
+	// variabel pecahkan 2 = tanggal
+ 
+	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+}
+?>
   </body>
 </html>
 

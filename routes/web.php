@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\BerandaController;
-use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\WSController;
 use App\Http\Controllers\DataUserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminVerifikasiController;
@@ -23,20 +23,7 @@ use App\Http\Controllers\AdminVerifikasiController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-Route::get('/data-profil', function () {
-    return view('data-profil');
-});
-Route::get('/lengkapi-profil', function () {
-    return view('lengkapi-profil');
-});
-Route::get('/daftar-kegiatan', function () {
-    return view('daftar-kegiatan');
-});
-Route::get('/detail-kegiatan', function () {
-    return view('detail-kegiatan');
-});Route::get('/riwayat', function () {
+Route::get('/riwayat', function () {
     return view('riwayat');
 });
 
@@ -61,12 +48,12 @@ Route::group(['middleware' => ['auth']], function(){
 //For User
 Route::group(['middleware' => ['auth', 'role:user']], function(){
     Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
-    Route::get('/daftar-kegiatan', [KegiatanController::class, 'index'])->name('daftar-kegiatan');
+    Route::get('/daftar-kegiatan', [WSController::class, 'index'])->name('daftar-kegiatan');
     Route::get('/data-profil', [DataUserController::class, 'index'])->name('data-profil');
     Route::get('/lengkapi-profil', [DataUserController::class, 'show'])->name('lengkapi-profil');
     Route::post('/update-data-diri/{id}', [DataUserController::class, 'update']);
-    });
-    
+    Route::get('/detail-kegiatan/{id}', [WSController::class, 'detail']);
+        
 
 
 //For Admin

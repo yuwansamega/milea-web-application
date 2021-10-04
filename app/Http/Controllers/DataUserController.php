@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\DataUser;
+use Image;
 use App\Models\User;
+
 
 class DataUserController extends Controller
 {
@@ -28,10 +30,19 @@ class DataUserController extends Controller
 
     public function update(Request $request, $id)
     {
+        $user_id = Auth::user()->id;
+        $data_user = DataUser::select('image')->where('user_id', $user_id)->first();
+        if($request->hasFile('image')){
+            $profile_image = $request->file('image');
+            $filename = time(). '.' .$profile_image->getClientOriginalExtension();
+            Image::make($profile_image)->resize(600,1000)->save(public_path('/user/ava/'.$filename));
+        }else{
+            $filename = $data_user->image;
+        }
         DB::table('data_users')
               ->where('id', $id)
               ->update(['fullname'=>$request->fullname,
-                        //'image' => $request->image,
+                        'image' => $filename,
                         'nip' => $request->nip,
                         'nik' => $request->nik,
                         'status' => $request->status,
