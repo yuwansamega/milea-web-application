@@ -20,9 +20,7 @@ class CreateSubmissionsTable extends Migration
             $table->string('file_1');
             $table->string('file_2')->nullable();
             $table->string('file_3')->nullable();
-            $table->string('file_4')->nullable();
-            $table->string('file_5')->nullable();
-            $table->enum('status', ['Menunggu Verifikasi', 'Ditolak', 'Diterima']);
+            $table->enum('status', ['Menunggu Verifikasi', 'Ditolak', 'Diterima'])->default('Menunggu Verifikasi');
             $table->text('message')->nullable();
             $table->timestamps();
             
