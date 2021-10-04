@@ -65,7 +65,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link bg-primary">
+            <a href="" class="nav-link bg-primary">
               <p>
                 Verifikasi Pelatihan
                 <!-- <span class="right badge badge-danger">New</span> -->

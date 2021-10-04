@@ -34,13 +34,15 @@ Route::get('/lengkapi-profil', function () {
 Route::get('/daftar-kegiatan', function () {
     return view('daftar-kegiatan');
 });
-Route::get('/{page}', function ($page) {
-    return view($page);
-});
 Route::get('/detail-kegiatan', function () {
     return view('detail-kegiatan');
 });Route::get('/riwayat', function () {
     return view('riwayat');
+});
+
+// Route to Check all the pages.
+Route::get('/{page}', function ($page) {
+    return view($page);
 });
 
 
@@ -63,8 +65,6 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
     Route::get('/data-profil', [DataUserController::class, 'index'])->name('data-profil');
     Route::get('/lengkapi-profil', [DataUserController::class, 'show'])->name('lengkapi-profil');
     Route::post('/update-data-diri/{id}', [DataUserController::class, 'update']);
-    
-    
     });
     
 
