@@ -27,7 +27,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>{{ $title }}</title>
+    <title>MILEA | {{ $title }}</title>
   </head>
   <body>
     <nav>
@@ -85,7 +85,7 @@
         <h2>Agenda Pelatihan</h2>
         <?php $i = 0 ?>
         @if($count!=0)
-        <table class="table">
+        <table class="table table-borderless">
           <thead>
             <tr>
               <th scope="col">No</th>
@@ -99,30 +99,58 @@
           </thead>
           <tbody> 
                         
-            @foreach ($ws as $ws)
+            @foreach ($workshops as $ws)
         <tr>
-        <td scope="row"><?= $i++ ?></td>
-            <td>{{ $ws->status }}</td>
+        <td scope="row"><?= $workshops->firstItem() + $i++ ?></td>
+        <?php
+        if (date('Y-m-d H:i:s')<$ws->close_regist){?>
+          <td style="font-weight:bold; color: green;">Pendaftaran Masih Dibuka</td>
+        <?php 
+        }else{?>
+          <td style="font-weight:bold; color: red;">Pendaftaran Sudah Tutup</td><?php 
+        }
+        
+        ?>   
+        
             <td>{{ $ws->title }}</td>
             <td>{{ tgl_indo($ws->open_regist) }} - {{ tgl_indo($ws->close_regist) }}</td>
             <td>{{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</td>
             <td>{{ $ws->quota }}</td>
             <td>
-              <a href="/detail-kegiatan/{{ $ws->id }}"
-                ><img src="/img/eye.png" alt="" class="center"
-              /></a>
+              @php
+                  if (date('Y-m-d H:i:s')<$ws->close_regist) :
+                  @endphp
+                    <a href="/detail-kegiatan/{{ $ws->id }}" data-toggle="tooltip" data-placement="top" title="Detail"
+                      >
+                      <img src="/img/eye.png" alt="" class="center"/>
+                    </a>
+                  @php
+                      
+                      else : @endphp
+                      <img src="/img/eye.png" alt="" class="center" data-toggle="tooltip" data-placement="top" title="Pendaftaran Sudah Tutup"/>
+                      @php
+                          endif;
+                      @endphp
+                  
+              
+              {{-- <a href="/detail-kegiatan/{{ $ws->id }}"
+                >
+                <img src="/img/eye.png" alt="" class="center"/>
+              </a> --}}
             </td>
             </tr>
             @endforeach
             @else
             <tr>
             <div class="alert alert-danger" role="alert" style="width: 1000px">
-                Tidak ada data informasi, Silakan tambahkan melalui tombol 'Tambahkan Informasi'
+                Tidak Ada Pelatihan Tersedia
               </div></tr>
             @endif
         </tbody>
         </table>
+        <div class="d-flex justify-content-center" id="links"> {{ $workshops->links() }} </div>
       </div>
+      
     </div>
 
     <!-- Footer -->
@@ -166,5 +194,6 @@ function tgl_indo($tanggal){
 	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 }
 ?>
+@include('sweetalert::alert')
   </body>
 </html>

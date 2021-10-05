@@ -14,7 +14,7 @@ class DataUserController extends Controller
         $user_id = Auth::user()->id;
         return view ('data-profil',[
             "data_user" => DataUser::where('user_id',$user_id)->first(),
-            "title" => "Profil Data Diri"
+            "title" => "Profil Diri"
         ]);
     }
     public function show (){
@@ -22,7 +22,7 @@ class DataUserController extends Controller
         
         return view ('lengkapi-profil',[
             "data_user" => DataUser::where('user_id',$user_id)->first(),
-            "rank_level"=> ['II A/Pengatur Muda','II B/Pengatur Muda Tingkat 1','II C/Pengatur','II D/Pengatur Tingkat 1','III A/Penata Muda','III B/Penata Muda Tingkat 1','III C/Penata','III D/Penata Tingkat 1','IV A/Pembina','IV B/Pembina Tingkat 1','IV C/Pembina Utama Muda','IV D/Pembina Utama Madya','IV E/Pembina Utama'],
+            "rank_level"=> ['-','I A/Juru Muda','I B/Juru Muda Tingkat 1','I C/Juru','I D/Juru Tingkat 1','II A/Pengatur Muda','II B/Pengatur Muda Tingkat 1','II C/Pengatur','II D/Pengatur Tingkat 1','III A/Penata Muda','III B/Penata Muda Tingkat 1','III C/Penata','III D/Penata Tingkat 1','IV A/Pembina','IV B/Pembina Tingkat 1','IV C/Pembina Utama Muda','IV D/Pembina Utama Madya','IV E/Pembina Utama'],
             "title" => "Lengkapi Data Diri"
         ]);
     }

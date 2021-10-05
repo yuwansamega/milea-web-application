@@ -27,7 +27,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>Profil</title>
+    <title>MILEA | {{ $title }}</title>
   </head>
   <body>
     <nav>
@@ -82,7 +82,7 @@
 
     <div class="row" style="margin-top: 50px;">
       <div class="bodyLeft">
-        <div class="card kiri">
+        <div class="card kiri shadow">
           <div class="card-body">
             <div class="row">
               <div class="rowFirstCardLeft">
@@ -128,7 +128,7 @@
       </div>
 
       <div class="bodyRight">
-        <div class="card kanan">
+        <div class="card kanan shadow">
           <div class="card-body">
             <h5 class="card-title" style="margin-left: 20px">DATA DIRI</h5>
             <hr />
@@ -607,5 +607,6 @@ function tgl_indo($tanggal){
 	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 }
 ?>
+@include('sweetalert::alert')
   </body>
 </html>

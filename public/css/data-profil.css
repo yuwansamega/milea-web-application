@@ -1,8 +1,10 @@
 body {
   font-family: "Montserrat", sans-serif;
+  background-color: #fdfdfd;
 }
 .bodyLeft {
   /* background-color: aqua; */
+  background-color: #fdfdfd;
   float: left;
   display: flex;
   width: 570px;
@@ -10,6 +12,7 @@ body {
 }
 .bodyRight {
   /* background-color: bisque; */
+  background-color: #fdfdfd;
   display: flex;
   width: 950px;
   height: auto;
@@ -66,9 +69,9 @@ body {
 .text-center {
   font-size: 18;
   font-weight: 400;
-  margin-top: 300px;
+  margin-top: 100px;
   height: auto;
-  background-color: #f5f4f4;
+  background-color: #f5f5f5;
   /* #f5f4f4 */
 }
 .card-title {
@@ -76,7 +79,6 @@ body {
   font-weight: 700;
 }
 .rowSecondCard {
-  /* margin-top: 100px; */
   flex-direction: column;
 }
 .row.kumpulanIkon {
