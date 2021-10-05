@@ -21,7 +21,8 @@ class AdminVerifikasiController extends Controller
         $data = DB::table('submissions')
             ->join('data_users', 'submissions.user_id', '=', 'data_users.user_id')
             ->join('workshops', 'submissions.ws_id', '=', 'workshops.id')
-            ->select('data_users.fullname', 'data_users.nik', 'workshops.title', 'submissions.id', 'submissions.status')
+            ->select('data_users.fullname', 'data_users.nik', 'workshops.title', 'submissions.id', 'submissions.status_p')
+            // ->orderBy('status_p', 'asc')
             ->latest('submissions.created_at')->get();
             // ->get();
         

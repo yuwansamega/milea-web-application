@@ -21,7 +21,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">Admin</li>
-              <li class="breadcrumb-item active">Data Pengajuan</li>
+              <li class="breadcrumb-item active">Verifikasi</li>
             </ol>
           </div>
         </div>
@@ -65,8 +65,8 @@
                     <td>{{ $d->fullname }}</td>
                     <td>{{ $d->nik }}</td>
                     <td>{{ $d->title }}</td>
-                    <td>{{ $d->status }}</td>
-                    <td><a href="">Detail</a></td>
+                    <td>{{ $d->status_p }}</td>
+                    <td><a href="/admin/verifikasi/detail/{{ $d->id }}">Detail</a></td>
                   </tr>
                   @endforeach
                   
