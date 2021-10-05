@@ -52,8 +52,8 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
     Route::get('/data-profil', [DataUserController::class, 'index'])->name('data-profil');
     Route::get('/lengkapi-profil', [DataUserController::class, 'show'])->name('lengkapi-profil');
     Route::post('/update-data-diri/{id}', [DataUserController::class, 'update']);
-    Route::get('/detail-kegiatan/{id}', [WSController::class, 'detail']);
-        
+});
+    
 
 
 //For Admin
