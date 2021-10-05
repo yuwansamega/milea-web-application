@@ -27,6 +27,11 @@ Route::get('/riwayat', function () {
     return view('riwayat');
 });
 
+// Route to Check all the pages.
+Route::get('/{page}', function ($page) {
+    return view($page);
+});
+
 
 
 // Route::get('/dashboard', function () {
@@ -47,10 +52,7 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
     Route::get('/data-profil', [DataUserController::class, 'index'])->name('data-profil');
     Route::get('/lengkapi-profil', [DataUserController::class, 'show'])->name('lengkapi-profil');
     Route::post('/update-data-diri/{id}', [DataUserController::class, 'update']);
-    Route::get('/detail-kegiatan/{id}', [WSController::class, 'detail']);
-    
-    
-    });
+});
     
 
 
@@ -58,7 +60,6 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
 Route::group(['middleware' => ['auth', 'role:admin']], function(){
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/verifikasi', [AdminVerifikasiController::class, 'index'])->name('admin.verifikasi');
-    
-});
+ });
 
 require __DIR__.'/auth.php';
