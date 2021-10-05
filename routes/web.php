@@ -6,6 +6,7 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\WSController;
 use App\Http\Controllers\DataUserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminDVerifikasiController;
 use App\Http\Controllers\AdminVerifikasiController;
 
 
@@ -27,6 +28,13 @@ Route::get('/riwayat', function () {
     return view('riwayat');
 });
 
+// //Route to Check all the pages.
+// Route::get('/{page}', function ($page) {
+//     return view($page);
+// });
+
+
+
 
 
 // Route::get('/dashboard', function () {
@@ -47,10 +55,7 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
     Route::get('/data-profil', [DataUserController::class, 'index'])->name('data-profil');
     Route::get('/lengkapi-profil', [DataUserController::class, 'show'])->name('lengkapi-profil');
     Route::post('/update-data-diri/{id}', [DataUserController::class, 'update']);
-    Route::get('/detail-kegiatan/{id}', [WSController::class, 'detail']);
-    
-    
-    });
+});
     
 
 
@@ -58,7 +63,9 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
 Route::group(['middleware' => ['auth', 'role:admin']], function(){
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/verifikasi', [AdminVerifikasiController::class, 'index'])->name('admin.verifikasi');
+    Route::get('/admin/verifikasi/detail/{data_sub_id}', [AdminDVerifikasiController::class, 'index'])->name('admin.dverifikasi');
+    Route::post('/admin/update-submissions/{data_sub_id}', [AdminDVerifikasiController::class, 'update']);
     
-});
+ });
 
 require __DIR__.'/auth.php';

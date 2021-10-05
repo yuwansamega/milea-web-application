@@ -83,7 +83,7 @@
 
     <div class="row"  style="margin-top: 50px;">
       <div class="bodyLeft">
-        <div class="card kiri">
+        <div class="card kiri shadow">
           <div class="card-body">
               <div class="row">
                 <div class="rowFirstCardLeft">
@@ -129,7 +129,7 @@
       </div>
 
       <div class="bodyRight">
-        <div class="card kanan">
+        <div class="card kanan shadow">
           <div class="card-body">
             <h5 class="card-title" style="margin-left: 20px">PERBARUI PROFIL</h5>
             <hr />

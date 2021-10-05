@@ -8,6 +8,7 @@ use App\Models\DataUser;
 use Image;
 use App\Models\User;
 
+
 class DataUserController extends Controller
 {
     public function index(){
