@@ -27,7 +27,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>Profil</title>
+    <title>MILEA | {{ $title }}</title>
   </head>
   <body>
     <nav>
@@ -607,5 +607,6 @@ function tgl_indo($tanggal){
 	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 }
 ?>
+@include('sweetalert::alert')
   </body>
 </html>

@@ -64,18 +64,20 @@ body {
     display: block;
 }
 .text-center {
-    font-size: 18;
-    font-weight: 400;
-    margin-top: 100px;
-    height: auto;
-    background-color: #f5f4f4;
+  font-size: 18;
+  font-weight: 400;
+  margin-top: 100px;
+  height: auto;
+  background-color: #f5f4f4;
+
 }
 .card-title {
     font-size: 30px;
     font-weight: 700;
 }
 .rowSecondCard {
-    flex-direction: column;
+  flex-direction: column;
+
 }
 .row.kumpulanIkon {
     margin-left: 20px;
@@ -114,5 +116,7 @@ a:hover {
     color: inherit;
 }
 a:active {
-    color: inherit;
+
+  color: inherit;
 }
+
