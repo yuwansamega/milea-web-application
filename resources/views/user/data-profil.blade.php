@@ -86,7 +86,7 @@
           <div class="card-body">
             <div class="row">
               <div class="rowFirstCardLeft">
-              <img src="user\ava\{{ $data_user->image }}" style="margin-left: 25px; width: 120px; height:120px; float: left; border-radius:50%;" alt="" />
+              <img src="\user\ava\{{ $data_user->image }}" style="margin-left: 25px; width: 120px; height:120px; float: left; border-radius:50%;" alt="" />
               </div>
               <div class="rowFirstCardRight">
                 <h3 class="name">{{$data_user->fullname }}</h3>
