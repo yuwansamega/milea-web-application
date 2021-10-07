@@ -9,5 +9,7 @@ class Workshop extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     
 }

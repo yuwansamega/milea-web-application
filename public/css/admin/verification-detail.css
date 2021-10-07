@@ -1,9 +1,9 @@
 * {
-    /* font-family: "Montserrat"; */
+    font-family: "Montserrat";
 }
 
 body {
-    /* padding: 43px 0; */
+    display: flex;
 }
 
 #left {
@@ -26,7 +26,67 @@ body {
 #container {
     display: flex;
     justify-content: center;
-    width: 100%;
+    flex-grow: 1;
+    padding: 43px 40px;
+}
+
+/* Side Bar */
+
+#sidebar * {
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#sidebar {
+    position: sticky;
+    width: 250px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    min-width: 250px;
+    padding: 0 8px;
+    background-color: #212529;
+}
+
+#sidebar h1 {
+    padding: 8px 0;
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+#sidebar h2 {
+    padding: 16px 0;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+    border-top: 1px solid #4f5962;
+    border-bottom: 1px solid #4f5962;
+}
+
+#sidebar a {
+    text-decoration: none;
+}
+
+#sidebar ul li {
+    padding: 8px 16px;
+    margin-bottom: 8px;
+    background-color: #007bff !important;
+    border-radius: 0.25rem;
+    line-height: 24px;
+}
+
+#sidebar ul li:hover {
+    background-color: #0062cc !important;
+}
+
+#sidebar ul li#log-out {
+    background-color: #dc3545 !important;
+}
+#sidebar ul li#log-out:hover {
+    background-color: #c82333 !important;
 }
 
 /* Profile Card */
@@ -108,14 +168,14 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.17);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    padding: 0 40px;
+    padding: 10px 40px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 #form-pengajuan ul li {
-    margin: 20px 0;
+    margin: 30px 0px;
     display: flex;
 }
 
@@ -128,6 +188,7 @@ body {
 #form-pengajuan ul li p {
     font-weight: 300;
     font-size: 20px;
+    margin-left: 30px;
 }
 
 #form-pengajuan ul li select {
@@ -139,6 +200,7 @@ body {
     font-weight: 300;
     font-size: 20px;
     padding: 7px 36px;
+    margin-left: 30px;
 }
 
 #form-pengajuan textarea {
@@ -149,6 +211,7 @@ body {
     font-weight: 200;
     font-size: 20px;
     padding: 5px 10px;
+    margin-left: 30px;
 }
 
 #form-pengajuan button[type="submit"] {
