@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\WSController;
+use App\Http\Controllers\SubmissionController;
 use App\Http\Controllers\DataUserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminDVerifikasiController;
@@ -24,22 +25,8 @@ use App\Http\Controllers\WorkshopController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/riwayat', function () {
-    return view('riwayat');
-});
-
-// //Route to Check all the pages.
-// Route::get('/{page}', function ($page) {
-//     return view($page);
-// });
 
 
-
-
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
 
 //For Booth
 Route::group(['middleware' => ['auth']], function(){
@@ -56,11 +43,9 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
     Route::get('/lengkapi-profil', [DataUserController::class, 'show'])->name('lengkapi-profil');
     Route::post('/update-data-diri/{id}', [DataUserController::class, 'update']);
     Route::get('/detail-kegiatan/{id}', [WSController::class, 'detail']);
-    Route::post('/update_submission/{id}', [WSController::class, 'store_by_id']);
-    
-    
+    Route::post('/update_submission/{id}', [SubmissionController::class, 'store_by_id']);
+    Route::get('/riwayat', [SubmissionController::class, 'riwayat']);
     });
-
 
 
     

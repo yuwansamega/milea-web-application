@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="bootstrap-5.1.1-dist\js\bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="/css/beranda.css" />
+    <link rel="stylesheet" href="/css/riwayat.css" />
     <link rel="stylesheet" href="/css/nav copy.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <script
@@ -28,7 +27,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>MILEA | {{ $title }}</title>
+    <title>{{ $title }}</title>
   </head>
   <body>
     <nav>
@@ -38,14 +37,14 @@
       </div>
       <ul id="pages">
         <li>
-          <a href="/beranda" class="selected">Beranda</a>
+          <a href="/beranda">Beranda</a>
         </li>
         <li>
           <a href="/daftar-kegiatan">Daftar Kegiatan</a>
         </li>
       </ul>
       <img
-        src="img/navbar-toggle-white.png"
+        src="img/navbar-toggle-black.png"
         alt=""
         id="toogle-white"
         width="50px"
@@ -81,58 +80,56 @@
       </ul>
     </nav>
 
-    <!-- Content Start -->
-    <div class="rowFirst">
-      <div class="col">
-        <h1>Selamat Datang di MILEA</h1>
-        <p>
-          MILEA merupakan website pendaftaran resmi dari RSUD Siti Fatimah untuk
-          mitra yang ingin mengikuti pelatihan, pendidikan dan pengembangan di
-          RSUD Siti Fatimah.
-        </p>
-      </div>
-      <div class="imgRight">
-        <img src="/img/vect-1.png" width="640" />
+    <div class="main-content">
+      <div class="container">
+        <?php $i = 0 ?>
+        
+        <h2>Riwayat Pelatihan</h2>
+        @if($count==0)
+        <div class="alert alert-danger" role="alert">
+          Anda belum mendaftar pelatihan, pilih pelatihan <a href="/daftar-kegiatan" style="text-decoration: underline">disini</a>
+        </div>
+        @else
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Nama Pelatihan</th>
+              <th scope="col">Waktu Pelaksanaan</th>
+              <th scope="col">Tempat Pelaksanaan</th>
+              <th scope="col">Status</th>
+              <th scope="col">Catatan</th>
+            </tr>
+          </thead>
+          <?php $i=0;?>
+          <tbody>
+            
+            @foreach($riwayat_user as $riwayat)
+            <tr>
+              <td scope="row"><?= $riwayat_user->firstItem() + $i++ ?></td>
+              <td>{{ $riwayat->title}}</td>
+              <td>{{ tgl_indo($riwayat->open_ws) }} - {{ tgl_indo($riwayat->close_ws) }}</td>
+              <td>{{ $riwayat->place }}</td>
+              <td>{{ $riwayat->status_p}}</td>
+              <td><button type="button" class="btn btn-sm btn-outline-secondary" data-placement="top" data-toggle="popover" title="Catatan" data-content="{{ $riwayat->message }}">Catatan</button></td>
+            </tr>
+            @endforeach
+            @endif
+            {{-- @else
+            <tr>
+              <div class="alert alert-danger" role="alert">
+                Anda belum mendaftar pelatihan, pilih pelatihan <a href="/daftar-kegiatan" style="text-decoration: underline">disini</a>
+              </div>
+            </tr> --}}
+              
+              
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-center" id="links"> {{ $riwayat_user->links() }} </div>
       </div>
     </div>
 
-    <div class="rowSecond">
-      <div class="col">
-        <div class="vectLeft">
-          <img src="img/vect-4.png" width="540" alt="" />
-        </div>
-      </div>
-      <div class="titleCard">
-        <h2 style="width: 1000px; margin-left: 70px; margin-bottom: 30px">
-          Pelatihan Terbaru
-        </h2>
-        <div class="cardMan">
-          <div class="bodyCard">
-            {{-- <h5>{{ $ws->title }}</h5> --}}
-            <div class="container">
-              <hr />
-            </div>
-            <div class="row">
-              <div class="coLeft col-sm-2">
-                <img src="img/calendar.png" width="25" alt="" />
-                <br />
-                <br />
-                <img src="img/location.png" width="25" alt="" />
-              </div>
-              <div class="col-sm-10" style="margin-top: -68px">
-                {{-- <p class="cardContent">{{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</p> --}}
-                <br />
-                {{-- <p class="cardContent">{{ $ws->place }}</p> --}}
-                {{-- <a href="/detail-kegiatan/{{ $ws->id }}"> --}}
-                  <div class="textDetail">Lihat Detail</div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <!-- Footer -->
     <div class="copyright">
       <div class="text-center text-dark p-3">
         <h6>
@@ -140,13 +137,21 @@
         </h6>
         <a>Temukan kami di : </a>
         <a href="https://api.whatsapp.com/send?phone=08117117929" target="output"><img src="img/Call.png" width="30" alt="" /></a>
-        <a href="mailto:sdm.rsudsumsel@gmail.com" target="output"><img src="img/Gmail.png" width="30" alt="" /></a>
-        <a href="https://www.facebook.com/RSUDSitiFatimah" target="output"><img src="img/Facebook.png" width="30" alt="" /></a>
-        <a href="https://www.youtube.com/c/RSUDSitiFatimahProvSumsel" target="output"><img src="img/Youtube.png" width="30" alt="" /></a>
-        <a href="https://www.instagram.com/rsudsitifatimah/" target="output"><img src="img/Instagram.png" width="30" alt="" /></a>
+          <a href="mailto:sdm.rsudsumsel@gmail.com" target="output"><img src="img/Gmail.png" width="30" alt="" /></a>
+          <a href="https://www.facebook.com/RSUDSitiFatimah" target="output"><img src="img/Facebook.png" width="30" alt="" /></a>
+          <a href="https://www.youtube.com/c/RSUDSitiFatimahProvSumsel" target="output"><img src="img/Youtube.png" width="30" alt="" /></a>
+          <a href="https://www.instagram.com/rsudsitifatimah/" target="output"><img src="img/Instagram.png" width="30" alt="" /></a>
       </div>
     </div>
     <script src="/js/utility.js"></script>
+    <script>
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+    </script>
+
+    <script src="utility.js"></script>
     <?php
 function tgl_indo($tanggal){
 	$bulan = array (
@@ -175,4 +180,3 @@ function tgl_indo($tanggal){
 @include('sweetalert::alert')
   </body>
 </html>
-
