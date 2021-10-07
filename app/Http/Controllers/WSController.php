@@ -34,7 +34,7 @@ class WSController extends Controller
     public function delete($id){
     
         // return "Test";
-        Workshop::where('id', $id)->delete();
+        Workshop::where('id', $id)->delete();   
         return redirect('/admin/pelatihan')->with('toast_success','Pelatihan Berhasil Dihapus');
     }
     public function detail($id){
