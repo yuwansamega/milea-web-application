@@ -15,7 +15,7 @@ class CreateWorkshopsTable extends Migration
     {
         Schema::create('workshops', function (Blueprint $table) {
             $table->id();
-            $table->enum('status', ['Pendaftaran Masih Dibuka', 'Pendaftaran Telah Ditutup'])->nullable();
+            // $table->enum('status', ['Pendaftaran Masih Dibuka', 'Pendaftaran Telah Ditutup'])->nullable();
             $table->date('open_regist')->nullable();
             $table->date('close_regist')->nullable();
             $table->date('open_ws')->nullable();

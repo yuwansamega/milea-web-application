@@ -4,150 +4,127 @@
     @include('partials.head.admin.dverifikasi')
 @endsection
 
-@section('navbar')
-    @include('partials.navbar.admin.dashboard')
-@endsection
-
 @section('content')
-    <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Detail Pengajuan</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item">Admin</li>
-              <li class="breadcrumb-item active">Verifikasi</li>
-              <li class="breadcrumb-item active">Detail</li>
-              <li class="breadcrumb-item active">{{ $data->user_id }}</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <section class="content">
-        <div id="container">
-            <div class="row justify-center" id="group">
-                <div class="col" id="left">
-    
-                    <x-admin-profile-card>
-                        <x-slot name='nama'>{{ $data->fullname }}</x-slot>
-                        <x-slot name='nim'>{{ $data->position }}</x-slot>
-                        <x-slot name='jabatan'>{{ $data->institute }}</x-slot>
-                    </x-admin-profile-card>
-    
-                    <x-admin-document>
-    
-                        <x-admin-document-field>
-                            <x-slot name='surat_tugas'>Ijazah Terakhir</x-slot>
-                            {{-- <x-slot name='tautan'></x-slot> --}}
-                        </x-admin-document-field>
-    
-                        <x-admin-document-field>
-                            <x-slot name='surat_tugas'>Surat Tugas</x-slot>
-                            {{-- <x-slot name='tautan'></x-slot> --}}
-                        </x-admin-document-field>
-                    
-                    </x-admin-document>
-    
+<div class="row">
+    <aside id="sidebar" class="col">
+        <h1>Admin</h1>
+        <h2>Hello, {{ Auth::user()->name }}</h2>
+        <ul class="col">
+            <a href="{{ route('admin.dashboard') }}">
+                <li>Dashboard</li>
+            </a>
+            <a href="{{ route('admin.verifikasi') }}">
+                <li>Verifikasi</li>
+            </a>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+            <a href="route('logout')" onclick="event.preventDefault();
+            this.closest('form').submit();">
+                <li id="log-out">Log Out</li>
+            </a>
+            </form>
+        </ul>
+    </aside>
+    <div id="container">
+        <div class="row justify-center" id="group">
+            <div class="col" id="left">
+                <div class="row" id="profile-card">
+                    <img src="/assets/wireframe-photo.png" alt="">
+                    <div class="col">
+                        <h1>{{ $data->fullname }}</h1>
+                        <h2>{{ $data->position }}</h2>
+                        <h3>{{ $data->institute }}</h3>
+                    </div>
                 </div>
-                <div class="col" id="right">
-                    <form action="/admin/update-submissions/{{ $subm_id }}" id="form-pengajuan" method="POST">
-                        @csrf
-                        <h1>Data Detail</h1>
-                        <ul>
-    
-                        <x-admin-form-field>
-                            <x-slot name="attribut">Nama Kegiatan</x-slot>
-                            <x-slot name="nilai">{{ $data->title }}</x-slot>
-                        </x-admin-form-field>
-                        
-                        <x-admin-form-field>
-                            <x-slot name="attribut">Nama</x-slot>
-                            <x-slot name="nilai">{{ $data->fullname }}</x-slot>
-                        </x-admin-form-field>
-    
-                        <x-admin-form-field>
-                            <x-slot name="attribut">NIP</x-slot>
-                            <x-slot name="nilai">{{ $data->nip }}</x-slot>
-                        </x-admin-form-field>
-    
-                        <x-admin-form-field>
-                            <x-slot name="attribut">Nomor KTP</x-slot>
-                            <x-slot name="nilai">{{ $data->nik }}</x-slot>
-                        </x-admin-form-field>
-                        
-                        <x-admin-form-field>
-                            <x-slot name="attribut">Status</x-slot>
-                            <x-slot name="nilai">{{ $data->status }}</x-slot>
-                        </x-admin-form-field>
-    
-                        <x-admin-form-field>
-                            <x-slot name="attribut">Jenis Kelamin</x-slot>
-                            <x-slot name="nilai">{{ $data->gender }}</x-slot>
-                        </x-admin-form-field>
+                <div class="col" id="document">
+                    <h2>Kelengkapan Dokumen</h2>
+                    <ul>
+                        <li class="row">
+                            <p>Ijazah Terakhir</p>
+                            <a href="">Lihat</a>
+                        </li>
+                        <li class="row">
+                            <p>Surat Tugas</p>
+                            <a href="">Lihat</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col" id="right">
+                <form action="/admin/update-submissions/{{ $subm_id }}" id="form-pengajuan" method="POST">
+                    @csrf
+                    <h1>Data Detail</h1>
+                    <ul>
+                        <li class="row">
+                            <h3>Nama Kegiatan</h3>
+                            <p>{{ $data->title }}</p>
+                            
+                        </li>
+                        <li class="row">
+                            <h3>Nama</h3>
+                            <p>{{ $data->fullname }}</p>
+                        </li>
+                        <li class="row">
+                            <h3>NIP</h3>
+                            <p>{{ $data->nip }}</p>
+                        </li>
+                        <li class="row">
+                            <h3>Nomor KTP</h3>
+                            <p>{{ $data->nik }}</p>
+                        </li>
+                        <li class="row">
+                            <h3>Status</h3>
+                            <p>{{ $data->status }}</p>
+                        </li>
+                        <li class="row">
+                            <h3>Jenis Kelamin</h3>
+                            <p>{{ $data->gender }}</p>
+                        </li>
+                        <li class="row">
+                            <h3>Tempat Tanggal Lahir</h3>
+                            <p>{{ $data->birth_place.", ".$data->birth_date }}</p>
+                        </li>
+                        <li class="row">
+                            <h3>Alamat Domisili</h3>
+                            <p>{{ $data->address }}</p>
+                        </li>
+                        <li class="row">
+                            <h3>Agama</h3>
+                            <p>{{ $data->religion }}</p>
+                        </li>
+                        <li class="row">
+                            <h3>Email</h3>
+                            <p>{{ $data->email }}</p>
+                        </li>
+                        <li class="row">
+                            <h3>No Telepon</h3>
+                            <p>{{ $data->phone }}</p>
+                        </li>
+                        <li class="row">
+                            <h3>Pendidikan Terakhir</h3>
+                            <p>{{ $data->edu }}</p>
+                        </li>
+                        <li class="row">
+                            <h3>Pangkat / Golongan</h3>
+                            <p>{{ $data->level }}</p>
+                        </li>
+                        <li class="row">
+                            <h3>Jabatan / Pekerjaan</h3>
+                            <p>{{ $data->position }}</p>
+                        </li>
+                        <li class="row">
+                            <h3>Nama Instansi</h3>
+                            <p>{{ $data->institute }}</p>
+                        </li>
+                        <li class="row">
+                            <h3>Alamat Instansi</h3>
+                            <p>{{ $data->institute_addr }}</p>
+                        </li>
+                        <li class="row">
+                            <h3>Telpon Instansi</h3>
+                            <p>{{ $data->institute_phone }}</p>
+                        </li>
 
-                        <x-admin-form-field>
-                            <x-slot name="attribut">Tempat Tanggal Lahir</x-slot>
-                            <x-slot name="nilai">{{ $data->birth_place.", ".$data->birth_date }}</x-slot>
-                        </x-admin-form-field>
-
-                        <x-admin-form-field>
-                            <x-slot name="attribut">Alamat Domisili</x-slot>
-                            <x-slot name="nilai">{{ $data->address }}</x-slot>
-                        </x-admin-form-field>
-    
-                        <x-admin-form-field>
-                            <x-slot name="attribut">Agama</x-slot>
-                            <x-slot name="nilai">{{ $data->religion }}</x-slot>
-                        </x-admin-form-field>
-    
-                        <x-admin-form-field>
-                            <x-slot name="attribut">Email</x-slot>
-                            <x-slot name="nilai">{{ $data->email }}</x-slot>
-                        </x-admin-form-field>
-    
-                        <x-admin-form-field>
-                            <x-slot name="attribut">No Telepon</x-slot>
-                            <x-slot name="nilai">{{ $data->phone }}</x-slot>
-                        </x-admin-form-field>
-    
-                        <x-admin-form-field>
-                            <x-slot name="attribut">Pendidikan Terakhir</x-slot>
-                            <x-slot name="nilai">{{ $data->edu }}</x-slot>
-                        </x-admin-form-field>
-    
-                        <x-admin-form-field>
-                            <x-slot name="attribut">Pangkat / Golongan</x-slot>
-                            <x-slot name="nilai">{{ $data->level }}</x-slot>
-                        </x-admin-form-field>
-    
-                        <x-admin-form-field>
-                            <x-slot name="attribut">Jabatan / Pekerjaan</x-slot>
-                            <x-slot name="nilai">{{ $data->position }}</x-slot>
-                        </x-admin-form-field>
-    
-                        <x-admin-form-field>
-                            <x-slot name="attribut">Nama Instansi</x-slot>
-                            <x-slot name="nilai">{{ $data->institute }}</x-slot>
-                        </x-admin-form-field>
-    
-                        <x-admin-form-field>
-                            <x-slot name="attribut">Alamat Instansi</x-slot>
-                            <x-slot name="nilai">{{ $data->institute_addr }}</x-slot>
-                        </x-admin-form-field>
-    
-                        <x-admin-form-field>
-                            <x-slot name="attribut">Telpon Instansi</x-slot>
-                            <x-slot name="nilai">{{ $data->institute_phone }}</x-slot>
-                        </x-admin-form-field>
-    
-                        
                         <li class="row">
                             <h3>Keterangan</h3>
                             <select name="status_p" id="keterangan">
@@ -157,27 +134,22 @@
                         </li>
                         <li class="row">
                             <h3>Pesan</h3>
-                            <textarea name="message" id="" cols="30" rows="10" placeholder="Masukan Pesan Jika Perlu ..."></textarea>
+                            <textarea name="" id="" cols="1" rows="1" placeholder="Masukan Pesan Jika Perlu ..."></textarea>
                         </li>
-                        </ul>
-                        <div class="row">
-                            <button type="submit">Simpan</button>
-                        </div>
-                    </form>
-                </div>
+                    </ul>
+                    <div class="row">
+                        <button type="submit">Simpan</button>
+                    </div>
+                </form>
             </div>
-        </div>    
-    </section>
-    
-  </div>
-  <!-- /.content-wrapper -->
+        </div>
+        
+    </div>
+</div>
+
+            
+     
 @endsection
 
-@section('footer')
-    @include('partials.footer.admin.dashboard')
-@endsection
 
-@section('script')
-    @include('partials.script.admin.verifikasi')
-@endsection
 

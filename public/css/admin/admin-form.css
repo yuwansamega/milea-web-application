@@ -1,0 +1,174 @@
+* {
+    font-family: "Montserrat";
+    /* border : 1px solid black; */
+}
+
+body {
+    display: flex;
+}
+
+/* Side Bar */
+
+#sidebar * {
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#sidebar {
+    position: sticky;
+    width: 250px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    min-width: 250px;
+    padding: 0 8px;
+    background-color: #212529;
+}
+
+#sidebar h1 {
+    padding: 8px 0;
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+#sidebar h2 {
+    padding: 16px 0;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+    border-top: 1px solid #4f5962;
+    border-bottom: 1px solid #4f5962;
+}
+
+#sidebar a {
+    text-decoration: none;
+}
+
+#sidebar ul li {
+    padding: 8px 16px;
+    margin-bottom: 8px;
+    background-color: #007bff !important;
+    border-radius: 0.25rem;
+    line-height: 24px;
+}
+
+#sidebar ul li:hover {
+    background-color: #0062cc !important;
+}
+
+#sidebar ul li#log-out {
+    background-color: #dc3545 !important;
+}
+#sidebar ul li#log-out:hover {
+    background-color: #c82333 !important;
+}
+
+#main-content {
+    padding: 34px 67px;
+}
+
+#training-form {
+    flex-grow: 1;
+    max-width: 1287px;
+}
+
+#training-form #container {
+    border: 0.94655px solid rgba(0, 0, 0, 0.17);
+    box-shadow: 0px 3.7862px 3.7862px rgba(0, 0, 0, 0.25);
+    border-radius: 9.4655px;
+}
+
+#training-form #container h1 {
+    font-weight: 500;
+    font-size: 22.9591px !important;
+    line-height: 28px;
+    text-align: center;
+    padding: 17px 0;
+    border-bottom: 0.919627px solid rgba(0, 0, 0, 0.1);
+}
+
+#training-form #container .row {
+    margin: 0px 8.31px;
+    /* border-bottom: 0.919627px solid rgba(0, 0, 0, 0.1); */
+    padding: 12px 22px;
+}
+
+#training-form #container .row * {
+    flex-grow: 1;
+}
+
+#training-form #container .row label {
+    flex-grow: 0;
+    width: 100%;
+    max-width: 270px;
+    display: flex;
+    align-items: center;
+}
+
+#training-form #container .row input {
+    padding: 9px 16px;
+    background: rgba(255, 255, 255, 0.43);
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+    font-weight: 300;
+    font-size: 18.3925px;
+    line-height: 22px;
+}
+
+#training-form #container .row p {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#training-form #container .col h2 {
+    font-weight: 400;
+    font-size: 18.39px;
+    line-height: 22px;
+    padding: 10px 22px;
+    padding-bottom: 21px;
+}
+
+#training-form #container textarea {
+    padding: 10px;
+    font-weight: 300;
+    font-size: 18.3925px;
+    line-height: 22px;
+}
+
+#training-form #container select {
+    height: 39px !important;
+    background: rgba(255, 255, 255, 0.43);
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+    font-weight: 300;
+    font-size: 18.3925px;
+}
+
+#training-form #container .col .row input {
+    width: 100%;
+    max-width: 300px;
+    margin-right: 30px;
+}
+
+#training-form button[type="submit"] {
+    margin-top: 43px;
+    width: 100%;
+    max-width: 231px;
+    padding: 15px 0;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    background: #ffffff;
+    border: 0.5px solid rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: ease 0.2s;
+}
+
+#training-form button[type="submit"]:hover {
+    background-color: green;
+    color: white;
+}
