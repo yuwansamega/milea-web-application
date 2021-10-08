@@ -29,27 +29,32 @@
         </ul>
     </aside>
     <main id="main-content" class="row justify-center">
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success alert-block">
-                <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ $message }}</strong>
-            </div>
-        @endif
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <form action="/admin/pelatihan/tambah" method="POST" id="training-form" class="col" enctype="multipart/form-data">
             @csrf
             <div class="col" id="container">
                 <h1>Upload Pelatihan</h1>
+                @if ($message = Session::get('success'))
+                <div class="row" style="color: red;">
 
+                    
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>{{ $message }}</strong>
+                    </div>
+                </div>
+                @endif
+                @if (count($errors) > 0)
+                <div class="row" style="color: red;">
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+                @endif
                 <div class="row">
                     <label for="">Tanggal Pendaftaran</label>
                     <input type="date" name="open_regist" id="open_regist">
@@ -117,7 +122,7 @@
                     <div class="row">
                         <label for="">File 1</label>
                         <select name="label_unduh_1" id="label_unduh_1">
-                            <option value="-">-</option>
+                            <option value="">-</option>
                             <option value="123.pdf">Surat Tugas</option>
                             <option value="abc.pdf">Surat Rekomendasi</option>
                         </select>
@@ -125,7 +130,7 @@
                     <div class="row">
                         <label for="">File 2</label>
                         <select name="label_unduh_2" id="label_unduh_2">
-                            <option value="-">-</option>
+                            <option value="">-</option>
                             <option value="123.pdf">Surat Tugas</option>
                             <option value="abc.pdf">Surat Rekomendasi</option>
                         </select>

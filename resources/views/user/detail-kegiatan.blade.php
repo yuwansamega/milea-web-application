@@ -27,6 +27,8 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+<script src="https://kit.fontawesome.com/debebc2c1e.js" crossorigin="anonymous"></script>
+
     <title>{{ $title }}</title>
   </head>
   <body>
@@ -187,6 +189,7 @@
             <thead>
               <tr>
                 <th
+                colspan="2"
                   scope="col"
                   style="width: 1288px; font-size: 23px; font-weight: 600"
                 >
@@ -195,24 +198,52 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td scope="row" style="text-align: justify; padding: 30px">
+              <?php $i=1;?>
+              @if(count($unduh)>0)
+                @foreach ($unduh as $ud)
+                
+
+                <tr>
+                  <td
+                  scope="row"
+                  style="text-align: left; width: 330px; padding-left: 30px">
                   <div class="row">
-                    <div class="col-sm-3">
-                      <img
-                        src="/img/warning.png"
-                        style="margin-left: 15px"
-                        alt=""
-                      />
-                    </div>
-                    <div class="col-sm-9">
-                      <h6 style="margin-top: 25px; color: crimson">
-                        Tidak Ada Yang Perlu Diunduh!
-                      </h6>
+                    <div>
+                      <label for="inputEmail3" class="col-form-label" 
+                        >{{ $ud['label'] }}</label
+                      >
                     </div>
                   </div>
                 </td>
+                <td>
+                  
+                    <div>
+                      <a href="{{ asset('/admin/berkas/'. $ud['file'] ) }}" target="_blank" rel="noopener noreferrer" style="font-size: 2em; color:#707070;"><i class="far fa-file-pdf"></i></a>
+                      </div>
+                  
+                </td>
               </tr>
+              @endforeach
+              @else
+                <tr>
+                  <td scope="row" style="text-align: justify; padding: 30px">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <img
+                          src="/img/warning.png"
+                          style="margin-left: 15px"
+                          alt=""
+                        />
+                      </div>
+                      <div class="col-sm-9">
+                        <h6 style="margin-top: 25px; color: crimson">
+                          Tidak Ada Yang Perlu Diunduh!
+                        </h6>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                @endif
             </tbody>
           </table>
         </div>

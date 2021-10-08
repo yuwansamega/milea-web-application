@@ -1,5 +1,5 @@
 <?php
-
+ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,7 +23,7 @@ class CreateDataUsersTable extends Migration
             $table->enum('status', ['-', 'PNS', 'CPNS', 'Lainnya'])->nullable()->default('-');
             $table->enum('gender', ['-', 'Laki-Laki', 'Perempuan'])->nullable()->default('-');
             $table->string('birth_place')->nullable()->default('');
-            $table->date('birth_date')->nullable()->timestamps();
+            $table->date('birth_date')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->text('address')->nullable()->default('');
             $table->enum('religion', ['-', 'Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu'])->nullable()->default('-');
             $table->string('email')->nullable()->default('');

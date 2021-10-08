@@ -10,6 +10,7 @@ class BerandaController extends Controller
     public function index (){
         $latest= DB::table('workshops')->latest()->first();
         $count = DB::table('workshops')->count();
+       
         return view ('user.beranda',[
             "ws" => $latest,
             "title" => "Beranda",

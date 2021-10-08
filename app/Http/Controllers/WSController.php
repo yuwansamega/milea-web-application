@@ -32,7 +32,6 @@ class WSController extends Controller
 
     public function delete($id){
     
-        // return "Test";
         Workshop::where('id', $id)->delete();   
         return redirect('/admin/pelatihan')->with('toast_success','Pelatihan Berhasil Dihapus');
     }
@@ -41,14 +40,17 @@ class WSController extends Controller
         $detail_ws = Workshop::where('id',$id)->first();
         $count = DB::table('workshops')->count();
         $label_upload = array_filter([$detail_ws->label_upload_1,$detail_ws->label_upload_2,$detail_ws->label_upload_3]);
-        $label_download = array_filter([$detail_ws->label_unduh_1,$detail_ws->label_unduh_2,$detail_ws->label_unduh_3,$detail_ws->label_unduh_4]);
-        $files_download = array_filter([$detail_ws->file_unduh_3,$detail_ws->file_unduh_4]);
+        $unduh = array_filter([
+            array_filter(["file" => $detail_ws->label_unduh_1,"label" => $detail_ws->label_unduh_1]),
+            array_filter(["file" => $detail_ws->label_unduh_2,"label" => $detail_ws->label_unduh_2]),
+            array_filter(["file" => $detail_ws->file_unduh_3,"label" => $detail_ws->label_unduh_3]),
+            array_filter(["file" => $detail_ws->file_unduh_4,"label" => $detail_ws->label_unduh_4])]);        
+  
         return view ('user.detail-kegiatan',[
             "ws" => $detail_ws,
             "title" => $detail_ws->title,
             "label_upload" => $label_upload,
-            "label_download" => $label_download,
-            "files_download" => $files_download,
+            "unduh" => $unduh,
             "count" => $count
         ]);
     }
@@ -59,10 +61,17 @@ class WSController extends Controller
         
         $request->validate([
             'file_unduh_3' => 'mimes:pdf|max:2048',
-            'file_unduh_4' => 'mimes:pdf|max:2048'
+            'file_unduh_4' => 'mimes:pdf|max:2048',
+            'quota' => 'integer'
         ]);
+        $i=0;
+        $unduh = array_filter([$request->file_unduh_3,
+                        $request->file_unduh_4]);
 
-        Workshop::create([
+        foreach($unduh as $u){
+            $fileName[$i++] = time().rand(100,999).".".$u->getClientOriginalExtension();
+        } 
+        $post_pelatihan = array(
             'open_regist' => $request->open_regist,
             'close_regist' => $request->close_regist,
             'open_ws' => $request->open_ws,
@@ -80,9 +89,21 @@ class WSController extends Controller
             'label_unduh_2' => $request->label_unduh_2,
             'label_unduh_3' => $request->label_unduh_3,
             'label_unduh_4' => $request->label_unduh_4,
-            'file_unduh_3' => $request->file_unduh_3,
-            'file_unduh_4' => $request->file_unduh_4
-        ]);
+        );
+
+        if ($request->file_unduh_3 !== null){
+            $request->file_unduh_3->move(public_path('admin/berkas/'.$fileName[0]));
+            $post_pelatihan["file_unduh_3"]=$fileName[0];
+    
+        }
+        if ($request->file_unduh_4 !== null){
+            $request->file_unduh_4->move(public_path('admin/berkas/'.$fileName[1]));
+            $post_pelatihan["file_unduh_4"]=$fileName[1];
+        }
+                    
+        $post_pelatihan["created_at"]=date('Y-m-d H:i:s');
+        $post_pelatihan["updated_at"]=date('Y-m-d H:i:s');
+        DB::table('workshops')->insert($post_pelatihan);
 
         return redirect('/admin/pelatihan')->with('success','Pelatihan Berhasil Ditambahkan');
         

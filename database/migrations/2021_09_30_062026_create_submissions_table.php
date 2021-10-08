@@ -17,11 +17,11 @@ class CreateSubmissionsTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('ws_id');
-            $table->string('file_1');
+            $table->string('file_1')->nullable();
             $table->string('file_2')->nullable();
             $table->string('file_3')->nullable();
             $table->enum('status_p', ['Menunggu Verifikasi', 'Ditolak', 'Diterima'])->default('Menunggu Verifikasi');
-            $table->text('message')->nullable();
+            $table->text('message')->nullable()->default('Belum/Tidak ada catatan dari RSUD Siti Fatimah');
             $table->timestamps();
             
         });

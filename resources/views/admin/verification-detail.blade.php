@@ -4,6 +4,7 @@
     @include('partials.head.admin.dverifikasi')
 @endsection
 
+
 @section('content')
 <div class="row">
     <aside id="sidebar" class="col">
@@ -16,6 +17,9 @@
             <a href="{{ route('admin.verifikasi') }}">
                 <li>Verifikasi</li>
             </a>
+            <a href="{{ route('admin.pelatihan') }}" class="nav-link bg-primary">
+                <li>Pelatihan</li>
+              </a>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
             <a href="route('logout')" onclick="event.preventDefault();
@@ -29,8 +33,7 @@
         <div class="row justify-center" id="group">
             <div class="col" id="left">
                 <div class="row" id="profile-card">
-                    <img src="/assets/wireframe-photo.png" alt="">
-                    <div class="col">
+                    <img src="\user\ava\{{ $data->image }}" style="margin-left: 25px; width:100px; height:125px; float: left; border-radius:50%;" alt="" />                    <div class="col">
                         <h1>{{ $data->fullname }}</h1>
                         <h2>{{ $data->position }}</h2>
                         <h3>{{ $data->institute }}</h3>
@@ -38,16 +41,15 @@
                 </div>
                 <div class="col" id="document">
                     <h2>Kelengkapan Dokumen</h2>
+                    <?php $i = 1;?>
+                    @foreach($user_upload as $upload)
                     <ul>
                         <li class="row">
-                            <p>Ijazah Terakhir</p>
-                            <a href="">Lihat</a>
-                        </li>
-                        <li class="row">
-                            <p>Surat Tugas</p>
-                            <a href="">Lihat</a>
+                            <p>{{ $upload['label']}}</p>
+                            <a href="{{ asset('user/berkas/'. $upload['file'] ) }}" target="_blank" rel="noopener noreferrer" style="font-size: 2em; color:#707070;"><i class="far fa-file-pdf"></i></a>
                         </li>
                     </ul>
+                    @endforeach
                 </div>
             </div>
             <div class="col" id="right">
@@ -134,7 +136,7 @@
                         </li>
                         <li class="row">
                             <h3>Pesan</h3>
-                            <textarea name="" id="" cols="1" rows="1" placeholder="Masukan Pesan Jika Perlu ..."></textarea>
+                            <textarea name="message" id="" cols="1" rows="1" placeholder="Masukan Pesan Jika Perlu ..."></textarea>
                         </li>
                     </ul>
                     <div class="row">
