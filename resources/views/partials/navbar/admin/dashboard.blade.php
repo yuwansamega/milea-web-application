@@ -50,6 +50,15 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route('admin.pelatihan') }}" class="nav-link bg-primary">
+              <p>
+                Pelatihan
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          
+          <li class="nav-item">
             <form method="POST" action="{{ route('logout') }}">
               @csrf
             <a href="route('logout')"

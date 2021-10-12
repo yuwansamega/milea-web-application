@@ -60,3 +60,11 @@ a:hover {
 a:active {
     color: inherit;
 }
+
+#links{
+    position: static;
+}
+
+#links nav{
+    position: static;
+}

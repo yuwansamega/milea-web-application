@@ -27,6 +27,8 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+<script src="https://kit.fontawesome.com/debebc2c1e.js" crossorigin="anonymous"></script>
+
     <title>{{ $title }}</title>
   </head>
   <body>
@@ -83,7 +85,7 @@
     <div class="container" style="margin-top: 150px">
       <div class="row pertama justify-content-center">
         <div class="container">
-          <table class="table">
+          <table class="table table-borderless">
             <thead>
               <tr>
                 <th
@@ -96,7 +98,7 @@
             </thead>
             <tbody>
               <tr>
-                <td scope="row" style="text-align: justify; padding: 30px">
+                <td scope="row" style="text-align: justify; padding: 30px;font-size: 18px;">
                   <p>
                     {{ $ws->describe}}
                   </p>
@@ -109,7 +111,7 @@
 
       <div class="row kedua">
         <div class="container">
-          <table class="table">
+          <table class="table table-borderless">
             <thead>
               <tr>
                 <th
@@ -121,7 +123,7 @@
                 <th></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody style="font-size: 18px;">
               <tr>
                 <td>&nbsp;&nbsp;&nbsp; Tahun Pelaksanaan</td>
                 <td>{{ date('Y',strtotime($ws->close_ws)) }}</td>
@@ -158,7 +160,7 @@
       </div>
       <div class="row keempat justify-content-center" style="margin-top: 50px">
         <div class="container">
-          <table class="table">
+          <table class="table table-borderless">
             <thead>
               <tr>
                 <th
@@ -171,9 +173,9 @@
             </thead>
             <tbody>
               <tr>
-                <td scope="row" style="text-align: justify; padding: 30px">
+                <td scope="row" style="text-align: justify; padding: 30px;font-size: 18px;">
                   <p>
-                    {{ $ws->criteria}}
+                    {!!$ws->criteria !!} 
                   </p>
                 </td>
               </tr>
@@ -181,12 +183,14 @@
           </table>
         </div>
       </div>
+      
       <div class="row ketiga">
         <div class="col-sm-6 kiri">
-          <table class="table">
+          <table class="table table-borderless">
             <thead>
               <tr>
                 <th
+                colspan="2"
                   scope="col"
                   style="width: 1288px; font-size: 23px; font-weight: 600"
                 >
@@ -195,30 +199,58 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td scope="row" style="text-align: justify; padding: 30px">
+              <?php $i=1;?>
+              @if(count($unduh)>0)
+                @foreach ($unduh as $ud)
+                
+
+                <tr>
+                  <td
+                  scope="row"
+                  style="text-align: left; width: 330px; padding-left: 30px;font-size: 18px;">
                   <div class="row">
-                    <div class="col-sm-3">
-                      <img
-                        src="/img/warning.png"
-                        style="margin-left: 15px"
-                        alt=""
-                      />
-                    </div>
-                    <div class="col-sm-9">
-                      <h6 style="margin-top: 25px; color: crimson">
-                        Tidak Ada Yang Perlu Diunduh!
-                      </h6>
+                    <div>
+                      <label for="inputEmail3" class="col-form-label" 
+                        >{{ $ud['label'] }}</label
+                      >
                     </div>
                   </div>
                 </td>
+                <td>
+                  
+                    <div>
+                      <a href="{{ asset('/admin/berkas/'.$ud['file'] ) }}" target="_blank" rel="noopener noreferrer" style="font-size: 2em; color:#707070;"><i class="far fa-file-pdf"></i></a>
+                      </div>
+                  
+                </td>
               </tr>
+              @endforeach
+              @else
+                <tr>
+                  <td scope="row" style="text-align: justify; padding: 30px">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <img
+                          src="/img/warning.png"
+                          style="margin-left: 15px"
+                          alt=""
+                        />
+                      </div>
+                      <div class="col-sm-9">
+                        <h6 style="margin-top: 25px; color: crimson;font-size: 18px;">
+                          Tidak Ada Yang Perlu Diunduh!
+                        </h6>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                @endif
             </tbody>
           </table>
         </div>
 
         <div class="col-sm-6 kanan">
-          <table class="table" style="height: 198.58px">
+          <table class="table table-borderless" style="height: 198.58px">
             <thead>
               <tr>
                 <th
@@ -231,67 +263,141 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-              </form action="/update_submission/{id}" method="post">
-                <td
-                  scope="row"
-                  style="text-align: justify; width: 200px; padding-left: 30px"
-                >
-                  <div class="row">
-                    <div>
-                      <label for="inputEmail3" class="col-form-label"
-                        >Ijazah Terakhir</label
-                      >
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="row">
-                    <div>
-                      <input
-                        type="file"
-                        class="form-control-file"
-                        id="exampleFormControlFile1"
-                        name="file_1"
-                      />
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  scope="row"
-                  style="text-align: justify; width: 200px; padding-left: 30px"
-                >
-                  <div class="row">
-                    <div>
-                      <label for="inputEmail3" class="col-form-label"
-                        >Surat Tugas</label
-                      >
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="row">
-                    <div>
-                      <input
-                        type="file"
-                        class="form-control-file"
-                        id="exampleFormControlFile1"
-                      />
-                    </div>
-                  </div>
-                </td>
+              @if ($message = Session::get('success'))
+              <div class="alert alert-success alert-block">
+                  <button type="button" class="close" data-dismiss="alert">×</button>
+                      <strong>{{ $message }}</strong>
+              </div>
+          @endif
+          @if (count($errors) > 0)
+              <div class="alert alert-danger">
+                  <strong>Whoops!</strong> There were some problems with your input.
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+          @endif
+              <form action="/update_submission/{{ $ws->id }}" method="post" enctype="multipart/form-data">
+                @csrf
               
+                <?php $i=1;?>
+                @if(count($label_upload)>0)
+                  @foreach ($label_upload as $upload)
+                  <tr>
+                    <td
+                    scope="row"
+                    style="text-align: left; width: 220px; padding-left: 30px;font-size: 18px;">
+                    <div class="row">
+                      <div>
+                        <label for="inputEmail3" class="col-form-label"
+                          >{{ $upload }}</label
+                        >
+                      </div>
+                    </div>
+                  </td>
+                  <td style="padding-left: 30px;">
+                    <div class="row">
+                      <div>
+                        <input
+                          type="file"
+                          class="form-control-file"
+                          id="exampleFormControlFile1"
+                          name="file_<?php echo $i++?>"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                @endforeach
+                @else
+                  <tr>
+                    <td scope="row" style="text-align: justify; padding: 30px">
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <img
+                            src="/img/warning.png"
+                            style="margin-left: 15px"
+                            alt=""
+                          />
+                        </div>
+                        <div class="col-sm-9">
+                          <h6 style="margin-top: 25px; color: crimson;font-size: 18px;">
+                            Tidak Ada Yang Perlu Diunggah!
+                          </h6>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  @endif
+                
+                
+               
+            </tbody>
+          </table>
+          
+          
+        </div>
+        
+      
+      </div>
+      
+      <div class="row">
+        
+      </div>
+      <div class="row kelima justify-content-center" style="margin-top: 50px">
+        <div class="container">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th
+                  scope="col"
+                  style="width: 1288px; font-size: 23px; font-weight: 600"
+                >
+                  &nbsp;&nbsp;&nbsp; Konfirmasi Pendaftaran
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row" style="text-align: justify; padding: 30px;font-size: 18px;">
+                  <ul>
+                    <li>Saya telah membaca <b>seluruh detail pelatihan</b></li>
+                    <li>Saya telah melengkapi <b>dokumen dengan benar</b></li>
+                    <li>Saya bersedia mengikuti <b>pelatihan dari awal sampai akhir</b></li>
+                    <li>Saya bersedia menunggu <b>hasil verifikasi berdasarkan keputusan penyelenggara pelatihan</b> dan <b>tidak mengganggu gugat hasil verifikasi</b></li>
+                    <li>Hasil verifikasi akan diberikan melalui <b>akun MILEA, whatsapp</b>, atau <b>email</b></li>
+                    <hr>
+                    <div class="form-check" style="font-size: 19px; margin-top:20px;">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1" style="transform: scale(1.75);" required>
+                      <label class="form-check-label" for="exampleCheck1" style="margin-left: 7px">Saya menyatakan bahwa pernyataan di atas adalah <span style="color: red"><b>BENAR</b></span>.</label>
+                    </div>
+                    
+                  </ul>
+                  
+                    
+                  
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
-
-        
       </div>
-      <button type="button" class="btn btn-success">Daftar</button></form>
+    <div class="container">
+            
+            
+          <div class="row mt-2 pt-3 justify-content-end">
+
+            <button type="submit" class="btn" style="font-weight: bolder; border:1px solid; border-color:#198754; color:black;">DAFTAR</button>
+          </div>
+
+
+        </div>
+    </form>
     </div>
+    
 
     <!-- Footer -->
     <div class="copyright">
@@ -334,5 +440,6 @@
       return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
     }
     ?>
+    @include('sweetalert::alert')
   </body>
 </html>

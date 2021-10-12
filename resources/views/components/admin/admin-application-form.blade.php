@@ -1,17 +1,17 @@
-<form action="" id="form-pengajuan">
-                    <h1>Detail Pengaju</h1>
+<form action="/admin/verifikasi/detail/update/" id="form-pengajuan" method="POST">
+                    <h1>Data Detail</h1>
                     <ul>
                         {{ $slot }}
                         <li class="row">
                             <h3>Keterangan</h3>
-                            <select name="" id="keterangan">
-                                <option value="">Terima</option>
-                                <option value="">Tolak</option>
+                            <select name="status" id="keterangan">
+                                <option value="Ditolak">Ditolak</option>
+                                <option value="Diterima">Diterima</option>
                             </select>
                         </li>
                         <li class="row">
                             <h3>Pesan</h3>
-                            <textarea name="" id="" cols="30" rows="10" placeholder="Masukan Pesan Jika Perlu ..."></textarea>
+                            <textarea name="message" id="" cols="30" rows="10" placeholder="Masukan Pesan Jika Perlu ..."></textarea>
                         </li>
                     </ul>
                     <div class="row">

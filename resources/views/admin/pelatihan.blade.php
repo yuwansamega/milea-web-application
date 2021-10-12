@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('head')
-    @include('partials.head.admin.verifikasi')
+    @include('partials.head.admin.pelatihan')
 @endsection
 
 @section('navbar')
@@ -9,19 +9,20 @@
 @endsection
 
 @section('content')
-    <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Pengajuan</h1>
+            <h1>Agenda Pelatihan</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item">Admin</li>
-              <li class="breadcrumb-item active">Verifikasi</li>
+              <a href="{{ route('admin.pelatihan.tambah') }}">
+                  <button type="button" class="btn btn-primary">Tambah Pelatihan</button>
+              </a>
             </ol>
           </div>
         </div>
@@ -45,10 +46,11 @@
                   <thead>
                   <tr>
                     <th>No.</th>
-                    <th>Nama</th>
-                    <th>NIK</th>
-                    <th>Pelatihan</th>
-                    <th>Status</th>
+                    <th>Nama Pelatihan</th>
+                    <th>Periode Pendaftaran</th>
+                    <th>Periode Pelaksanaan</th>
+                    <th>Tempat</th>
+                    <th>Kuota</th>
                     <th>Aksi</th>
                     
                   </tr>
@@ -57,16 +59,27 @@
                     @php
                         $i = 1;
                     @endphp
-                  @foreach ($data_sub as $d)
+                  @foreach ($ws as $ws)
                   <tr>
                     <td>@php
                         echo $i++;
                     @endphp</td>
-                    <td>{{ $d->fullname }}</td>
-                    <td>{{ $d->nik }}</td>
-                    <td>{{ $d->title }}</td>
-                    <td>{{ $d->status_p }}</td>
-                    <td><a href="/admin/verifikasi/detail/{{ $d->id }}">Detail</a></td>
+                    <td>{{ $ws->title }}</td>
+                    <td>{{ $ws->open_regist.'-'.$ws->close_regist }}</td>
+                    <td>{{ $ws->open_ws.'-'.$ws->close_ws }}</td>
+                    <td>{{ $ws->place }}</td>
+                    <td>{{ $ws->quota }}</td>
+                    <td>
+                        <form action="/admin/pelatihan/delete/{{ $ws->id }}" method="POST" onsubmit="return confirm('Yakin Hapus Data?')">
+                        @method('delete')
+                        @csrf
+                        {{-- <a href="/admin/pelatihan/delete/{{ $ws->id }}"> --}}
+                            <button type="submit" class="btn btn-danger btn-sm" >
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        {{-- </a> --}}
+                        </form>
+                    </td>
                   </tr>
                   @endforeach
                   
@@ -88,6 +101,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+    
 @endsection
 
 @section('footer')
@@ -97,4 +111,3 @@
 @section('script')
     @include('partials.script.admin.verifikasi')
 @endsection
-

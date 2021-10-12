@@ -1,29 +1,30 @@
-*{
-    font-family: 'Montserrat';
+* {
+    font-family: "Montserrat";
 }
+
 
 body{
     display: flex;
 }
 
-#left{
+#left {
     margin-right: 20px;
 }
 
-#right{
+#right {
     flex-grow: 1;
 }
 
-#document{
+#document {
     margin-top: 28px;
 }
 
-#group{
+#group {
     max-width: 1199px;
     width: 100%;
 }
 
-#container{
+#container {
     display: flex;
     justify-content: center;
     flex-grow: 1;
@@ -32,12 +33,15 @@ body{
 
 /* Side Bar */
 
-#sidebar *{
-    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+
+#sidebar * {
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
     color: rgba(255, 255, 255, 0.8);
 }
 
-#sidebar{
+#sidebar {
     position: sticky;
     width: 250px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
@@ -55,7 +59,7 @@ body{
     font-weight: 300;
 }
 
-#sidebar h2{
+#sidebar h2 {
     padding: 16px 0;
     font-size: 1rem;
     font-weight: 400;
@@ -76,50 +80,50 @@ body{
     line-height: 24px;
 }
 
-#sidebar ul li:hover{
-    background-color : #0062cc !important;
+#sidebar ul li:hover {
+    background-color: #0062cc !important;
 }
 
-#sidebar ul li#log-out{
+#sidebar ul li#log-out {
     background-color: #dc3545 !important;
 }
-#sidebar ul li#log-out:hover{
+#sidebar ul li#log-out:hover {
     background-color: #c82333 !important;
 }
 
 /* Profile Card */
 
-#profile-card{
+#profile-card {
     border: 1px solid rgba(0, 0, 0, 0.17);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     padding: 27px 22px;
 }
 
-#profile-card img{
+#profile-card img {
     margin-right: 15px;
 }
 
-#profile-card h1{
+#profile-card h1 {
     font-weight: 600;
     font-size: 23px;
 }
-#profile-card h2{
+#profile-card h2 {
     font-weight: 300;
     font-size: 20px;
 }
-#profile-card h3{
+#profile-card h3 {
     font-weight: 300;
-font-size: 20px;
+    font-size: 20px;
 }
 
-#profile-card .col{
+#profile-card .col {
     justify-content: center;
-} 
+}
 
 /* Document */
 
-#document{
+#document {
     border: 0.94655px solid rgba(0, 0, 0, 0.17);
     box-shadow: 0px 3.7862px 3.7862px rgba(0, 0, 0, 0.25);
     border-radius: 9.4655px;
@@ -127,31 +131,31 @@ font-size: 20px;
     height: max-content;
 }
 
-#document a{
+#document a {
     color: black;
 }
 
-#document h2{
+#document h2 {
     padding: 18px 24px;
-    border-bottom:0.94655px solid rgba(0, 0, 0, 0.17);
+    border-bottom: 0.94655px solid rgba(0, 0, 0, 0.17);
 }
 
-#document ul{
+#document ul {
     padding: 10px 24px;
 }
 
-#document ul li{
+#document ul li {
     margin: 10px 0;
     display: flex;
     justify-content: space-between;
 }
 
-#form-pengajuan{
+#form-pengajuan {
     max-width: 735px;
     width: 100%;
 }
 
-#form-pengajuan h1{
+#form-pengajuan h1 {
     padding: 15px 40px;
     font-weight: 600;
     font-size: 30px;
@@ -162,44 +166,46 @@ font-size: 20px;
     border-bottom: 0;
 }
 
-#form-pengajuan ul{
+#form-pengajuan ul {
     border: 1px solid rgba(0, 0, 0, 0.17);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    padding: 0 40px;
+    padding: 10px 40px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.5);;
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-#form-pengajuan ul li{
-    margin: 20px 0;
+#form-pengajuan ul li {
+    margin: 30px 0px;
     display: flex;
 }
 
-#form-pengajuan ul li h3{
+#form-pengajuan ul li h3 {
     min-width: 222px;
     font-weight: 500;
     font-size: 20px;
 }
 
-#form-pengajuan ul li p{
+#form-pengajuan ul li p {
     font-weight: 300;
     font-size: 20px;
+    margin-left: 30px;
 }
 
-#form-pengajuan ul li select{
+#form-pengajuan ul li select {
     width: 160px;
     background-color: white;
     border-radius: 0;
     border: 1px solid rgba(0, 0, 0, 0.17);
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     font-weight: 300;
     font-size: 20px;
     padding: 7px 36px;
+    margin-left: 30px;
 }
 
-#form-pengajuan textarea{
+#form-pengajuan textarea {
     border: 1px solid rgba(0, 0, 0, 0.17);
     flex-grow: 1;
     height: 150px;
@@ -207,9 +213,10 @@ font-size: 20px;
     font-weight: 200;
     font-size: 20px;
     padding: 5px 10px;
+    margin-left: 30px;
 }
 
-#form-pengajuan button[type='submit']{
+#form-pengajuan button[type="submit"] {
     border: 0.5px solid rgba(0, 0, 0, 0.7);
     border-radius: 5px;
     background-color: white;
@@ -220,12 +227,12 @@ font-size: 20px;
     cursor: pointer;
 }
 
-#form-pengajuan button[type='submit']:hover{
+#form-pengajuan button[type="submit"]:hover {
     color: white;
     background-color: #198754;
     border: 0.5px solid white;
 }
 
-#form-pengajuan ul+.row{
+#form-pengajuan ul + .row {
     justify-content: flex-end;
 }

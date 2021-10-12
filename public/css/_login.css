@@ -1,0 +1,104 @@
+​.inputMan {
+  margin: auto;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  display: flex;
+}
+.group {
+  display: flex;
+  width: 100%;
+}
+.kiri {
+  float: left;
+  width: 780px;
+}
+.background-left {
+  background-image: url("/img/bg-login.png");
+  opacity: 0.09;
+}
+.title-milea {
+  font-size: 40;
+  font-weight: 700;
+  text-align: center;
+}
+.title-desc {
+  font-size: 20;
+  font-weight: 700;
+  text-align: center;
+}
+.kanan {
+  flex-grow: 1;
+  color: white;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(146.14deg, #2fa36d 1.28%, #1e8df4 148.28%);
+}
+.form-login {
+  justify-content: left;
+  width: 350px;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: left;
+}
+.title-right {
+  font-size: 25px;
+  font-weight: 800;
+  text-align: center;
+}
+.sub-title-right {
+  font-size: 19px;
+  font-weight: 400;
+  text-align: center;
+}
+.top-left {
+  position: absolute;
+  top: 165px;
+  left: 200px;
+}
+.bottom-left {
+  position: absolute;
+  bottom: 95px;
+  left: 90px;
+}
+.text-center {
+  font-size: 18;
+  font-weight: 400;
+  height: auto;
+  background-color: #fbfbfb;
+}
+label {
+  display: inline-block;
+  margin-top: 15px;
+}
+form i {
+  margin-left: -30px;
+  cursor: pointer;
+}
+a:link {
+  color: inherit;
+}
+a:visited {
+  color: inherit;
+}
+a:hover {
+  color: inherit;
+}
+a:active {
+  color: inherit;
+}
+.btn-primary {
+  margin-top: 25px;
+  justify-content: center;
+  text-align: center;
+  border: 0;
+  background: linear-gradient(90deg, #1f6ee4 -45.74%, #05b4da 150.98%);
+  border-radius: 5px;
+  width: 350px;
+}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\DataUser;
@@ -13,17 +14,17 @@ class DataUserController extends Controller
 {
     public function index(){
         $user_id = Auth::user()->id;
-        return view ('data-profil',[
+        return view ('user.data-profil',[
             "data_user" => DataUser::where('user_id',$user_id)->first(),
-            "title" => "Profil Data Diri"
+            "title" => "Profil Diri"
         ]);
     }
     public function show (){
         $user_id = Auth::user()->id;
         
-        return view ('lengkapi-profil',[
+        return view ('user.lengkapi-profil',[
             "data_user" => DataUser::where('user_id',$user_id)->first(),
-            "rank_level"=> ['II A/Pengatur Muda','II B/Pengatur Muda Tingkat 1','II C/Pengatur','II D/Pengatur Tingkat 1','III A/Penata Muda','III B/Penata Muda Tingkat 1','III C/Penata','III D/Penata Tingkat 1','IV A/Pembina','IV B/Pembina Tingkat 1','IV C/Pembina Utama Muda','IV D/Pembina Utama Madya','IV E/Pembina Utama'],
+            "rank_level"=> ['-','I A/Juru Muda','I B/Juru Muda Tingkat 1','I C/Juru','I D/Juru Tingkat 1','II A/Pengatur Muda','II B/Pengatur Muda Tingkat 1','II C/Pengatur','II D/Pengatur Tingkat 1','III A/Penata Muda','III B/Penata Muda Tingkat 1','III C/Penata','III D/Penata Tingkat 1','IV A/Pembina','IV B/Pembina Tingkat 1','IV C/Pembina Utama Muda','IV D/Pembina Utama Madya','IV E/Pembina Utama'],
             "title" => "Lengkapi Data Diri"
         ]);
     }
@@ -32,10 +33,17 @@ class DataUserController extends Controller
     {
         $user_id = Auth::user()->id;
         $data_user = DataUser::select('image')->where('user_id', $user_id)->first();
+        $request->validate([
+            'image' => 'mimes:jpg,png|max:2048'
+        ]);
         if($request->hasFile('image')){
             $profile_image = $request->file('image');
             $filename = time(). '.' .$profile_image->getClientOriginalExtension();
-            Image::make($profile_image)->resize(600,1000)->save(public_path('/user/ava/'.$filename));
+            Image::make($profile_image)->resize(600,800)->save(public_path('/user/ava/'.$filename));
+            if($data_user->image !== 'user.png'){
+                File::delete(public_path('/user/ava/'.$data_user->image));
+            }
+            
         }else{
             $filename = $data_user->image;
         }
@@ -60,6 +68,6 @@ class DataUserController extends Controller
                         'institute_addr' => $request->institute_addr,
                         'institute_phone' => $request->institute_phone
             ]);
-        return redirect('lengkapi-profil')->with('success', 'Data Diri Berhasil Disimpan!');
+        return redirect('data-profil')->with('success', 'Data Diri Berhasil Disimpan!');
     }
 }

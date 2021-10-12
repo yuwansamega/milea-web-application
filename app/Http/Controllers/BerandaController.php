@@ -10,7 +10,8 @@ class BerandaController extends Controller
     public function index (){
         $latest= DB::table('workshops')->latest()->first();
         $count = DB::table('workshops')->count();
-        return view ('beranda',[
+       
+        return view ('user.beranda',[
             "ws" => $latest,
             "title" => "Beranda",
             "count" => $count
@@ -19,7 +20,7 @@ class BerandaController extends Controller
     public function detail($id){
         $detail_ws = Workshop::where('id',$id)->first();
         $count = DB::table('workshops')->count();
-        return view ('detail-kegiatan',[
+        return view ('user.detail-kegiatan',[
             "ws" => $detail_ws,
             "title" => "Daftar Kegiatan",
             "count" => $count

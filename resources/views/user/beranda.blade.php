@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="bootstrap-5.1.1-dist\js\bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="/css/daftar-kegiatan.css" />
+    <link rel="stylesheet" href="/css/beranda.css" />
     <link rel="stylesheet" href="/css/nav copy.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <script
@@ -27,7 +28,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>{{ $title }}</title>
+    <title>MILEA | {{ $title }}</title>
   </head>
   <body>
     <nav>
@@ -37,14 +38,14 @@
       </div>
       <ul id="pages">
         <li>
-          <a href="/beranda" >Beranda</a>
+          <a href="/beranda" class="selected">Beranda</a>
         </li>
         <li>
-          <a href="/daftar-kegiatan" class="selected">Daftar Kegiatan</a>
+          <a href="/daftar-kegiatan">Daftar Kegiatan</a>
         </li>
       </ul>
       <img
-        src="img/navbar-toggle-black.png"
+        src="img/navbar-toggle-white.png"
         alt=""
         id="toogle-white"
         width="50px"
@@ -62,11 +63,11 @@
       <ul id="dropdown">
         <img id="addition" src="img/dropdown-addition.png" alt="" />
         <a href="/data-profil">
-          <img src="img/navbar-profile.png" alt="" width="19px" height="19px" />
+          <img src="/img/navbar-profile.png" alt="" width="19px" height="19px" />
           <li>Profil</li>
         </a>
         <a href="/riwayat">
-          <img src="img/navbar-history.png" alt="" width="19px" height="19px" />
+          <img src="/img/navbar-history.png" alt="" width="19px" height="19px" />
           <li>Riwayat</li>
         </a>
         <form method="POST" action="{{ route('logout') }}">
@@ -80,52 +81,59 @@
       </ul>
     </nav>
 
-    <div class="main-content">
-      <div class="container">
-        <h2>Agenda Pelatihan</h2>
-        <?php $i = 0 ?>
-        @if($count!=0)
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">No</th>
-              <th scope="col">Status</th>
-              <th scope="col">Nama Pelatihan</th>
-              <th scope="col">Periode Pendaftaran</th>
-              <th scope="col">Periode Pelaksanaan</th>
-              <th scope="col">Kuota</th>
-              <th scope="col">Detail</th>
-            </tr>
-          </thead>
-          <tbody> 
-                        
-            @foreach ($ws as $ws)
-        <tr>
-        <td scope="row"><?= $i++ ?></td>
-            <td>{{ $ws->status }}</td>
-            <td>{{ $ws->title }}</td>
-            <td>{{ tgl_indo($ws->open_regist) }} - {{ tgl_indo($ws->close_regist) }}</td>
-            <td>{{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</td>
-            <td>{{ $ws->quota }}</td>
-            <td>
-              <a href="/detail-kegiatan/{{ $ws->id }}"
-                ><img src="/img/eye.png" alt="" class="center"
-              /></a>
-            </td>
-            </tr>
-            @endforeach
-            @else
-            <tr>
-            <div class="alert alert-danger" role="alert" style="width: 1000px">
-                Tidak ada data informasi, Silakan tambahkan melalui tombol 'Tambahkan Informasi'
-              </div></tr>
-            @endif
-        </tbody>
-        </table>
+    <!-- Content Start -->
+    <div class="rowFirst">
+      <div class="col">
+        <h1>Selamat Datang di MILEA</h1>
+        <p>
+          MILEA merupakan website pendaftaran resmi dari RSUD Siti Fatimah untuk
+          mitra yang ingin mengikuti pelatihan, pendidikan dan pengembangan di
+          RSUD Siti Fatimah.
+        </p>
+      </div>
+      <div class="imgRight">
+        <img src="/img/vect-1.png" width="640" />
       </div>
     </div>
 
-    <!-- Footer -->
+    <div class="rowSecond">
+      <div class="col">
+        <div class="vectLeft">
+          <img src="img/vect-4.png" width="540" alt="" />
+        </div>
+      </div>
+      <div class="titleCard">
+        <h2 style="width: 1000px; margin-left: 70px; margin-bottom: 30px">
+          Pelatihan Terbaru
+        </h2>
+        <div class="cardMan">
+          <div class="bodyCard">
+            <h5>{{ $ws->title }}</h5>
+            <div class="container">
+              <hr />
+            </div>
+            <div class="row">
+              <div class="coLeft col-sm-2">
+                <img src="img/calendar.png" width="25" alt="" />
+                <br />
+                <br />
+                <img src="img/location.png" width="25" alt="" />
+              </div>
+              <div class="col-sm-10" style="margin-top: -68px">
+                
+                <p class="cardContent">{{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</p>
+                <br />
+                <p class="cardContent">{{ $ws->place }}</p>
+                <a href="/detail-kegiatan/{{ $ws->id }}">
+                  <div class="textDetail">Lihat Detail</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="copyright">
       <div class="text-center text-dark p-3">
         <h6>
@@ -139,7 +147,6 @@
         <a href="https://www.instagram.com/rsudsitifatimah/" target="output"><img src="img/Instagram.png" width="30" alt="" /></a>
       </div>
     </div>
-
     <script src="/js/utility.js"></script>
     <?php
 function tgl_indo($tanggal){
@@ -166,5 +173,7 @@ function tgl_indo($tanggal){
 	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 }
 ?>
+@include('sweetalert::alert')
   </body>
 </html>
+

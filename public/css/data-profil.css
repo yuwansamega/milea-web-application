@@ -1,21 +1,22 @@
 body {
-    font-family: "Montserrat", sans-serif;
-    background-color: #fdfdfd;
+  font-family: "Montserrat", sans-serif;
+  background-color: #fdfdfd;
 }
 .bodyLeft {
-    /* background-color: aqua; */
-    background-color: #fdfdfd;
-    float: left;
-    display: flex;
-    width: 570px;
-    height: 984px;
+  /* background-color: aqua; */
+  background-color: #fdfdfd;
+  float: left;
+  display: flex;
+  width: 570px;
+  height: 984px;
 }
 .bodyRight {
-    /* background-color: bisque; */
-    background-color: #fdfdfd;
-    display: flex;
-    width: 950px;
-    height: auto;
+  /* background-color: bisque; */
+  background-color: #fdfdfd;
+  display: flex;
+  width: 950px;
+  height: auto;
+
 }
 .kiri {
     width: 420px;
@@ -67,19 +68,23 @@ body {
     display: block;
 }
 .text-center {
-    font-size: 18;
-    font-weight: 400;
-    margin-top: 100px;
-    height: auto;
-    background-color: #f5f5f5;
-    /* #f5f4f4 */
+
+  font-size: 18;
+  font-weight: 400;
+  margin-top: 100px;
+  height: auto;
+  background-color: #f5f5f5;
+  /* #f5f4f4 */
+
 }
 .card-title {
     font-size: 30px;
     font-weight: 700;
 }
 .rowSecondCard {
-    flex-direction: column;
+
+  flex-direction: column;
+
 }
 .row.kumpulanIkon {
     margin-left: 20px;
@@ -118,5 +123,7 @@ a:hover {
     color: inherit;
 }
 a:active {
-    color: inherit;
+
+  color: inherit;
 }
+
