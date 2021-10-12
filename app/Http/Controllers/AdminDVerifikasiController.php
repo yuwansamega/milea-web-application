@@ -52,10 +52,15 @@ class AdminDVerifikasiController extends Controller
             "label" => $data->label_upload_1,
             "file" => $data->file_1]),
             array_filter([
+            "label" => $data->label_upload_2,
+            "file" => $data->file_2]),
+            array_filter([
+            "label" => $data->label_upload_3,
+            "file" => $data->file_3])]);
 
         return view ('admin.verification-detail', [
             "data" => $data,
-            "subm_id" => $sub_id
+            "subm_id" => $sub_id,
             "user_upload" => $user_upload
             
         ]);

@@ -36,6 +36,7 @@ class WSController extends Controller
         return redirect('/admin/pelatihan')->with('toast_success','Pelatihan Berhasil Dihapus');
     }
     public function detail($id){
+        $name = Auth::user()->name;
         
         $detail_ws = Workshop::where('id',$id)->first();
         $count = DB::table('workshops')->count();
@@ -47,6 +48,7 @@ class WSController extends Controller
             array_filter(["file" => $detail_ws->file_unduh_4,"label" => $detail_ws->label_unduh_4])]);        
   
         return view ('user.detail-kegiatan',[
+            "name" => $name,
             "ws" => $detail_ws,
             "title" => $detail_ws->title,
             "label_upload" => $label_upload,

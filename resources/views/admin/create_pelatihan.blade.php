@@ -123,16 +123,14 @@
                         <label for="">File 1</label>
                         <select name="label_unduh_1" id="label_unduh_1">
                             <option value="">-</option>
-                            <option value="123.pdf">Surat Tugas</option>
-                            <option value="abc.pdf">Surat Rekomendasi</option>
+                            
                         </select>
                     </div>
                     <div class="row">
                         <label for="">File 2</label>
                         <select name="label_unduh_2" id="label_unduh_2">
                             <option value="">-</option>
-                            <option value="123.pdf">Surat Tugas</option>
-                            <option value="abc.pdf">Surat Rekomendasi</option>
+                            
                         </select>
                     </div>
                     <div class="row">

@@ -98,7 +98,7 @@
             </thead>
             <tbody>
               <tr>
-                <td scope="row" style="text-align: justify; padding: 30px">
+                <td scope="row" style="text-align: justify; padding: 30px;font-size: 18px;">
                   <p>
                     {{ $ws->describe}}
                   </p>
@@ -123,7 +123,7 @@
                 <th></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody style="font-size: 18px;">
               <tr>
                 <td>&nbsp;&nbsp;&nbsp; Tahun Pelaksanaan</td>
                 <td>{{ date('Y',strtotime($ws->close_ws)) }}</td>
@@ -173,9 +173,9 @@
             </thead>
             <tbody>
               <tr>
-                <td scope="row" style="text-align: justify; padding: 30px">
+                <td scope="row" style="text-align: justify; padding: 30px;font-size: 18px;">
                   <p>
-                    {{ $ws->criteria}}
+                    {!!$ws->criteria !!} 
                   </p>
                 </td>
               </tr>
@@ -183,6 +183,7 @@
           </table>
         </div>
       </div>
+      
       <div class="row ketiga">
         <div class="col-sm-6 kiri">
           <table class="table table-borderless">
@@ -206,7 +207,7 @@
                 <tr>
                   <td
                   scope="row"
-                  style="text-align: left; width: 330px; padding-left: 30px">
+                  style="text-align: left; width: 330px; padding-left: 30px;font-size: 18px;">
                   <div class="row">
                     <div>
                       <label for="inputEmail3" class="col-form-label" 
@@ -218,7 +219,7 @@
                 <td>
                   
                     <div>
-                      <a href="{{ asset('/admin/berkas/'. $ud['file'] ) }}" target="_blank" rel="noopener noreferrer" style="font-size: 2em; color:#707070;"><i class="far fa-file-pdf"></i></a>
+                      <a href="{{ asset('/admin/berkas/'.$ud['file'] ) }}" target="_blank" rel="noopener noreferrer" style="font-size: 2em; color:#707070;"><i class="far fa-file-pdf"></i></a>
                       </div>
                   
                 </td>
@@ -236,7 +237,7 @@
                         />
                       </div>
                       <div class="col-sm-9">
-                        <h6 style="margin-top: 25px; color: crimson">
+                        <h6 style="margin-top: 25px; color: crimson;font-size: 18px;">
                           Tidak Ada Yang Perlu Diunduh!
                         </h6>
                       </div>
@@ -287,7 +288,7 @@
                   <tr>
                     <td
                     scope="row"
-                    style="text-align: left; width: 200px; padding-left: 30px">
+                    style="text-align: left; width: 220px; padding-left: 30px;font-size: 18px;">
                     <div class="row">
                       <div>
                         <label for="inputEmail3" class="col-form-label"
@@ -296,7 +297,7 @@
                       </div>
                     </div>
                   </td>
-                  <td>
+                  <td style="padding-left: 30px;">
                     <div class="row">
                       <div>
                         <input
@@ -323,7 +324,7 @@
                           />
                         </div>
                         <div class="col-sm-9">
-                          <h6 style="margin-top: 25px; color: crimson">
+                          <h6 style="margin-top: 25px; color: crimson;font-size: 18px;">
                             Tidak Ada Yang Perlu Diunggah!
                           </h6>
                         </div>
@@ -336,22 +337,67 @@
                
             </tbody>
           </table>
-          <div class="container">
-          <div class="row mt-5 pt-3 justify-content-end">
+          
+          
+        </div>
+        
+      
+      </div>
+      
+      <div class="row">
+        
+      </div>
+      <div class="row kelima justify-content-center" style="margin-top: 50px">
+        <div class="container">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th
+                  scope="col"
+                  style="width: 1288px; font-size: 23px; font-weight: 600"
+                >
+                  &nbsp;&nbsp;&nbsp; Konfirmasi Pendaftaran
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row" style="text-align: justify; padding: 30px;font-size: 18px;">
+                  <ul>
+                    <li>Saya telah membaca <b>seluruh detail pelatihan</b></li>
+                    <li>Saya telah melengkapi <b>dokumen dengan benar</b></li>
+                    <li>Saya bersedia mengikuti <b>pelatihan dari awal sampai akhir</b></li>
+                    <li>Saya bersedia menunggu <b>hasil verifikasi berdasarkan keputusan penyelenggara pelatihan</b> dan <b>tidak mengganggu gugat hasil verifikasi</b></li>
+                    <li>Hasil verifikasi akan diberikan melalui <b>akun MILEA, whatsapp</b>, atau <b>email</b></li>
+                    <hr>
+                    <div class="form-check" style="font-size: 19px; margin-top:20px;">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1" style="transform: scale(1.75);" required>
+                      <label class="form-check-label" for="exampleCheck1" style="margin-left: 7px">Saya menyatakan bahwa pernyataan di atas adalah <span style="color: red"><b>BENAR</b></span>.</label>
+                    </div>
+                    
+                  </ul>
+                  
+                    
+                  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <div class="container">
+            
+            
+          <div class="row mt-2 pt-3 justify-content-end">
 
-            <button type="submit" class="btn btn-success">Daftar</button>
+            <button type="submit" class="btn" style="font-weight: bolder; border:1px solid; border-color:#198754; color:black;">DAFTAR</button>
           </div>
 
 
         </div>
-        </div>
-        
-      </form>
-      </div>
-      
-    
-    
+    </form>
     </div>
+    
 
     <!-- Footer -->
     <div class="copyright">
