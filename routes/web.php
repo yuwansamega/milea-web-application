@@ -24,7 +24,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/riwayat', function () {
-    return view('riwayat');
+    return view('auth/register');
 });
 
 // Route to Check all the pages.

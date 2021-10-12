@@ -12,6 +12,7 @@
     </x-slot>
 
     <div id="container">
+        
         <div class="row justify-center" id="group">
             <div class="col" id="left">
 
