@@ -108,7 +108,7 @@
         </h2>
         <div class="cardMan">
           <div class="bodyCard">
-            {{-- <h5>{{ $ws->title }}</h5> --}}
+            <h5>{{ $ws->title }}</h5>
             <div class="container">
               <hr />
             </div>
@@ -120,10 +120,11 @@
                 <img src="img/location.png" width="25" alt="" />
               </div>
               <div class="col-sm-10" style="margin-top: -68px">
-                {{-- <p class="cardContent">{{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</p> --}}
+                
+                <p class="cardContent">{{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</p>
                 <br />
-                {{-- <p class="cardContent">{{ $ws->place }}</p> --}}
-                {{-- <a href="/detail-kegiatan/{{ $ws->id }}"> --}}
+                <p class="cardContent">{{ $ws->place }}</p>
+                <a href="/detail-kegiatan/{{ $ws->id }}">
                   <div class="textDetail">Lihat Detail</div>
                 </a>
               </div>

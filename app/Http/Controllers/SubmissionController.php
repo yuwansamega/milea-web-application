@@ -15,49 +15,64 @@ class SubmissionController extends Controller
     public function store_by_id(Request $request, $id){
         $user_id = Auth::user()->id;
 
+
+        //Cek user apakah sudah daftar atau belum
         $count = DB::table('submissions')
                 ->where('user_id', $user_id)
                 ->where('ws_id', $id)
                 ->where('status_p', 'Menunggu Verifikasi') 
                 ->count();
-
-        if($count===0){
-            $request->validate([
-                'file_1' => 'mimes:pdf|max:2048',
-                'file_2' => 'mimes:pdf|max:2048',
-                'file_3' => 'mimes:pdf|max:2048'
-            ]);
-            $fileStore = array_filter([$request->file_1,$request->file_2,$request->file_3]);
-            $i = 0;
-                foreach($fileStore as $store){
-                    $fileName[$i++] = time().'.'.$store->extension();
-                } 
-            $post_data_subs = array("user_id"=>$user_id,
-                                "ws_id"=>$id,
-                                );
-    
-            if ($request->file_1 !== null){
-                $request->file_1->move(public_path('/user/berkas/'.$fileName[0]));
-                $post_data_subs["file_1"]=$fileName[0];
         
-            }
-            if ($request->file_2 !== null){
-                $request->file_2->move(public_path('/user/berkas/'.$fileName[1]));
-                $post_data_subs["file_2"]=$fileName[1];
-            }
-            if ($request->file_3 !== null){
-                $request->file_3->move(public_path('/user/berkas/'.$fileName[2]));
-                $post_data_subs["file_3"]=$fileName[2];
-            }
-            $post_data_subs["created_at"]=date('Y-m-d H:i:s');
-            $post_data_subs["updated_at"]=date('Y-m-d H:i:s');
-            DB::table('submissions')->insert($post_data_subs);
-      
-            return redirect('/riwayat')->with('success','Anda Berhasil Daftar Pelatihan! Silakan tunggu hasil verifikasi dari pihak RSUD Siti Fatimah');
-        }elseif($count>0){
-            return redirect('/riwayat')->with('warning','Anda telah mendaftar pelatihan ini dan masih menunggu verifikasi dari pihak RSUD Siti Fatimah ');
+        $check_nik = DB::table('data_users')
+                ->where('user_id', $user_id)
+                ->first();
+
+        if($check_nik->nik === ""){
+
+            return redirect('/lengkapi-profil')->with('warning','Anda belum melengkapi profil untuk mendaftar pelatihan');
+        
         }
+        else{
+            if($count===0){
+                $request->validate([
+                    'file_1' => 'mimes:pdf|max:2048',
+                    'file_2' => 'mimes:pdf|max:2048',
+                    'file_3' => 'mimes:pdf|max:2048'
+                ]);
+                $fileStore = array_filter([$request->file_1,$request->file_2,$request->file_3]);
+                $i = 0;
+                    foreach($fileStore as $store){
+                        $fileName[$i++] = time().rand(100,999).".".$store->getClientOriginalExtension();
+                    } 
+                $post_data_subs = array("user_id"=>$user_id,
+                                    "ws_id"=>$id,
+                                    );
+        
+                if ($request->file_1 !== null){
+                    $request->file_1->move(public_path().'/user/berkas/unduh', $fileName[0]);
+                    $post_data_subs["file_1"]=$fileName[0];
+            
+                }
+                if ($request->file_2 !== null){
+                    $request->file_2->move(public_path().'/user/berkas/unduh', $fileName[1]);
+                    $post_data_subs["file_2"]=$fileName[1];
+                }
+                if ($request->file_3 !== null){
+                    $request->file_3->move(public_path().'/user/berkas/unduh', $fileName[2]);
+                    $post_data_subs["file_3"]=$fileName[2];
+                }
+                $post_data_subs["created_at"]=date('Y-m-d H:i:s');
+                $post_data_subs["updated_at"]=date('Y-m-d H:i:s');
+                DB::table('submissions')->insert($post_data_subs);
+        
+                return redirect('/riwayat')->with('success','Anda Berhasil Daftar Pelatihan! Silakan tunggu hasil verifikasi dari pihak RSUD Siti Fatimah');
+            }elseif($count>0){
+                return redirect('/riwayat')->with('warning','Anda telah mendaftar pelatihan ini dan masih menunggu verifikasi dari pihak RSUD Siti Fatimah ');
+            }
+        }
+
     }
+    
     function tgl_indo($tanggal){
         $bulan = array (
             1 =>   'Januari',
@@ -81,6 +96,7 @@ class SubmissionController extends Controller
      
         return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
     }
+
     public function riwayat(){
         $user_id = Auth::user()->id;
        

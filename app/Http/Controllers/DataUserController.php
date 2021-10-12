@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\DataUser;
@@ -39,6 +40,10 @@ class DataUserController extends Controller
             $profile_image = $request->file('image');
             $filename = time(). '.' .$profile_image->getClientOriginalExtension();
             Image::make($profile_image)->resize(600,800)->save(public_path('/user/ava/'.$filename));
+            if($data_user->image !== 'user.png'){
+                File::delete(public_path('/user/ava/'.$data_user->image));
+            }
+            
         }else{
             $filename = $data_user->image;
         }
