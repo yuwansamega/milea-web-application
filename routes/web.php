@@ -45,6 +45,8 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
     Route::get('/detail-kegiatan/{id}', [WSController::class, 'detail']);
     Route::post('/update_submission/{id}', [SubmissionController::class, 'store_by_id']);
     Route::get('/riwayat', [SubmissionController::class, 'riwayat']);
+    Route::get('/ubah-pass', [DataUserController::class, 'show_change_password']);
+    Route::post('/update-pass', [DataUserController::class, 'update_password']);
     });
 
 
