@@ -1,0 +1,65 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.pertama {
+  height: 400px;
+}
+.kedua {
+  margin-top: -80px;
+  height: 415px;
+}
+.ketiga {
+  margin-top: 40px;
+}
+.kiri {
+  height: 250px;
+}
+.kanan {
+  height: 250px;
+}
+.text-center {
+  font-size: 18;
+  font-weight: 400;
+  margin-top: 200px;
+  height: auto;
+  background-color: #f5f4f4;
+}
+table {
+  border: 0px solid #000000;
+  border-radius: 30px !important;
+  box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.1);
+}
+th {
+  background-color: #6eb585;
+  color: white;
+}
+thead th:first-child {
+  border-top-left-radius: 30px;
+}
+thead th:last-child {
+  border-top-right-radius: 30px;
+}
+.btn {
+  float: right !important;
+  width: 250px;
+  height: 50px;
+  
+}
+.btn:hover{
+  background-color:#198754 ;
+  color:white !important;
+}
+a:link {
+  color: inherit;
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
+a:hover {
+  color: inherit;
+}
+a:active {
+  color: inherit;
+}

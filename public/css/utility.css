@@ -1,0 +1,57 @@
+*{
+    /* border : 1px solid black; */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.col , .row{
+    display: flex;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.space-between{
+    justify-content: space-between;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.allign-center{
+    align-items: center;
+}
+
+.center{
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    flex-grow: 1;
+}
+
+#modal{
+    display: none;
+}
+
+/* 
+NOTE :
+For each html element, use style-only attributes on the css. 
+Such as : 
+- Color 
+- Background Color
+- Font Size
+
+For each layouting attributes, directly use the class on the tag.
+For Ex : <body class="row allign-center justify-center"></body>
+ */

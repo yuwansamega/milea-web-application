@@ -1,0 +1,236 @@
+* {
+    font-family: "Montserrat";
+}
+
+body {
+    display: flex;
+}
+
+#left {
+    margin-right: 20px;
+}
+
+#right {
+    flex-grow: 1;
+}
+
+#document {
+    margin-top: 28px;
+}
+
+#group {
+    max-width: 1199px;
+    width: 100%;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 43px 40px;
+}
+
+/* Side Bar */
+
+#sidebar * {
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#sidebar {
+    position: sticky;
+    width: 250px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    min-width: 250px;
+    padding: 0 8px;
+    background-color: #212529;
+}
+
+#sidebar h1 {
+    padding: 8px 0;
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+#sidebar h2 {
+    padding: 16px 0;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+    border-top: 1px solid #4f5962;
+    border-bottom: 1px solid #4f5962;
+}
+
+#sidebar a {
+    text-decoration: none;
+}
+
+#sidebar ul li {
+    padding: 8px 16px;
+    margin-bottom: 8px;
+    background-color: #007bff !important;
+    border-radius: 0.25rem;
+    line-height: 24px;
+}
+
+#sidebar ul li:hover {
+    background-color: #0062cc !important;
+}
+
+#sidebar ul li#log-out {
+    background-color: #dc3545 !important;
+}
+#sidebar ul li#log-out:hover {
+    background-color: #c82333 !important;
+}
+
+/* Profile Card */
+
+#profile-card {
+    border: 1px solid rgba(0, 0, 0, 0.17);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 27px 22px;
+}
+
+#profile-card img {
+    margin-right: 15px;
+}
+
+#profile-card h1 {
+    font-weight: 600;
+    font-size: 23px;
+}
+#profile-card h2 {
+    font-weight: 300;
+    font-size: 20px;
+}
+#profile-card h3 {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+#profile-card .col {
+    justify-content: center;
+}
+
+/* Document */
+
+#document {
+    border: 0.94655px solid rgba(0, 0, 0, 0.17);
+    box-shadow: 0px 3.7862px 3.7862px rgba(0, 0, 0, 0.25);
+    border-radius: 9.4655px;
+    min-width: 444.76px;
+    height: max-content;
+}
+
+#document a {
+    color: black;
+}
+
+#document h2 {
+    padding: 18px 24px;
+    border-bottom: 0.94655px solid rgba(0, 0, 0, 0.17);
+}
+
+#document ul {
+    padding: 10px 24px;
+}
+
+#document ul li {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#form-pengajuan {
+    max-width: 735px;
+    width: 100%;
+}
+
+#form-pengajuan h1 {
+    padding: 15px 40px;
+    font-weight: 600;
+    font-size: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.17);
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 0;
+}
+
+#form-pengajuan ul {
+    border: 1px solid rgba(0, 0, 0, 0.17);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 10px 40px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+#form-pengajuan ul li {
+    margin: 30px 0px;
+    display: flex;
+}
+
+#form-pengajuan ul li h3 {
+    min-width: 222px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#form-pengajuan ul li p {
+    font-weight: 300;
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+#form-pengajuan ul li select {
+    width: 160px;
+    background-color: white;
+    border-radius: 0;
+    border: 1px solid rgba(0, 0, 0, 0.17);
+    font-family: "Montserrat";
+    font-weight: 300;
+    font-size: 20px;
+    padding: 7px 36px;
+    margin-left: 30px;
+}
+
+#form-pengajuan textarea {
+    border: 1px solid rgba(0, 0, 0, 0.17);
+    flex-grow: 1;
+    height: 150px;
+    resize: none;
+    font-weight: 200;
+    font-size: 20px;
+    padding: 5px 10px;
+    margin-left: 30px;
+}
+
+#form-pengajuan button[type="submit"] {
+    border: 0.5px solid rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    background-color: white;
+    padding: 16px 67px;
+    font-weight: 600;
+    font-size: 24px;
+    margin: 36px 0;
+    cursor: pointer;
+}
+
+#form-pengajuan button[type="submit"]:hover {
+    color: white;
+    background-color: #198754;
+    border: 0.5px solid white;
+}
+
+#form-pengajuan ul + .row {
+    justify-content: flex-end;
+}
