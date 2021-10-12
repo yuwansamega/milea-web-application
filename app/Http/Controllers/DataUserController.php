@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 use App\Models\DataUser;
 use Image;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Hash;
+use phpDocumentor\Reflection\PseudoTypes\False_;
+use PhpParser\Node\Stmt\Echo_;
 
 class DataUserController extends Controller
 {
@@ -68,6 +70,45 @@ class DataUserController extends Controller
                         'institute_addr' => $request->institute_addr,
                         'institute_phone' => $request->institute_phone
             ]);
+
+        DB::table('users')
+              ->where('id', $user_id)
+              ->update(['email' => $request->email,
+            ]);
         return redirect('data-profil')->with('success', 'Data Diri Berhasil Disimpan!');
+    }
+    public function show_change_password (){
+        $user_id = Auth::user()->id;
+        
+        return view ('user.ubah_pass'
+        ,[
+            "data_user" => DataUser::where('user_id',$user_id)->first(),
+            "title" => "Lengkapi Data Diri"
+        ]);
+    }
+    public function update_password(Request $request){
+        $request->validate([
+            "email"     => "required|email",
+            "old_pass"  => "required",
+            "new_pass"  => "required | min:8",
+            "confirm_pass" => "same:new_pass",
+        ]);
+        
+        if (Hash::check($request->old_pass, Auth::user()->password)===false) {
+            // The passwords matches
+            return redirect()->back()->with("toast_error","Password yang anda masukkan tidak sesuai!");
+            }
+        if ($request->email != Auth::user()->email) {
+            return redirect()->back()->with("toast_error","Email yang anda masukkan tidak sesuai!");
+        }
+             
+            //Change Password
+            $user = Auth::user();
+            $user->password = Hash::make($request->new_pass);
+            $user->save();
+             
+            return redirect()->back()->with("success","Password telah diubah!");
+        
+       
     }
 }
