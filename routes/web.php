@@ -26,6 +26,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+// Route::get('/test', function () {
+//     return view('admin/create_pelatihan');
+// });
+
 //For Booth
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboard', [PanelController::class, 'index'])->name('dashboard');

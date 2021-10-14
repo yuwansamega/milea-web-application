@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../public/css/admin/admin-form.css">
+    <link rel="stylesheet" href="../../../public/css/utility.css">
+    <title>Document</title>
+</head>
+<body>
+    <main id="main-content" class="row justify-center">
+        <form action="tambah" method="get" id="training-form" class="col">
+            <div class="col" id="container">
+                <h1>Upload Pelatihan</h1>
+                <div class="row">
+                    <label for="">Tanggal Pendaftaran</label>
+                    <input type="date" name="open_regist" id="open_regist">
+                    <p>s/d</p>
+                    <input type="date" name="close_regist" id="close_regist">
+                </div>
+
+                <div class="row">
+                    <label for="">Tanggal Pelatihan</label>
+                    <input type="date" name="open_ws" id="open_ws">
+                    <p>s/d</p>
+                    <input type="date" name="close_ws" id="close_ws">
+                </div>
+
+                <div class="row">
+                    <label for="">Nama Pelatihan</label>
+                    <input type="text" name="title" id="title">
+                </div>
+            </div>            
+                <div class="row flex-end">                   
+                    <button type="submit">Submit</button>                    
+                </div>        
+        </form>
+    </main>
+    <script src="../../../public/js/utility.js"></script>
+    <script src="./form_pelatihan.js"></script>
+</body>
+</html>
