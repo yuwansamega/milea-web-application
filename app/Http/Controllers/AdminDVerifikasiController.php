@@ -7,6 +7,7 @@ use App\Models\Submission;
 use App\Models\Workshop;
 use App\Models\DataUser;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class AdminDVerifikasiController extends Controller
 {
@@ -70,17 +71,42 @@ class AdminDVerifikasiController extends Controller
        
     }
     public function update(Request $request, $data_sub_id){
-
-        // $sub_id = $data_sub_id->id;
-
-        // return dd($data_sub_id);
+        
         DB::table('submissions')
         ->where('id', $data_sub_id)
         ->update(['status_p' => $request->status_p,
-                'message' => $request->message]);
+        'message' => $request->message]);
 
-        return redirect('/admin/verifikasi')->with('success', 'Status berhasil diperbarui');
+        $data = DB::table('submissions')
+            ->where('submissions.id', $data_sub_id)
+            ->join('data_users', 'submissions.user_id', '=', 'data_users.user_id')
+            ->join('workshops', 'submissions.ws_id', '=', 'workshops.id')
+            ->select('submissions.status_p',  'workshops.title', 'workshops.cp','data_users.fullname', 'data_users.email' )
+            ->first();
+        
+        
+        if($request->status_p === "Diterima"){
+            $mail = [
+                'title' => 'Hasil Verifikasi Pendaftaran Pelatihan di MILEA RSUD Siti Fatimah Sumsel',
+                'body' => 'Selamat <b>'.$data->fullname.'</b>, anda <b>DITERIMA</b> mengikuti <b>'. $data->title.'.</b> Silakan hubungi narahubung: <b>('.$data->cp.')</b> untuk informasi lebih lanjut.'
+                ];
+                
+                Mail::to($data->email)->send(new \App\Mail\MyTestMail($mail));
 
+        }
+
+        if($request->status_p === "Ditolak"){
+            $mail = [
+                'title' => 'Hasil Verifikasi Pendaftaran Pelatihan di MILEA RSUD Siti Fatimah Sumsel',
+                'body' => 'Maaf <b>'.$data->fullname.'</b>, anda <b>DITOLAK</b> mengikuti <b>'. $data->title.'.</b> Silakan hubungi narahubung: <b>('.$data->cp.')</b> untuk informasi lebih lanjut.'
+                ];
+                
+                Mail::to($data->email)->send(new \App\Mail\MyTestMail($mail));
+
+        }
+
+        return redirect('/admin/verifikasi')->with('success', 'Status berhasil diperbarui & pendaftar telah menerima email!');
+        
 
     }
 }
