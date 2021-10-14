@@ -112,7 +112,7 @@
             <hr>
             <a href="/ubah-pass">
             <div class="row">
-                <img src="img/filemanager.png" width="28" height="20" style="margin-left: 25px;" alt="">
+              <img src="img/setting.png"  style="margin-left: 22px;" alt="">
                 <h6 class="detailProfil" style="margin-left: 8px; margin-top: 1px;">Ubah Password</h6>
             </div>
             </a>

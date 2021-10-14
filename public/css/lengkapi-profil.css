@@ -6,7 +6,6 @@ body {
     float: left;
     display: flex;
     width: 570px;
-    height: 984px;
 }
 .bodyRight {
     /* background-color: bisque; */
@@ -22,7 +21,7 @@ body {
 }
 .kanan {
     width: 900px;
-    height: 1150px;
+    height: max-content;
     margin-left: 90px;
     margin-top: 100px;
     margin-right: 100px;
@@ -75,6 +74,11 @@ body {
     font-size: 30px;
     font-weight: 700;
 }
+
+.bodyLeft .kiri{
+    height: max-content;
+}
+
 .rowSecondCard {
   flex-direction: column;
 
@@ -87,7 +91,6 @@ body {
     background-color: #198754;
     float: right;
     margin-top: 70px;
-    margin-right: -20px;
     width: 40%;
 }
 .btn:hover {
