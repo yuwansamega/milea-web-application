@@ -44,6 +44,10 @@ main{
     display: none;
 }
 
+.flex-end{
+    justify-content: flex-end;
+}
+
 /* 
 NOTE :
 For each html element, use style-only attributes on the css. 

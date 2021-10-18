@@ -8,53 +8,29 @@
 <div id="container" class="row">
     <aside id="sidebar" class="col">
         <h1>Title</h1>
-        <h2>Hello, {{ Auth::user()->name }}</h2>
-        <ul class="col">
-            <a href="{{ route('admin.dashboard') }}">
-                <li>Dashboard</li>
-            </a>
-            <a href="{{ route('admin.verifikasi') }}">
-                <li>Verifikasi</li>
-            </a>
-            <a href="{{ route('admin.pelatihan') }}">
-                <li>Pelatihan</li>
-            </a>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-            <a href="route('logout')" onclick="event.preventDefault();
-            this.closest('form').submit();">
-                <li id="log-out">Log Out</li>
-            </a>
-            </form>
-        </ul>
     </aside>
     <main id="main-content" class="row justify-center">
+        <modal id="modal" style="display: flex;" class="center">
+            <div id="modal-container" class="col allign-center">
+                <h3>Pastikan untuk melengkapi <b>seluruh tanggal</b> yang diperlukan!</h3>
+                <button type="button" class="modal-button">OK</button>
+            </div>
+        </modal>
         <form action="/admin/pelatihan/tambah" method="POST" id="training-form" class="col" enctype="multipart/form-data">
-            @csrf
             <div class="col" id="container">
                 <h1>Upload Pelatihan</h1>
-                @if ($message = Session::get('success'))
                 <div class="row" style="color: red;">
 
                     
                     <div class="alert alert-success alert-block">
                         <button type="button" class="close" data-dismiss="alert">×</button>
-                            <strong>{{ $message }}</strong>
                     </div>
                 </div>
-                @endif
-                @if (count($errors) > 0)
                 <div class="row" style="color: red;">
                     <div class="alert alert-danger">
-                        <strong>Whoops!</strong> There were some problems with your input.
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+                        <strong>Whoops!</strong> There were some problems with your input
                     </div>
                 </div>
-                @endif
                 <div class="row">
                     <label for="">Tanggal Pendaftaran</label>
                     <input type="date" name="open_regist" id="open_regist">
@@ -156,5 +132,7 @@
         </form>
     </main>
 </div>
+<script src="/js/admin/formPelatihan.js"></script>
+<script src="/js/utility.js"></script>
 @endsection
 
