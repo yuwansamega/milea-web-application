@@ -49,16 +49,16 @@ class SubmissionController extends Controller
                                     );
         
                 if ($request->file_1 !== null){
-                    $request->file_1->move(public_path().'/user/berkas/unduh', $fileName[0]);
+                    $request->file_1->move(public_path().'/user/berkas/', $fileName[0]);
                     $post_data_subs["file_1"]=$fileName[0];
             
                 }
                 if ($request->file_2 !== null){
-                    $request->file_2->move(public_path().'/user/berkas/unduh', $fileName[1]);
+                    $request->file_2->move(public_path().'/user/berkas/', $fileName[1]);
                     $post_data_subs["file_2"]=$fileName[1];
                 }
                 if ($request->file_3 !== null){
-                    $request->file_3->move(public_path().'/user/berkas/unduh', $fileName[2]);
+                    $request->file_3->move(public_path().'/user/berkas/', $fileName[2]);
                     $post_data_subs["file_3"]=$fileName[2];
                 }
                 $post_data_subs["created_at"]=date('Y-m-d H:i:s');
