@@ -26,9 +26,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/test', function () {
-    return view('admin/dashboard');
-});
+
 
 //For Booth
 Route::group(['middleware' => ['auth']], function(){
