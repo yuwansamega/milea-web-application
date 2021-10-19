@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="bootstrap-5.1.1-dist\js\bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/css/detail-kegiatan.css" />
-    <link rel="stylesheet" href="/css/nav copy.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.1/umd/popper.min.js"
@@ -32,17 +32,17 @@
     <title>{{ $title }}</title>
   </head>
   <body>
-    <nav>
+   <nav>
       <div id="logo">
-        <img src="/img/Logo-only.png" alt="" height="68px" width="68px" />
-        <h1 class="new" style="margin-top: 13px">MILEA</h1>
+        <img src="/img/navbar-logo.png" alt="" height="68px" width="68px" />
+        <h1 class="new">MILEA</h1>
       </div>
       <ul id="pages">
         <li>
-          <a href="/beranda">Beranda</a>
+          <a href="/beranda" class="selected">Beranda</a>
         </li>
         <li>
-          <a href="/daftar-kegiatan" class="selected">Daftar Kegiatan</a>
+          <a href="/daftar-kegiatan">Daftar Kegiatan</a>
         </li>
       </ul>
       <img
@@ -62,21 +62,36 @@
         class="dropdown-toggle"
       />
       <ul id="dropdown">
-        <img id="addition" src="img/dropdown-addition.png" alt="" />
+        <img id="addition" src="/img/dropdown-addition.png" alt="" />
+        <ul id="pages-dropdown">
+          <li>
+            <a href="/beranda" class="selected">
+              <span class="material-icons-round">home</span>
+              <p>Beranda</p>
+            </a>
+          </li>
+          <li>
+            <a href="/daftar-kegiatan">
+              <span class="material-icons-round">list</span>
+              <p>Daftar Kegiatan</p>
+            </a>
+          </li>
+          <li>
+        </ul>
         <a href="/data-profil">
           <img src="/img/navbar-profile.png" alt="" width="19px" height="19px" />
+          <span class="material-icons-round">account_box</span>
           <li>Profil</li>
         </a>
         <a href="/riwayat">
           <img src="/img/navbar-history.png" alt="" width="19px" height="19px" />
+          <span class="material-icons-round">history</span>
           <li>Riwayat</li>
         </a>
         <form method="POST" action="{{ route('logout') }}">
-          @csrf
-        <a href="route('logout')"
-        onclick="event.preventDefault();
-                    this.closest('form').submit();">
-          <img src="/img/navbar-signout.png" alt="" width="19px" height="19px" />
+          <a href="" id="sign-out">
+            <img src="/img/navbar-signout.png" alt="" width="19px" height="19px" />
+            <span class="material-icons-round">logout</span>
           <li>Keluar</li>
         </a></form>
       </ul>
