@@ -1,6 +1,10 @@
 body {
     font-family: "Montserrat", sans-serif;
     background-color: #f9f9f9 !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 h2 {

@@ -38,10 +38,10 @@
       </div>
       <ul id="pages">
         <li>
-          <a href="/beranda" class="selected">Beranda</a>
+          <a href="/beranda" >Beranda</a>
         </li>
         <li>
-          <a href="/daftar-kegiatan">Daftar Kegiatan</a>
+          <a href="/daftar-kegiatan" class="selected">Daftar Kegiatan</a>
         </li>
       </ul>
       <img
@@ -94,8 +94,9 @@
           <li>Keluar</li>
         </a></form>
       </ul>
-    </nav>
+  </nav>
 
+  <main>
     <div class="main-content">
       <div class="container">
         <h2>Agenda Pelatihan</h2>
@@ -161,7 +162,9 @@
         <div class="d-flex justify-content-center" id="links"> {{ $workshops->links() }} </div>
       </div>
     </div>
+  </main>
 
+  <footer>
     <!-- Footer -->
     <div class="copyright">
       <div class="text-center text-dark p-3">
@@ -176,6 +179,7 @@
         <a href="https://www.instagram.com/rsudsitifatimah/" target="output"><img src="img/Instagram.png" width="30" alt="" /></a>
       </div>
     </div>
+  </footer>
 
     <script src="/js/utility.js"></script>
     <?php

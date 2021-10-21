@@ -63,3 +63,161 @@ a:hover {
 a:active {
     color: inherit;
 }
+@media screen and (max-width: 990px) {
+    .pertama {
+        margin-top: -20px;
+    }
+    .kedua {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .keempat .container {
+        margin-top: 80px;
+    }
+    .ketiga .kiri .table th {
+        font-size: 15px !important;
+    }
+    .ketiga .kanan .table th {
+        font-size: 15px !important;
+    }
+    #unduhan {
+        font-size: 15px !important;
+        margin-left: 30px;
+        margin-top: -10px;
+    }
+    #unggahan {
+        font-size: 15px !important;
+        margin-left: 30px;
+        margin-top: -10px;
+    }
+    .kelima {
+        margin-top: -20px !important;
+    }
+}
+@media screen and (max-width: 767px) {
+    .pertama {
+        margin-top: -90px;
+    }
+    .container .pertama .container .table td {
+        font-size: 15px !important;
+    }
+    .kedua {
+        margin-bottom: 20px;
+    }
+    .kedua .container .table td {
+        font-size: 15px;
+        padding: 9px 30px;
+    }
+    .kedua .container .table .tb-kiri {
+        max-width: 250px !important;
+        text-align: left;
+    }
+    .ketiga .kiri .table th {
+        font-size: 10px !important;
+    }
+    .ketiga .kanan .table th {
+        font-size: 10px !important;
+    }
+    .keempat .container {
+        margin-top: 100px;
+    }
+    .keempat .container .table td {
+        font-size: 15px !important;
+        text-align: justify;
+    }
+    .kelima .container .table li {
+        font-size: 15px !important;
+    }
+    .kelima .container .table .form-check {
+        font-size: 15px !important;
+    }
+    #unduhan {
+        font-size: 10px !important;
+        margin-left: 30px;
+        margin-top: -10px;
+    }
+    #unggahan {
+        font-size: 10px !important;
+        margin-left: 30px;
+        margin-top: -10px;
+    }
+    .kelima {
+        margin-top: -20px !important;
+    }
+    #warning {
+        width: 60px;
+    }
+}
+@media screen and (max-width: 575px) {
+    .container {
+        padding: 20px;
+    }
+    .pertama {
+        margin-top: -150px !important;
+    }
+    .kedua {
+        margin-top: 0px !important ;
+    }
+    .ketiga {
+        margin-top: 0px;
+    }
+    .keempat .container {
+        margin-top: 50px;
+    }
+    .kelima .container .table li {
+        font-size: 12px !important;
+    }
+    .kelima .container .table .form-check {
+        font-size: 12px !important;
+    }
+}
+@media screen and (max-width: 500px) {
+    .ketiga {
+        margin-top: 0px;
+    }
+    .keempat .container {
+        margin-top: 80px;
+    }
+    .copyright .text-center h6 {
+        font-size: 10px;
+        font-weight: 700;
+    }
+    .copyright .text-center a {
+        font-size: 10px;
+        font-weight: 700;
+    }
+    .copyright .text-center a img {
+        font-size: 8px;
+        width: 15px;
+    }
+}
+@media screen and (max-width: 486px) {
+    .kedua {
+        margin-top: 100px !important;
+    }
+}
+@media screen and (max-width: 414px) {
+    .kedua {
+        margin-top: 100px !important;
+    }
+    .keempat .container {
+        margin-top: 190px !important;
+    }
+    .copyright .text-center h6 {
+        font-size: 10px;
+        font-weight: 700;
+    }
+    .copyright .text-center a {
+        font-size: 10px;
+        font-weight: 700;
+    }
+    .copyright .text-center a img {
+        font-size: 8px;
+        width: 15px;
+    }
+}
+@media screen and (max-width: 395px) {
+    .keempat .container {
+        margin-top: 330px !important;
+    }
+}
