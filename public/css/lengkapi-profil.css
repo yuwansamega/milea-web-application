@@ -1,5 +1,6 @@
 body {
     font-family: "Montserrat", sans-serif;
+    background-color: #f9f9f9 !important;
 }
 .bodyLeft {
     /* background-color: aqua; */
@@ -63,25 +64,23 @@ body {
     display: block;
 }
 .text-center {
-  font-size: 18;
-  font-weight: 400;
-  margin-top: 100px;
-  height: auto;
-  background-color: #f5f4f4;
-
+    font-size: 18;
+    font-weight: 400;
+    margin-top: 100px;
+    height: auto;
+    background-color: #f5f4f4;
 }
 .card-title {
     font-size: 30px;
     font-weight: 700;
 }
 
-.bodyLeft .kiri{
+.bodyLeft .kiri {
     height: max-content;
 }
 
 .rowSecondCard {
-  flex-direction: column;
-
+    flex-direction: column;
 }
 .row.kumpulanIkon {
     margin-left: 20px;
@@ -119,7 +118,11 @@ a:hover {
     color: inherit;
 }
 a:active {
-
-  color: inherit;
+    color: inherit;
 }
 
+@media screen and (max-width: 767px) {
+    .table {
+        margin-right: 40px;
+    }
+}
