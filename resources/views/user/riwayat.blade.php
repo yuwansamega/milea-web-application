@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="bootstrap-5.1.1-dist\js\bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/css/riwayat.css" />
-    <link rel="stylesheet" href="/css/nav copy.css" />
+   <link rel="stylesheet" href="/css/nav.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.1/umd/popper.min.js"
@@ -90,7 +90,7 @@
           Anda belum mendaftar pelatihan, pilih pelatihan <a href="/daftar-kegiatan" style="text-decoration: underline">disini</a>
         </div>
         @else
-        <table class="table table-borderless">
+        <table class="table table-responsive table-borderless">
           <thead>
             <tr>
               <th scope="col">No</th>

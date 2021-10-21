@@ -124,47 +124,46 @@
         </div>
       </div>
 
-      <div class="row kedua">
+      <div class="row kedua" >
         <div class="container">
           <table class="table table-borderless">
             <thead>
               <tr>
-                <th
+                <th colspan="2"
                   scope="col"
-                  style="font-size: 23px; width: 340px; font-weight: 600"
+                  style="font-size: 23px; font-weight: 600"
                 >
                   &nbsp;&nbsp;&nbsp; Detail Data Pelatihan
                 </th>
-                <th></th>
               </tr>
             </thead>
             <tbody style="font-size: 18px;">
               <tr>
-                <td>&nbsp;&nbsp;&nbsp; Tahun Pelaksanaan</td>
+                <td class="tb-kiri" >Tahun Pelaksanaan</td>
                 <td>{{ date('Y',strtotime($ws->close_ws)) }}</td>
               </tr>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp; Nama Pelatihan</td>
+                <td class="tb-kiri">Nama Pelatihan</td>
                 <td>{{ $ws->title }}</td>
               </tr>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp; Periode Pendaftaran</td>
+                <td class="tb-kiri"> Periode Pendaftaran</td>
                 <td>{{ tgl_indo($ws->open_regist) }} - {{ tgl_indo($ws->close_regist) }}</td>
               </tr>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp; Periode Pelaksanaan</td>
+                <td class="tb-kiri">Periode Pelaksanaan</td>
                 <td>{{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</td>
               </tr>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp; Tempat Penyelengaraan</td>
+                <td class="tb-kiri">Tempat Penyelengaraan</td>
                 <td>{{ $ws->place }}</td>
               </tr>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp; Kuota</td>
+                <td class="tb-kiri">Kuota</td>
                 <td>{{ $ws->quota }} Peserta</td>
               </tr>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp; Narahubung</td>
+                <td class="tb-kiri">Narahubung</td>
                 <td>
                   {{ $ws->cp }}
                 </td>
@@ -245,14 +244,14 @@
                   <td scope="row" style="text-align: justify; padding: 30px">
                     <div class="row">
                       <div class="col-sm-3">
-                        <img
+                        <img id="warning"
                           src="/img/warning.png"
                           style="margin-left: 15px"
                           alt=""
                         />
                       </div>
                       <div class="col-sm-9">
-                        <h6 style="margin-top: 25px; color: crimson;font-size: 18px;">
+                        <h6 id ="unduhan" style="margin-top: 25px; color: crimson;font-size: 18px;">
                           Tidak Ada Yang Perlu Diunduh!
                         </h6>
                       </div>
@@ -332,14 +331,14 @@
                     <td scope="row" style="text-align: justify; padding: 30px">
                       <div class="row">
                         <div class="col-sm-3">
-                          <img
+                          <img id="warning"
                             src="/img/warning.png"
                             style="margin-left: 15px"
                             alt=""
                           />
                         </div>
                         <div class="col-sm-9">
-                          <h6 style="margin-top: 25px; color: crimson;font-size: 18px;">
+                          <h6 id="unggahan" style="margin-top: 25px; color: crimson;font-size: 18px;">
                             Tidak Ada Yang Perlu Diunggah!
                           </h6>
                         </div>
