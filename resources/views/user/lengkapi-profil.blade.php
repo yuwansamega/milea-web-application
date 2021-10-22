@@ -88,7 +88,9 @@
           <li>Riwayat</li>
         </a>
         <form method="POST" action="{{ route('logout') }}">
-          <a href="" id="sign-out">
+          @csrf
+          <a href="route('logout')" id="sign-out" onclick="event.preventDefault();
+          this.closest('form').submit();">
             <img src="/img/navbar-signout.png" alt="" width="19px" height="19px" />
             <span class="material-icons-round">logout</span>
           <li>Keluar</li>
