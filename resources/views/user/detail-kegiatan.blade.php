@@ -79,21 +79,21 @@
           <li>
         </ul>
         <a href="/data-profil">
-          <img src="/img/navbar-profile.png" alt="" width="19px" height="19px" />
+          <img src="../../assets/navbar-profile.png" alt="" width="19px" height="19px" />
           <span class="material-icons-round">account_box</span>
           <li>Profil</li>
         </a>
         <a href="/riwayat">
-          <img src="/img/navbar-history.png" alt="" width="19px" height="19px" />
+          <img src="../../assets/navbar-history.png" alt="" width="19px" height="19px" />
           <span class="material-icons-round">history</span>
           <li>Riwayat</li>
         </a>
         <form method="POST" action="{{ route('logout') }}">
           @csrf
-        <a href="route('logout')"
-        onclick="event.preventDefault();
-                    this.closest('form').submit();">
-          <img src="img/navbar-signout.png" alt="" width="19px" height="19px" />
+          <a href="route('logout')" id="sign-out" onclick="event.preventDefault();
+          this.closest('form').submit();">
+            <img src="/img/navbar-signout.png" alt="" width="19px" height="19px" />
+            <span class="material-icons-round">logout</span>
           <li>Keluar</li>
         </a></form>
       </ul>
