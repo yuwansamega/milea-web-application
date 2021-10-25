@@ -70,15 +70,27 @@
                     <td>{{ $ws->place }}</td>
                     <td>{{ $ws->quota }}</td>
                     <td>
-                        <form action="/admin/pelatihan/delete/{{ $ws->id }}" method="POST" onsubmit="return confirm('Yakin Hapus Data?')">
-                        @method('delete')
-                        @csrf
-                        {{-- <a href="/admin/pelatihan/delete/{{ $ws->id }}"> --}}
-                            <button type="submit" class="btn btn-danger btn-sm" >
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        {{-- </a> --}}
-                        </form>
+                        <div class="row">
+                          <div class="col-5">
+                                <a href="/admin/pelatihan/update/{{ $ws->id }}">
+                                  <button type="submit" class="btn btn-secondary btn-sm" >
+                                      <i class="fas fa-cog"></i>
+                                  </button>
+                                </a>
+                          </div>
+                          <div class="col">
+                            <form action="/admin/pelatihan/delete/{{ $ws->id }}" method="POST" onsubmit="return confirm('Yakin Hapus Data?')">
+                              @method('delete')
+                              @csrf
+                              {{-- <a href="/admin/pelatihan/delete/{{ $ws->id }}"> --}}
+                                  <button type="submit" class="btn btn-danger btn-sm" >
+                                      <i class="fa fa-trash"></i>
+                                  </button>
+                              {{-- </a> --}}
+                              </form>
+                          </div>
+                          
+                        </div>
                     </td>
                   </tr>
                   @endforeach

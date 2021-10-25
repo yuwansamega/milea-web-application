@@ -35,6 +35,39 @@ class WSController extends Controller
         Workshop::where('id', $id)->delete();   
         return redirect('/admin/pelatihan')->with('toast_success','Pelatihan Berhasil Dihapus');
     }
+
+    public function indexUpdate(Workshop $data_ws_id){
+
+        $ws_id = $data_ws_id->id;
+
+        $data = Workshop::find($ws_id);
+
+        return view ('admin.pelatihan_update', [
+
+            'data' => $data
+        ]);
+    }
+
+    public function update(Request $request, $ws_id){
+
+        DB::table('workshops')
+        ->where('id', $ws_id)
+        ->update([
+            'open_regist'=>$request->open_regist,
+            'close_regist'=>$request->close_regist,
+            'open_ws'=>$request->open_ws,
+            'close_ws'=>$request->close_ws,
+            'title'=>$request->title,
+            'describe'=>$request->describe,
+            'place'=>$request->place,
+            'quota'=>$request->quota,
+            'cp'=>$request->cp,
+            'criteria'=>$request->criteria
+        ]);
+
+        return redirect('admin/pelatihan')->with('success', 'Pelatihan Berhasil Diperbarui');
+    }
+
     public function detail($id){
         $name = Auth::user()->name;
         
