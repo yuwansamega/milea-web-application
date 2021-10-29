@@ -35,7 +35,7 @@
     <nav>
       <div id="logo">
         <img src="img/Logo-only.png" alt="" height="68px" width="68px" />
-        <h1 class="new" style="margin-top: 13px">MILEA</h1>
+        <h1 class="new" style="margin-top: 13px">MILEAT</h1>
       </div>
       <ul id="pages">
         <li>
