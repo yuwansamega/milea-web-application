@@ -197,6 +197,9 @@ a:active {
     }
 }
 @media screen and (max-width: 414px) {
+    .container .pertama {
+        margin-top: 150px;
+    }
     .kedua {
         margin-top: 100px !important;
     }

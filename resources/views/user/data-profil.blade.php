@@ -22,14 +22,14 @@
         </div>
         <ul id="pages">
           <li>
-            <a href="/beranda" class="selected">Beranda</a>
+            <a href="/beranda">Beranda</a>
           </li>
           <li>
             <a href="/daftar-kegiatan">Daftar Kegiatan</a>
           </li>
         </ul>
         <img
-          src="../../assets/navbar-toggle-white.png"
+          src="../../assets/navbar-toggle-black.png"
           alt=""
           id="toogle-white"
           width="50px"

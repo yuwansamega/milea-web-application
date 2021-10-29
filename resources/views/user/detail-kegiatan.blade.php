@@ -98,7 +98,8 @@
         </a></form>
       </ul>
   </nav>
-    <div class="container" style="margin-top: 150px">
+
+    <div class="container" style="margin-top: 200px">
       <div class="row pertama justify-content-center">
         <div class="container">
           <table class="table table-borderless">
