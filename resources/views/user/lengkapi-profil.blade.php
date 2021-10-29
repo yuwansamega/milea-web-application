@@ -128,14 +128,15 @@
         <form id="right" class="col" action="/update-data-diri/{{ $data_user->id }}" method="post" enctype="multipart/form-data">
             @csrf
             <h1>Perbarui Data Diri</h1>
+            <div class="form">
             @if ($message = Session::get('success'))
-              <div class="alert alert-success alert-block">
+              <div class="alert">
                   <button type="button" class="close" data-dismiss="alert">×</button>
                       <strong>{{ $message }}</strong>
               </div>
           @endif
           @if (count($errors) > 0)
-              <div class="alert alert-danger">
+              <div class="alert" style=" color:red;">
                   <strong>Whoops!</strong> There were some problems with your input.
                   <ul>
                       @foreach ($errors->all() as $error)
@@ -147,7 +148,7 @@
             <ul class="col">
                 <li class="row allign-center">
                     <label for="">Pas Foto</label>
-                    <input type="file" class="col center" style="color: transparent;" name="image">
+                    <input type="file" class="col center" name="image">
                 </li>
                 <li class="row allign-center">
                     <label for="">Nama</label>

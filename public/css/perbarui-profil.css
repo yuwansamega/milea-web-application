@@ -126,7 +126,7 @@ main #left{
     color: #FFFFFF;
 }
 
-#right ul{
+#right .form{
     padding: 15px 40px;
     background: rgba(255, 255, 255, 0.7);
     border-bottom-left-radius: 10px;
