@@ -22,12 +22,15 @@ class WSController extends Controller
 
         $ws = DB::table('workshops')->get();
         return view ('admin.pelatihan', [
-            "ws" => $ws
+            "ws" => $ws,
+            "title" => "Milea Admin | Pelatihan"
         ]);
     }
     public function indexAdminTambah(){
 
-        return view ('admin.create_pelatihan');
+        return view ('admin.create_pelatihan',[
+            "title" => "Milea Admin | Pelatihan - Tambah"
+        ]);
     }
 
     public function delete($id){
@@ -44,8 +47,29 @@ class WSController extends Controller
 
         return view ('admin.pelatihan_update', [
 
-            'data' => $data
+            'data' => $data,
+            "title" => "Milea Admin | Pelatihan - Perbarui"
+
         ]);
+    }
+
+    public function indexWorkshopSub ($ws_id){
+
+        $data = DB::table('submissions')
+            ->where('submissions.ws_id', $ws_id)
+            ->Where('submissions.status_p', 'Diterima')
+            ->join('data_users', 'submissions.user_id', '=', 'data_users.user_id')
+            ->select('data_users.fullname', 'data_users.position')
+            ->get();
+        
+        $data_ws = Workshop::find($ws_id); 
+            
+        return view('admin.pelatihan_submissions', [
+            'data' => $data,
+            'data_ws' => $data_ws,
+            'title' => 'Milea Admin | Pelatihan - Pengajuan'
+        ]);
+        
     }
 
     public function update(Request $request, $ws_id){

@@ -226,7 +226,7 @@
                   <div class="row">
                     <div>
                       <label for="inputEmail3" class="col-form-label" 
-                        >{{ $ud['label'] }}</label
+                        >{{ $ud["label"] }}</label
                       >
                     </div>
                   </div>
