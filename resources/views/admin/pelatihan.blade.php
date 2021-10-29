@@ -20,7 +20,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <a href="{{ route('admin.pelatihan.tambah') }}">
+              <a href="/admin/create/pelatihan">
                   <button type="button" class="btn btn-primary">Tambah Pelatihan</button>
               </a>
             </ol>
@@ -64,7 +64,9 @@
                     <td>@php
                         echo $i++;
                     @endphp</td>
-                    <td>{{ $ws->title }}</td>
+                    
+                      <td><a href="/admin/pelatihan/{{ $ws->id }}">{{ $ws->title }}</a></td>
+                    
                     <td>{{ $ws->open_regist.'-'.$ws->close_regist }}</td>
                     <td>{{ $ws->open_ws.'-'.$ws->close_ws }}</td>
                     <td>{{ $ws->place }}</td>

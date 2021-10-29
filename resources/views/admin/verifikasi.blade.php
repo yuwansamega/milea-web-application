@@ -54,21 +54,47 @@
                   </tr>
                   </thead>
                   <tbody>
-                    @php
+
+                  @php
+                    $i = 1;
+                  @endphp
+                    @foreach ($data_sub as $d)
+                      <tr>
+                        <td>
+                          @php
+                            echo $i++;
+                          @endphp
+                        </td>
+                        <td>{{ $d->fullname }}</td>
+                        <td>{{ $d->nik }}</td>
+                        <td>{{ $d->title }}</td>
+                        <td>{{ $d->status_p }}</td>
+                        <td><a href="/admin/verifikasi/detail/{{ $d->id }}">Detail</a></td>
+                    </tr>
+                    @endforeach
+
+                    
+
+                    {{-- @php
                         $i = 1;
                     @endphp
-                  @foreach ($data_sub as $d)
-                  <tr>
-                    <td>@php
+                    
+                    @foreach ($data_sub as $d)
+                    @if($d!=null)
+                    <tr>
+                      <td>
+                      @php
                         echo $i++;
-                    @endphp</td>
-                    <td>{{ $d->fullname }}</td>
-                    <td>{{ $d->nik }}</td>
-                    <td>{{ $d->title }}</td>
-                    <td>{{ $d->status_p }}</td>
-                    <td><a href="/admin/verifikasi/detail/{{ $d->id }}">Detail</a></td>
-                  </tr>
-                  @endforeach
+                      @endphp</td>
+                      <td>{{ $d->fullname }}</td>
+                      <td>{{ $d->nik }}</td>
+                      <td>{{ $d->title }}</td>
+                      <td>{{ $d->status_p }}</td>
+                      <td><a href="/admin/verifikasi/detail/{{ $d->id }}">Detail</a></td>
+                    </tr>
+                    @endif
+                    @endforeach --}}
+                 
                   
                   
                   </tbody>

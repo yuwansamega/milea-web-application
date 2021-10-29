@@ -16,6 +16,7 @@ class AdminController extends Controller
         $work_count = DB::table('workshops')->count();
         
         return view ('admin.dashboard',[
+            "title" => "Milea Admin | Dashboard",
             "sub" => $sub_count,
             "datau" => $datau_count,
             "work" => $work_count

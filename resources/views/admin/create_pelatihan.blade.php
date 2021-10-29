@@ -35,7 +35,7 @@
                 <button type="button" class="modal-button">OK</button>
             </div>
         </modal>
-        <form action="/admin/pelatihan/tambah" method="POST" id="training-form" class="col" enctype="multipart/form-data">
+        <form action="/admin/create/pelatihan" method="POST" id="training-form" class="col" enctype="multipart/form-data">
             @csrf
             <div class="col" id="container">
                 <h1>Upload Pelatihan</h1>
