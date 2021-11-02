@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <title>Data Profil</title>
 </head>
@@ -24,7 +23,7 @@
         </div>
         <ul id="pages">
           <li>
-            <a href="/beranda">Beranda</a>
+            <a href="/beranda" class="selected">Beranda</a>
           </li>
           <li>
             <a href="/daftar-kegiatan">Daftar Kegiatan</a>
@@ -50,7 +49,7 @@
             <img id="addition" src="../../assets/dropdown-addition.png" alt="" />
             <ul id="pages-dropdown">
               <li>
-                <a href="/beranda">
+                <a href="/beranda" class="selected">
                   <span class="material-icons-round">home</span>
                   <p>Beranda</p>
                 </a>
@@ -130,15 +129,14 @@
         <form id="right" class="col" action="/update-data-diri/{{ $data_user->id }}" method="post" enctype="multipart/form-data">
             @csrf
             <h1>Perbarui Data Diri</h1>
-            <div class="form">
             @if ($message = Session::get('success'))
-              <div class="alert">
+              <div class="alert alert-success alert-block">
                   <button type="button" class="close" data-dismiss="alert">×</button>
                       <strong>{{ $message }}</strong>
               </div>
           @endif
           @if (count($errors) > 0)
-              <div class="alert" style=" color:red;">
+              <div class="alert alert-danger">
                   <strong>Whoops!</strong> There were some problems with your input.
                   <ul>
                       @foreach ($errors->all() as $error)
@@ -150,7 +148,7 @@
             <ul class="col">
                 <li class="row allign-center">
                     <label for="">Pas Foto</label>
-                    <input type="file" class="col center" name="image">
+                    <input type="file" class="col center" style="color: transparent;" name="image">
                 </li>
                 <li class="row allign-center">
                     <label for="">Nama</label>
