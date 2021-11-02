@@ -15,6 +15,7 @@
     <script src="bootstrap-5.1.1-dist\js\bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/css/beranda.css" />
     <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="utility.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.1/umd/popper.min.js"
@@ -22,6 +23,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -34,27 +37,30 @@
   <body>
     <nav>
       <div id="logo">
-        <img src="img/Logo-only.png" alt="" height="68px" width="68px" />
-        <h1 class="new" style="margin-top: 13px">MILEAT</h1>
+        <img src="/img/navbar-logo.png" alt="" height="68px" width="68px" />
+        <h1 class="new">MILEA</h1>
       </div>
       <ul id="pages">
         <li>
           <a href="/beranda" class="selected">Beranda</a>
         </li>
         <li>
-          <a href="/daftar-kegiatan">Daftar Kegiatan</a>
+          <a href="/daftar-kegiatan" >Pelatihan</a>
+        </li>
+        <li>
+          <a href="/kelasku" >Kelasku</a>
         </li>
       </ul>
       <img
-        src="img/navbar-toggle-white.png"
+        src="/img/navbar-toggle-black.png"
         alt=""
-        id="toggle-white"
+        id="toogle-white"
         width="50px"
         height="50px"
         class="dropdown-toggle"
       />
       <img
-        src="img/navbar-toggle-black.png"
+        src="/img/navbar-toggle-black.png"
         alt=""
         id="toogle-black"
         width="50px"
@@ -62,25 +68,42 @@
         class="dropdown-toggle"
       />
       <ul id="dropdown">
-        <img id="addition" src="img/dropdown-addition.png" alt="" />
+        <img id="addition" src="/img/dropdown-addition.png" alt="" />
+        <ul id="pages-dropdown">
+          <li>
+            <a href="/beranda" class="selected">
+              <span class="material-icons-round">home</span>
+              <p>Beranda</p>
+            </a>
+          </li>
+          <li>
+            <a href="/daftar-kegiatan">
+              <span class="material-icons-round">list</span>
+              <p>Pelatihan</p>
+            </a>
+          </li>
+          <li>
+        </ul>
         <a href="/data-profil">
-          <img src="/img/navbar-profile.png" alt="" width="19px" height="19px" />
+          <img src="../../assets/navbar-profile.png" alt="" width="19px" height="19px" />
+          <span class="material-icons-round">account_box</span>
           <li>Profil</li>
         </a>
         <a href="/riwayat">
-          <img src="/img/navbar-history.png" alt="" width="19px" height="19px" />
+          <img src="../../assets/navbar-history.png" alt="" width="19px" height="19px" />
+          <span class="material-icons-round">history</span>
           <li>Riwayat</li>
         </a>
         <form method="POST" action="{{ route('logout') }}">
           @csrf
-        <a href="route('logout')"
-        onclick="event.preventDefault();
-                    this.closest('form').submit();">
-          <img src="img/navbar-signout.png" alt="" width="19px" height="19px" />
+          <a href="route('logout')" id="sign-out" onclick="event.preventDefault();
+          this.closest('form').submit();">
+            <img src="/img/navbar-signout.png" alt="" width="19px" height="19px" />
+            <span class="material-icons-round">logout</span>
           <li>Keluar</li>
         </a></form>
       </ul>
-    </nav>
+  </nav>
 
     <!-- Content Start -->
     <div class="rowFirst">
@@ -208,68 +231,63 @@
          </div>
       </div>
     </div>
-     <footer class="col">
-        <div class="row" id="footer-container">
-            <div class="col">
-                <h3>Tentang Kami</h3>
-                <p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;RSUD Siti Fatimah merupakan rumah sakit milik permerintah daerah terbesar di Indonesia, yang berdiri di atas lahan seluas 4,1 Hektar dengan area bangunan seluas 52,952,11 m2.<br>&nbsp;&nbsp;&nbsp;Lahir sebagai bukti keseriusan pemerintah daerah untuk meningkatkan derajat kesehatan masyarakat khususnya di wilayah Provinsi Sumatera Selatan (Sumsel).
-                </p>
-                <div class="row" id="icons">
-                    <a href="https://www.facebook.com/RSUDSitiFatimah" target="output">
-                        <img src="../../assets/footer-icons/Facebook.png" alt="">
-                    </a>
-                    <a href="https://www.youtube.com/c/RSUDSitiFatimahProvSumsel" target="output">
-                        <img src="../../assets/footer-icons/Youtube.png" alt="">
-                    </a>
-                    <a href="https://www.instagram.com/rsudsitifatimah/" target="output">
-                        <img src="../../assets/footer-icons/Instagram.png" alt="">
-                    </a>
-                </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-muted">
+      <section>
+        <div class="container text-light text-center text-md-start mt-5">
+          <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <h5 class="text-uppercase fw-bold mb-4 text-left">
+                <b>Tentang Kami</b>
+              </h5>
+              <p class="desc text-justify">
+                RSUD Siti Fatimah merupakan Rumah Sakit Umum Daerah milik Provinsi Sumatera Selatan. Rumah Sakit milik pemerintah daerah terbesar di Indonesia ini berdiri di atas lahan seluas 4,1 Hektar dengan area bangunan seluas 52,952,11 m2.<br><br>Lahir sebagai bukti dari keseriusan pemerintah daerah untuk meningkatkan derajat kesehatan masyarakat khususnya di wilayah Provinsi Sumatera Selatan (Sumsel).
+              </p>
             </div>
-            <div class="col" id="navigasi">
-                <h3>Navigasi</h3>
-                <ul >
-                    <li>
-                        <a href="/beranda">Beranda</a>
-                    </li>
-                    <li>
-                        <a href="/daftar-kegiatan">Pelatihan</a>
-                    </li>
-                    <li>
-                        <a href="/data-profil">Profil</a>
-                    </li>
-                    <li>
-                        <a href="/riwayat">Riwayat</a>
-                    </li>
-                </ul>
+            
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-left">
+              <h5 class="text-uppercase fw-bold mb-4">
+                <b>Navigasi</b>
+              </h5>
+              <p>
+                <a href="#beranda-title" class="text-reset">Beranda</a>
+              </p>
+              <p>
+                <a href="/daftar-kegiatan" class="text-reset">Pelatihan</a>
+              </p>
+              <p>
+                <a href="/data-profil" class="text-reset">Profil</a>
+              </p>
+              <p>
+                <a href="/riwayat" class="text-reset">Riwayat</a>
+              </p>
+              <p>
+                <a href="/kelasku" class="text-reset">Kelasku</a>
+              </p>
             </div>
-            <div class="col">
-                <h3>Hubungi Kami</h3>
-                <ul id="hubungi-kami">
-                    <li class="row">
-                        <img src="../../assets/footer-icons/Phone.png" alt="">
-                        <a href="">
-                            +628117117929
-                        </a>
-                    </li>
-                    <li class="row">
-                        <img src="../../assets/footer-icons/Gmail.png" alt="">
-                        <a href="">
-                            sdm.rsudsumsel@gmail.com
-                        </a>
-                    </li>
-                    <li class="row">
-                        <img src="../../assets/footer-icons/Location.png" alt="">
-                        <a href="">
-                            Jl. Kol. H. Burlian, Suka Bangun, Kec. Sukarami, Kota Palembang, Sumatera Selatan 30151
-                        </a>
-                    </li>
-                </ul>
+            
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-left ">
+              <h5 class="text-uppercase fw-bold mb-4">
+                <b>Hubungi Kami</b>
+              </h5>
+              <p class="d-flex align-items-center"><span class="material-icons-round mr-2">call</span>&nbsp;+628117117929</p>
+              <p class="d-flex align-items-center"><span class="material-icons-round mr-2">email</span>&nbsp;sdm.rsudsumsel@gmail.com</p>
+              <p class="d-flex text-justify"><span class="material-icons-round mr-2">pin_drop</span>Jl. Kol. H. Burlian, Suka Bangun, Kec. Sukarami, Kota Palembang, Sumatera Selatan 30151</p>
+             
             </div>
+          </div>
         </div>
-        <p id="mini-text">IT Team RSUD SF Kampus Merdeka 2021</p>
+      </section>
+
+      <div class="text-center p-4 text-light border-top">
+        All Right Reserved © 
+        <a class="text-reset fw-bold" style="color: #81AFD8;" href="#">IT Team RSUD SF Kampus Merdeka 2021</a>
+      </div>
     </footer>
+    <!-- Footer -->
+
+
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="/js/utility.js"></script>
      <?php
