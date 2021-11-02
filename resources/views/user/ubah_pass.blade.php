@@ -22,7 +22,7 @@
         </div>
         <ul id="pages">
           <li>
-            <a href="/beranda" class="selected">Beranda</a>
+            <a href="/beranda">Beranda</a>
           </li>
           <li>
             <a href="/daftar-kegiatan">Daftar Kegiatan</a>
@@ -48,7 +48,7 @@
           <img id="addition" src="../../assets/dropdown-addition.png" alt="" />
           <ul id="pages-dropdown">
             <li>
-              <a href="/beranda" class="selected">
+              <a href="/beranda">
                 <span class="material-icons-round">home</span>
                 <p>Beranda</p>
               </a>

@@ -24,6 +24,7 @@
     ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -34,7 +35,7 @@
     <nav>
       <div id="logo">
         <img src="img/Logo-only.png" alt="" height="68px" width="68px" />
-        <h1 class="new" style="margin-top: 13px">MILEA</h1>
+        <h1 class="new" style="margin-top: 13px">MILEAT</h1>
       </div>
       <ul id="pages">
         <li>
@@ -47,7 +48,7 @@
       <img
         src="img/navbar-toggle-white.png"
         alt=""
-        id="toogle-white"
+        id="toggle-white"
         width="50px"
         height="50px"
         class="dropdown-toggle"
@@ -84,96 +85,218 @@
     <!-- Content Start -->
     <div class="rowFirst">
       <div class="col">
-        <h1>Selamat Datang di MILEA</h1>
-        <p>
-          MILEA merupakan website pendaftaran resmi dari RSUD Siti Fatimah untuk
-          mitra yang ingin mengikuti pelatihan, pendidikan dan pengembangan di
-          RSUD Siti Fatimah.
-        </p>
+        <div class="group">
+          <h1>Selamat Datang di MILEA</h1>
+          <p>
+            MILEA merupakan website pendaftaran resmi dari RSUD Siti Fatimah
+            untuk mitra yang ingin mengikuti pelatihan, pendidikan dan
+            pengembangan di RSUD Siti Fatimah.
+          </p>
+          <button class="ikuti-pelatihan">Ikuti Pelatihan 
+            <svg width="20" height="20" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.375 14H23.625" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15.75 6.125L23.625 14L15.75 21.875" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        </div>
       </div>
-      <div class="imgRight">
-        <img src="/img/vect-1.png" width="640" />
+      <div class="imgCol">
+          <img src="/img/head.png" />
       </div>
     </div>
 
     <div class="rowSecond">
-      <div class="col">
-        <div class="vectLeft">
-          <img src="img/vect-4.png" width="540" alt="" />
-        </div>
+      <div class="left">
+         <img src="img/vect-4.png" alt="" />
       </div>
-      <div class="titleCard">
-        <h2 style="width: 1000px; margin-left: 70px; margin-bottom: 30px">
-          Pelatihan Terbaru
-        </h2>
-        <div class="cardMan">
-          <div class="bodyCard">
-            <h5>{{ $ws->title }}</h5>
-            <div class="container">
-              <hr />
-            </div>
-            <div class="row">
-              <div class="coLeft col-sm-2">
-                <img src="img/calendar.png" width="25" alt="" />
-                <br />
-                <br />
-                <img src="img/location.png" width="25" alt="" />
+      <div class="right">
+          <div class="content-title"> 
+            <h1>Pelatihan Terbaru</h1>
+          </div>
+          <div class="card">
+              <div class="card-title">
+                  <h3>{{ $ws->title }}</h3>
+                  <hr>
               </div>
-              <div class="col-sm-10" style="margin-top: -68px">
-                
-                <p class="cardContent">{{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</p>
-                <br />
-                <p class="cardContent">{{ $ws->place }}</p>
-                <a href="/detail-kegiatan/{{ $ws->id }}">
-                  <div class="textDetail">Lihat Detail</div>
-                </a>
+              <div class="card-content">
+                <div class="line first">
+                  <img src="/img/calendar.png" alt="">
+                  <h4>Waktu : {{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</h4>
+                </div>
+                <div class="line second">
+                  <img src="/img/location.png" alt="">
+                  <h4>Tempat : {{ $ws->place }}</h4>
+                </div>
+                <div class="third">
+                  <a href="/detail-kegiatan/{{ $ws->id }}">
+                    <h5>Lihat Detail</h5>
+                  </a>
+                </div>
               </div>
+          </div>
+      </div>
+    </div>
+    
+    <div class="rowThird">
+      <h1  style="background-color: white">Pelatihan Yang Telah Dilaksanakan</h1>
+      <div class="content">
+        <div class="card">
+          <div class="pict">
+            <img src="/img/rect-16.png" alt="">
+          </div>
+          <div class="title-card">
+            <h3>Pelatihan Tenaga Pelatih Kesehatan</h3>
+          </div>
+          <div class="details">
+            <div class="place">
+               <h5>{{ $ws->place }}</h5>
             </div>
+             <div class="time">
+                {{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}
+              </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="pict">
+            <img src="/img/rect-16.png" alt="">
+          </div>
+          <div class="title-card" >
+            <h3>Pelatihan Tenaga Pelatih Kesehatan</h3>
+          </div>
+          <div class="details">
+            <div class="place">
+               <h5>{{ $ws->place }}</h5>
+            </div>
+             <div class="time">
+                {{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}
+              </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="pict">
+            <img src="/img/rect-16.png" alt="">
+          </div>
+          <div class="title-card">
+            <h3>Pelatihan Tenaga Pelatih Kesehatan</h3>
+          </div>
+          <div class="details">
+            <div class="place">
+               <h5>{{ $ws->place }}</h5>
+            </div>
+             <div class="time">
+                {{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}
+              </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="copyright">
-      <div class="text-center text-dark p-3">
-        <h6>
-          All Right Reserved © IT Team RSUD Siti Fatimah Kampus Merdeka 2021
-        </h6>
-        <a>Temukan kami di : </a>
-        <a href="https://api.whatsapp.com/send?phone=08117117929" target="output"><img src="img/Call.png" width="30" alt="" /></a>
-        <a href="mailto:sdm.rsudsumsel@gmail.com" target="output"><img src="img/Gmail.png" width="30" alt="" /></a>
-        <a href="https://www.facebook.com/RSUDSitiFatimah" target="output"><img src="img/Facebook.png" width="30" alt="" /></a>
-        <a href="https://www.youtube.com/c/RSUDSitiFatimahProvSumsel" target="output"><img src="img/Youtube.png" width="30" alt="" /></a>
-        <a href="https://www.instagram.com/rsudsitifatimah/" target="output"><img src="img/Instagram.png" width="30" alt="" /></a>
+    <div class="rowFourth">
+      <h1>Pelatih Berstandar Nasional</h1>
+      <div class="content">
+        <div class="pelatih">
+            <img src="img/Yan Bani.png" alt="">
+        </div>
+        <div class="pelatih" style="margin-top: 18px">
+          <img src="img/Wajedi.png" alt="">
+        </div>
+         <div class="pelatih" style="margin-top: 7px">
+           <img src="img/Yofhi.png" alt="">
+         </div>
+         <div class="pelatih netty" style="margin-top: 36px">
+           <img src="img/Netty.png" alt="">
+         </div>
       </div>
     </div>
+     <footer class="col">
+        <div class="row" id="footer-container">
+            <div class="col">
+                <h3>Tentang Kami</h3>
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;RSUD Siti Fatimah merupakan rumah sakit milik permerintah daerah terbesar di Indonesia, yang berdiri di atas lahan seluas 4,1 Hektar dengan area bangunan seluas 52,952,11 m2.<br>&nbsp;&nbsp;&nbsp;Lahir sebagai bukti keseriusan pemerintah daerah untuk meningkatkan derajat kesehatan masyarakat khususnya di wilayah Provinsi Sumatera Selatan (Sumsel).
+                </p>
+                <div class="row" id="icons">
+                    <a href="https://www.facebook.com/RSUDSitiFatimah" target="output">
+                        <img src="../../assets/footer-icons/Facebook.png" alt="">
+                    </a>
+                    <a href="https://www.youtube.com/c/RSUDSitiFatimahProvSumsel" target="output">
+                        <img src="../../assets/footer-icons/Youtube.png" alt="">
+                    </a>
+                    <a href="https://www.instagram.com/rsudsitifatimah/" target="output">
+                        <img src="../../assets/footer-icons/Instagram.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="col" id="navigasi">
+                <h3>Navigasi</h3>
+                <ul >
+                    <li>
+                        <a href="/beranda">Beranda</a>
+                    </li>
+                    <li>
+                        <a href="/daftar-kegiatan">Pelatihan</a>
+                    </li>
+                    <li>
+                        <a href="/data-profil">Profil</a>
+                    </li>
+                    <li>
+                        <a href="/riwayat">Riwayat</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3>Hubungi Kami</h3>
+                <ul id="hubungi-kami">
+                    <li class="row">
+                        <img src="../../assets/footer-icons/Phone.png" alt="">
+                        <a href="">
+                            +628117117929
+                        </a>
+                    </li>
+                    <li class="row">
+                        <img src="../../assets/footer-icons/Gmail.png" alt="">
+                        <a href="">
+                            sdm.rsudsumsel@gmail.com
+                        </a>
+                    </li>
+                    <li class="row">
+                        <img src="../../assets/footer-icons/Location.png" alt="">
+                        <a href="">
+                            Jl. Kol. H. Burlian, Suka Bangun, Kec. Sukarami, Kota Palembang, Sumatera Selatan 30151
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <p id="mini-text">IT Team RSUD SF Kampus Merdeka 2021</p>
+    </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="/js/utility.js"></script>
-    <?php
-function tgl_indo($tanggal){
-	$bulan = array (
-		1 =>   'Januari',
-		'Februari',
-		'Maret',
-		'April',
-		'Mei',
-		'Juni',
-		'Juli',
-		'Agustus',
-		'September',
-		'Oktober',
-		'November',
-		'Desember'
-	);
-	$pecahkan = explode('-', $tanggal);
-	
-	// variabel pecahkan 0 = tahun
-	// variabel pecahkan 1 = bulan
-	// variabel pecahkan 2 = tanggal
- 
-	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
-}
-?>
-@include('sweetalert::alert')
+     <?php
+    function tgl_indo($tanggal){
+      $bulan = array (
+        1 =>   'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+      );
+      $pecahkan = explode('-', $tanggal);
+      // variabel pecahkan 0 = tahun
+      // variabel pecahkan 1 = bulan
+      // variabel pecahkan 2 = tanggal
+     
+      return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+    }
+    ?>
+    @include('sweetalert::alert')
   </body>
 </html>
 

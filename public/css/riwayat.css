@@ -69,7 +69,7 @@ a:active {
 }
 @media screen and (max-width: 500px) {
     .main-content .container {
-        margin-top: -150px;
+        margin-top: 0px;
     }
     .main-content .container .table th {
         font-size: 12px;

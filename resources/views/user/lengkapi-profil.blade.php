@@ -24,7 +24,7 @@
         </div>
         <ul id="pages">
           <li>
-            <a href="/beranda" class="selected">Beranda</a>
+            <a href="/beranda">Beranda</a>
           </li>
           <li>
             <a href="/daftar-kegiatan">Daftar Kegiatan</a>
@@ -50,7 +50,7 @@
             <img id="addition" src="../../assets/dropdown-addition.png" alt="" />
             <ul id="pages-dropdown">
               <li>
-                <a href="/beranda" class="selected">
+                <a href="/beranda">
                   <span class="material-icons-round">home</span>
                   <p>Beranda</p>
                 </a>
@@ -130,14 +130,15 @@
         <form id="right" class="col" action="/update-data-diri/{{ $data_user->id }}" method="post" enctype="multipart/form-data">
             @csrf
             <h1>Perbarui Data Diri</h1>
+            <div class="form">
             @if ($message = Session::get('success'))
-              <div class="alert alert-success alert-block">
+              <div class="alert">
                   <button type="button" class="close" data-dismiss="alert">×</button>
                       <strong>{{ $message }}</strong>
               </div>
           @endif
           @if (count($errors) > 0)
-              <div class="alert alert-danger">
+              <div class="alert" style=" color:red;">
                   <strong>Whoops!</strong> There were some problems with your input.
                   <ul>
                       @foreach ($errors->all() as $error)
@@ -149,7 +150,7 @@
             <ul class="col">
                 <li class="row allign-center">
                     <label for="">Pas Foto</label>
-                    <input type="file" class="col center" style="color: transparent;" name="image">
+                    <input type="file" class="col center" name="image">
                 </li>
                 <li class="row allign-center">
                     <label for="">Nama</label>
