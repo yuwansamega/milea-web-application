@@ -16,7 +16,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard Test</h1>
+            <h1 class="m-0">Admin Dashboard</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -32,6 +32,61 @@
 
     <!-- Main content -->
     <section class="content">
+      <!-- Small Box (Stat card) -->
+     
+        <div class="row">
+          <div class="col-lg-4 col-6">
+            <!-- small card -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{ $sub }}</h3>
+
+                <p>New Submissions</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-file"></i>
+              </div>
+              <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small card -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>{{ $datau }}</h3>
+
+                <p>Number of Accounts</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-user-plus"></i>
+              </div>
+              <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small card -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{ $work }}</h3>
+
+                <p>Workshops Amount</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-map-pin"></i>
+              </div>
+              <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+         
+       
     </section>
     <!-- /.content -->
   </div>

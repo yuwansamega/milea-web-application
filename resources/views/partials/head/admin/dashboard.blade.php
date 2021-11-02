@@ -18,3 +18,5 @@
 <link rel="stylesheet" href="/css/admin/daterangepicker.css">
 <!-- summernote -->
 <link rel="stylesheet" href="/css/admin/summernote-bs4.min.css">
+
+<script src="https://kit.fontawesome.com/debebc2c1e.js" crossorigin="anonymous"></script>

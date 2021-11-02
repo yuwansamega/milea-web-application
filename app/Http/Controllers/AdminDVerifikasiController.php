@@ -62,7 +62,8 @@ class AdminDVerifikasiController extends Controller
         return view ('admin.verification-detail', [
             "data" => $data,
             "subm_id" => $sub_id,
-            "user_upload" => $user_upload
+            "user_upload" => $user_upload,
+            "title" => "Milea Admin | Verifkasi - Detail"
             
         ]);
 

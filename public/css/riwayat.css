@@ -1,62 +1,90 @@
 body {
-  font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    background-color: #f9f9f9 !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-
+.table-responsive {
+    display: table;
+}
 h2 {
-  font-size: 30px;
-  font-weight: 500;
-  margin-left: 30px;
+    font-size: 30px;
+    font-weight: 500;
+    margin-left: 30px;
 }
 thead {
-  background-color: #6eb585;
-  border-radius: 30px !important;
+    background-color: #198754;
+    border-radius: 15px !important;
 }
 .main-content {
-  margin-top: 200px;
+    margin-top: 200px;
 }
 .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 tr,
 td {
-  text-align: center;
-}
-.text-center {
-  font-size: 18;
-  font-weight: 400;
-  margin-top: 300px;
-  height: auto;
-  background-color: #f5f4f4;
-  /* #f5f4f4 */
+    text-align: center;
 }
 table {
-  border: 0px solid #000000;
-  border-radius: 30px !important;
-  box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.1);
+    border: 0px solid #000000;
+    border-radius: 15px !important;
+    box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.1);
 }
 
 th {
-  background-color: #6eb585;
+    background-color: #198754;
 }
 
 thead th:first-child {
-  border-top-left-radius: 30px;
+    border-top-left-radius: 15px;
 }
 thead th:last-child {
-  border-top-right-radius: 30px;
+    border-top-right-radius: 15px;
 }
 a:link {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 a:visited {
-  color: inherit;
+    color: inherit;
 }
 a:hover {
-  color: inherit;
+    color: inherit;
 }
 a:active {
-  color: inherit;
+    color: inherit;
+}
+footer {
+    margin-top: 100px;
+}
+@media screen and (max-width: 500px) {
+    .main-content .container {
+        margin-top: 0px;
+    }
+    .main-content .container .table th {
+        font-size: 12px;
+    }
+    .main-content .container .table td {
+        font-size: 10px;
+    }
+    .main-content .container h2 {
+        font-size: 20px;
+    }
+    .copyright .text-center h6 {
+        font-size: 10px;
+        font-weight: 700;
+    }
+    .copyright .text-center a {
+        font-size: 10px;
+        font-weight: 700;
+    }
+    .copyright .text-center a img {
+        font-size: 8px;
+        width: 15px;
+    }
 }
