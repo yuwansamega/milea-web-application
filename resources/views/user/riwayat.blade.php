@@ -92,7 +92,7 @@
         @else
         <table class="table table-responsive table-borderless">
           <thead>
-            <tr>
+            <tr style="color: white;">
               <th scope="col">No</th>
               <th scope="col">Nama Pelatihan</th>
               <th scope="col">Waktu Pelaksanaan</th>
