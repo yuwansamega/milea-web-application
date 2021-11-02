@@ -21,13 +21,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-<script src="https://kit.fontawesome.com/debebc2c1e.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/debebc2c1e.js" crossorigin="anonymous"></script>
 
     <title>{{ $title }}</title>
   </head>
@@ -42,7 +43,10 @@
           <a href="/beranda" >Beranda</a>
         </li>
         <li>
-          <a href="/daftar-kegiatan" class="selected">Daftar Kegiatan</a>
+          <a href="/daftar-kegiatan" class="selected">Pelatihan</a>
+        </li>
+        <li>
+          <a href="/kelasku" >Kelasku</a>
         </li>
       </ul>
       <img
@@ -72,8 +76,8 @@
           </li>
           <li>
             <a href="/daftar-kegiatan">
-              <span class="material-icons-round">list</span>
-              <p>Daftar Kegiatan</p>
+              <span class="material-icons-round selected">list</span>
+              <p>Pelatihan</p>
             </a>
           </li>
           <li>
@@ -348,20 +352,9 @@
                     </td>
                   </tr>
                   @endif
-                
-                
-               
             </tbody>
           </table>
-          
-          
         </div>
-        
-      
-      </div>
-      
-      <div class="row">
-        
       </div>
       <div class="row kelima justify-content-center" style="margin-top: 50px">
         <div class="container">
@@ -390,46 +383,92 @@
                       <input type="checkbox" class="form-check-input" id="exampleCheck1" style="transform: scale(1.75);" required>
                       <label class="form-check-label" for="exampleCheck1" style="margin-left: 7px">Saya menyatakan bahwa pernyataan di atas adalah <span style="color: red"><b>BENAR</b></span>.</label>
                     </div>
-                    
                   </ul>
-                  
-                    
-                  
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-    <div class="container">
-            
-            
-          <div class="row mt-2 pt-3 justify-content-end">
-
-            <button type="submit" class="btn" style="font-weight: bolder; border:1px solid; border-color:#198754; color:black;">DAFTAR</button>
-          </div>
-
-
+    <div class="container">   
+        <div class="row mt-2 pt-3 justify-content-end" id="btn-daftar">
+          <button type="submit" id="sub" class="btn" style="font-weight: bolder; border:1px solid; border-color:#198754; color:black;">DAFTAR</button>
         </div>
+    </div>
     </form>
     </div>
     
 
     <!-- Footer -->
-    <div class="copyright">
-      <div class="text-center text-dark p-3">
-        <h6>
-          All Right Reserved © IT Team RSUD Siti Fatimah Kampus Merdeka 2021
-        </h6>
-        <a>Temukan kami di : </a>
-        <a href="https://api.whatsapp.com/send?phone=08117117929" target="output"><img src="/img/Call.png" width="30" alt="" /></a>
-        <a href="mailto:sdm.rsudsumsel@gmail.com" target="output"><img src="/img/Gmail.png" width="30" alt="" /></a>
-        <a href="https://www.facebook.com/RSUDSitiFatimah" target="output"><img src="/img/Facebook.png" width="30" alt="" /></a>
-        <a href="https://www.youtube.com/c/RSUDSitiFatimahProvSumsel" target="output"><img src="/img/Youtube.png" width="30" alt="" /></a>
-        <a href="https://www.instagram.com/rsudsitifatimah/" target="output"><img src="/img/Instagram.png" width="30" alt="" /></a>
+    <footer class="text-center text-lg-start text-muted">
+      <!-- Section: Links  -->
+      <section class="d-flex ">
+        <div class="container text-light text-center text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h5 class="text-uppercase fw-bold mb-4 text-left">
+                <b>Tentang Kami</b>
+              </h5>
+              <p class="desc text-justify">
+                RSUD Siti Fatimah merupakan Rumah Sakit Umum Daerah milik Provinsi Sumatera Selatan. Rumah Sakit milik pemerintah daerah terbesar di Indonesia ini berdiri di atas lahan seluas 4,1 Hektar dengan area bangunan seluas 52,952,11 m2.<br><br>Lahir sebagai bukti dari keseriusan pemerintah daerah untuk meningkatkan derajat kesehatan masyarakat khususnya di wilayah Provinsi Sumatera Selatan (Sumsel).
+              </p>
+            </div>
+            <!-- Grid column -->
+
+           
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-left">
+              <!-- Links -->
+              <h5 class="text-uppercase fw-bold mb-4">
+                <b>Navigasi</b>
+              </h5>
+              <p>
+                <a href="#beranda-title" class="text-reset">Beranda</a>
+              </p>
+              <p>
+                <a href="/daftar-kegiatan" class="text-reset">Pelatihan</a>
+              </p>
+              <p>
+                <a href="/data-profil" class="text-reset">Profil</a>
+              </p>
+              <p>
+                <a href="/riwayat" class="text-reset">Riwayat</a>
+              </p>
+              <p>
+                <a href="/kelasku" class="text-reset">Kelasku</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-left ">
+              <!-- Links -->
+              <h5 class="text-uppercase fw-bold mb-4">
+                <b>Hubungi Kami</b>
+              </h5>
+              <p class="d-flex align-items-center"><span class="material-icons-round mr-2">call</span>&nbsp;+628117117929</p>
+              <p class="d-flex align-items-center"><span class="material-icons-round mr-2">email</span>&nbsp;sdm.rsudsumsel@gmail.com</p>
+              <p class="d-flex text-justify"><span class="material-icons-round mr-2">pin_drop</span>Jl. Kol. H. Burlian, Suka Bangun, Kec. Sukarami, Kota Palembang, Sumatera Selatan 30151</p>
+             
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+
+      <!-- Copyright --> 
+      <div class="text-center p-4 text-light border-top">
+        All Right Reserved © 
+        <a class="text-reset fw-bold" style="color: #81AFD8;" href="#">IT Team RSUD SF Kampus Merdeka 2021</a>
       </div>
-    </div>
-    <!-- Footer End -->
+      <!-- Copyright -->
+    </footer>
     <script src="/js/utility.js"></script>
     <?php
     function tgl_indo($tanggal){

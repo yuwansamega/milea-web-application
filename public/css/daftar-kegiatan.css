@@ -29,18 +29,6 @@ tr,
 td {
     text-align: center;
 }
-.copyright {
-    bottom: 0;
-}
-.text-center {
-    font-size: 18;
-    font-weight: 400;
-    margin-top: 50px;
-    bottom: 0 !important;
-    height: auto;
-    background-color: #f5f4f4;
-    /* #f5f4f4 */
-}
 table {
     border: 0px solid #000000;
     border-radius: 15px !important;
@@ -50,7 +38,6 @@ table {
 th {
     background-color: #198754;
     color: white;
-
 }
 
 thead th:first-child {
@@ -80,7 +67,12 @@ a:active {
 #links nav {
     position: static;
 }
-
+footer {
+    margin-top: 150px;
+}
+footer .container .row.mt-3 {
+    margin-top: 100px !important;
+}
 @media screen and (max-width: 900px) {
     .container {
         align-content: center;

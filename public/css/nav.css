@@ -22,7 +22,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: ease-in 0.5s;
+    transition: ease-in 0.25s;
 }
 
 nav #logo {
@@ -40,6 +40,7 @@ nav #logo h1 {
 
 nav #pages {
     display: flex;
+    padding: 0;
 }
 
 nav #pages li {
@@ -111,7 +112,9 @@ nav #toogle-black {
 nav #dropdown #pages-dropdown {
     display: none;
 }
-
+footer {
+    background-color: #198754 !important;
+}
 @media screen and (max-width: 900px) {
     nav {
         position: sticky;
@@ -144,7 +147,7 @@ nav #dropdown #pages-dropdown {
     }
 
     nav #dropdown {
-        background-color: #4f8d64;
+        background-color: #198754;
         top: 55px;
         left: 0;
         width: 100%;
@@ -195,6 +198,7 @@ nav #dropdown #pages-dropdown {
         display: none;
     }
 }
+
 @media screen and (max-width: 900px) {
     nav {
         position: fixed;
@@ -223,7 +227,7 @@ nav #dropdown #pages-dropdown {
     }
 
     nav #dropdown {
-        background-color: #4f8d64;
+        background-color: #198754;
         top: 70px;
         left: 0;
         width: 100%;
