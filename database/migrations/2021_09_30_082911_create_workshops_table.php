@@ -34,6 +34,7 @@ class CreateWorkshopsTable extends Migration
             $table->string('label_unduh_4')->nullable();
             $table->string('file_unduh_3')->nullable();
             $table->string('file_unduh_4')->nullable();
+            $table->string('key');
             $table->timestamps();
         });
     }
