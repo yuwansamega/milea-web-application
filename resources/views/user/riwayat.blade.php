@@ -151,75 +151,68 @@
     </div>
 
     <!-- Footer -->
-    <footer class="text-center text-lg-start text-muted">
-      <!-- Section: Links  -->
-      <section class="d-flex ">
-        <div class="container text-light text-center text-md-start mt-5">
-          <!-- Grid row -->
-          <div class="row mt-3">
-            <!-- Grid column -->
-            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-              <!-- Content -->
-              <h5 class="text-uppercase fw-bold mb-4 text-left">
-                <b>Tentang Kami</b>
-              </h5>
-              <p class="desc text-justify">
-                RSUD Siti Fatimah merupakan Rumah Sakit Umum Daerah milik Provinsi Sumatera Selatan. Rumah Sakit milik pemerintah daerah terbesar di Indonesia ini berdiri di atas lahan seluas 4,1 Hektar dengan area bangunan seluas 52,952,11 m2.<br><br>Lahir sebagai bukti dari keseriusan pemerintah daerah untuk meningkatkan derajat kesehatan masyarakat khususnya di wilayah Provinsi Sumatera Selatan (Sumsel).
-              </p>
-            </div>
-            <!-- Grid column -->
-
-           
-
-            <!-- Grid column -->
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-left">
-              <!-- Links -->
-              <h5 class="text-uppercase fw-bold mb-4">
-                <b>Navigasi</b>
-              </h5>
-              <p>
-                <a href="#beranda-title" class="text-reset">Beranda</a>
-              </p>
-              <p>
-                <a href="/daftar-kegiatan" class="text-reset">Pelatihan</a>
-              </p>
-              <p>
-                <a href="/data-profil" class="text-reset">Profil</a>
-              </p>
-              <p>
-                <a href="/riwayat" class="text-reset">Riwayat</a>
-              </p>
-              <p>
-                <a href="/kelasku" class="text-reset">Kelasku</a>
-              </p>
-            </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-left ">
-              <!-- Links -->
-              <h5 class="text-uppercase fw-bold mb-4">
-                <b>Hubungi Kami</b>
-              </h5>
-              <p class="d-flex align-items-center"><span class="material-icons-round mr-2">call</span>&nbsp;+628117117929</p>
-              <p class="d-flex align-items-center"><span class="material-icons-round mr-2">email</span>&nbsp;sdm.rsudsumsel@gmail.com</p>
-              <p class="d-flex text-justify"><span class="material-icons-round mr-2">pin_drop</span>Jl. Kol. H. Burlian, Suka Bangun, Kec. Sukarami, Kota Palembang, Sumatera Selatan 30151</p>
-             
-            </div>
-            <!-- Grid column -->
-          </div>
-          <!-- Grid row -->
+        <footer>
+      <div class="row">
+        <div class="col">
+          <p><b>Tentang Kami</b></p>
+          <p>RSUD Siti Fatimah merupakan Rumah Sakit Umum Daerah milik Provinsi Sumatera Selatan. Rumah Sakit milik pemerintah daerah terbesar di Indonesia ini berdiri di atas lahan seluas 4,1 Hektar dengan area bangunan seluas 52,952,11 m2.<br> <br> Lahir sebagai bukti dari keseriusan pemerintah daerah untuk meningkatkan derajat kesehatan masyarakat khususnya di wilayah Provinsi Sumatera Selatan (Sumsel).</p>
         </div>
-      </section>
-      <!-- Section: Links  -->
-
-      <!-- Copyright --> 
-      <div class="text-center p-4 text-light border-top">
-        All Right Reserved © 
-        <a class="text-reset fw-bold" style="color: #81AFD8;" href="#">IT Team RSUD SF Kampus Merdeka 2021</a>
+        <div class="col px-sm-5" style="min-width: 200px; margin-bottom:15px">
+          <p class=""><b>Navigasi</b></p>
+            <a href="">Beranda</a>
+            <br><br>
+            <a href="">Pelatihan</a>
+            <br><br>
+            <a href="">Profil</a>
+            <br><br>
+            <a href="">Riwayat</a>
+            <br><br>
+            <a href="">Kelasku</a>
+        </div>
+        <div class="col">
+          <p><b>Hubungi Kami</b></p>
+          <div class="col">
+            <div class="row flex-nowrap">
+              <div class="col flex-grow-0 p-0">
+                <img src="../../assets/footer-icons/Phone.png" alt="" style="min-width:21px">
+              </div>
+              <div class="col">
+                <a href="">+628117117929</a>
+              </div>
+            </div>
+            <br>
+            <div class="row flex-nowrap">
+              <div class="col flex-grow-0 p-0">
+                <img src="../../assets/footer-icons/Gmail.png" alt="" style="min-width:18px">
+              </div>
+              <div class="col">
+                <a href="">
+                    sdm.rsudsumsel@gmail.com
+                </a>
+              </div>
+            </div>
+            <br>
+            <div class="row flex-nowrap">
+              <div class="col flex-grow-0 p-0">
+                <img src="../../assets/footer-icons/Location.png" alt="" style="min-width:18px">
+              </div>
+              <div class="col">
+                <a href="">
+                    Jl. Kol. H. Burlian, Suka Bangun, Kec. Sukarami, Kota Palembang, Sumatera Selatan 30151
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- Copyright -->
+      <hr style="background-color:white">
+      <div class="row" style="margin-top: 15px">
+        <div class="col">
+          <p class="text-center">IT Team RSUD SF Kampus Merdeka 2021</p>
+        </div>
+      </div>
     </footer>
+
     <script src="/js/utility.js"></script>
     <script>
 
