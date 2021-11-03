@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Workshop;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class WSController extends Controller
 {
@@ -131,6 +133,7 @@ class WSController extends Controller
             $fileName[$i++] = time().rand(100,999).".".$u->getClientOriginalExtension();
         } 
         $post_pelatihan = array(
+            'key' => Str::random(10),
             'open_regist' => $request->open_regist,
             'close_regist' => $request->close_regist,
             'open_ws' => $request->open_ws,
