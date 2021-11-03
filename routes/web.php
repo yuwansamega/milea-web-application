@@ -26,6 +26,9 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
+Route::get('/test', function () {
+    return view('/admin/tambah_materi');
+});
 
 
 //For Booth
@@ -70,7 +73,9 @@ Route::group(['middleware' => ['auth', 'role:admin']], function(){
     Route::get('/admin/create/pelatihan', [WSController::class, 'indexAdminTambah']);
     Route::post('/admin/create/pelatihan', [WSController::class, 'store']);
     
+    Route::get('/admin/tambah_materi', [AdminController::class, 'showAdd'])->name('admin.tambah_materi');
+    Route::post('/post_material', [AdminController::class, 'storeMaterial']);
     
- });
+});
 
 require __DIR__.'/auth.php';

@@ -22,4 +22,22 @@ class AdminController extends Controller
             "work" => $work_count
         ]);
     }
+    
+    public function showAdd(){
+        
+        return view ('admin.tambah_materi',[
+            "title" => "Milea Admin | Dashboard"
+        ]);
+    }
+
+    public function storeMaterial(Request $request){
+        $request->validate([
+            'material_file' => 'max:4096'
+        ]);
+        $coba_label= $request->material_label;
+        $coba_file= $request->material_file;
+        
+        return dd($coba_label, $coba_file);
+        
+}
 }
