@@ -2,7 +2,8 @@
     font-family: "Montserrat";
 }
 
-body {
+
+body{
     display: flex;
 }
 
@@ -32,6 +33,7 @@ body {
 
 /* Side Bar */
 
+
 #sidebar * {
     font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont,
         "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
@@ -51,7 +53,7 @@ body {
     background-color: #212529;
 }
 
-#sidebar h1 {
+#sidebar h1{
     padding: 8px 0;
     font-size: 1.25rem;
     font-weight: 300;
@@ -66,11 +68,11 @@ body {
     border-bottom: 1px solid #4f5962;
 }
 
-#sidebar a {
+#sidebar a{
     text-decoration: none;
 }
 
-#sidebar ul li {
+#sidebar ul li{
     padding: 8px 16px;
     margin-bottom: 8px;
     background-color: #007bff !important;

@@ -19,15 +19,16 @@ class AdminVerifikasiController extends Controller
         // $data_user = DataUser::where('user_id', $user_id_sub)->first();
 
         $data = DB::table('submissions')
+            ->where('submissions.status_p', 'Menunggu verifikasi')
             ->join('data_users', 'submissions.user_id', '=', 'data_users.user_id')
             ->join('workshops', 'submissions.ws_id', '=', 'workshops.id')
             ->select('data_users.fullname', 'data_users.nik', 'workshops.title', 'submissions.id', 'submissions.status_p')
             // ->orderBy('status_p', 'asc')
             ->latest('submissions.created_at')->get();
-            // ->get();
-        
+   
         return view ('admin.verifikasi', [
-            "data_sub" => $data
+            "data_sub" => $data,
+            "title" => "Milea Admin | Verifikasi"
         ]);
         
     }

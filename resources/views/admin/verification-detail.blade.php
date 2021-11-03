@@ -4,7 +4,6 @@
     @include('partials.head.admin.dverifikasi')
 @endsection
 
-
 @section('content')
 <div class="row">
     <aside id="sidebar" class="col">

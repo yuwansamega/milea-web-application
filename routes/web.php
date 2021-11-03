@@ -23,7 +23,7 @@ use App\Http\Controllers\WorkshopController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return redirect('/login');
 });
 
 
@@ -59,10 +59,16 @@ Route::group(['middleware' => ['auth', 'role:admin']], function(){
     Route::get('/admin/verifikasi', [AdminVerifikasiController::class, 'index'])->name('admin.verifikasi');
     Route::get('/admin/verifikasi/detail/{data_sub_id}', [AdminDVerifikasiController::class, 'index'])->name('admin.dverifikasi');
     Route::post('/admin/update-submissions/{data_sub_id}', [AdminDVerifikasiController::class, 'update']);
+
     Route::get('/admin/pelatihan', [WSController::class, 'indexAdmin'])->name('admin.pelatihan');
+    Route::get('/admin/pelatihan/{ws_id}', [WSController::class, 'indexWorkshopSub']);
+    Route::get('/admin/pelatihan/update/{data_ws_id}', [WSController::class, 'indexUpdate'])->name('admin.pelatihan.update');
+    Route::post('/admin/pelatihan/update/simpan/{data_ws_id}', [WSController::class, 'update']);
+
     Route::delete('/admin/pelatihan/delete/{id}', [WSController::class, 'delete']);
-    Route::get('/admin/pelatihan/tambah', [WSController::class, 'indexAdminTambah'])->name('admin.pelatihan.tambah');
-    Route::post('/admin/pelatihan/tambah', [WSController::class, 'store']);
+    
+    Route::get('/admin/create/pelatihan', [WSController::class, 'indexAdminTambah']);
+    Route::post('/admin/create/pelatihan', [WSController::class, 'store']);
     
     
  });

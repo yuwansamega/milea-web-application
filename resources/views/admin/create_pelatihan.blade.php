@@ -7,7 +7,7 @@
 @section('content')
 <div id="container" class="row">
     <aside id="sidebar" class="col">
-        <h1>Title</h1>
+        <h1>Admin</h1>
         <h2>Hello, {{ Auth::user()->name }}</h2>
         <ul class="col">
             <a href="{{ route('admin.dashboard') }}">
@@ -16,9 +16,9 @@
             <a href="{{ route('admin.verifikasi') }}">
                 <li>Verifikasi</li>
             </a>
-            <a href="{{ route('admin.pelatihan') }}">
+            <a href="{{ route('admin.pelatihan') }}" class="nav-link bg-primary">
                 <li>Pelatihan</li>
-            </a>
+              </a>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
             <a href="route('logout')" onclick="event.preventDefault();
@@ -29,7 +29,13 @@
         </ul>
     </aside>
     <main id="main-content" class="row justify-center">
-        <form action="/admin/pelatihan/tambah" method="POST" id="training-form" class="col" enctype="multipart/form-data">
+        <modal id="modal" style="display: flex;" class="center">
+            <div id="modal-container" class="col allign-center">
+                <h3>Pastikan untuk melengkapi <b>seluruh tanggal</b> yang diperlukan!</h3>
+                <button type="button" class="modal-button">OK</button>
+            </div>
+        </modal>
+        <form action="/admin/create/pelatihan" method="POST" id="training-form" class="col" enctype="multipart/form-data">
             @csrf
             <div class="col" id="container">
                 <h1>Upload Pelatihan</h1>
@@ -156,5 +162,7 @@
         </form>
     </main>
 </div>
+<script src="/js/admin/formPelatihan.js"></script>
+<script src="/js/utility.js"></script>
 @endsection
 

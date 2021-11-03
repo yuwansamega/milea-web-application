@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="/img/Logo-only.png">
+    <link rel="stylesheet" href="../../public/css/nav.css" />    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+    <title>Beranda</title>
+  </head>
+  <body>
+    <nav>
+      <div id="logo">
+        <img src="../../public/img/navbar-logo.png" alt="" height="68px" width="68px" />
+        <h1 class="new">MILEA</h1>
+      </div>
+      <ul id="pages">
+        <li>
+          <a href="/beranda" class="selected">Beranda</a>
+        </li>
+        <li>
+          <a href="/daftar-kegiatan">Daftar Kegiatan</a>
+        </li>
+      </ul>
+      <img
+        src="../../public/img/navbar-toggle-white.png"
+        alt=""
+        id="toogle-white"
+        width="50px"
+        height="50px"
+        class="dropdown-toggle"
+      />
+      <img
+        src="../../public/img/navbar-toggle-black.png"
+        alt=""
+        id="toogle-black"
+        width="50px"
+        height="50px"
+        class="dropdown-toggle"
+      />
+      <ul id="dropdown">
+        <img id="addition" src="../../public/img/dropdown-addition.png" alt="" />
+        <ul id="pages-dropdown">
+          <li>
+            <a href="/beranda" class="selected">
+              <span class="material-icons-round">home</span>
+              <p>Beranda</p>
+            </a>
+          </li>
+          <li>
+            <a href="/daftar-kegiatan">
+              <span class="material-icons-round">list</span>
+              <p>Daftar Kegiatan</p>
+            </a>
+          </li>
+          <li>
+        </ul>
+        <a href="/data-profil">
+          <img src="../../public/img/navbar-profile.png" alt="" width="19px" height="19px" />
+          <span class="material-icons-round">account_box</span>
+          <li>Profil</li>
+        </a>
+        <a href="/riwayat">
+          <img src="../../public/img/navbar-history.png" alt="" width="19px" height="19px" />
+          <span class="material-icons-round">history</span>
+          <li>Riwayat</li>
+        </a>
+        <form method="POST" action="{{ route('logout') }}">
+          <a href="" id="sign-out">
+            <img src="../../public/img/navbar-signout.png" alt="" width="19px" height="19px" />
+            <span class="material-icons-round">logout</span>
+          <li>Keluar</li>
+        </a></form>
+      </ul>
+    </nav>
+    <script src="../../public/js/utility.js"></script>
+  </body>
+</html>

@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="bootstrap-5.1.1-dist\js\bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/css/detail-kegiatan.css" />
-    <link rel="stylesheet" href="/css/nav copy.css" />
+    <link rel="stylesheet" href="/css/nav.css"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.1/umd/popper.min.js"
@@ -21,28 +21,32 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-<script src="https://kit.fontawesome.com/debebc2c1e.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/debebc2c1e.js" crossorigin="anonymous"></script>
 
     <title>{{ $title }}</title>
   </head>
   <body>
     <nav>
       <div id="logo">
-        <img src="/img/Logo-only.png" alt="" height="68px" width="68px" />
-        <h1 class="new" style="margin-top: 13px">MILEA</h1>
+        <img src="/img/navbar-logo.png" alt="" height="68px" width="68px" />
+        <h1 class="new">MILEA</h1>
       </div>
       <ul id="pages">
         <li>
-          <a href="/beranda">Beranda</a>
+          <a href="/beranda" >Beranda</a>
         </li>
         <li>
-          <a href="/daftar-kegiatan" class="selected">Daftar Kegiatan</a>
+          <a href="/daftar-kegiatan" class="selected">Pelatihan</a>
+        </li>
+        <li>
+          <a href="/kelasku" >Kelasku</a>
         </li>
       </ul>
       <img
@@ -62,27 +66,44 @@
         class="dropdown-toggle"
       />
       <ul id="dropdown">
-        <img id="addition" src="img/dropdown-addition.png" alt="" />
+        <img id="addition" src="/img/dropdown-addition.png" alt="" />
+        <ul id="pages-dropdown">
+          <li>
+            <a href="/beranda" class="selected">
+              <span class="material-icons-round">home</span>
+              <p>Beranda</p>
+            </a>
+          </li>
+          <li>
+            <a href="/daftar-kegiatan">
+              <span class="material-icons-round selected">list</span>
+              <p>Pelatihan</p>
+            </a>
+          </li>
+          <li>
+        </ul>
         <a href="/data-profil">
-          <img src="/img/navbar-profile.png" alt="" width="19px" height="19px" />
+          <img src="../../assets/navbar-profile.png" alt="" width="19px" height="19px" />
+          <span class="material-icons-round">account_box</span>
           <li>Profil</li>
         </a>
         <a href="/riwayat">
-          <img src="/img/navbar-history.png" alt="" width="19px" height="19px" />
+          <img src="../../assets/navbar-history.png" alt="" width="19px" height="19px" />
+          <span class="material-icons-round">history</span>
           <li>Riwayat</li>
         </a>
         <form method="POST" action="{{ route('logout') }}">
           @csrf
-        <a href="route('logout')"
-        onclick="event.preventDefault();
-                    this.closest('form').submit();">
-          <img src="/img/navbar-signout.png" alt="" width="19px" height="19px" />
+          <a href="route('logout')" id="sign-out" onclick="event.preventDefault();
+          this.closest('form').submit();">
+            <img src="/img/navbar-signout.png" alt="" width="19px" height="19px" />
+            <span class="material-icons-round">logout</span>
           <li>Keluar</li>
         </a></form>
       </ul>
-    </nav>
+  </nav>
 
-    <div class="container" style="margin-top: 150px">
+    <div class="container" style="margin-top: 200px">
       <div class="row pertama justify-content-center">
         <div class="container">
           <table class="table table-borderless">
@@ -109,47 +130,46 @@
         </div>
       </div>
 
-      <div class="row kedua">
+      <div class="row kedua" >
         <div class="container">
           <table class="table table-borderless">
             <thead>
               <tr>
-                <th
+                <th colspan="2"
                   scope="col"
-                  style="font-size: 23px; width: 340px; font-weight: 600"
+                  style="font-size: 23px; font-weight: 600"
                 >
                   &nbsp;&nbsp;&nbsp; Detail Data Pelatihan
                 </th>
-                <th></th>
               </tr>
             </thead>
             <tbody style="font-size: 18px;">
               <tr>
-                <td>&nbsp;&nbsp;&nbsp; Tahun Pelaksanaan</td>
+                <td class="tb-kiri" >Tahun Pelaksanaan</td>
                 <td>{{ date('Y',strtotime($ws->close_ws)) }}</td>
               </tr>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp; Nama Pelatihan</td>
+                <td class="tb-kiri">Nama Pelatihan</td>
                 <td>{{ $ws->title }}</td>
               </tr>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp; Periode Pendaftaran</td>
+                <td class="tb-kiri"> Periode Pendaftaran</td>
                 <td>{{ tgl_indo($ws->open_regist) }} - {{ tgl_indo($ws->close_regist) }}</td>
               </tr>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp; Periode Pelaksanaan</td>
+                <td class="tb-kiri">Periode Pelaksanaan</td>
                 <td>{{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</td>
               </tr>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp; Tempat Penyelengaraan</td>
+                <td class="tb-kiri">Tempat Penyelengaraan</td>
                 <td>{{ $ws->place }}</td>
               </tr>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp; Kuota</td>
+                <td class="tb-kiri">Kuota</td>
                 <td>{{ $ws->quota }} Peserta</td>
               </tr>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp; Narahubung</td>
+                <td class="tb-kiri">Narahubung</td>
                 <td>
                   {{ $ws->cp }}
                 </td>
@@ -211,7 +231,7 @@
                   <div class="row">
                     <div>
                       <label for="inputEmail3" class="col-form-label" 
-                        >{{ $ud['label'] }}</label
+                        >{{ $ud["label"] }}</label
                       >
                     </div>
                   </div>
@@ -230,14 +250,14 @@
                   <td scope="row" style="text-align: justify; padding: 30px">
                     <div class="row">
                       <div class="col-sm-3">
-                        <img
+                        <img id="warning"
                           src="/img/warning.png"
                           style="margin-left: 15px"
                           alt=""
                         />
                       </div>
                       <div class="col-sm-9">
-                        <h6 style="margin-top: 25px; color: crimson;font-size: 18px;">
+                        <h6 id ="unduhan" style="margin-top: 25px; color: crimson;font-size: 18px;">
                           Tidak Ada Yang Perlu Diunduh!
                         </h6>
                       </div>
@@ -317,14 +337,14 @@
                     <td scope="row" style="text-align: justify; padding: 30px">
                       <div class="row">
                         <div class="col-sm-3">
-                          <img
+                          <img id="warning"
                             src="/img/warning.png"
                             style="margin-left: 15px"
                             alt=""
                           />
                         </div>
                         <div class="col-sm-9">
-                          <h6 style="margin-top: 25px; color: crimson;font-size: 18px;">
+                          <h6 id="unggahan" style="margin-top: 25px; color: crimson;font-size: 18px;">
                             Tidak Ada Yang Perlu Diunggah!
                           </h6>
                         </div>
@@ -332,20 +352,9 @@
                     </td>
                   </tr>
                   @endif
-                
-                
-               
             </tbody>
           </table>
-          
-          
         </div>
-        
-      
-      </div>
-      
-      <div class="row">
-        
       </div>
       <div class="row kelima justify-content-center" style="margin-top: 50px">
         <div class="container">
@@ -374,46 +383,84 @@
                       <input type="checkbox" class="form-check-input" id="exampleCheck1" style="transform: scale(1.75);" required>
                       <label class="form-check-label" for="exampleCheck1" style="margin-left: 7px">Saya menyatakan bahwa pernyataan di atas adalah <span style="color: red"><b>BENAR</b></span>.</label>
                     </div>
-                    
                   </ul>
-                  
-                    
-                  
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-    <div class="container">
-            
-            
-          <div class="row mt-2 pt-3 justify-content-end">
-
-            <button type="submit" class="btn" style="font-weight: bolder; border:1px solid; border-color:#198754; color:black;">DAFTAR</button>
-          </div>
-
-
+    <div class="container">   
+        <div class="row mt-2 pt-3 justify-content-end" id="btn-daftar">
+          <button type="submit" id="sub" class="btn" style="font-weight: bolder; border:1px solid; border-color:#198754; color:black;">DAFTAR</button>
         </div>
+    </div>
     </form>
     </div>
     
 
     <!-- Footer -->
-    <div class="copyright">
-      <div class="text-center text-dark p-3">
-        <h6>
-          All Right Reserved © IT Team RSUD Siti Fatimah Kampus Merdeka 2021
-        </h6>
-        <a>Temukan kami di : </a>
-        <a href="https://api.whatsapp.com/send?phone=08117117929" target="output"><img src="/img/Call.png" width="30" alt="" /></a>
-        <a href="mailto:sdm.rsudsumsel@gmail.com" target="output"><img src="/img/Gmail.png" width="30" alt="" /></a>
-        <a href="https://www.facebook.com/RSUDSitiFatimah" target="output"><img src="/img/Facebook.png" width="30" alt="" /></a>
-        <a href="https://www.youtube.com/c/RSUDSitiFatimahProvSumsel" target="output"><img src="/img/Youtube.png" width="30" alt="" /></a>
-        <a href="https://www.instagram.com/rsudsitifatimah/" target="output"><img src="/img/Instagram.png" width="30" alt="" /></a>
+    <footer>
+      <div class="row">
+        <div class="col">
+          <p><b>Tentang Kami</b></p>
+          <p>RSUD Siti Fatimah merupakan Rumah Sakit Umum Daerah milik Provinsi Sumatera Selatan. Rumah Sakit milik pemerintah daerah terbesar di Indonesia ini berdiri di atas lahan seluas 4,1 Hektar dengan area bangunan seluas 52,952,11 m2.<br> <br> Lahir sebagai bukti dari keseriusan pemerintah daerah untuk meningkatkan derajat kesehatan masyarakat khususnya di wilayah Provinsi Sumatera Selatan (Sumsel).</p>
+        </div>
+        <div class="col px-sm-5" style="min-width: 200px; margin-bottom:15px">
+          <p class=""><b>Navigasi</b></p>
+            <a href="">Beranda</a>
+            <br><br>
+            <a href="">Pelatihan</a>
+            <br><br>
+            <a href="">Profil</a>
+            <br><br>
+            <a href="">Riwayat</a>
+            <br><br>
+            <a href="">Kelasku</a>
+        </div>
+        <div class="col">
+          <p><b>Hubungi Kami</b></p>
+          <div class="col">
+            <div class="row flex-nowrap">
+              <div class="col flex-grow-0 p-0">
+                <img src="../../assets/footer-icons/Phone.png" alt="" style="min-width:21px">
+              </div>
+              <div class="col">
+                <a href="">+628117117929</a>
+              </div>
+            </div>
+            <br>
+            <div class="row flex-nowrap">
+              <div class="col flex-grow-0 p-0">
+                <img src="../../assets/footer-icons/Gmail.png" alt="" style="min-width:18px">
+              </div>
+              <div class="col">
+                <a href="">
+                    sdm.rsudsumsel@gmail.com
+                </a>
+              </div>
+            </div>
+            <br>
+            <div class="row flex-nowrap">
+              <div class="col flex-grow-0 p-0">
+                <img src="../../assets/footer-icons/Location.png" alt="" style="min-width:18px">
+              </div>
+              <div class="col">
+                <a href="">
+                    Jl. Kol. H. Burlian, Suka Bangun, Kec. Sukarami, Kota Palembang, Sumatera Selatan 30151
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <!-- Footer End -->
+      <hr style="background-color:white">
+      <div class="row" style="margin-top: 15px">
+        <div class="col">
+          <p class="text-center">IT Team RSUD SF Kampus Merdeka 2021</p>
+        </div>
+      </div>
+    </footer>
     <script src="/js/utility.js"></script>
     <?php
     function tgl_indo($tanggal){

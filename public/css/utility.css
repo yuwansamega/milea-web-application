@@ -1,17 +1,18 @@
-*{
+* {
     /* border : 1px solid black; */
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
 }
 
-.col , .row{
+.col,
+.row {
     display: flex;
 }
 
@@ -19,29 +20,33 @@ body{
     flex-direction: column;
 }
 
-.space-between{
+.space-between {
     justify-content: space-between;
 }
 
-.justify-center{
+.justify-center {
     justify-content: center;
 }
 
-.allign-center{
+.allign-center {
     align-items: center;
 }
 
-.center{
+.center {
     justify-content: center;
     align-items: center;
 }
 
-main{
+main {
     flex-grow: 1;
 }
 
-#modal{
+#modal {
     display: none;
+}
+
+.flex-end {
+    justify-content: flex-end;
 }
 
 /* 

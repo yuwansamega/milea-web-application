@@ -20,7 +20,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <a href="{{ route('admin.pelatihan.tambah') }}">
+              <a href="/admin/create/pelatihan">
                   <button type="button" class="btn btn-primary">Tambah Pelatihan</button>
               </a>
             </ol>
@@ -64,21 +64,35 @@
                     <td>@php
                         echo $i++;
                     @endphp</td>
-                    <td>{{ $ws->title }}</td>
+                    
+                      <td><a href="/admin/pelatihan/{{ $ws->id }}">{{ $ws->title }}</a></td>
+                    
                     <td>{{ $ws->open_regist.'-'.$ws->close_regist }}</td>
                     <td>{{ $ws->open_ws.'-'.$ws->close_ws }}</td>
                     <td>{{ $ws->place }}</td>
                     <td>{{ $ws->quota }}</td>
                     <td>
-                        <form action="/admin/pelatihan/delete/{{ $ws->id }}" method="POST" onsubmit="return confirm('Yakin Hapus Data?')">
-                        @method('delete')
-                        @csrf
-                        {{-- <a href="/admin/pelatihan/delete/{{ $ws->id }}"> --}}
-                            <button type="submit" class="btn btn-danger btn-sm" >
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        {{-- </a> --}}
-                        </form>
+                        <div class="row">
+                          <div class="col-5">
+                                <a href="/admin/pelatihan/update/{{ $ws->id }}">
+                                  <button type="submit" class="btn btn-secondary btn-sm" >
+                                      <i class="fas fa-cog"></i>
+                                  </button>
+                                </a>
+                          </div>
+                          <div class="col">
+                            <form action="/admin/pelatihan/delete/{{ $ws->id }}" method="POST" onsubmit="return confirm('Yakin Hapus Data?')">
+                              @method('delete')
+                              @csrf
+                              {{-- <a href="/admin/pelatihan/delete/{{ $ws->id }}"> --}}
+                                  <button type="submit" class="btn btn-danger btn-sm" >
+                                      <i class="fa fa-trash"></i>
+                                  </button>
+                              {{-- </a> --}}
+                              </form>
+                          </div>
+                          
+                        </div>
                     </td>
                   </tr>
                   @endforeach
