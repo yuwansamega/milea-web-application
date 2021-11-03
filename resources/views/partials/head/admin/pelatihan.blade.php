@@ -8,5 +8,8 @@
 <link rel="stylesheet" href="/css/admin/buttons.bootstrap4.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="/css/admin/adminlte.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
 <script src="https://kit.fontawesome.com/debebc2c1e.js" crossorigin="anonymous"></script>

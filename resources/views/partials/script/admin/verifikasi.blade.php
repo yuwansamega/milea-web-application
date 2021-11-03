@@ -15,6 +15,7 @@
 <script src="/js/admin/buttons.html5.min.js"></script>
 <script src="/js/admin/buttons.print.min.js"></script>
 <script src="/js/admin/buttons.colVis.min.js"></script>
+<script src="/js/admin/modul-materi.js"></script>
 <!-- AdminLTE App -->
 <script src="/js/admin/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
