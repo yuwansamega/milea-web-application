@@ -16,21 +16,24 @@
     <title>Data Profil</title>
 </head>
 <body>
-    <nav>
+    <nav style="position: sticky">
         <div id="logo">
           <img src="../../assets/navbar-logo.png" alt="" height="68px" width="68px" />
           <h1 class="new">MILEA</h1>
         </div>
         <ul id="pages">
           <li>
-            <a href="/beranda" class="selected">Beranda</a>
+            <a href="/beranda">Beranda</a>
           </li>
           <li>
             <a href="/daftar-kegiatan">Daftar Kegiatan</a>
           </li>
+          <li>
+            <a href="/kelas">Kelas</a>
+          </li>
         </ul>
         <img
-          src="../../assets/navbar-toggle-white.png"
+          src="../../assets/navbar-toggle-black.png"
           alt=""
           id="toogle-white"
           width="50px"
@@ -60,7 +63,6 @@
                   <p>Daftar Kegiatan</p>
                 </a>
               </li>
-              <li>
             </ul>
             <a href="/data-profil">
               <img src="../../assets/navbar-profile.png" alt="" width="19px" height="19px" />
@@ -84,7 +86,7 @@
     </nav>
     <main class="row justify-center">
         <div id="left" class="col">
-            <div class="row" id="header">
+            <div class="row allign-center" id="header">
                 <img src="\user\ava\{{ $data_user->image }}"alt="" id="profil-pic">
                 <div class="group col justify-center">
                     <h1>{{$data_user->fullname }}</h1>
@@ -145,7 +147,7 @@
                   </ul>
               </div>
           @endif
-            <ul class="col">
+            <ul class="col" style="padding: 30px; background-color: rgba(255, 255, 255, 0.5)" >
                 <li class="row allign-center">
                     <label for="">Pas Foto</label>
                     <input type="file" class="col center" style="color: transparent;" name="image">

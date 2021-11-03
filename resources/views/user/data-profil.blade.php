@@ -81,9 +81,9 @@
           </a></form>
         </ul>
     </nav>
-    <main class="row justify-center">
+    <main class="row justify-center" style="max-width: 100vw">
         <div id="left" class="col">
-            <div class="row" id="header">
+            <div class="row allign-center" id="header">
                 <img src="\user\ava\{{ $data_user->image }}"alt="" id="profil-pic">
                 <div class="group col justify-center">
                     <h1>{{$data_user->fullname }}</h1>
