@@ -115,6 +115,19 @@ nav #dropdown #pages-dropdown {
 footer {
     background-color: #198754 !important;
 }
+
+footer {
+    color: white;
+    padding: 50px 70px;
+    padding-bottom: 0;
+    background-color: #11543cda;
+}
+
+footer #mini-text {
+    border-top: 0.5px solid white;
+    padding: 10px 0 !important;
+}
+
 @media screen and (max-width: 900px) {
     nav {
         position: sticky;

@@ -27,9 +27,12 @@
           <li>
             <a href="/daftar-kegiatan">Daftar Kegiatan</a>
           </li>
+          <li>
+            <a href="/kelas">Kelas</a>
+          </li>
         </ul>
         <img
-          src="../../assets/navbar-toggle-white.png"
+          src="../../assets/navbar-toggle-black.png"
           alt=""
           id="toogle-white"
           width="50px"
@@ -83,7 +86,7 @@
     </nav>
     <main class="row justify-center">
         <div id="left" class="col">
-            <div class="row" id="header">
+            <div class="row allign-center" id="header">
                 <img src="\user\ava\{{ $data_user->image }}"alt="" id="profil-pic">
                 <div class="group col justify-center">
                     <h1>{{$data_user->fullname }}</h1>
@@ -173,7 +176,7 @@
             <div class="col">
                 <h3>Tentang Kami</h3>
                 <p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;RSUD Siti Fatimah merupakan rumah sakit milik permerintah daerah terbesar di Indonesia, yang berdiri di atas lahan seluas 4,1 Hektar dengan area bangunan seluas 52,952,11 m2.<br>&nbsp;&nbsp;&nbsp;Lahir sebagai bukti keseriusan pemerintah daerah untuk meningkatkan derajat kesehatan masyarakat khususnya di wilayah Provinsi Sumatera Selatan (Sumsel).
+                    RSUD Siti Fatimah merupakan rumah sakit milik permerintah daerah terbesar di Indonesia, yang berdiri di atas lahan seluas 4,1 Hektar dengan area bangunan seluas 52,952,11 m2.<br>Lahir sebagai bukti keseriusan pemerintah daerah untuk meningkatkan derajat kesehatan masyarakat khususnya di wilayah Provinsi Sumatera Selatan (Sumsel).
                 </p>
                 <div class="row" id="icons">
                     <a href="https://www.facebook.com/RSUDSitiFatimah" target="output">
