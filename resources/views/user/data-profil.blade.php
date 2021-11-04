@@ -21,13 +21,16 @@
           <h1 class="new">MILEA</h1>
         </div>
         <ul id="pages">
-          <li>
-            <a href="/beranda">Beranda</a>
-          </li>
-          <li>
-            <a href="/daftar-kegiatan">Daftar Kegiatan</a>
-          </li>
-        </ul>
+            <li>
+              <a href="/beranda" >Beranda</a>
+            </li>
+            <li>
+              <a href="/daftar-kegiatan">Pelatihan</a>
+            </li>
+            <li>
+              <a href="/kelas" >Kelas</a>
+            </li>
+          </ul>
         <img
           src="../../assets/navbar-toggle-black.png"
           alt=""
@@ -302,19 +305,19 @@
                 <ul id="hubungi-kami">
                     <li class="row">
                         <img src="../../assets/footer-icons/Phone.png" alt="">
-                        <a href="">
+                        <a href="tel:+628117117929"  target="output">
                             +628117117929
                         </a>
                     </li>
                     <li class="row">
                         <img src="../../assets/footer-icons/Gmail.png" alt="">
-                        <a href="">
+                        <a href="mailto:sdm.rsudsumsel@gmail.com" target="output">
                             sdm.rsudsumsel@gmail.com
                         </a>
                     </li>
                     <li class="row">
                         <img src="../../assets/footer-icons/Location.png" alt="">
-                        <a href="">
+                        <a href="https://goo.gl/maps/17obni8cszBPwYCb7" target="output">
                             Jl. Kol. H. Burlian, Suka Bangun, Kec. Sukarami, Kota Palembang, Sumatera Selatan 30151
                         </a>
                     </li>

@@ -82,14 +82,14 @@ class AdminDVerifikasiController extends Controller
             ->where('submissions.id', $data_sub_id)
             ->join('data_users', 'submissions.user_id', '=', 'data_users.user_id')
             ->join('workshops', 'submissions.ws_id', '=', 'workshops.id')
-            ->select('submissions.status_p',  'workshops.title', 'workshops.cp','data_users.fullname', 'data_users.email' )
+            ->select('submissions.status_p', 'workshops.key',  'workshops.title', 'workshops.cp','data_users.fullname', 'data_users.email' )
             ->first();
         
         
         if($request->status_p === "Diterima"){
             $mail = [
                 'title' => 'Hasil Verifikasi Pendaftaran Pelatihan di MILEA RSUD Siti Fatimah Sumsel',
-                'body' => 'Selamat <b>'.$data->fullname.'</b>, anda <b>DITERIMA</b> mengikuti <b>'. $data->title.'.</b> Silakan hubungi narahubung: <b>('.$data->cp.')</b> untuk informasi lebih lanjut.'
+                'body' => 'Selamat <b>'.$data->fullname.'</b>, anda <b>DITERIMA</b> mengikuti <b>'. $data->title.'. </b> Kode Kelas : <b>'.$data->key.'</b>. Silakan hubungi narahubung: <b>('.$data->cp.')</b> untuk informasi lebih lanjut.'
                 ];
                 
                 Mail::to($data->email)->send(new \App\Mail\MyTestMail($mail));

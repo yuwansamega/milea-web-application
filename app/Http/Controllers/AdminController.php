@@ -22,4 +22,7 @@ class AdminController extends Controller
             "work" => $work_count
         ]);
     }
+    
+
+
 }

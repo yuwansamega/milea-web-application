@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Workshop;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class WSController extends Controller
 {
@@ -55,16 +57,22 @@ class WSController extends Controller
 
     public function indexWorkshopSub ($ws_id){
 
+        $data_material = DB::table('materials')
+            ->where('materials.ws_id', $ws_id)
+            ->get();
+
         $data = DB::table('submissions')
             ->where('submissions.ws_id', $ws_id)
             ->Where('submissions.status_p', 'Diterima')
             ->join('data_users', 'submissions.user_id', '=', 'data_users.user_id')
             ->select('data_users.fullname', 'data_users.position')
             ->get();
-        
+            
         $data_ws = Workshop::find($ws_id); 
             
         return view('admin.pelatihan_submissions', [
+            'data_material' => $data_material,
+            "ws_id" => $ws_id,
             'data' => $data,
             'data_ws' => $data_ws,
             'title' => 'Milea Admin | Pelatihan - Pengajuan'
@@ -131,6 +139,7 @@ class WSController extends Controller
             $fileName[$i++] = time().rand(100,999).".".$u->getClientOriginalExtension();
         } 
         $post_pelatihan = array(
+            'key' => Str::random(6),
             'open_regist' => $request->open_regist,
             'close_regist' => $request->close_regist,
             'open_ws' => $request->open_ws,
