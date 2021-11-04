@@ -57,16 +57,21 @@ class WSController extends Controller
 
     public function indexWorkshopSub ($ws_id){
 
+        $data_material = DB::table('materials')
+            ->where('materials.ws_id', $ws_id)
+            ->get();
+
         $data = DB::table('submissions')
             ->where('submissions.ws_id', $ws_id)
             ->Where('submissions.status_p', 'Diterima')
             ->join('data_users', 'submissions.user_id', '=', 'data_users.user_id')
             ->select('data_users.fullname', 'data_users.position')
             ->get();
-        
+            
         $data_ws = Workshop::find($ws_id); 
             
         return view('admin.pelatihan_submissions', [
+            'data_material' => $data_material,
             'data' => $data,
             'data_ws' => $data_ws,
             'title' => 'Milea Admin | Pelatihan - Pengajuan'

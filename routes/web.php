@@ -9,7 +9,8 @@ use App\Http\Controllers\DataUserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminDVerifikasiController;
 use App\Http\Controllers\AdminVerifikasiController;
-use App\Http\Controllers\WorkshopController;
+use App\Http\Controllers\MaterialController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -73,8 +74,9 @@ Route::group(['middleware' => ['auth', 'role:admin']], function(){
     Route::get('/admin/create/pelatihan', [WSController::class, 'indexAdminTambah']);
     Route::post('/admin/create/pelatihan', [WSController::class, 'store']);
     
-    Route::get('/admin/tambah_materi', [AdminController::class, 'showAdd'])->name('admin.tambah_materi');
-    Route::post('/post_material', [AdminController::class, 'storeMaterial']);
+    Route::get('/admin/pelatihan/tambah-materi/{ws_id}', [MaterialController::class, 'adminViewCreateMaterial'])->name('admin.pelatihan.tambah-materi');
+    Route::post('/admin/pelatihan/tambah-materi', [MaterialController::class, 'adminStoreCreateMaterial']);
+    Route::delete('/admin/pelatihan/delete-materi/{id}', [MaterialController::class, 'adminDeleteCreateMaterial']);
     
 });
 

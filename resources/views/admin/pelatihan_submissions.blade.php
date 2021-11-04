@@ -77,27 +77,39 @@
               </div>
               <div class="card-body">
                 <p class="card-text">Tambahkan modul materi pelatihan, Modul nantinya dapat diunduh oleh peserta.</p>
-                <a href="/admin/tambah_materi" class="btn btn-primary">Tambah Berkas Materi</a>
+                <a href="/admin/pelatihan/tambah-materi/{{ $data_ws->id }}" class="btn btn-primary">Tambah Berkas Materi</a>
               </div>
               <div class="card-body">
                 <div class="row">
-                  <div class="col-md-3">
-                    <div class="card card-danger">
-                      <div class="card-header">
-                        <h3 class="card-title">Materi 1</h3>
+                  @foreach ($data_material as $item)
+                    <div class="col-md-3">
+                      <div class="card card-danger">
+                        <div class="card-header">
+                          <h3 class="card-title" style="font-weight: bold">{{ $item->material_label }}</h3>
+                        </div>
+                        <div class="card-body text-center">
+                          <a href="{{ asset('materi/'.$item->material_file) }}" target="_blank">
+                            <span class="material-icons-round text-danger" style="font-size: 64px">
+                              picture_as_pdf
+                              </span>
+                          </a>
+                        </div>
+                        <!-- /.card-body -->
+                        <form action="/admin/pelatihan/delete-materi/{{ $item->id }}" method="POST" onsubmit="return confirm('Yakin Hapus Materi?')" rel="noopener noreferrer">
+                          @method('delete')
+                          @csrf
+                          <div class="card-footer">
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                          </div>
+                        </form>
                       </div>
-                      <div class="card-body">
-                        Deskripsi Materi...
-                      </div>
-                      <!-- /.card-body -->
-                      <div class="card-footer">
-                        <button type="submit" class="btn btn-danger">Hapus Materi</button>
-                      </div>
+                      <!-- /.card -->
                     </div>
-                    <!-- /.card -->
-                  </div>
+                  @endforeach
+                  
                 </div>
               </div>
+              
             </div>
           </div>
         </div>
