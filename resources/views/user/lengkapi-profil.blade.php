@@ -16,22 +16,22 @@
     <title>Data Profil</title>
 </head>
 <body>
-    <nav style="position: sticky">
+    <nav>
         <div id="logo">
           <img src="../../assets/navbar-logo.png" alt="" height="68px" width="68px" />
           <h1 class="new">MILEA</h1>
         </div>
         <ul id="pages">
-          <li>
-            <a href="/beranda">Beranda</a>
-          </li>
-          <li>
-            <a href="/daftar-kegiatan">Daftar Kegiatan</a>
-          </li>
-          <li>
-            <a href="/kelas">Kelas</a>
-          </li>
-        </ul>
+            <li>
+              <a href="/beranda" >Beranda</a>
+            </li>
+            <li>
+              <a href="/daftar-kegiatan">Pelatihan</a>
+            </li>
+            <li>
+              <a href="/kelas" >Kelas</a>
+            </li>
+          </ul>
         <img
           src="../../assets/navbar-toggle-black.png"
           alt=""
@@ -130,15 +130,17 @@
 
         <form id="right" class="col" action="/update-data-diri/{{ $data_user->id }}" method="post" enctype="multipart/form-data">
             @csrf
+            
             <h1>Perbarui Data Diri</h1>
+            
             @if ($message = Session::get('success'))
-              <div class="alert alert-success alert-block">
+              <div class="alert" style="color: red; background-color: rgba(255, 255, 255, 0.5)">
                   <button type="button" class="close" data-dismiss="alert">×</button>
                       <strong>{{ $message }}</strong>
               </div>
           @endif
           @if (count($errors) > 0)
-              <div class="alert alert-danger">
+              <div class="alert" style="color: red; padding-left:30px;padding-top:30px;background-color: rgba(255, 255, 255, 0.5)">
                   <strong>Whoops!</strong> There were some problems with your input.
                   <ul>
                       @foreach ($errors->all() as $error)
@@ -147,10 +149,11 @@
                   </ul>
               </div>
           @endif
+            
             <ul class="col" style="padding: 30px; background-color: rgba(255, 255, 255, 0.5)" >
                 <li class="row allign-center">
                     <label for="">Pas Foto</label>
-                    <input type="file" class="col center" style="color: transparent;" name="image">
+                    <input type="file" class="col center" name="image" style="background-color: white">
                 </li>
                 <li class="row allign-center">
                     <label for="">Nama</label>
@@ -247,6 +250,7 @@
                     <button type="submit">Perbarui</button>
                 </div>
             </ul>
+        
         </form>
         <img src="../../assets/data-profil-background.png" alt="" id="water-mark">
     </main>
@@ -291,19 +295,19 @@
                 <ul id="hubungi-kami">
                     <li class="row">
                         <img src="../../assets/footer-icons/Phone.png" alt="">
-                        <a href="">
+                        <a href="tel:+628117117929"  target="output">
                             +628117117929
                         </a>
                     </li>
                     <li class="row">
                         <img src="../../assets/footer-icons/Gmail.png" alt="">
-                        <a href="">
+                        <a href="mailto:sdm.rsudsumsel@gmail.com" target="output">
                             sdm.rsudsumsel@gmail.com
                         </a>
                     </li>
                     <li class="row">
                         <img src="../../assets/footer-icons/Location.png" alt="">
-                        <a href="">
+                        <a href="https://goo.gl/maps/17obni8cszBPwYCb7" target="output">
                             Jl. Kol. H. Burlian, Suka Bangun, Kec. Sukarami, Kota Palembang, Sumatera Selatan 30151
                         </a>
                     </li>

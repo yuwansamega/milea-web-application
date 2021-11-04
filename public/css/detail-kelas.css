@@ -1,0 +1,163 @@
+body {
+    background-color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+main .header{
+    width: 100%;
+}
+main .header .card {
+    padding: 30px;
+    width: 100%;
+    max-width: 800px;
+}
+main .header .card h1 {
+    font-weight: 800;
+    width: 50%;
+    line-height: 40px;
+}
+main .header .card .detail h4 {
+    font-size: 17px;
+}
+main .content {
+    width: 100%;
+}
+main .content .card {
+    padding: 10px;
+    width: 100%;
+    max-width: 800px;
+}
+main .content .card .detail h4 {
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 500;
+}
+main .content .card .date-post h5 {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+}
+main .content .card h4,
+h5 {
+    margin: 0;
+}
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active {
+    background-color: #197e50;
+}
+.btn-success {
+    background-color: #198754;
+}
+a,
+a:active,
+a:link {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    color: black;
+}
+footer {
+    color: white;
+    padding: 50px 70px;
+    padding-bottom: 0;
+    background-color: #11543cda;
+}
+
+footer .col {
+    width: 100%;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    margin-bottom: 20px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+footer #navigasi {
+    box-sizing: border-box;
+    margin: 0 100px;
+    padding: 0 100px;
+    border-left: 2px solid;
+    border-right: 2px solid;
+}
+
+footer h3 {
+    margin-bottom: 20px;
+}
+
+footer .row .col p {
+    text-align: justify;
+    color: white;
+}
+
+footer #icons {
+    padding: 16px 10px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 0;
+}
+
+footer #icons a {
+    margin-right: 15px;
+}
+
+footer #hubungi-kami li {
+    display: flex;
+    align-items: center;
+}
+
+footer #hubungi-kami li img {
+    margin-right: 20px;
+}
+@media only screen and (max-width: 414px) {
+    main .header .card h1 {
+        font-weight: 800;
+        width: 80%;
+        line-height: 28px;
+        font-size: 25px;
+        margin: 0;
+        margin-bottom: 5px;
+    }
+    main .content .card .detail h4 {
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 500;
+    }
+    main .content .card .date-post h5 {
+        font-size: 11px;
+        line-height: 24px;
+        font-weight: 400;
+    }
+    #email-id {
+        width: 50%;
+        font-size: 13px;
+    }
+    footer #footer-container {
+        flex-direction: column !important;
+    }
+
+    footer #navigasi {
+        padding: 30px 0;
+        margin: 0 !important;
+        border: none;
+    }
+}

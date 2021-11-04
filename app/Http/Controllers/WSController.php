@@ -72,6 +72,7 @@ class WSController extends Controller
             
         return view('admin.pelatihan_submissions', [
             'data_material' => $data_material,
+            "ws_id" => $ws_id,
             'data' => $data,
             'data_ws' => $data_ws,
             'title' => 'Milea Admin | Pelatihan - Pengajuan'

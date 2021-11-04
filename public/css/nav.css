@@ -122,7 +122,9 @@ footer {
     padding-bottom: 0;
     background-color: #11543cda;
 }
-
+footer .row .col a{
+    color: white;
+}
 footer #mini-text {
     border-top: 0.5px solid white;
     padding: 10px 0 !important;

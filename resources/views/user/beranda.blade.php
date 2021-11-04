@@ -48,7 +48,7 @@
           <a href="/daftar-kegiatan" >Pelatihan</a>
         </li>
         <li>
-          <a href="/kelasku" >Kelasku</a>
+          <a href="/kelas" >Kelas</a>
         </li>
       </ul>
       <img
@@ -237,18 +237,29 @@
         <div class="col">
           <p><b>Tentang Kami</b></p>
           <p>RSUD Siti Fatimah merupakan Rumah Sakit Umum Daerah milik Provinsi Sumatera Selatan. Rumah Sakit milik pemerintah daerah terbesar di Indonesia ini berdiri di atas lahan seluas 4,1 Hektar dengan area bangunan seluas 52,952,11 m2.<br> <br> Lahir sebagai bukti dari keseriusan pemerintah daerah untuk meningkatkan derajat kesehatan masyarakat khususnya di wilayah Provinsi Sumatera Selatan (Sumsel).</p>
+          <div class="row" id="icons">
+            <a href="https://www.facebook.com/RSUDSitiFatimah" target="output">
+                <img src="../../assets/footer-icons/Facebook.png" alt="">
+            </a>
+            <a href="https://www.youtube.com/c/RSUDSitiFatimahProvSumsel" target="output">
+                <img src="../../assets/footer-icons/Youtube.png" alt="">
+            </a>
+            <a href="https://www.instagram.com/rsudsitifatimah/" target="output">
+                <img src="../../assets/footer-icons/Instagram.png" alt="">
+            </a>
+        </div>
         </div>
         <div class="col px-sm-5" style="min-width: 200px; margin-bottom:15px">
           <p class=""><b>Navigasi</b></p>
-            <a href="">Beranda</a>
+            <a href="/beranda">Beranda</a>
             <br><br>
-            <a href="">Pelatihan</a>
+            <a href="/daftar-kegiatan">Pelatihan</a>
             <br><br>
-            <a href="">Profil</a>
+            <a href="/data-profil">Profil</a>
             <br><br>
-            <a href="">Riwayat</a>
+            <a href="/riwayat">Riwayat</a>
             <br><br>
-            <a href="">Kelasku</a>
+            <a href="/kelas">Kelasku</a>
         </div>
         <div class="col">
           <p><b>Hubungi Kami</b></p>
@@ -258,7 +269,7 @@
                 <img src="../../assets/footer-icons/Phone.png" alt="" style="min-width:21px">
               </div>
               <div class="col">
-                <a href="">+628117117929</a>
+                <a href="tel:+628117117929">+628117117929</a>
               </div>
             </div>
             <br>
@@ -267,7 +278,7 @@
                 <img src="../../assets/footer-icons/Gmail.png" alt="" style="min-width:18px">
               </div>
               <div class="col">
-                <a href="">
+                <a href="mailto:sdm.rsudsumsel@gmail.com">
                     sdm.rsudsumsel@gmail.com
                 </a>
               </div>
@@ -278,7 +289,7 @@
                 <img src="../../assets/footer-icons/Location.png" alt="" style="min-width:18px">
               </div>
               <div class="col">
-                <a href="">
+                <a href="https://goo.gl/maps/17obni8cszBPwYCb7">
                     Jl. Kol. H. Burlian, Suka Bangun, Kec. Sukarami, Kota Palembang, Sumatera Selatan 30151
                 </a>
               </div>

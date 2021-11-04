@@ -37,9 +37,6 @@
               <form id="form" action="/admin/pelatihan/tambah-materi" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body expandable-card row">
-                  
-                    
-                  
                   <div class="col-lg-5">
                     <div class="form-group">
                       <label for="inputMaterialLabel">Nama Materi</label>

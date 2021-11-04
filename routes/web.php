@@ -51,6 +51,11 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
     Route::get('/riwayat', [SubmissionController::class, 'riwayat']);
     Route::get('/ubah-pass', [DataUserController::class, 'show_change_password']);
     Route::post('/update-pass', [DataUserController::class, 'update_password']);
+    Route::get('/kelas', [MaterialController::class, 'show']);
+    Route::post('/check-enroll-key', [MaterialController::class, 'check']);
+    Route::get('/detail-kelas/{key}', [MaterialController::class, 'classDetail'])->name('class-detail');
+    Route::delete('/delete-class/{id}', [MaterialController::class, 'deleteClass'])->name('user_classes.delete');
+        
     });
 
 
@@ -77,6 +82,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function(){
     Route::get('/admin/pelatihan/tambah-materi/{ws_id}', [MaterialController::class, 'adminViewCreateMaterial'])->name('admin.pelatihan.tambah-materi');
     Route::post('/admin/pelatihan/tambah-materi', [MaterialController::class, 'adminStoreCreateMaterial']);
     Route::delete('/admin/pelatihan/delete-materi/{id}', [MaterialController::class, 'adminDeleteCreateMaterial']);
+
     
 });
 
