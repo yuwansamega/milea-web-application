@@ -82,26 +82,43 @@ class MaterialController extends Controller
 
         $data = DB::table('workshops')
             ->where('key', $key)
-            ->select('id')->get();
+            ->select('id')->first();
         
-        $id = $data->first()->id;
-
-        $count = DB::table('workshops')
-            ->where('key', $key)
+        if($data == null){
+            $id = null;
+        }else{
+            $id = $data->id;
+            $count_duplicate = DB::table('user_classes')
+            ->where([['ws_id','=',$id],['user_id','=', $user_id]])
             ->count();
+    
+            $check_verif = DB::table('submissions')
+                    ->where('user_id', $user_id)
+                    ->where('ws_id', $id)
+                    ->where('status_p', 'Diterima') 
+                    ->count();
+        }
+       
 
-        $count_duplicate = DB::table('user_classes')
-        ->where([['ws_id','=',$id],['user_id','=', $user_id]])
-        ->count();
 
-        if($count>0 && $count_duplicate === 0){
+        if($id!=null && $count_duplicate === 0 && $check_verif>0){
             DB::table('user_classes')->insert([
                 "ws_id" => $id,
                 "user_id" => $user_id]);
             return redirect()->route('class-detail',['key'=>$key])->with('success','Anda Berhasil Masuk ke Kelas!');
             }else{
-                return redirect('/kelas')->with('warning','Kode yang anda masukkan salah atau anda telah berada di dalam kelas tersebut!');
+                if($id == null){
+                    return redirect('/kelas')->with('warning','Kode yang anda masukkan salah!');
+                }
+                if($count_duplicate > 0){
+                    return redirect('/kelas')->with('warning','Anda telah berada di dalam kelas tersebut!');
+                }
+                if($check_verif<=0){
+                    return redirect('/kelas')->with('warning','Anda belum mendaftar atau pendaftaran anda belum diverifikasi!');
+                }
+                
             }
+           
         
     }
 

@@ -32,7 +32,9 @@
 
             <div class="card">
               <div class="card-header">
-                <h3>{{ $data_ws->title }}</h3>
+                <h3 class="">{{ $data_ws->title }}</h3>
+                <h4>Key: <b>{{ $data_ws->key }}</b></h4>
+                
               </div>
               <!-- /.card-header -->
               <div class="card-body">
