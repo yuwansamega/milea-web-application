@@ -67,6 +67,7 @@ class WSController extends Controller
         $data_ws = Workshop::find($ws_id); 
             
         return view('admin.pelatihan_submissions', [
+            "ws_id" => $ws_id,
             'data' => $data,
             'data_ws' => $data_ws,
             'title' => 'Milea Admin | Pelatihan - Pengajuan'

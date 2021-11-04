@@ -77,7 +77,7 @@
               </div>
               <div class="card-body">
                 <p class="card-text">Tambahkan modul materi pelatihan, Modul nantinya dapat diunduh oleh peserta.</p>
-                <a href="/admin/tambah_materi" class="btn btn-primary">Tambah Berkas Materi</a>
+                <a href="/admin/tambah_materi/{{ $ws_id }}" class="btn btn-primary">Tambah Berkas Materi</a>
               </div>
               <div class="card-body">
                 <div class="row">

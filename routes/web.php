@@ -9,6 +9,7 @@ use App\Http\Controllers\DataUserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminDVerifikasiController;
 use App\Http\Controllers\AdminVerifikasiController;
+use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\WorkshopController;
 
 /*
@@ -50,6 +51,11 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
     Route::get('/riwayat', [SubmissionController::class, 'riwayat']);
     Route::get('/ubah-pass', [DataUserController::class, 'show_change_password']);
     Route::post('/update-pass', [DataUserController::class, 'update_password']);
+    Route::get('/kelas', [MaterialController::class, 'show']);
+    Route::post('/check-enroll-key', [MaterialController::class, 'check']);
+    Route::get('/detail-kelas/{key}', [MaterialController::class, 'classDetail'])->name('class-detail');
+    Route::delete('/delete-class/{id}', [MaterialController::class, 'deleteClass'])->name('user_classes.delete');
+        
     });
 
 
@@ -73,7 +79,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function(){
     Route::get('/admin/create/pelatihan', [WSController::class, 'indexAdminTambah']);
     Route::post('/admin/create/pelatihan', [WSController::class, 'store']);
     
-    Route::get('/admin/tambah_materi', [AdminController::class, 'showAdd'])->name('admin.tambah_materi');
+    Route::get('/admin/tambah_materi/{id}', [AdminController::class, 'showAdd'])->name('admin.tambah_materi');
     Route::post('/post_material', [AdminController::class, 'storeMaterial']);
     
 });

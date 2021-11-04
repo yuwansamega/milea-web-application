@@ -37,6 +37,7 @@
               <form id="form" action="/post_material" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body expandable-card row">
+                  <input type="hidden" name="ws_id" value="{{  }}">
                   <div class="col-lg-5">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Nama Materi</label>
