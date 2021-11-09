@@ -48,9 +48,10 @@
                     <th>Nama</th>
                     <th>NIK</th>
                     <th>Pelatihan</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                    
+                    <th>Status Berkas</th>
+                    <th>Aksi Berkas</th>
+                    <th>Status Pembayaran</th>
+                    <th>Aksi Pembayaran</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -70,6 +71,8 @@
                         <td>{{ $d->title }}</td>
                         <td>{{ $d->status_p }}</td>
                         <td><a href="/admin/verifikasi/detail/{{ $d->id }}">Detail</a></td>
+                        <td>Belum Bayar</td>
+                        <td><a href="/admin/verifikasi/detail/{{ $d->id }}">Cek Bukti Pembayaran</a></td>
                     </tr>
                     @endforeach
 
