@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="bootstrap-5.1.1-dist\js\bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/css/riwayat.css" />
-   <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.1/umd/popper.min.js"
@@ -21,14 +21,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>{{ $title }}</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+    <title>MILEA | {{ $title }}</title>
   </head>
   <body>
     <nav>
@@ -118,7 +118,8 @@
               <th scope="col">Nama Pelatihan</th>
               <th scope="col">Waktu Pelaksanaan</th>
               <th scope="col">Tempat Pelaksanaan</th>
-              <th scope="col">Status</th>
+              <th scope="col">Status Berkas</th>
+              <th scope="col">Status Pembayaran</th>
               <th scope="col">Catatan</th>
             </tr>
           </thead>
@@ -132,6 +133,34 @@
               <td>{{ tgl_indo($riwayat->open_ws) }} - {{ tgl_indo($riwayat->close_ws) }}</td>
               <td>{{ $riwayat->place }}</td>
               <td>{{ $riwayat->status_p}}</td>
+              <td>
+                <a href="#bannerformmodal" data-toggle="modal" data-target="#bannerformmodal" style="text-decoration: underline">Unggah Bukti Pembayaran</a>
+                <div class="modal fade bannerformmodal" tabindex="-1" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-content">
+                        <div class="modal-header d-flex align-items-center">
+                          <h4 class="modal-title" id="myModalLabel">Form Unggah Pembayaran</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                          <form id="requestacallform" method="POST" name="requestacallform">
+                            <div class="form-group">
+                              <div class="input-group d-flex row p-3 align-items-center">       
+                                <label for="" class="mt-2 col-md-6">Bukti Pembayaran (pdf/jpg)</label>
+                                <input id="first_name" type="file" class="form-control" placeholder="First Name" name="first_name"/>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-success" style="background-color: #198754; color: white;">Submit</button>
+                        </div>        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
               <td><button type="button" class="btn btn-sm btn-outline-secondary" data-placement="top" data-toggle="popover" title="Catatan" data-content="{{ $riwayat->message }}">Catatan</button></td>
             </tr>
             @endforeach
