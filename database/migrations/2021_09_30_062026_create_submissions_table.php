@@ -21,6 +21,8 @@ class CreateSubmissionsTable extends Migration
             $table->string('file_2')->nullable();
             $table->string('file_3')->nullable();
             $table->enum('status_p', ['Menunggu Verifikasi', 'Ditolak', 'Diterima'])->default('Menunggu Verifikasi');
+            $table->string('payment_proof')->nullable();
+            $table->enum('payment_status', ['Belum Dikirim','Menunggu Verifikasi Pembayaran','Pembayaran Diterima', 'Pembayaran Belum Diterima'])->default('Belum Dikirim');
             $table->text('message')->nullable()->default('Belum/Tidak ada catatan dari RSUD Siti Fatimah');
             $table->timestamps();
             

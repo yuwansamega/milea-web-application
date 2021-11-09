@@ -99,12 +99,11 @@ class SubmissionController extends Controller
 
     public function riwayat(){
         $user_id = Auth::user()->id;
-       
 
         $data = DB::table('submissions')
         ->where('user_id',$user_id)
         ->join('workshops', 'submissions.ws_id', '=', 'workshops.id')
-        ->select( 'submissions.id','submissions.status_p','submissions.message',  'workshops.title', 'workshops.open_ws', 'workshops.close_ws','workshops.place','submissions.created_at' )
+        ->select( 'submissions.id','submissions.status_p','submissions.message','submissions.payment_status',  'workshops.title', 'workshops.open_ws', 'workshops.close_ws','workshops.place','submissions.created_at' )
         ->orderByDesc('submissions.created_at')
         ->paginate(10);
     
@@ -115,5 +114,37 @@ class SubmissionController extends Controller
             "title" => "Riwayat Pelatihan",
             "count" =>$count
         ]);
+    }
+
+    public function updatePayment($id, Request $request){
+
+        $user_id = Auth::user()->id;
+
+        //Cek user apakah berkas user telah diterima atau belum
+        $count = DB::table('submissions')
+                ->where('id', $id)
+                ->where('status_p', 'Diterima') 
+                ->count();
+
+        if($count<=0){
+            return redirect('/riwayat')->with('error','Berkas pendaftaran anda belum diverifikasi!');
+        }else{
+            $request->validate([
+                'payment_proof' => 'mimes:jpg,pdf|max:2048'
+            ]);
+    
+            $fileName = time().rand(100,999).".".$request->payment_proof->getClientOriginalExtension();
+            $request->payment_proof->move(public_path().'/user/payment/', $fileName);
+    
+            DB::table('submissions')
+            ->where('id', $id)
+            ->update(['payment_proof'=>$fileName,
+                      'payment_status' => 'Menunggu Verifikasi Pembayaran',
+                      
+          ]);
+    
+          return redirect('/riwayat')->with('success','Bukti pembayaran berhasil dikirim, Silakan tunggu hasil verifikasi!');
+        }
+
     }
 }

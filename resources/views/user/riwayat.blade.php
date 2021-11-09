@@ -111,7 +111,24 @@
           Anda belum mendaftar pelatihan, pilih pelatihan <a href="/daftar-kegiatan" style="text-decoration: underline">disini</a>
         </div>
         @else
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+        </div>
+    @endif
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <table class="table table-responsive table-borderless">
+          
           <thead>
             <tr style="color: white;">
               <th scope="col">No</th>
@@ -133,46 +150,48 @@
               <td>{{ tgl_indo($riwayat->open_ws) }} - {{ tgl_indo($riwayat->close_ws) }}</td>
               <td>{{ $riwayat->place }}</td>
               <td>{{ $riwayat->status_p}}</td>
-              <td>
-                <a href="#bannerformmodal" data-toggle="modal" data-target="#bannerformmodal" style="text-decoration: underline">Unggah Bukti Pembayaran</a>
-                <div class="modal fade bannerformmodal" tabindex="-1" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal">
-                  <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                      <div class="modal-content">
-                        <div class="modal-header d-flex align-items-center">
-                          <h4 class="modal-title" id="myModalLabel">Form Unggah Pembayaran</h4>
-                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                          <form id="requestacallform" method="POST" name="requestacallform">
-                            <div class="form-group">
-                              <div class="input-group d-flex row p-3 align-items-center">       
-                                <label for="" class="mt-2 col-md-6">Bukti Pembayaran (pdf/jpg)</label>
-                                <input id="first_name" type="file" class="form-control" placeholder="First Name" name="first_name"/>
-                              </div>
+              @if($riwayat->status_p==="Diterima" AND $riwayat->payment_status === "Belum Dikirim")
+                  <td>
+                    <a href="#bannerformmodal" data-toggle="modal" data-target="#bannerformmodal" style="text-decoration: underline; font-weight:bold;">Unggah Bukti Pembayaran</a>
+                    <div class="modal fade bannerformmodal" tabindex="-1" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal">
+                      <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                          <div class="modal-content">
+                            <div class="modal-header d-flex align-items-center">
+                              <h4 class="modal-title" id="myModalLabel">Form Unggah Pembayaran</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             </div>
-                          </form>
+                            <div class="modal-body">
+                              <form id="requestacallform" method="POST" name="requestacallform" action="/update-payment/{{ $riwayat->id }}" enctype="multipart/form-data">
+                                @csrf
+                                <div class="form-group">
+                                  <div class="input-group d-flex row p-3 align-items-center">       
+                                    <label for="first_name" class="mt-2 col-md-6">Bukti Pembayaran <span style="color: red">(pdf/jpg, max : 2Mb)</span> </label>
+                                    <input id="first_name" type="file" class="form-control" placeholder="First Name" name="payment_proof"/>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="submit" class="btn btn-success" style="background-color: #198754; color: white;">Kirim</button>
+                              </div>        
+                            </form>
+                          </div>
                         </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-success" style="background-color: #198754; color: white;">Submit</button>
-                        </div>        
                       </div>
                     </div>
-                  </div>
-                </div>
-              </td>
-              <td><button type="button" class="btn btn-sm btn-outline-secondary" data-placement="top" data-toggle="popover" title="Catatan" data-content="{{ $riwayat->message }}">Catatan</button></td>
+                  </td>
+                  @elseif($riwayat->status_p==="Menunggu Verifikasi")
+                  <td>Menunggu Verifikasi Berkas</td>
+                  @elseif($riwayat->status_p==="Ditolak")
+                  <td>-</td>
+                  @elseif($riwayat->payment_status!=="Belum Dikirim")
+                  <td style="font-weight: bold;">{{ $riwayat->payment_status }}</td>
+
+                  @endif
+              <td><button type="button" class="btn btn-sm btn-outline-secondary" data-placement="bottom" data-toggle="popover" title="Catatan" data-content="{{ $riwayat->message }}">Catatan</button></td>
             </tr>
             @endforeach
             @endif
-            {{-- @else
-            <tr>
-              <div class="alert alert-danger" role="alert">
-                Anda belum mendaftar pelatihan, pilih pelatihan <a href="/daftar-kegiatan" style="text-decoration: underline">disini</a>
-              </div>
-            </tr> --}}
-              
-              
             </tbody>
         </table>
         <div class="d-flex justify-content-center" id="links"> {{ $riwayat_user->links() }} </div>
