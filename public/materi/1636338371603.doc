@@ -1,0 +1,766 @@
+
+<center>          
+<font size="5"><b><u>DAFTAR PRESTASI AKADEMIK</u></b></font>
+<br />
+<font size="3"><b>Nomor:</b></font>
+</center>
+<p></p>
+		  <table cellpadding="0" cellspacing="0" align="center" style="font-family: Arial; font-size:10pt;">
+		  <tr>
+		  		<td width="150px">Nama</td>
+				<td width="10px">&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</td>
+				<td><b>YUWAN SAMEGA</b></td>
+		  </tr>
+		  <tr>
+		  		<td>Tempat, Tanggal Lahir</td>
+				<td width="10px">&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</td>
+				<td>TANGERANG, 28 NOVEMBER 1999</td>
+		  </tr>
+		  <tr>
+		  		<td>NIM</td>
+				<td width="10px">&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</td>
+				<td>
+				09021281823072				</td>
+		  </tr>
+		  <tr>
+		  		<td>Jurusan</td>
+				<td width="10px">&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</td>
+				<td>
+					TEKNIK INFORMATIKA				</td>
+		  </tr>
+		  <tr>
+		  		<td>Program Studi</td>
+				<td width="10px">&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</td>
+				<td>
+      TEKNIK INFORMATIKA				</td>
+		  </tr>
+		  <tr>
+		  		<td>Tahun Masuk</td>
+				<td width="10px">&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</td>
+				<td>
+				2018				</td>
+		  </tr>
+		  <tr>
+		  		<td>Tanggal Kelulusan</td>
+				<td width="10px">&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</td>
+				<td>
+				-				</td>
+		  </tr>
+		  </table>
+		  <p>&nbsp;</p>
+
+		  
+		  <table border="0" width="100%" cellpadding="2" cellspacing="2" align="center" style="font-family: Arial; font-size:8pt;">
+            <tr> 
+              <th>No.</th>
+              <th>Kode</th>
+              <th>Mata Kuliah</th>
+              <th>HM</th>
+              <th>AM</th>
+              <th>K</th>
+              <th>M</th>
+            </tr>
+                        <tr> 
+              <td align="center">1.</td>
+              <td align="center">FIK001117</td>
+              <td>BAHASA INGGRIS</td>
+              <td align="center">B</td>
+              <td align="center">
+                3			  </td>
+              <td align="center">2</td>
+              <td align="center"> 
+                6              </td>
+            </tr>
+                        <tr> 
+              <td align="center">2.</td>
+              <td align="center">FIK002317</td>
+              <td>METODOLOGI PENELITIAN</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">3.</td>
+              <td align="center">FIK003317</td>
+              <td>ETIKA PROFESI</td>
+              <td align="center">B</td>
+              <td align="center">
+                3			  </td>
+              <td align="center">2</td>
+              <td align="center"> 
+                6              </td>
+            </tr>
+                        <tr> 
+              <td align="center">4.</td>
+              <td align="center">FIK004317</td>
+              <td>KERJA PRAKTEK/PROYEK PENGEMBANGAN PERANGKAT LUNAK</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">2</td>
+              <td align="center"> 
+                8              </td>
+            </tr>
+                        <tr> 
+              <td align="center">5.</td>
+              <td align="center">FIK005417</td>
+              <td>PROPOSAL SKRIPSI</td>
+              <td align="center">F</td>
+              <td align="center">
+                0			  </td>
+              <td align="center">2</td>
+              <td align="center"> 
+                0              </td>
+            </tr>
+                        <tr> 
+              <td align="center">6.</td>
+              <td align="center">FIK007317</td>
+              <td>KEWIRAUSAHAAN DAN MANAJEMEN BISNIS</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">2</td>
+              <td align="center"> 
+                8              </td>
+            </tr>
+                        <tr> 
+              <td align="center">7.</td>
+              <td align="center">FTI001117</td>
+              <td>ALGORITMA DAN PEMROGRAMAN I</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">8.</td>
+              <td align="center">FTI001217</td>
+              <td>ALGORITMA DAN PEMROGRAMAN III</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">9.</td>
+              <td align="center">FTI001317</td>
+              <td>PENGOLAHAN CITRA</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">10.</td>
+              <td align="center">FTI002117</td>
+              <td>PRAKTIKUM  ALGORITMA DAN PEMROGRAMAN I</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">1</td>
+              <td align="center"> 
+                4              </td>
+            </tr>
+                        <tr> 
+              <td align="center">11.</td>
+              <td align="center">FTI002217</td>
+              <td>PRAKTIKUM ALGORITMA DAN PEMROGRAMAN III</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">1</td>
+              <td align="center"> 
+                4              </td>
+            </tr>
+                        <tr> 
+              <td align="center">12.</td>
+              <td align="center">FTI002317</td>
+              <td>KECERDASAN BUATAN</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">13.</td>
+              <td align="center">FTI003117</td>
+              <td>KALKULUS</td>
+              <td align="center">B</td>
+              <td align="center">
+                3			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                9              </td>
+            </tr>
+                        <tr> 
+              <td align="center">14.</td>
+              <td align="center">FTI003217</td>
+              <td>STRUKTUR DATA</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">15.</td>
+              <td align="center">FTI003317</td>
+              <td>SISTEM INFORMASI</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">16.</td>
+              <td align="center">FTI004117</td>
+              <td>MATRIKS DAN VEKTOR</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">17.</td>
+              <td align="center">FTI004217</td>
+              <td>PRAKTIKUM STRUKTUR DATA</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">1</td>
+              <td align="center"> 
+                4              </td>
+            </tr>
+                        <tr> 
+              <td align="center">18.</td>
+              <td align="center">FTI004317</td>
+              <td>KEAMANAN JARINGAN KOMPUTER</td>
+              <td align="center">B</td>
+              <td align="center">
+                3			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                9              </td>
+            </tr>
+                        <tr> 
+              <td align="center">19.</td>
+              <td align="center">FTI005117</td>
+              <td>FISIKA</td>
+              <td align="center">C</td>
+              <td align="center">
+                2			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                6              </td>
+            </tr>
+                        <tr> 
+              <td align="center">20.</td>
+              <td align="center">FTI005217</td>
+              <td>BASIS DATA</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">21.</td>
+              <td align="center">FTI006117</td>
+              <td>PENGANTAR TEKNOLOGI INFORMASI</td>
+              <td align="center">B</td>
+              <td align="center">
+                3			  </td>
+              <td align="center">2</td>
+              <td align="center"> 
+                6              </td>
+            </tr>
+                        <tr> 
+              <td align="center">22.</td>
+              <td align="center">FTI006217</td>
+              <td>PRAKTIKUM BASIS DATA</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">1</td>
+              <td align="center"> 
+                4              </td>
+            </tr>
+                        <tr> 
+              <td align="center">23.</td>
+              <td align="center">FTI007117</td>
+              <td>ALGORITMA DAN PEMROGRAMAN II</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">24.</td>
+              <td align="center">FTI007217</td>
+              <td>STRUKTUR DISKRIT II</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">25.</td>
+              <td align="center">FTI007317</td>
+              <td>INTERAKSI MANUSIA KOMPUTER</td>
+              <td align="center">B</td>
+              <td align="center">
+                3			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                9              </td>
+            </tr>
+                        <tr> 
+              <td align="center">26.</td>
+              <td align="center">FTI008117</td>
+              <td>PRAKTIKUM ALGORITMA DAN PEMROGRAMAN II</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">1</td>
+              <td align="center"> 
+                4              </td>
+            </tr>
+                        <tr> 
+              <td align="center">27.</td>
+              <td align="center">FTI008217</td>
+              <td>PROBABILITAS DAN STATISTIKA</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">28.</td>
+              <td align="center">FTI008317</td>
+              <td>ANALISIS DAN PERANCANGAN PERANGKAT LUNAK BERORIENTASI OBJEK</td>
+              <td align="center">B</td>
+              <td align="center">
+                3			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                9              </td>
+            </tr>
+                        <tr> 
+              <td align="center">29.</td>
+              <td align="center">FTI009117</td>
+              <td>ORGANISASI DAN ARSITEKTUR KOMPUTER</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">30.</td>
+              <td align="center">FTI009217</td>
+              <td>PEMROGRAMAN WEB II</td>
+              <td align="center">B</td>
+              <td align="center">
+                3			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                9              </td>
+            </tr>
+                        <tr> 
+              <td align="center">31.</td>
+              <td align="center">FTI010117</td>
+              <td>STRUKTUR DISKRIT I</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">32.</td>
+              <td align="center">FTI010217</td>
+              <td>SISTEM OPERASI</td>
+              <td align="center">B</td>
+              <td align="center">
+                3			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                9              </td>
+            </tr>
+                        <tr> 
+              <td align="center">33.</td>
+              <td align="center">FTI011117</td>
+              <td>PEMROGRAMAN WEB I</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">34.</td>
+              <td align="center">FTI011217</td>
+              <td>PRAKTIKUM SISTEM OPERASI</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">1</td>
+              <td align="center"> 
+                4              </td>
+            </tr>
+                        <tr> 
+              <td align="center">35.</td>
+              <td align="center">FTI012117</td>
+              <td>PRAKTIKUM PEMROGRAMAN WEB I</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">1</td>
+              <td align="center"> 
+                4              </td>
+            </tr>
+                        <tr> 
+              <td align="center">36.</td>
+              <td align="center">FTI012217</td>
+              <td>GRAFIKA KOMPUTER</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">37.</td>
+              <td align="center">FTI013117</td>
+              <td>KOMUNIKASI DATA</td>
+              <td align="center">B</td>
+              <td align="center">
+                3			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                9              </td>
+            </tr>
+                        <tr> 
+              <td align="center">38.</td>
+              <td align="center">FTI013217</td>
+              <td>TEORI BAHASA DAN OTOMATA</td>
+              <td align="center">B</td>
+              <td align="center">
+                3			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                9              </td>
+            </tr>
+                        <tr> 
+              <td align="center">39.</td>
+              <td align="center">FTI014217</td>
+              <td>REKAYASA PERANGKAT LUNAK</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">40.</td>
+              <td align="center">FTI015217</td>
+              <td>JARINGAN KOMPUTER</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">41.</td>
+              <td align="center">FTI016217</td>
+              <td>PRAKTIKUM JARINGAN KOMPUTER</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">1</td>
+              <td align="center"> 
+                4              </td>
+            </tr>
+                        <tr> 
+              <td align="center">42.</td>
+              <td align="center">FTI017217</td>
+              <td>PEMROGRAMAN BERORIENTASI OBYEK</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">43.</td>
+              <td align="center">FTI018217</td>
+              <td>PRAKTIKUM PEMROGRAMAN BERORIENTASI OBYEK</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">1</td>
+              <td align="center"> 
+                4              </td>
+            </tr>
+                        <tr> 
+              <td align="center">44.</td>
+              <td align="center">FTI105317</td>
+              <td>LOGIKA SAMAR</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">45.</td>
+              <td align="center">FTI106317</td>
+              <td>PEMBELAJARAN MESIN</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">46.</td>
+              <td align="center">FTI107317</td>
+              <td>ANALISIS ALGORITMA</td>
+              <td align="center">B</td>
+              <td align="center">
+                3			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                9              </td>
+            </tr>
+                        <tr> 
+              <td align="center">47.</td>
+              <td align="center">FTI202317</td>
+              <td>ANIMASI DAN MULTIMEDIA</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">48.</td>
+              <td align="center">FTI203317</td>
+              <td>PEMROGRAMAN VISUAL</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">49.</td>
+              <td align="center">FTI204317</td>
+              <td>PEMROGRAMAN GAME</td>
+              <td align="center">B</td>
+              <td align="center">
+                3			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                9              </td>
+            </tr>
+                        <tr> 
+              <td align="center">50.</td>
+              <td align="center">FTI205317</td>
+              <td>COMPUTER VISION</td>
+              <td align="center">B</td>
+              <td align="center">
+                3			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                9              </td>
+            </tr>
+                        <tr> 
+              <td align="center">51.</td>
+              <td align="center">FTI303317</td>
+              <td>DATA MINING</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">3</td>
+              <td align="center"> 
+                12              </td>
+            </tr>
+                        <tr> 
+              <td align="center">52.</td>
+              <td align="center">UNI10108</td>
+              <td>PENDIDIKAN AGAMA</td>
+              <td align="center">B</td>
+              <td align="center">
+                3			  </td>
+              <td align="center">2</td>
+              <td align="center"> 
+                6              </td>
+            </tr>
+                        <tr> 
+              <td align="center">53.</td>
+              <td align="center">UNI10208</td>
+              <td>PENDIDIKAN KEWARGANEGARAAN</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">2</td>
+              <td align="center"> 
+                8              </td>
+            </tr>
+                        <tr> 
+              <td align="center">54.</td>
+              <td align="center">UNI10315</td>
+              <td>BAHASA INDONESIA</td>
+              <td align="center">A</td>
+              <td align="center">
+                4			  </td>
+              <td align="center">2</td>
+              <td align="center"> 
+                8              </td>
+            </tr>
+                        <tr> 
+              <td align="center">55.</td>
+              <td align="center">UNI10415</td>
+              <td>PENDIDIKAN PANCASILA</td>
+              <td align="center">B</td>
+              <td align="center">
+                3			  </td>
+              <td align="center">2</td>
+              <td align="center"> 
+                6              </td>
+            </tr>
+            		    </table>
+
+			<br />
+
+			
+
+			<table border="0" cellpadding="2" cellspacing="2" style="font-family: Arial; font-size:8pt;">
+            <tr> 
+              <td colspan=4 ><b>Jumlah Mutu</b></td>
+			  <td width="6">:</td>
+              <td width="18" colspan=4 align="center"><b> 
+                491                </b></td>
+            </tr>
+            <tr> 
+              <td colspan=4 ><b>Jumlah Kredit Kumulatif</b></td>
+			  <td>:</td>
+              <td align="center" colspan=4><b> 
+                135                </b></td>
+            </tr>
+            <tr> 
+              <td colspan=4><b>Indeks Prestasi Kumulatif</b></td>
+			  <td>:</td>
+              <td align="center" colspan=4><b> 
+                3.64                </b></td>
+            </tr>
+            <tr> 
+              <td colspan=4><b>Predikat Kelulusan</b></td>
+			  <td>:</td>
+              <td align="center" colspan=4><b> 
+                Cum Laude                </b></td>
+            </tr>
+          </table>
+<br />
+			<table border="0" cellpadding="2" cellspacing="2" style="font-family: Arial; font-size:8pt;">
+			<tr>
+				
+    <td colspan="3"><b>Keterangan :</b></td>
+			</tr>
+            <tr> 
+              <td><b>HM</b></td>
+			  <td width="40px" align="center"><b>:</b></td>
+              <td><b> 
+                Huruf Mutu
+                </b></td>
+            </tr>
+            <tr> 
+              <td><b>M</b></td>
+			  <td width="40px" align="center"><b>:</b></td>
+              <td><b> 
+                Mutu
+                </b></td>
+            </tr>
+            <tr> 
+              <td><b>K</b></td>
+			  <td width="40px" align="center"><b>:</b></td>
+              <td><b> 
+                Kredit
+                </b></td>
+            </tr>
+            <tr> 
+              <td><b>AM</b></td>
+			  <td width="40px" align="center"><b>:</b></td>
+              <td><b> 
+                Angka Mutu
+                </b></td>
+            </tr>
+          </table>
+
+<p>&nbsp;</p>
+
+<table align="center"cellpadding="0" cellspacing="0" width="90%" style="font-family: Arial; font-size:10pt;">
+  <tr> 
+    <td>Mengetahui :</td>
+  	<td align="right">Palembang, 17 Juni 2021</td>
+  </tr>
+  <tr>
+  		
+    <td>&nbsp;</td>
+    <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  		<td>&nbsp;</td>
+  		<td>&nbsp;</td>
+  </tr>
+  <tr>
+  		<td>&nbsp;</td>
+  		<td>&nbsp;</td>
+  </tr>
+  <tr>
+  		<td>
+		<b>
+				</b>
+		</td>
+		<td align="right">
+		<b>
+				</b>
+		</td>
+  </tr>
+</table>  		
