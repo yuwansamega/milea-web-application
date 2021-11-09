@@ -28,7 +28,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return view('/admin/tambah_materi');
+    return view('/admin/cek_pembayaran');
 });
 
 
