@@ -6,9 +6,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
 }
-.table-responsive {
-    display: table;
-}
+
 h2 {
     font-size: 30px;
     font-weight: 500;
@@ -16,7 +14,8 @@ h2 {
 }
 thead {
     background-color: #198754;
-    border-radius: 15px !important;
+    border-radius: 30px !important;
+    color: white;
 }
 .main-content {
     margin-top: 200px;
@@ -38,13 +37,14 @@ table {
 
 th {
     background-color: #198754;
+    color: white;
 }
 
 thead th:first-child {
-    border-top-left-radius: 15px;
+    border-top-left-radius: 10px;
 }
 thead th:last-child {
-    border-top-right-radius: 15px;
+    border-top-right-radius: 10px;
 }
 a:link {
     color: inherit;
@@ -58,6 +58,14 @@ a:hover {
 }
 a:active {
     color: inherit;
+}
+
+#links {
+    position: static;
+}
+
+#links nav {
+    position: static;
 }
 footer {
     margin-top: 100px;
@@ -122,18 +130,54 @@ footer #hubungi-kami li {
 footer #hubungi-kami li img {
     margin-right: 20px;
 }
-@media screen and (max-width: 500px) {
-    .main-content .container {
-        margin-top: 0px;
+.btn .btn-success {
+}
+@media screen and (max-width: 900px) {
+    .main-content {
+        margin-top: 300px;
     }
-    .main-content .container .table th {
-        font-size: 12px;
+    .container {
+        align-content: center;
+        width: 100%;
     }
-    .main-content .container .table td {
-        font-size: 10px;
-    }
+
     .main-content .container h2 {
-        font-size: 20px;
+        font-weight: 600;
+        font-size: 30px;
+        text-align: center;
+        margin-top: -150px;
+        margin-left: 0px;
+    }
+    .table > thead > tr > th {
+        vertical-align: middle;
+    }
+    footer #footer-container {
+        flex-direction: column !important;
+    }
+
+    footer #navigasi {
+        padding: 30px 0;
+        margin: 0 !important;
+        border: none;
+    }
+}
+@media screen and (max-width: 767px) {
+    .container {
+        align-content: center;
+        text-align: center;
+        width: 80%;
+    }
+
+    .main-content .container h2 {
+        font-weight: 600;
+        font-size: 25px;
+        text-align: center;
+        margin-top: -150px;
+    }
+}
+@media screen and (max-width: 414px) {
+    main .main-content {
+        margin-top: 250px;
     }
     .copyright .text-center h6 {
         font-size: 10px;
@@ -146,14 +190,5 @@ footer #hubungi-kami li img {
     .copyright .text-center a img {
         font-size: 8px;
         width: 15px;
-    }
-    footer #footer-container {
-        flex-direction: column !important;
-    }
-
-    footer #navigasi {
-        padding: 30px 0;
-        margin: 0 !important;
-        border: none;
     }
 }
