@@ -124,7 +124,6 @@ class MaterialController extends Controller
 
     public function classDetail($key){
 
-
         $user_id = Auth::user()->id;
         $ws = DB::table('workshops')
                     ->where('key', $key)
