@@ -71,8 +71,8 @@
                         <td>{{ $d->title }}</td>
                         <td>{{ $d->status_p }}</td>
                         <td><a href="/admin/verifikasi/detail/{{ $d->id }}">Detail</a></td>
-                        <td>Belum Bayar</td>
-                        <td><a href="/admin/verifikasi/detail/{{ $d->id }}">Cek Bukti Pembayaran</a></td>
+                        <td>{{ $d->payment_status }}</td>
+                        <td><a href="/admin/verifikasi/detail-payment/{{ $d->id }}">Detail Pembayaran</a></td>
                     </tr>
                     @endforeach
 

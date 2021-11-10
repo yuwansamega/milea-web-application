@@ -31,6 +31,6 @@ class MyTestMail extends Mailable
     public function build()
     {
         return $this->subject('MILEA | Hasil Verifikasi Pendaftaran Pelatihan')
-                    ->view('admin.test_email');
+                    ->view('admin.verification_submissions_email');
     }
 }

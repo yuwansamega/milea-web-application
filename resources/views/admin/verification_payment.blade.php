@@ -33,25 +33,23 @@
               <div class="row">
                 <div class="col-6">
                   <div class="card-body d-flex justify-content-center align-items-center">
-                    <img class="img-fluid pad" src="/img/bg-kanan.png" alt="Photo">
+                    <img class="img-fluid pad" src="{{ asset('user/payment/'.$data->payment_proof )}}" height="50%" width="50%" alt="Photo">
                   </div>
                 </div>
                 <div class="col-6 d-flex align-items-start pt-4">
-                  <form action="" class="row">
+                  <form action="/admin/update-submissions-payment/{{ $data->id }}" class="row" method="POST">
+                    @csrf
                     <div class="col-12">
                       <div class="form-group">
-                        <label style="text-align: center">Tindakan :</label>
-                        <select class="form-control">
-                          <option>option 1</option>
-                          <option>option 2</option>
-                          <option>option 3</option>
-                          <option>option 4</option>
-                          <option>option 5</option>
+                        <label style="text-align: center; font-size: 18px;">Keterangan</label>
+                        <select class="form-control" name="payment_status">
+                          <option value="Pembayaran Diterima">Pembayaran Diterima</option>
+                          <option value="Pembayaran Belum Diterima">Pembayaran Belum Diterima</option>
                         </select>
                       </div>
                     </div>
                     <div class="col-12 d-flex align-items-end justify-content-start pb-3">
-                      <button type="submit" class="btn btn-info">Selesai</button>
+                      <button type="submit" class="btn btn-info btn-lg">Submit</button>
                     </div>
                   </form>
               </div>

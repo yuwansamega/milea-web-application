@@ -406,28 +406,6 @@
                                                                             "
                                                                             align="left"
                                                                         >
-                                                                            <img
-                                                                                align="left"
-                                                                                border="0"
-                                                                                {{-- src="img_email/image-1.png" --}}
-                                                                                src="{{ asset('public/assets/images/image-1.png') }}"
-                                                                                alt=""
-                                                                                title=""
-                                                                                style="
-                                                                                    outline: none;
-                                                                                    text-decoration: none;
-                                                                                    -ms-interpolation-mode: bicubic;
-                                                                                    clear: both;
-                                                                                    display: inline-block !important;
-                                                                                    border: none;
-                                                                                    height: auto;
-                                                                                    float: none;
-                                                                                    width: 100%;
-                                                                                    max-width: 50px;
-                                                                                "
-                                                                                width="50"
-                                                                                height="50"
-                                                                            />
                                                                         </td>
                                                                     </tr>
                                                                 </table>
