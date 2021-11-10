@@ -71,6 +71,22 @@ class AdminDVerifikasiController extends Controller
 
        
     }
+
+    public function indexDetailPayment (Submission $data_sub_id){
+
+        $sub_id = $data_sub_id->id;
+
+        $data = DB::table('submissions')
+            ->where('submissions.id', $sub_id)
+            ->select('submissions.payment_proof', 'submissions.payment_status', 'submissions.id')
+            ->first();
+
+        return view ('admin.verification_payment', [
+            'title' => 'Milea Admin | Verification Payment',
+            'data' => $data
+        ]);
+    }
+
     public function update(Request $request, $data_sub_id){
         
         DB::table('submissions')
@@ -89,7 +105,7 @@ class AdminDVerifikasiController extends Controller
         if($request->status_p === "Diterima"){
             $mail = [
                 'title' => 'Hasil Verifikasi Pendaftaran Pelatihan di MILEA RSUD Siti Fatimah Sumsel',
-                'body' => 'Selamat <b>'.$data->fullname.'</b>, anda <b>DITERIMA</b> mengikuti <b>'. $data->title.'. </b> Kode Kelas : <b>'.$data->key.'</b>. Silakan hubungi narahubung: <b>('.$data->cp.')</b> untuk informasi lebih lanjut.'
+                'body' => 'Selamat <b>'.$data->fullname.'</b>, anda <b>DITERIMA</b> mengikuti <b>'. $data->title.'</b>. Silakan lakukan pembayaran dan mengunggah bukti pembayaran di akun MILEA anda. Hubungi narahubung: <b>('.$data->cp.')</> untuk informasi lebih lanjut.'
                 ];
                 
                 Mail::to($data->email)->send(new \App\Mail\MyTestMail($mail));
@@ -109,5 +125,41 @@ class AdminDVerifikasiController extends Controller
         return redirect('/admin/verifikasi')->with('success', 'Status berhasil diperbarui & pendaftar telah menerima email!');
         
 
+    }
+
+    public function updateDetailPayment(Request $request, $sub_id){
+
+        DB::table('submissions')
+        ->where('id', $sub_id)
+        ->update(['payment_status' => $request->payment_status]);
+        
+        $data = DB::table('submissions')
+            ->where('submissions.id', $sub_id)
+            ->join('data_users', 'submissions.user_id', '=', 'data_users.user_id')
+            ->join('workshops', 'submissions.ws_id', '=', 'workshops.id')
+            ->select('submissions.payment_status', 'workshops.key',  'workshops.title', 'workshops.cp','data_users.fullname', 'data_users.email' )
+            ->first();
+
+            if($request->payment_status  === "Pembayaran Diterima"){
+                $mail = [
+                    'title' => 'Hasil Verifikasi Pendaftaran Pelatihan di MILEA RSUD Siti Fatimah Sumsel',
+                    'body' => 'Selamat <b>'.$data->fullname.'</b>, pembayaran anda telah <b>DITERIMA</b>. Selamat mengikuti <b>'. $data->title.'. </b> Kode Kelas : <b>'.$data->key.'</b>. Silakan hubungi narahubung: <b>('.$data->cp.')</b> untuk informasi lebih lanjut.'
+                    ];
+                    
+                    Mail::to($data->email)->send(new \App\Mail\MyTestMail($mail));
+    
+            }
+    
+            if($request->payment_status === "Pembayaran Belum Diterima"){
+                $mail = [
+                    'title' => 'Hasil Verifikasi Pendaftaran Pelatihan di MILEA RSUD Siti Fatimah Sumsel',
+                    'body' => 'Maaf <b>'.$data->fullname.'</b>, pembayaran anda untuk '.$data->title.'<b> belum diterima.</b> Silakan hubungi narahubung: <b>('.$data->cp.')</b> untuk informasi lebih lanjut.'
+                    ];
+                    
+                    Mail::to($data->email)->send(new \App\Mail\MyTestMail($mail));
+    
+            }
+            return redirect('/admin/verifikasi')->with('success', 'Status pembayaran berhasil diperbarui & pendaftar telah menerima email!');
+        
     }
 }

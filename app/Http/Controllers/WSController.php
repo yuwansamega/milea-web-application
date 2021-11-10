@@ -22,7 +22,7 @@ class WSController extends Controller
     }
     public function indexAdmin(){
 
-        $ws = DB::table('workshops')->get();
+        $ws = DB::table('workshops')->latest()->get();
         return view ('admin.pelatihan', [
             "ws" => $ws,
             "title" => "Milea Admin | Pelatihan"
@@ -63,7 +63,7 @@ class WSController extends Controller
 
         $data = DB::table('submissions')
             ->where('submissions.ws_id', $ws_id)
-            ->Where('submissions.status_p', 'Diterima')
+            ->Where('submissions.payment_status', 'Pembayaran Diterima')
             ->join('data_users', 'submissions.user_id', '=', 'data_users.user_id')
             ->select('data_users.fullname', 'data_users.position')
             ->get();

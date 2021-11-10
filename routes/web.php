@@ -27,9 +27,6 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-Route::get('/test', function () {
-    return view('/admin/tambah_materi');
-});
 
 
 //For Booth
@@ -67,8 +64,10 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
 Route::group(['middleware' => ['auth', 'role:admin']], function(){
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/verifikasi', [AdminVerifikasiController::class, 'index'])->name('admin.verifikasi');
-    Route::get('/admin/verifikasi/detail/{data_sub_id}', [AdminDVerifikasiController::class, 'index'])->name('admin.dverifikasi');
+    Route::get('/admin/verifikasi/detail/{data_sub_id}', [AdminDVerifikasiController::class, 'index']);
     Route::post('/admin/update-submissions/{data_sub_id}', [AdminDVerifikasiController::class, 'update']);
+    Route::get('/admin/verifikasi/detail-payment/{data_sub_id}', [AdminDVerifikasiController::class, 'indexDetailPayment']);
+    Route::post('/admin/update-submissions-payment/{sub_id}', [AdminDVerifikasiController::class, 'updateDetailPayment']);
 
     Route::get('/admin/pelatihan', [WSController::class, 'indexAdmin'])->name('admin.pelatihan');
     Route::get('/admin/pelatihan/{ws_id}', [WSController::class, 'indexWorkshopSub']);
