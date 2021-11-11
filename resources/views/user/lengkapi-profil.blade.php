@@ -157,8 +157,9 @@
                 </li>
                 <li class="row allign-center">
                     <label for="">Nama</label>
-                    <input type="text" name="fullname" value="{{ $data_user->fullname }}" placeholder="Nama Lengkap" required>
+                    <input type="text" name="fullname" value="{{ $data_user->fullname }}" placeholder="Nama Lengkap Beserta Gelar" required>
                 </li>
+                <small style="color: red; font-weight: 600">* Masukkan Nama Lengkap Beserta Gelar</small>
                 <li class="row allign-center">
                     <label for="">NIP</label>
                     <input type="text" id="NIP" name="nip" value="{{ $data_user->nip }}" placeholder="NIP/Jika tidak ada isi '-'" required>
