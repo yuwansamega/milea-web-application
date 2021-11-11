@@ -125,7 +125,7 @@
         <tr>
         <td scope="row"><?= $workshops->firstItem() + $i++ ?></td>
         <?php
-        if (date('Y-m-d H:i:s')<$ws->close_regist){?>
+        if (date('Y-m-d')<=$ws->close_regist){?>
           <td style="font-weight:bold; color: #198754 ;">Dibuka</td>
         <?php 
         }else{?>
@@ -140,7 +140,7 @@
             <td>{{ $ws->quota }}</td>
             <td>
               @php
-                  if (date('Y-m-d H:i:s')<$ws->close_regist) :
+                  if (date('Y-m-d')<=$ws->close_regist) :
                   @endphp
                     <a href="/detail-kegiatan/{{ $ws->id }}" data-toggle="tooltip" data-placement="top" title="Detail"
                       >
