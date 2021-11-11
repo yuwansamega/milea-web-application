@@ -44,7 +44,7 @@
           <a href="/daftar-kegiatan" class="selected" >Pelatihan</a>
         </li>
         <li>
-          <a href="/kelasku" >Kelasku</a>
+          <a href="/kelas" >Kelas</a>
         </li>
       </ul>
       <img
