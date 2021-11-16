@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="bootstrap-5.1.1-dist\js\bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="/css/detail-kelas.css" />
+    <link rel="stylesheet" href="/css/tugas.css" />
     <link rel="stylesheet" href="/css/nav.css" />
     <link rel="stylesheet" href="utility.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -109,44 +109,70 @@
       </ul>
   </nav>
 
-
-  <main class="align-items-center">
-    <div class="header justify-content-center d-flex">
-      <div class="card shadow-sm border mb-4">
-          <h1>{{ $data_ws->title }}</h1>
-          <div class="detail d-flex mt-2">
-            <h4 class="mr-5">{{ tgl_indo($data_ws->open_ws) }} - {{ tgl_indo($data_ws->close_ws) }}</h4>
-            <h4>{{ $data_ws->place }}</h4>
-          </div>
+  <main>
+      <div class="left justify-content-center">
+        <img src="../../assets/task.png" alt="" style="max-width: 90px; width: 100%; ">
       </div>
-    </div>
-    <div class="content d-flex justify-content-center mb-4">
-      <div class="card shadow-sm d-flex flex-column"> 
-        @foreach ($data_material as $item)
-            <div class="material d-flex flex-row d-flex align-items-center justify-content-between p-1">
-            <div class="detail d-flex flex-row">
-              <span class="material-icons-round mr-3" style="color: #198754"> description </span>
-              <h4><a href="{{ asset('materi/'.$item->material_file ) }}" target="_blank" rel="noopener noreferrer">{{ $item->material_label }}</a></h4>
+      <div class="right">
+        <div class="title">
+            <h1>Tugas 1 Pak Wajedi</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 p-0">
+                        <h4>Wajedi Yang Aslei</h4>
+                    </div>
+                    <div class="col-sm-4 p-0">
+                        <h4>15 November 2021</h4>
+                    </div>
+                    <div class="col last p-0">
+                    <h4 style="text-align: right">Tenggat Waktu : 15 November 2021 23:59</h4>
+                    </div>
+                </div>
             </div>
-            <div class="date-post mr-2">
-          <h5>{{ diff($item->created_at); }}</h5>
+            <hr >
+        </div>
+        <div class="desc">
+            <p>1. Buatlah PPT Presentasi dari materi hari ini 
+                <br><br>
+                penamaan file: 
+                <br> 
+                Nama-Nomor Peserta-Tugas1.pdf
+                <br><br>
+                contoh: 
+                <br>
+                Milea Aprianti-008-Tugas1.pdf
+                <br><br>
+                Waktu pengumpulan sampai selasa 16 November 2021 23:59 WIB
+            </p>
+            <div class="task_preview">
+                <div class="files d-flex flex-column">
+                    <a href="" class="d-flex flex-row align-items-center mb-2">
+                        <span class="material-icons-round" style="text-decoration: none">splitscreen</span>
+                        <h4 class="ml-2">Nama Tugas.pdf</h4>
+                    </a>
+                    <a href="" class="d-flex flex-row align-items-center mb-2">
+                        <span class="material-icons-round">splitscreen</span>
+                        <h4 class="ml-2">Nama Tugas.pdf</h4>
+                    </a>
+                    <a href="" class="d-flex flex-row align-items-center mb-2">
+                        <span class="material-icons-round">splitscreen</span>
+                        <h4 class="ml-2">Nama Tugas.pdf</h4>
+                    </a>
+                </div>
             </div>
-          </div>
-          <hr>
-        @endforeach
-          
-          {{-- <div class="material d-flex flex-row d-flex align-items-center justify-content-between p-1">
-            <div class="detail d-flex flex-row">
-              <span class="material-icons-round mr-3"> description </span>
-              <h4>Materi 1 : Pak Yofhie</h4>
-            </div>
-            <div class="date-post mr-2">
-              <h5>Diposting 1 Bulan Lalu</h5>
-            </div>
-          </div> --}}
+        </div>
+        <div class="card first shadow-sm d-flex justify-content-center mt-4">
+            <h2>Tugas Anda</h2>
+            <form action="">
+                <label class="custom-file-upload d-flex align-items-center  mt-3">
+                    <input type="file" id="files"/>
+                </label>
+            </form>
+            <button type="button" class="btn btn-success mt-2">Serahkan</button>
+        </div>
       </div>
-    </div>
   </main>
+
 
   <footer>
     <div class="row">
@@ -276,15 +302,15 @@ function diff($since){
         }
         
         if($minggu>0){
-          return "Diunggah ".$minggu." minggu ".$hari." hari yang lalu";
+          return "Diupload ".$minggu." minggu ".$hari." hari yang lalu";
         }
         elseif($hari>0){
-          return "Diunggah ".$hari." hari ".$jam." jam yang lalu";
+          return "Diupload ".$hari." hari ".$jam." jam yang lalu";
         }
         elseif($jam<1){
-          return "Diunggah ".floor($menit/60)." menit yang lalu";
+          return "Diupload ".floor($menit/60)." menit yang lalu";
         }else{
-          return "Diunggah ".$jam." jam ".floor($menit/60)." menit yang lalu";
+          return "Diupload ".$jam." jam ".floor($menit/60)." menit yang lalu";
         }
       }
 
