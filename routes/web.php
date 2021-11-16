@@ -30,7 +30,6 @@ Route::get('/tugas', function () {
     return view('user.tugas');
 });
 
-
 //For Booth
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboard', [PanelController::class, 'index'])->name('dashboard');
@@ -83,6 +82,9 @@ Route::group(['middleware' => ['auth', 'role:admin']], function(){
     Route::get('/admin/pelatihan/tambah-materi/{ws_id}', [MaterialController::class, 'adminViewCreateMaterial'])->name('admin.pelatihan.tambah-materi');
     Route::post('/admin/pelatihan/tambah-materi', [MaterialController::class, 'adminStoreCreateMaterial']);
     Route::delete('/admin/pelatihan/delete-materi/{id}', [MaterialController::class, 'adminDeleteCreateMaterial']);
+    Route::get('/admin/tambah-tugas', function () {
+    return view('admin.tambah_tugas');
+});
 
     
 });
