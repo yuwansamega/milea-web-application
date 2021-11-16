@@ -141,7 +141,7 @@ class MaterialController extends Controller
                 ->count();
 
                 if($check_material>0){
-                    $data = DB::table('workshops')
+                    $data_material = DB::table('workshops')
                     ->where('workshops.id', $ws->id)
                     ->join('materials', 'workshops.id', '=', 'materials.ws_id')
                     ->select('materials.*','workshops.title', 'workshops.open_ws', 'workshops.close_ws', 'workshops.place')
@@ -150,7 +150,7 @@ class MaterialController extends Controller
 
                     return view ('user.detail_kelas', [
                         'data_ws'=> $ws,
-                        'data_material' => $data,
+                        'data_material' => $data_material,
                     ]);
                     
                 }else{
