@@ -26,7 +26,9 @@ use App\Http\Controllers\MaterialController;
 Route::get('/', function () {
     return redirect('/login');
 });
-
+Route::get('/tugas', function () {
+    return view('user.tugas');
+});
 
 
 //For Booth
@@ -52,8 +54,7 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
     Route::post('/check-enroll-key', [MaterialController::class, 'check']);
     Route::get('/detail-kelas/{key}', [MaterialController::class, 'classDetail'])->name('class-detail');
     Route::delete('/delete-class/{id}', [MaterialController::class, 'deleteClass'])->name('user_classes.delete');
-    Route::post('/update-payment/{id}', [SubmissionController::class, 'updatePayment']);
-        
+    Route::post('/update-payment/{id}', [SubmissionController::class, 'updatePayment']);  
     });
 
 

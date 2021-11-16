@@ -1,0 +1,89 @@
+body {
+    background-color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* align-items: center; */
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+main .left {
+    padding: 20px;
+    margin: 0 10px;
+    min-width: 100px;
+    max-width: 10vw;
+    flex-grow: 0;
+}
+main .right {
+    padding: 30px;
+    margin: 0 10px;
+    max-width: 990px;
+    width: 100%;
+}
+main .right .title h1 {
+    font-weight: 700;
+}
+main .right .title h4 {
+    font-size: 15px;
+    text-align: left;
+    margin-bottom: 0 !important;
+}
+main .right .desc .task_preview .files a {
+    color: black;
+}
+main .right .desc .task_preview .files a h4 {
+    font-size: 15px;
+    margin: 0;
+}
+main .card.first {
+    max-width: 990px;
+    width: 100%;
+    padding: 20px;
+}
+main .card.first h2 {
+    margin: 0;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+main .card.first .btn-light {
+    font-weight: 700;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+main .card.first .btn-success {
+    background-color: #198754 !important;
+    font-weight: 700;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+.custom-file-upload h4 {
+    font-weight: 700;
+    background-color: white;
+    margin: 0;
+    font-size: 20px;
+}
+@media screen and (max-width: 1024px) {
+    main .left {
+        display: none !important;
+    }
+}
+@media screen and (max-width: 575px) {
+    main .right .title .container .row .last h4 {
+        text-align: left !important;
+        font-weight: 700;
+    }
+}
