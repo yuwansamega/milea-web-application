@@ -76,6 +76,16 @@ main .card.first .btn-success {
     margin: 0;
     font-size: 20px;
 }
+nav a:link {
+    color: inherit;
+    text-decoration: none;
+}
+nav a:visited {
+    color: inherit;
+}
+nav a:hover {
+    color: inherit;
+}
 @media screen and (max-width: 1024px) {
     main .left {
         display: none !important;

@@ -8,6 +8,7 @@ use App\Models\Material;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UserClass;
+use App\Models\UserTask;
 
 class MaterialController extends Controller
 {
@@ -148,9 +149,22 @@ class MaterialController extends Controller
                     ->orderBy('materials.created_at', 'DESC')
                     ->get();
 
+                    $data_task = DB::table('workshops')
+                    ->where('workshops.id', $ws->id)
+                    ->join('tasks', 'workshops.id', '=', 'tasks.ws_id')
+                    ->select('tasks.task_title','tasks.task_title_slug','tasks.created_at','workshops.key')
+                    ->orderBy('tasks.created_at', 'DESC')
+                    ->get();
+
+                    $check_task_file = DB::table('user_tasks')
+                    ->where([['ws_id','=',$ws->id],['user_id','=', $user_id]])
+                    ->count();
+
                     return view ('user.detail_kelas', [
                         'data_ws'=> $ws,
+                        'count'=> $check_task_file,
                         'data_material' => $data_material,
+                        'data_tasks' => $data_task,
                     ]);
                     
                 }else{
@@ -163,6 +177,80 @@ class MaterialController extends Controller
                 
                 }
             }
+    }
+
+
+    public function taskDetail($key, $slug){
+        $user_id = Auth::user()->id;
+        $ws = DB::table('workshops')
+                    ->where('key', $key)
+                    ->select('id')->first();
+        $check = DB::table('user_classes')
+                ->where([['ws_id','=',$ws->id],['user_id','=', $user_id]])
+                ->count();
+
+        if($check<=0){
+            return redirect('/kelas')->with('warning','Anda belum tergabung di kelas ini!');
+        }else{
+            $data_task = DB::table('tasks')
+                        ->where('task_title_slug', $slug)->first();
+
+            $task_file = DB::table('user_tasks')
+            ->select('id','task_file', 'created_at')
+            ->where([['ws_id','=',$ws->id],['user_id','=', $user_id]])
+            ->first();
+            $check_task_file = DB::table('user_tasks')
+            ->where([['ws_id','=',$ws->id],['user_id','=', $user_id]])
+            ->count();
+           
+            
+            return view ('user.tugas', [
+                'task' => $data_task,
+                'task_file' => $task_file,
+                'count' => $check_task_file,
+                'ws_id' => $ws->id,
+                'user_id' => $user_id,
+                'key' => $key
+            ]);
+        }
+    }
+
+    public function taskPost($key, $id, Request $request){
+
+        $request->validate([
+            'task_file' => 'max:2048',
+        ]);
+
+        $user_id = Auth::user()->id;
+
+        $ws_id = $request->ws_id;
+        $get_file = $request->task_file;
+        $filename = "tugas".time().rand(100,999).".".$get_file->getClientOriginalExtension();
+
+        DB::table('user_tasks')->insert([
+            'ws_id' => $ws_id,
+            'user_id' => $user_id,
+            'task_file' => $filename,
+        ]);
+
+        $get_file->move('user/tugas/',$filename);
+
+        return back()->with('success','Tugas Berhasil Dikirim!');
+
+        
+    }
+
+    public function deleteTask($id){
+        $task_file = DB::table('user_tasks')
+        ->select('id','task_file')
+        ->where('id','=', $id)
+        ->first();
+        UserTask::find($id)->delete();
+        File::delete(public_path('/user/tugas/'.$task_file->task_file));
+  
+        return back()->with('success','Tugas Berhasil Dihapus!');
+
+        
     }
 
     public function deleteClass($id){

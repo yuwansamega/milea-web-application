@@ -33,6 +33,8 @@
     <title>MILEA </title>
   </head>
 <body>
+  <script>if(performance.navigation.type == 4){
+    location.reload(true);}</script>
     <nav style="position: sticky">
       <div id="logo">
         <img src="/img/navbar-logo.png" alt="" height="68px" width="68px" />
@@ -115,60 +117,73 @@
       </div>
       <div class="right">
         <div class="title">
-            <h1>Tugas 1 Pak Wajedi</h1>
+            <h1>{{ $task->task_title }}</h1>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3 p-0">
-                        <h4>Wajedi Yang Aslei</h4>
+                        <h4>{{ $task->speaker }}</h4>
                     </div>
                     <div class="col-sm-4 p-0">
-                        <h4>15 November 2021</h4>
+                      
+                        <h4>{{date("d M Y",strtotime($task->created_at))}} </h4>
                     </div>
                     <div class="col last p-0">
-                    <h4 style="text-align: right">Tenggat Waktu : 15 November 2021 23:59</h4>
+                    <h4 style="text-align: right">Tenggat Waktu : {{ date("d M Y",strtotime($task->created_at)) }} &nbsp;&nbsp;&nbsp;&nbsp; {{ date('H:i',strtotime($task->dead_time))}}</h4>
                     </div>
                 </div>
             </div>
             <hr >
         </div>
         <div class="desc">
-            <p>1. Buatlah PPT Presentasi dari materi hari ini 
-                <br><br>
-                penamaan file: 
-                <br> 
-                Nama-Nomor Peserta-Tugas1.pdf
-                <br><br>
-                contoh: 
-                <br>
-                Milea Aprianti-008-Tugas1.pdf
-                <br><br>
-                Waktu pengumpulan sampai selasa 16 November 2021 23:59 WIB
-            </p>
+            <p>{{ $task->task_desc }}</p>
             <div class="task_preview">
                 <div class="files d-flex flex-column">
-                    <a href="" class="d-flex flex-row align-items-center mb-2">
+                    <a href="{{ asset('admin/tugas/'. $task->task_file ) }}" target="_blank" rel="noopener noreferrer"  class="d-flex flex-row align-items-center mb-2" >
                         <span class="material-icons-round" style="text-decoration: none">splitscreen</span>
-                        <h4 class="ml-2">Nama Tugas.pdf</h4>
-                    </a>
-                    <a href="" class="d-flex flex-row align-items-center mb-2">
-                        <span class="material-icons-round">splitscreen</span>
-                        <h4 class="ml-2">Nama Tugas.pdf</h4>
-                    </a>
-                    <a href="" class="d-flex flex-row align-items-center mb-2">
-                        <span class="material-icons-round">splitscreen</span>
-                        <h4 class="ml-2">Nama Tugas.pdf</h4>
+                        <h4 class="ml-2">{{ $task->task_file }}</h4>
                     </a>
                 </div>
             </div>
         </div>
         <div class="card first shadow-sm d-flex justify-content-center mt-4">
             <h2>Tugas Anda</h2>
-            <form action="">
-                <label class="custom-file-upload d-flex align-items-center  mt-3">
-                    <input type="file" id="files"/>
-                </label>
+          @if($count>0)
+            <form method="POST" action="{{ route('user_tasks.delete', $task_file->id) }}">
+              @csrf
+              <input name="_method" type="hidden" value="DELETE">
+            <a href="{{ asset('user/tugas/'. $task_file->task_file ) }}" target="_blank" rel="noopener noreferrer"  class="d-flex flex-row align-items-center m-3" style="color: black;" >
+              <span class="material-icons-round" style="text-decoration: none;">splitscreen</span>
+              <h6 class="m-2">Tugas Terkirim</h6>
+            </a>
+            <button type="submit" class="btn btn-danger mt-2 show_confirm" style="width: 100%">Batalkan Tugas</button>
             </form>
-            <button type="button" class="btn btn-success mt-2">Serahkan</button>
+            @else
+            @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block mt-3">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+        </div>
+    @endif
+    @if (count($errors) > 0)
+        <div class="alert alert-danger mt-3">
+            <strong>Whoops!</strong> There were some problems with your input.
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+            <form method="POST" action="/update-tugas/{{ $key }}/{{ $user_id }}" enctype="multipart/form-data">
+              @csrf
+                <label class="custom-file-upload d-flex align-items-center  mt-3">
+                    <input type="file" id="files" name="task_file" required/>
+                </label>
+                <input type="hidden" name="ws_id" id="ws_id" value="{{ $ws_id }}">
+            
+            <button type="submit" class="btn btn-success mt-2" style="width: 100%">Serahkan</button>
+          </form>
+          @endif
         </div>
       </div>
   </main>
@@ -316,7 +331,28 @@ function diff($since){
 
     ?>
 
-    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+ 
+     $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `Apakah anda yakin?`,
+              text: "",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            }
+          });
+      });
+  
+</script>
     @include('sweetalert::alert')
 </body>
 </html>

@@ -53,6 +53,9 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
     Route::get('/kelas', [MaterialController::class, 'show']);
     Route::post('/check-enroll-key', [MaterialController::class, 'check']);
     Route::get('/detail-kelas/{key}', [MaterialController::class, 'classDetail'])->name('class-detail');
+    Route::get('{key}/tugas/{slug}', [MaterialController::class, 'taskDetail']);
+    Route::post('/update-tugas/{key}/{id}', [MaterialController::class, 'taskPost']);
+    Route::delete('/delete-tugas/{id}', [MaterialController::class, 'deleteTask'])->name('user_tasks.delete');
     Route::delete('/delete-class/{id}', [MaterialController::class, 'deleteClass'])->name('user_classes.delete');
     Route::post('/update-payment/{id}', [SubmissionController::class, 'updatePayment']);  
     });
