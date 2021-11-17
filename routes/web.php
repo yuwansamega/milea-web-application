@@ -85,6 +85,9 @@ Route::group(['middleware' => ['auth', 'role:admin']], function(){
     Route::get('/admin/tambah-tugas', function () {
     return view('admin.tambah_tugas');
 });
+ Route::get('/admin/tugas-peserta', function () {
+    return view('admin.tugas_peserta');
+});
 
     
 });
