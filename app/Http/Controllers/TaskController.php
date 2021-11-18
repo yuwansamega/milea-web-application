@@ -30,7 +30,7 @@ class TaskController extends Controller
         ]);
 
         $get_tf = $request->task_file;
-        $task_file = time().rand(100,999).".".$get_tf->getClientOriginalExtension();
+        $task_file = rand(10,99)."".$get_tf->getClientOriginalName();
 
         $title_slug = Str::slug($request->task_title, "-");
 
@@ -81,6 +81,12 @@ class TaskController extends Controller
                     ->join('tasks', 'user_tasks.task_id', '=', 'tasks.id')
                     ->select('tasks.speaker', 'tasks.task_title')
                     ->first();
+        $ws_title = DB::table('tasks')
+                ->where('tasks.id', $id)
+                ->join('workshops', 'tasks.ws_id', '=', 'workshops.id')
+                ->select('workshops.title')
+                ->first();
+                    
                     
         $data_ut = DB::table('user_tasks')
                     ->where('user_tasks.task_id', $id)
@@ -88,13 +94,15 @@ class TaskController extends Controller
                     ->select('data_users.fullname', 'user_tasks.task_file', 'user_tasks.task_id')
                     ->get();
 
-        
+       
         return view ('admin.tugas_peserta',[
             'title' => 'Milea Admin | Tugas Peserta',
             'ut_tns' => $ut_tns,
+            'ws_title'=> $ws_title,
             'data_ut' => $data_ut,
             'task_id' => $id
         ]);
+        
     }
 
     public function adminUnduhParticipantTask($id){

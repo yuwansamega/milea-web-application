@@ -130,7 +130,7 @@ class SubmissionController extends Controller
             return redirect('/riwayat')->with('error','Berkas pendaftaran anda belum diverifikasi!');
         }else{
             $request->validate([
-                'payment_proof' => 'mimes:jpg,pdf|max:2048'
+                'payment_proof' => 'mimes:jpg,png|max:2048'
             ]);
     
             $fileName = time().rand(100,999).".".$request->payment_proof->getClientOriginalExtension();

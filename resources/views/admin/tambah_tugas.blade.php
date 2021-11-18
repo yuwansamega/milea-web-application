@@ -69,7 +69,7 @@
                   </div>
                   <div class="col-lg-9">
                     <div class="form-group">
-                      <label for="exampleInputFile">Unggah Berkas</label>
+                      <label for="exampleInputFile">Unggah Berkas (min : 2Mb)</label>
                       <div class="input-group p-1" style="border: solid 1px rgba(0, 0, 0, 0.2); border-radius: 3px">
                         <div class="custom-file">
                           <input required type="file" name="task_file" id="task_file">

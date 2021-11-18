@@ -179,7 +179,7 @@
                 <label class="custom-file-upload d-flex align-items-center  mt-3">
                     <input type="file" id="files" name="task_file" required/>
                 </label>
-                <input type="hidden" name="ws_id" id="ws_id" value="{{ $ws_id }}">
+                <input type="hidden" name="task_id" id="task_id" value="{{ $task->id }}">
             
             <button type="submit" class="btn btn-success mt-2" style="width: 100%">Serahkan</button>
           </form>

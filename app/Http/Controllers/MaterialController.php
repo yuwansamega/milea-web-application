@@ -153,13 +153,19 @@ class MaterialController extends Controller
                     $data_task = DB::table('workshops')
                     ->where('workshops.id', $ws->id)
                     ->join('tasks', 'workshops.id', '=', 'tasks.ws_id')
-                    ->select('tasks.task_title','tasks.task_title_slug','tasks.created_at','workshops.key')
+                    ->select('tasks.id','tasks.task_title','tasks.task_title_slug','tasks.created_at','workshops.key')
                     ->orderBy('tasks.created_at', 'DESC')
                     ->get();
 
-                    $check_task_file = DB::table('user_tasks')
-                    ->where([['ws_id','=',$ws->id],['user_id','=', $user_id]])
+                    $check_task_file = DB::table('workshops')
+                    ->where('workshops.id', $ws->id)
+                    ->join('tasks', 'workshops.id', '=', 'tasks.ws_id')
+                    ->join('user_tasks', 'tasks.id', '=', 'user_tasks.task_id')
+                    ->where([['user_tasks.task_id','=',$data_task->first()->id],['user_tasks.user_id','=', $user_id]])
                     ->count();
+                    
+                    
+                    
 
                     return view ('user.detail_kelas', [
                         'data_ws'=> $ws,
@@ -198,10 +204,11 @@ class MaterialController extends Controller
 
             $task_file = DB::table('user_tasks')
             ->select('id','task_file', 'created_at')
-            ->where([['ws_id','=',$ws->id],['user_id','=', $user_id]])
+            ->where([['task_id','=',$data_task->id],['user_id','=', $user_id]])
             ->first();
+
             $check_task_file = DB::table('user_tasks')
-            ->where([['ws_id','=',$ws->id],['user_id','=', $user_id]])
+            ->where([['task_id','=',$data_task->id],['user_id','=', $user_id]])
             ->count();
            
             
@@ -223,18 +230,25 @@ class MaterialController extends Controller
         ]);
 
         $user_id = Auth::user()->id;
-
-        $ws_id = $request->ws_id;
+        
+        $task_id = $request->task_id;
+        $speaker = DB::table('tasks')
+                        ->where('id', $task_id)
+                        ->select('speaker')
+                        ->first();
+        $user_name = DB::table('data_users')
+                    ->where('user_id', $id)
+                    ->select('fullname')->first();
         $get_file = $request->task_file;
-        $filename = "tugas".time().rand(100,999).".".$get_file->getClientOriginalExtension();
+        $filename = $user_name->fullname.rand(10,99).".".$get_file->getClientOriginalExtension();
 
         DB::table('user_tasks')->insert([
-            'ws_id' => $ws_id,
+            'task_id' => $task_id,
             'user_id' => $user_id,
             'task_file' => $filename,
         ]);
 
-        $get_file->move('user/tugas/',$filename);
+        $get_file->move('user/tugas/'.$speaker->speaker.'/',$filename);
 
         return back()->with('success','Tugas Berhasil Dikirim!');
 

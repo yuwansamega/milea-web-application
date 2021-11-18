@@ -44,10 +44,10 @@
       </div>
       <ul id="pages">
         <li>
-          <a href="/beranda" >Beranda</a>
+          <a href="/beranda"  style="color:black;">Beranda</a>
         </li>
         <li>
-          <a href="/daftar-kegiatan" >Pelatihan</a>
+          <a href="/daftar-kegiatan" style="color:black;">Pelatihan</a>
         </li>
         <li>
           <a href="/kelas" class="selected">Kelas</a>

@@ -753,8 +753,9 @@
                                                                         dapat dilihat
                                                                         juga di
                                                                         <a
-                                                                            href="sifa-milea.co.id"
+                                                                            href="milea.sifa.co.id"
                                                                             target="output"
+                                                                            rel="noopener noreferrer"
                                                                         >
                                                                             akun
                                                                             MILEA

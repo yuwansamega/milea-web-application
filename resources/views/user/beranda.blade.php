@@ -115,7 +115,7 @@
             untuk mitra yang ingin mengikuti pelatihan, pendidikan dan
             pengembangan di RSUD Siti Fatimah.
           </p>
-          <button class="ikuti-pelatihan">Ikuti Pelatihan 
+          <button class="ikuti-pelatihan"><a href="/daftar-kegiatan"> Ikuti Pelatihan </a>
             <svg width="20" height="20" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4.375 14H23.625" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M15.75 6.125L23.625 14L15.75 21.875" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
