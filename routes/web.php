@@ -10,7 +10,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminDVerifikasiController;
 use App\Http\Controllers\AdminVerifikasiController;
 use App\Http\Controllers\MaterialController;
-
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,12 +85,18 @@ Route::group(['middleware' => ['auth', 'role:admin']], function(){
     Route::get('/admin/pelatihan/tambah-materi/{ws_id}', [MaterialController::class, 'adminViewCreateMaterial'])->name('admin.pelatihan.tambah-materi');
     Route::post('/admin/pelatihan/tambah-materi', [MaterialController::class, 'adminStoreCreateMaterial']);
     Route::delete('/admin/pelatihan/delete-materi/{id}', [MaterialController::class, 'adminDeleteCreateMaterial']);
-    Route::get('/admin/tambah-tugas', function () {
-    return view('admin.tambah_tugas');
-});
- Route::get('/admin/tugas-peserta', function () {
-    return view('admin.tugas_peserta');
-});
+
+    //Admin Tugas
+    Route::get('/admin/pelatihan/tambah-tugas/{ws_id}', [TaskController::class, 'adminViewCreateTask']);
+    Route::post('/admin/pelatihan/tambah-tugas', [TaskController::class, 'adminStoreCreateTask']);
+    Route::delete('/admin/pelatihan/delete-tugas/{id}', [TaskController::class, 'adminDeleteCreateTask']);
+
+    //Admin Tugas Peserta
+    Route::get('/admin/pelatihan/tugas-peserta/{id}', [TaskController::class, 'adminViewParticipantTask']);
+    Route::get('/admin/pelatihan/unduh-tugas-peserta/{id}', [TaskController::class, 'adminUnduhParticipantTask']);
+    
+    
+
 
     
 });

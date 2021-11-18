@@ -122,25 +122,25 @@
               </div>
               <div class="card-body">
                 <p class="card-text">Tambahkan berkas tugas pelatihan, tugas yang diberikan nantinya dapat diunduh oleh peserta.</p>
-                <a href="/admin/pelatihan/tambah-materi/{{ $data_ws->id }}" class="btn btn-primary">Tambah Berkas Tugas</a>
+                <a href="/admin/pelatihan/tambah-tugas/{{ $data_ws->id }}" class="btn btn-primary">Tambah Berkas Tugas</a>
               </div>
               <div class="card-body">
                 <div class="row">
-                  @foreach ($data_material as $item)
+                  @foreach ($data_task as $item)
                     <div class="col-md-3">
                       <div class="card card-secondary">
                         <div class="card-header">
-                          <h3 class="card-title" style="font-weight: bold">{{ $item->material_label }}</h3>
+                          <h3 class="card-title" style="font-weight: bold">{{ $item->task_title }}</h3>
                         </div>
                         <div class="card-body text-center">
-                          <a href="/admin/tugas-peserta">
+                          <a href="/admin/pelatihan/tugas-peserta/{{ $item->id }}">
                             <span class="material-icons-round text-secondary" style="font-size: 64px">
                               task
                               </span>
                           </a>
                         </div>
                         <!-- /.card-body -->
-                        <form action="/admin/pelatihan/delete-materi/{{ $item->id }}" method="POST" onsubmit="return confirm('Yakin Hapus Materi?')" rel="noopener noreferrer">
+                        <form action="/admin/pelatihan/delete-tugas/{{ $item->id }}" method="POST" onsubmit="return confirm('Yakin Hapus Tugas?')" rel="noopener noreferrer">
                           @method('delete')
                           @csrf
                           <div class="card-footer">

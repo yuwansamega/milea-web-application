@@ -34,37 +34,37 @@
                 <h3>Form Penambahan Tugas</h3>
               </div>
               <!-- /.card-header -->
-              <form id="form" action="/admin/pelatihan/tambah-materi" method="post" enctype="multipart/form-data">
+              <form id="form" action="/admin/pelatihan/tambah-tugas" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body expandable-card col">
                   <div class="col-lg-9">
                     <div class="form-group">
                       <label for="inputMaterialLabel">Nama Pembicara</label>
-                      <input name ="material_label[]" type="text" class="form-control" id="material_label[]" placeholder="Masukkan Nama Pembicara">
+                      <input required name ="speaker" type="text" class="form-control" id="speaker" placeholder="Masukkan Nama Pembicara">
                     </div>
                   </div>
                   <div class="col-lg-9">
                     <div class="form-group">
                       <label for="inputMaterialLabel">Judul Tugas</label>
-                      <input name ="material_label[]" type="text" class="form-control" id="material_label[]" placeholder="Masukkan Judul Tugas">
+                      <input required name ="task_title" type="text" class="form-control" id="task_title" placeholder="Masukkan Judul Tugas">
                     </div>
                   </div>
                   <div class="col-lg-9">
                     <div class="form-group">
                       <label for="inputMaterialLabel">Deskripsi Tugas</label>
-                      <textarea name ="material_label[]" class="form-control" id="material_label[]" cols="30" rows="5" placeholder="Masukkan Deskripsi Tugas"></textarea>
+                      <textarea required name ="task_desc" class="form-control" id="task_desc" cols="30" rows="5" placeholder="Masukkan Deskripsi Tugas"></textarea>
                     </div>
                   </div>
                   <div class="col-lg-9">
                     <div class="form-group">
                       <label for="inputMaterialLabel">Batas Tanggal Pengumpulan</label>
-                      <input name ="material_label[]" type="date" class="form-control" id="material_label[]" placeholder="Masukkan Judul Tugas">
+                      <input required name ="deadline" type="date" class="form-control" id="deadline" placeholder="Masukkan Judul Tugas">
                     </div>
                   </div>
                   <div class="col-lg-9">
                     <div class="form-group">
                       <label for="inputMaterialLabel">Tenggat Waktu</label>
-                      <input name ="material_label[]" type="time" class="form-control" id="material_label[]" placeholder="Masukkan Judul Tugas">
+                      <input required name ="dead_time" type="time" class="form-control" id="dead_time" placeholder="Masukkan Judul Tugas">
                     </div>
                   </div>
                   <div class="col-lg-9">
@@ -72,7 +72,7 @@
                       <label for="exampleInputFile">Unggah Berkas</label>
                       <div class="input-group p-1" style="border: solid 1px rgba(0, 0, 0, 0.2); border-radius: 3px">
                         <div class="custom-file">
-                          <input type="file" name="material_file[]" id="material_file[]">
+                          <input required type="file" name="task_file" id="task_file">
                         </div>
                         <div class="input-group-append">
                         </div>
@@ -87,7 +87,7 @@
                     </button>
                   </div> --}}
                 </div>
-                {{-- <input type="hidden" name="ws_id" id="ws_id" value="{{ $ws_id }}"> --}}
+                <input type="hidden" name="ws_id" id="ws_id" value="{{ $ws_id }}">
                 <!-- /.card-body -->
                 <div class="card-footer d-flex justify-content-center" id="grup-tombol">
                   <button type="submit" class="btn btn-success col-sm-1 m-2">Submit</button>

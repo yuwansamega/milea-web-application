@@ -42,7 +42,8 @@ class MaterialController extends Controller
             
         }
         
-            return redirect('/admin/pelatihan/'.$request->ws_id);
+            return redirect('/admin/pelatihan/'.$request->ws_id)->with('success','Materi Berhasil Ditambah');
+           
     }
 
     public function adminDeleteCreateMaterial($id){
@@ -56,7 +57,7 @@ class MaterialController extends Controller
 
         File::delete(public_path().'/materi/'.$mf_file->material_file);
 
-        return redirect('/admin/pelatihan');
+        return back()->with('success','Materi Berhasil Dihapus!');
     }
 
     public function show (){

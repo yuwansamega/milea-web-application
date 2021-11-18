@@ -61,6 +61,10 @@ class WSController extends Controller
             ->where('materials.ws_id', $ws_id)
             ->get();
 
+        $data_task = DB::table('tasks')
+            ->where('tasks.ws_id', $ws_id)
+            ->get();
+
         $data = DB::table('submissions')
             ->where('submissions.ws_id', $ws_id)
             ->Where('submissions.payment_status', 'Pembayaran Diterima')
@@ -72,6 +76,7 @@ class WSController extends Controller
             
         return view('admin.pelatihan_submissions', [
             'data_material' => $data_material,
+            'data_task' => $data_task,
             "ws_id" => $ws_id,
             'data' => $data,
             'data_ws' => $data_ws,

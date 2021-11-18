@@ -31,7 +31,7 @@
             <!-- /.card -->
             <div class="card">
               <div class="card-header">
-                <h3 class="">Judul Tugas Peserta</h3>
+                <h3 class="">{{ $ut_tns->task_title }}</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -45,11 +45,21 @@
                   </tr>
                   </thead>
                   <tbody>
+                    @php
+                        $i = 1;
+                    @endphp
+                    @foreach ($data_ut as $item)
                    <tr>
-                       <td>1</td>
-                       <td>Muhammad Sholeh</td>
-                       <td><a href="../../assets/" class="d-flex align-items-center" style="color: rgb(0, 0, 0)" target="_blank">Lihat Berkas<span class="material-icons-round ml-3">visibility</span></a></td>
+                       <td style="width: 100px">
+                        @php
+                          echo $i++;
+                        @endphp
+                       </td>
+                       <td>{{ $item->fullname }}</td>
+                       <td><a href="{{ asset('user/tugas/'.$ut_tns->speaker.'/'.$item->task_file) }}" class="d-flex align-items-center" style="color: rgb(0, 0, 0)" target="_blank">Lihat Tugas<span class="material-icons-round ml-3">visibility</span></a></td>
                    </tr>
+
+                   @endforeach
                   </tbody>
                   
                 </table>
@@ -67,7 +77,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <a href="" class="row d-flex align-items-center ml-2">
+                <a href="/admin/pelatihan/unduh-tugas-peserta/{{ $task_id }}" class="row d-flex align-items-center ml-2">
                   <span class="material-icons-round" style="font-size:64px; color: black">
                       folder_zip
                   </span>
