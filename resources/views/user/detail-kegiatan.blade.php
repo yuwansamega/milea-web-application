@@ -121,7 +121,7 @@
               <tr>
                 <td scope="row" style="text-align: justify; padding: 30px;font-size: 18px;">
                   <p>
-                    {{ $ws->describe}}
+                    {!! $ws->describe !!}
                   </p>
                 </td>
               </tr>

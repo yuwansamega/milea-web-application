@@ -125,6 +125,14 @@
         <div class="card-header" style="background-color: white">
           <h4>Materi</h4>
         </div>
+        @if($data_material === null)
+        <div class="material d-flex flex-row d-flex align-items-center justify-content-between p-1 mt-2">
+          <div class="detail d-flex flex-row">
+            
+          </div>
+        </div>
+        @else
+        
         @foreach ($data_material as $item)
             <div class="material d-flex flex-row d-flex align-items-center justify-content-between p-1 mt-2">
             <div class="detail d-flex flex-row">
@@ -137,6 +145,7 @@
           </div>
           <hr>
         @endforeach
+        @endif
       </div>
     </div>
 
@@ -145,15 +154,21 @@
         <div class="card-header" style="background-color: white">
           <h4>Tugas</h4>
         </div>
+        @if($data_tasks === null)
+        <div class="material d-flex flex-row d-flex align-items-center justify-content-between p-1 mt-2">
+          <div class="detail d-flex flex-row">
+            
+          </div>
+        </div>
+        @else
         @foreach ($data_tasks as $tasks)
             <div class="material d-flex flex-row d-flex align-items-center justify-content-between p-1 mt-2">
             <div class="detail d-flex flex-row">
-              @if($count>0)
-              <span class="material-icons-round mr-3" style="color: #198754"> description </span>
-              @else
-              <span class="material-icons-round mr-3" style="color: red"> description </span>
-              @endif
-              <h4><a href="/{{ $tasks->key }}/tugas/{{ $tasks->task_title_slug }}">{{ $tasks->task_title }}</a></h4>
+              
+              
+              <span class="material-icons-round mr-3" > description </span>
+              
+              <h4><a href="/{{ $tasks->key }}/{{ $tasks->id }}/tugas/{{ $tasks->task_title_slug }}">{{ $tasks->task_title }}</a></h4>
             </div>
             <div class="date-post mr-2">
           <h5>{{ diff($tasks->created_at); }}</h5>
@@ -161,6 +176,7 @@
           </div>
           <hr>
         @endforeach
+        @endif
       </div>
     </div>
   </main>

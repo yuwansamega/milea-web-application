@@ -19,13 +19,14 @@ class AdminVerifikasiController extends Controller
         // $data_user = DataUser::where('user_id', $user_id_sub)->first();
 
         $data = DB::table('submissions')
-            ->where(function ($query) {
-                $query->where('submissions.status_p', 'Menunggu Verifikasi')
-                      ->orWhere('submissions.status_p', 'Diterima');
-            })
+            // ->where(function ($query) {
+            //     $query->where('submissions.status_p', 'Menunggu Verifikasi')
+            //           ->orWhere('submissions.status_p', 'Diterima');
+            // })
             ->Where(function ($query) {
                 $query->where('submissions.payment_status', 'Belum Dikirim')
-                      ->orWhere('submissions.payment_status', 'Menunggu Verifikasi Pembayaran');
+                      ->orWhere('submissions.payment_status', 'Menunggu Verifikasi Pembayaran')
+                      ->orWhere('submissions.payment_status', 'Pembayaran Belum Diterima');
             })
             ->join('data_users', 'submissions.user_id', '=', 'data_users.user_id')
             ->join('workshops', 'submissions.ws_id', '=', 'workshops.id')

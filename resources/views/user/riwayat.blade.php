@@ -150,7 +150,7 @@
               <td>{{ tgl_indo($riwayat->open_ws) }} - {{ tgl_indo($riwayat->close_ws) }}</td>
               <td>{{ $riwayat->place }}</td>
               <td>{{ $riwayat->status_p}}</td>
-              @if($riwayat->status_p==="Diterima" AND $riwayat->payment_status === "Belum Dikirim")
+              @if($riwayat->status_p==="Diterima" AND ($riwayat->payment_status === "Belum Dikirim" OR $riwayat->payment_status === "Pembayaran Belum Diterima"))
                   <td>
                     <a href="#bannerformmodal" data-toggle="modal" data-target="#bannerformmodal" style="text-decoration: underline; font-weight:bold;">Unggah Bukti Pembayaran</a>
                     <div class="modal fade bannerformmodal" tabindex="-1" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal">

@@ -71,7 +71,7 @@ class WSController extends Controller
             ->where('submissions.ws_id', $ws_id)
             ->Where('submissions.payment_status', 'Pembayaran Diterima')
             ->join('data_users', 'submissions.user_id', '=', 'data_users.user_id')
-            ->select('data_users.fullname', 'data_users.position')
+            ->select('data_users.fullname', 'data_users.position', 'data_users.institute')
             ->get();
             
         $data_ws = Workshop::find($ws_id); 

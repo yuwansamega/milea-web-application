@@ -72,7 +72,11 @@
                         <td>{{ $d->status_p }}</td>
                         <td><a href="/admin/verifikasi/detail/{{ $d->id }}">Detail</a></td>
                         <td>{{ $d->payment_status }}</td>
+                        @if( $d->payment_status  != "Menunggu Verifikasi Pembayaran")
+                        <td>Detail Pembayaran</td>
+                        @else
                         <td><a href="/admin/verifikasi/detail-payment/{{ $d->id }}">Detail Pembayaran</a></td>
+                        @endif
                     </tr>
                     @endforeach
 

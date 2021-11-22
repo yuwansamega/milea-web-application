@@ -128,7 +128,7 @@
                         <h4>{{date("d M Y",strtotime($task->created_at))}} </h4>
                     </div>
                     <div class="col last p-0">
-                    <h4 style="text-align: right">Tenggat Waktu : {{ date("d M Y",strtotime($task->created_at)) }} &nbsp;&nbsp;&nbsp;&nbsp; {{ date('H:i',strtotime($task->dead_time))}}</h4>
+                    <h4 style="text-align: right">Tenggat Waktu : {{ date("d M Y",strtotime($task->deadline)) }} &nbsp;&nbsp;&nbsp;&nbsp; {{ date('H:i',strtotime($task->dead_time))}}</h4>
                     </div>
                 </div>
             </div>
@@ -151,7 +151,7 @@
             <form method="POST" action="{{ route('user_tasks.delete', $task_file->id) }}">
               @csrf
               <input name="_method" type="hidden" value="DELETE">
-            <a href="{{ asset('user/tugas/'. $task_file->task_file ) }}" target="_blank" rel="noopener noreferrer"  class="d-flex flex-row align-items-center m-3" style="color: black;" >
+            <a href="{{ asset('user/tugas/'.$task->speaker.'-'.$task->id.'/'.$task_file->task_file ) }}" target="_blank" rel="noopener noreferrer"  class="d-flex flex-row align-items-center m-3" style="color: black;" >
               <span class="material-icons-round" style="text-decoration: none;">splitscreen</span>
               <h6 class="m-2">Tugas Terkirim</h6>
             </a>

@@ -138,9 +138,16 @@ class MaterialController extends Controller
         if($check<=0){
             return redirect('/kelas')->with('warning','Anda belum tergabung di kelas ini!');
         }else{
-            $check_material = DB::table('user_classes')
+            $check_material = DB::table('materials')
                 ->where('ws_id',$ws->id)
                 ->count();
+
+            $check_task = DB::table('tasks')
+                ->where('ws_id',$ws->id)
+                ->count();
+            
+            $data_material = null;
+            $data_task = null;
 
                 if($check_material>0){
                     $data_material = DB::table('workshops')
@@ -149,49 +156,40 @@ class MaterialController extends Controller
                     ->select('materials.*','workshops.title', 'workshops.open_ws', 'workshops.close_ws', 'workshops.place')
                     ->orderBy('materials.created_at', 'DESC')
                     ->get();
-
+                }
+                if($check_task>0){
                     $data_task = DB::table('workshops')
                     ->where('workshops.id', $ws->id)
                     ->join('tasks', 'workshops.id', '=', 'tasks.ws_id')
                     ->select('tasks.id','tasks.task_title','tasks.task_title_slug','tasks.created_at','workshops.key')
                     ->orderBy('tasks.created_at', 'DESC')
                     ->get();
+                    
+                }
 
-                    $check_task_file = DB::table('workshops')
-                    ->where('workshops.id', $ws->id)
-                    ->join('tasks', 'workshops.id', '=', 'tasks.ws_id')
-                    ->join('user_tasks', 'tasks.id', '=', 'user_tasks.task_id')
-                    ->where([['user_tasks.task_id','=',$data_task->first()->id],['user_tasks.user_id','=', $user_id]])
-                    ->count();
-                    
-                    
-                    
-
+                
                     return view ('user.detail_kelas', [
                         'data_ws'=> $ws,
-                        'count'=> $check_task_file,
                         'data_material' => $data_material,
                         'data_tasks' => $data_task,
                     ]);
                     
-                }else{
-
-                    return view ('user.detail_kelas', [
-                        'data_ws'=> $ws,
-                        'data_material' => null,
-                    ]);
+                
                     
                 
-                }
+                
             }
     }
 
 
-    public function taskDetail($key, $slug){
+    public function taskDetail($key, $id, $slug){
         $user_id = Auth::user()->id;
+        //mendapatkan ws id
         $ws = DB::table('workshops')
                     ->where('key', $key)
                     ->select('id')->first();
+
+        //mendapatkan apakah user terdaftar di pelatihan tersebut atau tidak
         $check = DB::table('user_classes')
                 ->where([['ws_id','=',$ws->id],['user_id','=', $user_id]])
                 ->count();
@@ -200,7 +198,10 @@ class MaterialController extends Controller
             return redirect('/kelas')->with('warning','Anda belum tergabung di kelas ini!');
         }else{
             $data_task = DB::table('tasks')
-                        ->where('task_title_slug', $slug)->first();
+                        ->where('task_title_slug', $slug)
+                        ->where('id', $id)
+                        ->where('ws_id', $ws->id)
+                        ->first();
 
             $task_file = DB::table('user_tasks')
             ->select('id','task_file', 'created_at')
@@ -230,6 +231,10 @@ class MaterialController extends Controller
         ]);
 
         $user_id = Auth::user()->id;
+
+        $ws_id = DB::table('workshops')
+                    ->where('key', $key)
+                    ->select('id')->first();
         
         $task_id = $request->task_id;
         $speaker = DB::table('tasks')
@@ -248,7 +253,7 @@ class MaterialController extends Controller
             'task_file' => $filename,
         ]);
 
-        $get_file->move('user/tugas/'.$speaker->speaker.'/',$filename);
+        $get_file->move('user/tugas/'.$speaker->speaker.'-'.$task_id.'/',$filename);
 
         return back()->with('success','Tugas Berhasil Dikirim!');
 
@@ -257,11 +262,16 @@ class MaterialController extends Controller
 
     public function deleteTask($id){
         $task_file = DB::table('user_tasks')
-        ->select('id','task_file')
+        ->select('task_id','task_file')
         ->where('id','=', $id)
         ->first();
+        $speaker = DB::table('tasks')
+                        ->where('id', $task_file->task_id)
+                        ->select('speaker', 'id')
+                        ->first();
+        
         UserTask::find($id)->delete();
-        File::delete(public_path('/user/tugas/'.$task_file->task_file));
+        File::delete(public_path('/user/tugas/'.$speaker->speaker.'-'.$speaker->id.'/'.$task_file->task_file));
   
         return back()->with('success','Tugas Berhasil Dihapus!');
 

@@ -46,8 +46,12 @@ class TaskController extends Controller
                 'task_file' => $task_file
                 
             ]);
+        $task_id = DB::table('tasks')
+            ->where('task_file', $task_file)
+            ->select('id')
+            ->first();
             
-            $path = public_path().'/user/tugas/'. $request->speaker;
+            $path = public_path().'/user/tugas/'.$request->speaker.'-'.$task_id->id;
             File::makeDirectory($path, $mode = 0777, true, true);
 
             $get_tf->move(public_path().'/admin/tugas', $task_file); 

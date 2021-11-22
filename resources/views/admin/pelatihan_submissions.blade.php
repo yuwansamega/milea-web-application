@@ -44,6 +44,7 @@
                     <th>No.</th>
                     <th>Nama</th>
                     <th>Jabatan</th>
+                    <th>Instansi</th>
                     
                     
                   </tr>
@@ -59,6 +60,7 @@
                     @endphp</td>
                     <td>{{ $d->fullname}}</td>
                     <td>{{ $d->position}}</td>
+                    <td>{{ $d->institute}}</td>
                   </tr>
                   @endforeach
                   
