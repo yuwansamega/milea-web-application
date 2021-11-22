@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
+use Illuminate\Support\Facades\File;
+
 class WSController extends Controller
 {
     public function index(){
@@ -36,9 +38,51 @@ class WSController extends Controller
     }
 
     public function delete($id){
+
+        $get_tasks = DB::table('tasks')
+                            ->where('ws_id', $id)
+                            ->select('id', 'speaker', 'task_file')
+                            ->get();
+
+        foreach($get_tasks as $item){
+
+            File::delete(public_path().'/admin/tugas/'.$item->task_file);
+            File::deleteDirectory(public_path().'/user/tugas/'. $item->speaker.'-'.$item->id);
+        }
+
+        foreach($get_tasks as $item){
+            DB::table('user_tasks')
+                    ->where('task_id', $item->id)
+                    ->delete();
+
+        }
+        
+        DB::table('tasks')
+                ->where('ws_id', $id)
+                ->delete();
+
+        $get_materials = DB::table('materials')
+                            ->where('ws_id', $id)
+                            ->select('material_file')
+                            ->get();
+        
+        foreach($get_materials as $item)  {
+
+            File::delete(public_path().'/materi/'.$item->material_file);
+        } 
+
+        DB::table('materials')
+                ->where('ws_id', $id)
+                ->delete();
+
+        DB::table('user_classes')
+                ->where('ws_id', $id)
+                ->delete();
+
         DB::table('submissions')
                 ->where('ws_id', $id)
                 ->delete(); 
+ 
         Workshop::where('id', $id)->delete();   
         return redirect('/admin/pelatihan')->with('toast_success','Pelatihan Berhasil Dihapus');
     }

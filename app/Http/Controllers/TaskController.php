@@ -72,7 +72,7 @@ class TaskController extends Controller
         
         File::delete(public_path().'/admin/tugas/'.$task->task_file);
         
-        File::deleteDirectory(public_path().'/user/tugas/'. $task->speaker);
+        File::deleteDirectory(public_path().'/user/tugas/'. $task->speaker.'-'.$id);
         File::delete(public_path().'/zip/'.$task->speaker.'.zip');
 
         return back()->with('success','Tugas Berhasil Dihapus!');
