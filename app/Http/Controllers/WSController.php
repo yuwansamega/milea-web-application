@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\File;
 class WSController extends Controller
 {
     public function index(){
-        $ws = DB::table('workshops')->paginate(10);
+        $ws = DB::table('workshops')
+        ->orderBy('id', 'DESC')
+        ->paginate(10);
         $count = DB::table('workshops')->count();
         return view ('user.daftar-kegiatan',[
             "workshops" => $ws,
@@ -37,6 +39,8 @@ class WSController extends Controller
         ]);
     }
 
+    
+
     public function delete($id){
 
         $get_tasks = DB::table('tasks')
@@ -45,10 +49,15 @@ class WSController extends Controller
                             ->get();
 
         foreach($get_tasks as $item){
-
             File::delete(public_path().'/admin/tugas/'.$item->task_file);
             File::deleteDirectory(public_path().'/user/tugas/'. $item->speaker.'-'.$item->id);
+            if(File::exists(public_path().'/zip/'. $item->speaker.'-'.$item->id.'.zip')){
+                File::delete(public_path().'/zip/'. $item->speaker.'-'.$item->id.'.zip');
+            }
         }
+        
+
+
 
         foreach($get_tasks as $item){
             DB::table('user_tasks')

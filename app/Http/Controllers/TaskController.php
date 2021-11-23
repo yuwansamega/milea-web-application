@@ -117,10 +117,10 @@ class TaskController extends Controller
                     ->first();
 
         $zip = new ZipArchive;
-        $filename = $data_t->speaker.'.zip';
+        $filename = $data_t->speaker.'-'.$id.'.zip';
         if($zip->open(public_path('zip/'.$filename),ZipArchive::CREATE) === TRUE){
             
-            $files = File::files(public_path('user/tugas/'.$data_t->speaker));
+            $files = File::files(public_path('user/tugas/'.$data_t->speaker.'-'.$id));
 
             foreach($files as $key => $value){
                 $relativeName = basename($value);
