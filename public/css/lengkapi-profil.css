@@ -3,13 +3,11 @@ body {
     background-color: #f9f9f9 !important;
 }
 .bodyLeft {
-    /* background-color: aqua; */
     float: left;
     display: flex;
     width: 570px;
 }
 .bodyRight {
-    /* background-color: bisque; */
     display: flex;
     width: 950px;
     height: auto;
@@ -87,19 +85,19 @@ body {
 }
 
 .btn {
-    background-color: #198754;
+    background-color: #11543c;
     float: right;
     margin-top: 70px;
     width: 40%;
 }
 .btn:hover {
-    background-color: #198754;
+    background-color: #11543c;
 }
 .col-sm-6 {
     margin-top: 10px;
 }
 .form-control:focus {
-    border-color: #198754;
+    border-color: #11543c;
     box-shadow: 0px 1px 1px rgba(25, 135, 84, 0.075) inset,
         0px 0px 8px rgba(25, 135, 84, 0.5);
 }

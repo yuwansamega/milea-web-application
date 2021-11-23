@@ -55,7 +55,7 @@ nav a {
 }
 
 nav a.selected {
-    color: #198754 !important;
+    color: #11543c !important;
 }
 
 nav #dropdown {
@@ -113,16 +113,16 @@ nav #dropdown #pages-dropdown {
     display: none;
 }
 footer {
-    background-color: #198754 !important;
+    background-color: #11543c !important;
 }
 
 footer {
     color: white;
     padding: 50px 70px;
     padding-bottom: 0;
-    background-color: #11543cda;
+    background-color: #11543c;
 }
-footer .row .col a{
+footer .row .col a {
     color: white;
 }
 footer #mini-text {
@@ -162,7 +162,7 @@ footer #mini-text {
     }
 
     nav #dropdown {
-        background-color: #198754;
+        background-color: #11543c;
         top: 55px;
         left: 0;
         width: 100%;
@@ -242,7 +242,7 @@ footer #mini-text {
     }
 
     nav #dropdown {
-        background-color: #198754;
+        background-color: #11543c;
         top: 70px;
         left: 0;
         width: 100%;

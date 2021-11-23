@@ -13,7 +13,7 @@ main {
     margin-top: 30px;
     margin-bottom: 60px;
 }
-main .header{
+main .header {
     width: 100%;
 }
 main .header .card {
@@ -57,7 +57,7 @@ h5 {
     background-color: #197e50;
 }
 .btn-success {
-    background-color: #198754;
+    background-color: #11543c;
 }
 a,
 a:active,

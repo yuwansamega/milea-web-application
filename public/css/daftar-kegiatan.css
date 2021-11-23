@@ -13,7 +13,7 @@ h2 {
     margin-left: 30px;
 }
 thead {
-    background-color: #198754;
+    background-color: #11543c;
     border-radius: 30px !important;
     color: white;
 }
@@ -36,7 +36,7 @@ table {
 }
 
 th {
-    background-color: #198754;
+    background-color: #11543c;
     color: white;
 }
 
@@ -67,7 +67,7 @@ a:active {
 #links nav {
     position: static;
 }
-footer{
+footer {
     margin-top: 100px;
 }
 footer {
@@ -186,5 +186,4 @@ footer #hubungi-kami li img {
         font-size: 8px;
         width: 15px;
     }
-    
 }

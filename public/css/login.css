@@ -1,64 +1,65 @@
-*{
-    font-family: 'Ubuntu', sans-serif;
+* {
+    font-family: "Ubuntu", sans-serif;
     box-sizing: border-box;
 }
 
-main{
+main {
     min-width: 100vw;
     min-height: 100vh;
 }
 
-#left{
+#left {
     width: 100%;
     max-width: 60%;
-    background-image: url('../../assets/login-backgorund.png');
+    background-image: url("../../assets/bg-login.png");
 }
 
-#left .group{
+#left .group {
     max-width: max-content;
 }
 
-#left img{
+#left img {
     width: 100%;
     height: auto;
     max-width: 702px;
 }
 
-#left h1, #left h2{
+#left h1,
+#left h2 {
     text-align: center;
 }
 
-#left h1{
+#left h1 {
     font-size: 40px;
 }
 
-#left h1{
+#left h1 {
     font-size: 3 0px;
 }
 
-#right{
+#right {
     width: 40%;
-    background: linear-gradient(146.14deg, #2FA36D 1.28%, #1E8DF4 148.28%);
+    background: linear-gradient(205.3deg, #265d58 39.22%, #4e79c7 117.28%);
     color: white;
-  
 }
 
-#right .group{
+#right .group {
     margin-top: 15px;
 }
 
-#right h1, #right h2{
+#right h1,
+#right h2 {
     text-align: center;
-    font-family: 'Prompt';
+    font-family: "Prompt";
 }
 
-#right h1{
+#right h1 {
     font-weight: 700;
     font-size: 40px;
     line-height: 46px;
 }
 
-#right h2{
+#right h2 {
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -68,13 +69,13 @@ main{
     margin-bottom: 54px;
 }
 
-#right label{
+#right label {
     font-weight: 500;
     font-size: 18px;
     line-height: 21px;
 }
 
-#right input{
+#right input {
     margin-top: 5px;
     height: 40px;
     font-size: 16px;
@@ -87,11 +88,12 @@ main{
     transition: 0.5s ease;
 }
 
-#right input:hover, #right input:focus{
+#right input:hover,
+#right input:focus {
     background-color: #0000002d;
 }
 
-#right p{
+#right p {
     margin-top: 10px;
     font-weight: normal;
     font-size: 12px;
@@ -99,78 +101,84 @@ main{
     color: rgba(213, 246, 253, 1);
 }
 
-#right a{
+#right a {
     color: white;
     text-decoration: none;
 }
 
-#right button{
+#right button {
     margin-top: 63px;
     height: 35px;
-    background: linear-gradient(90deg, #1F6EE4 -45.74%, #05B4DA 150.98%);
+    background: linear-gradient(90deg, #1f6ee4 -45.74%, #05b4da 150.98%);
     border-radius: 5px;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 23px;
-    color: #FFFFFF;
+    color: #ffffff;
     border: none;
     cursor: pointer;
 }
 
-#mobile-img{
+#mobile-img {
     display: none;
 }
-
+#desktop-img {
+    max-width: 1200px !important;
+    width: 100%;
+}
 @media only screen and (max-width: 834px) {
-    main{
+    main {
         flex-direction: column;
-        background: linear-gradient(146.14deg, #2FA36D 1.28%, #1E8DF4 148.28%);
+        background: linear-gradient(146.14deg, #2fa36d 1.28%, #1e8df4 148.28%);
     }
 
-    #left, #right, #right form{
+    #left,
+    #right,
+    #right form {
         max-width: none;
         width: 100%;
     }
 
-    #left{
+    #left {
         flex-grow: 1;
         min-height: 336px;
         background-image: none;
     }
 
-    #left .group{
+    #left .group {
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    #left h1, #left h2{
+    #left h1,
+    #left h2 {
         color: white;
-        font-family: 'Prompt';
+        font-family: "Prompt";
     }
 
-    #left h1{
+    #left h1 {
         font-size: 25px;
     }
-    
-    #left h2{
+
+    #left h2 {
         font-size: 18px;
         font-weight: 300;
     }
 
-    #desktop-img{
+    #desktop-img {
         display: none;
     }
 
-    img#mobile-img{
+    img#mobile-img {
         display: block;
         height: auto;
         width: 50%;
         min-width: 119.76px;
     }
 
-    #right{
+    #right {
         padding: 42px 35px;
         background: white;
         color: black;
@@ -178,39 +186,41 @@ main{
         border-top-left-radius: 20px;
     }
 
-    #right h1, #right h2{
-        font-family: 'Ubuntu';
+    #right h1,
+    #right h2 {
+        font-family: "Ubuntu";
     }
 
-    #right h1{
+    #right h1 {
         font-size: 25px;
         line-height: 29px;
     }
 
-    #right h2{
+    #right h2 {
         font-weight: 300;
         font-size: 16px;
-        color: #2DA175;
+        color: #2da175;
     }
 
-    #right label{
+    #right label {
         font-weight: 400;
     }
 
-    #right input{
+    #right input {
         color: #198754;
         border-bottom: 1px solid #198754;
     }
 
-    #right input:hover, #right input:focus{
+    #right input:hover,
+    #right input:focus {
         background-color: #e8fff4;
     }
 
-    #right p{
+    #right p {
         color: black;
     }
 
-    #right a{
+    #right a {
         color: #198754;
     }
 }

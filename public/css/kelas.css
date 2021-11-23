@@ -24,7 +24,7 @@ main .desc h1 {
     font-weight: bold;
     font-size: 30px;
     line-height: 37px;
-    color: #198754;
+    color: #11543c;
 }
 main .desc p {
     width: 60%;
@@ -94,7 +94,8 @@ main .my-class .attention .card .action button {
     background-color: #197e50;
 }
 .btn-success {
-    background-color: #198754;
+    background-color: #11543c;
+    border: 0;
 }
 a,
 a:active,
@@ -171,7 +172,7 @@ footer #hubungi-kami li img {
         font-weight: bold;
         font-size: 25px;
         line-height: 37px;
-        color: #198754;
+        color: #11543c;
     }
     main .desc p {
         width: 60%;
@@ -200,8 +201,19 @@ footer #hubungi-kami li img {
         margin: 0 5px;
         text-align: left;
     }
-    main .my-class .attention .card .action form button
-    main .my-class .attention .card .action button {
+    main
+        .my-class
+        .attention
+        .card
+        .action
+        form
+        button
+        main
+        .my-class
+        .attention
+        .card
+        .action
+        button {
         width: 50px;
         height: 20px;
         font-size: 10px;

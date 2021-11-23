@@ -34,7 +34,7 @@ main #left {
 #left #header {
     padding: 24px 22px;
     color: white;
-    background-color: #198754;
+    background-color: #11543c;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -121,7 +121,7 @@ main #left {
     padding: 16px 30px;
     font-size: 27px;
     line-height: 33px;
-    background-color: #198754;
+    background-color: #11543c;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     color: #ffffff;
@@ -255,7 +255,6 @@ footer #hubungi-kami li img {
         max-width: none !important;
         max-height: max-content !important;
         margin-right: 0 !important;
-        /* margin-bottom: 50px; */
         box-shadow: none !important;
     }
 
@@ -308,7 +307,6 @@ footer #hubungi-kami li img {
     #hubungi-kami {
         display: flex;
         flex-direction: column;
-        /* justify-content: space-between; */
     }
 
     #hubungi-kami li {

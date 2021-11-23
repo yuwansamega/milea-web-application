@@ -10,7 +10,6 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    /* align-items: center; */
     margin-top: 30px;
     margin-bottom: 60px;
 }
@@ -60,7 +59,7 @@ main .card.first .btn-light {
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 main .card.first .btn-success {
-    background-color: #198754 !important;
+    background-color: #11543c !important;
     font-weight: 700;
 }
 .custom-file-upload {
