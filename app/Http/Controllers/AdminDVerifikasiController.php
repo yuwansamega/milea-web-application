@@ -106,7 +106,7 @@ class AdminDVerifikasiController extends Controller
         if($request->status_p === "Diterima"){
             $mail = [
                 'title' => 'Hasil Verifikasi Pendaftaran Pelatihan di MILEA RSUD Siti Fatimah Sumsel',
-                'body' => 'Selamat <b>'.$data->fullname.'</b>, anda <b>DITERIMA</b> mengikuti <b>'. $data->title.'</b>. Silakan lakukan pembayaran dan mengunggah bukti pembayaran di akun MILEA anda. Hubungi narahubung: <b>('.$data->cp.')</> untuk informasi lebih lanjut.'
+                'body' => 'Selamat <b>'.$data->fullname.'</b>, anda <b>DITERIMA</b> mengikuti <b>'. $data->title.'</b>. Silakan lakukan pembayaran dan mengunggah bukti pembayaran di akun MILEA anda. Hubungi narahubung: <b>('.$data->cp.')</b> untuk informasi lebih lanjut.'
                 ];
                 
                 Mail::to($data->email)->send(new \App\Mail\MyTestMail($mail));
