@@ -67,6 +67,11 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
 Route::group(['middleware' => ['auth', 'role:admin']], function(){
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/verifikasi', [AdminVerifikasiController::class, 'index'])->name('admin.verifikasi');
+    Route::get('/admin/akun', [DataUserController::class, 'indexAdmin'])->name('admin.account');
+    Route::get('/admin/update-akun/{id}', [DataUserController::class, 'updateAccShow']);
+    Route::post('/admin/update-akun-send/{id}', [DataUserController::class, 'updateAcc']);
+    Route::delete('/admin/delete-akun/{id}', [DataUserController::class, 'deleteAcc']);
+
     Route::get('/admin/verifikasi/detail/{data_sub_id}', [AdminDVerifikasiController::class, 'index']);
     Route::post('/admin/update-submissions/{data_sub_id}', [AdminDVerifikasiController::class, 'update']);
     Route::get('/admin/verifikasi/detail-payment/{data_sub_id}', [AdminDVerifikasiController::class, 'indexDetailPayment']);

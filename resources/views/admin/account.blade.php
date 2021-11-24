@@ -16,15 +16,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Agenda Pelatihan</h1>
+            <h1>Akun Pengguna</h1>
           </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <a href="/admin/create/pelatihan">
-                  <button type="button" class="btn btn-primary">Tambah Pelatihan</button>
-              </a>
-            </ol>
-          </div>
+          
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -38,7 +32,7 @@
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">List Pelatihan</h3>
+                <h3 class="card-title">Daftar Akun Pengguna</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -46,11 +40,8 @@
                   <thead>
                   <tr>
                     <th>No.</th>
-                    <th>Nama Pelatihan</th>
-                    <th>Periode Pendaftaran</th>
-                    <th>Periode Pelaksanaan</th>
-                    <th>Tempat</th>
-                    <th>Kuota</th>
+                    <th>Nama Peserta</th>
+                    <th>Email</th>
                     <th>Aksi</th>
                     
                   </tr>
@@ -59,29 +50,28 @@
                     @php
                         $i = 1;
                     @endphp
-                  @foreach ($ws as $ws)
+                  @foreach ($user as $user)
                   <tr>
                     <td>@php
                         echo $i++;
                     @endphp</td>
                     
-                      <td><a href="/admin/pelatihan/{{ $ws->id }}">{{ $ws->title }}</a></td>
+                      
                     
-                    <td>{{ $ws->open_regist.'-'.$ws->close_regist }}</td>
-                    <td>{{ $ws->open_ws.'-'.$ws->close_ws }}</td>
-                    <td>{{ $ws->place }}</td>
-                    <td>{{ $ws->quota }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{$user->email }}</td>
+                    
                     <td>
                         <div class="row">
                           <div class="col-5">
-                                <a href="/admin/pelatihan/update/{{ $ws->id }}">
+                                <a href="/admin/update-akun/{{ $user->id }}">
                                   <button type="submit" class="btn btn-secondary btn-sm" >
                                       <i class="fas fa-cog"></i>
                                   </button>
                                 </a>
                           </div>
                           <div class="col">
-                            <form action="/admin/pelatihan/delete/{{ $ws->id }}" method="POST" onsubmit="return confirm('Yakin Hapus Data?')">
+                            <form action="/admin/delete-akun/{{ $user->id }}" method="POST" onsubmit="return confirm('Yakin Hapus Data?')">
                               @method('delete')
                               @csrf
                               {{-- <a href="/admin/pelatihan/delete/{{ $ws->id }}"> --}}

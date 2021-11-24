@@ -29,6 +29,12 @@
         </ul>
     </aside>
     <main id="main-content" class="row justify-center">
+        <modal id="modal" style="display: flex;" class="center">
+            <div id="modal-container" class="col allign-center">
+                <h3>Pastikan untuk melengkapi <b>seluruh tanggal</b> yang diperlukan!</h3>
+                <button type="button" class="modal-button">OK</button>
+            </div>
+        </modal>
         <form action="/admin/pelatihan/update/simpan/{{ $data->id }}" method="POST" id="training-form" class="col" enctype="multipart/form-data">
             @csrf
             <div class="col" id="container">

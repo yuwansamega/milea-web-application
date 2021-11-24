@@ -1,4 +1,4 @@
-const form = document.getElementsByTagName('form')[0];
+const form = document.getElementsByTagName('form')[1];
 const showModal = function (content){
     const formModal = document.getElementsByTagName('modal')[0];
     formModal.getElementsByTagName('h3')[0].innerHTML = content;

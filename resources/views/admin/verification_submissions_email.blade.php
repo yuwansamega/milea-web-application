@@ -19,9 +19,15 @@
         <!--[if !mso]><!-->
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!--<![endif]-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
         <title></title>
 
         <style type="text/css">
+            body{
+                font-family: 'Noto Sans', sans-serif;
+            }
             table,
             td {
                 color: #000000;
@@ -110,6 +116,13 @@
             a[x-apple-data-detectors="true"] {
                 color: inherit !important;
                 text-decoration: none !important;
+            }
+            table .tbody tr td .u-row-container .u-row .u-col table .tbody tr td p h5
+            {
+                font-family: 'Noto Sans', sans-serif;
+                font-size: 25px;
+                text-align: center;
+                font-weight: 700;
             }
         </style>
 
@@ -217,11 +230,6 @@
                                                 "
                                             ><!--<![endif]-->
                                                 <table
-                                                    style="
-                                                        font-family: arial,
-                                                            helvetica,
-                                                            sans-serif;
-                                                    "
                                                     role="presentation"
                                                     cellpadding="0"
                                                     cellspacing="0"
@@ -235,9 +243,6 @@
                                                                     overflow-wrap: break-word;
                                                                     word-break: break-word;
                                                                     padding: 10px;
-                                                                    font-family: arial,
-                                                                        helvetica,
-                                                                        sans-serif;
                                                                 "
                                                                 align="left"
                                                             >
@@ -366,9 +371,7 @@
                                                 <table
                                                     id="u_content_image_1"
                                                     style="
-                                                        font-family: arial,
-                                                            helvetica,
-                                                            sans-serif;
+                                                       
                                                     "
                                                     role="presentation"
                                                     cellpadding="0"
@@ -383,9 +386,7 @@
                                                                     overflow-wrap: break-word;
                                                                     word-break: break-word;
                                                                     padding: 10px;
-                                                                    font-family: arial,
-                                                                        helvetica,
-                                                                        sans-serif;
+                                                                    
                                                                 "
                                                                 align="left"
                                                             >
@@ -457,9 +458,7 @@
                                                 <table
                                                     id="u_content_heading_4"
                                                     style="
-                                                        font-family: arial,
-                                                            helvetica,
-                                                            sans-serif;
+                                                       
                                                     "
                                                     role="presentation"
                                                     cellpadding="0"
@@ -474,9 +473,7 @@
                                                                     overflow-wrap: break-word;
                                                                     word-break: break-word;
                                                                     padding: 10px;
-                                                                    font-family: arial,
-                                                                        helvetica,
-                                                                        sans-serif;
+                                                                    
                                                                 "
                                                                 align="left"
                                                             >
@@ -581,9 +578,7 @@
                                             ><!--<![endif]-->
                                                 <table
                                                     style="
-                                                        font-family: arial,
-                                                            helvetica,
-                                                            sans-serif;
+                                                        
                                                     "
                                                     role="presentation"
                                                     cellpadding="0"
@@ -598,9 +593,7 @@
                                                                     overflow-wrap: break-word;
                                                                     word-break: break-word;
                                                                     padding: 10px;
-                                                                    font-family: arial,
-                                                                        helvetica,
-                                                                        sans-serif;
+                                                                    
                                                                 "
                                                                 align="left"
                                                             >
@@ -657,9 +650,7 @@
 
                                                 <table
                                                     style="
-                                                        font-family: arial,
-                                                            helvetica,
-                                                            sans-serif;
+                                                        
                                                     "
                                                     role="presentation"
                                                     cellpadding="0"
@@ -674,9 +665,7 @@
                                                                     overflow-wrap: break-word;
                                                                     word-break: break-word;
                                                                     padding: 10px;
-                                                                    font-family: arial,
-                                                                        helvetica,
-                                                                        sans-serif;
+                                                                    
                                                                 "
                                                                 align="left"
                                                             >
@@ -711,9 +700,7 @@
 
                                                 <table
                                                     style="
-                                                        font-family: arial,
-                                                            helvetica,
-                                                            sans-serif;
+                                                        
                                                     "
                                                     role="presentation"
                                                     cellpadding="0"
@@ -728,14 +715,12 @@
                                                                     overflow-wrap: break-word;
                                                                     word-break: break-word;
                                                                     padding: 10px;
-                                                                    font-family: arial,
-                                                                        helvetica,
-                                                                        sans-serif;
+                                                                    
                                                                 "
                                                                 align="left"
                                                             >
                                                                 <div>
-                                                                    <p>
+                                                                    <p style="color: black;">
                                                                         {!!
                                                                         $details['body']
                                                                         !!}
@@ -770,9 +755,7 @@
 
                                                 <table
                                                     style="
-                                                        font-family: arial,
-                                                            helvetica,
-                                                            sans-serif;
+                                                        
                                                     "
                                                     role="presentation"
                                                     cellpadding="0"
@@ -787,9 +770,7 @@
                                                                     overflow-wrap: break-word;
                                                                     word-break: break-word;
                                                                     padding: 10px;
-                                                                    font-family: arial,
-                                                                        helvetica,
-                                                                        sans-serif;
+                                                                    
                                                                 "
                                                                 align="left"
                                                             >
@@ -815,9 +796,7 @@
 
                                                 <table
                                                     style="
-                                                        font-family: arial,
-                                                            helvetica,
-                                                            sans-serif;
+                                                        
                                                     "
                                                     role="presentation"
                                                     cellpadding="0"
@@ -832,9 +811,7 @@
                                                                     overflow-wrap: break-word;
                                                                     word-break: break-word;
                                                                     padding: 10px;
-                                                                    font-family: arial,
-                                                                        helvetica,
-                                                                        sans-serif;
+                                                                    
                                                                 "
                                                                 align="left"
                                                             >
@@ -891,9 +868,7 @@
 
                                                 <table
                                                     style="
-                                                        font-family: arial,
-                                                            helvetica,
-                                                            sans-serif;
+                                                        
                                                     "
                                                     role="presentation"
                                                     cellpadding="0"
@@ -908,9 +883,7 @@
                                                                     overflow-wrap: break-word;
                                                                     word-break: break-word;
                                                                     padding: 10px;
-                                                                    font-family: arial,
-                                                                        helvetica,
-                                                                        sans-serif;
+                                                                    
                                                                 "
                                                                 align="left"
                                                             >
