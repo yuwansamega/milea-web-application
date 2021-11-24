@@ -46,7 +46,7 @@
                 </div>
                 <p>
                     Lupa kata sandi? 
-                    <a href="">Klik Disini</a>
+                    <a href="/forgot-password">Klik Disini</a>
                 </p>
                 <button type="submit">
                     Masuk
