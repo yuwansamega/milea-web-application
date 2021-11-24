@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 
 class AdminDVerifikasiController extends Controller
 {
+    
     function tgl_indo($tanggal){
         $bulan = array (
             1 =>   'Januari',
@@ -143,7 +144,13 @@ class AdminDVerifikasiController extends Controller
             if($request->payment_status  === "Pembayaran Diterima"){
                 $mail = [
                     'title' => 'Hasil Verifikasi Pendaftaran Pelatihan di MILEA RSUD Siti Fatimah Sumsel',
-                    'body' => 'Selamat <b>'.$data->fullname.'</b>, pembayaran anda telah <b>DITERIMA</b>. Selamat mengikuti <b>'. $data->title.'. </b> Kode Kelas : <b>'.$data->key.'</b>. Silakan hubungi narahubung: <b>('.$data->cp.')</b> untuk informasi lebih lanjut.'
+                    'body' => 'Selamat <b>'.$data->fullname.'</b>, pembayaran anda telah <b>DITERIMA</b>. Selamat mengikuti <b>'. $data->title.'. </b> Kode Kelas : <b><br>
+                    <h5 
+                    style=
+                    "font-family: Times New Roman, Times, serif;
+                    font-size: 45px;
+                    text-align: center;
+                    font-weight: 700;">'.$data->key.'</h5><br></b> Silakan hubungi narahubung: <b>('.$data->cp.')</b> untuk informasi lebih lanjut.'
                     ];
                     
                     Mail::to($data->email)->send(new \App\Mail\MyTestMail($mail));

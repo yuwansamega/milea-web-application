@@ -56,7 +56,7 @@
                         @endphp
                        </td>
                        <td>{{ $item->fullname }}</td>
-                       <td><a href="{{ asset('user/tugas/'.$ut_tns->speaker.'/'.$item->task_file) }}" class="d-flex align-items-center" style="color: rgb(0, 0, 0)" target="_blank">Lihat Tugas<span class="material-icons-round ml-3">visibility</span></a></td>
+                       <td><a href="{{ asset('user/tugas/'.$ut_tns->speaker.'-'.$ut_tns->id.'/'.$item->task_file) }}" class="d-flex align-items-center" style="color: rgb(0, 0, 0)" target="_blank">Lihat Tugas<span class="material-icons-round ml-3">visibility</span></a></td>
                    </tr>
 
                    @endforeach

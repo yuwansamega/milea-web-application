@@ -46,7 +46,17 @@
                 </div>
                 <p>
                     Lupa kata sandi? 
-                    <a href="">Klik Disini</a>
+                    <a href="
+
+                        mailto:Diklatrsudsitifaimah@gmail.com?subject=Permohonan Reset Password
+                        &body=This+is+an+awesome+email
+
+                        &cc=janedoe@gmail.com
+
+                        &bcc=billybob@yahoo.com
+
+                    ">Klik Disini</a>
+                   
                 </p>
                 <button type="submit">
                     Masuk

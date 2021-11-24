@@ -83,7 +83,7 @@ class TaskController extends Controller
         $ut_tns = DB::table('user_tasks')
                     ->where('user_tasks.task_id', $id)
                     ->join('tasks', 'user_tasks.task_id', '=', 'tasks.id')
-                    ->select('tasks.speaker', 'tasks.task_title')
+                    ->select('tasks.id','tasks.speaker', 'tasks.task_title')
                     ->first();
         $ws_title = DB::table('tasks')
                 ->where('tasks.id', $id)

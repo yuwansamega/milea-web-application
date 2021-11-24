@@ -132,6 +132,18 @@
       <div class="left">
          <img src="img/vect-4.png" alt="" />
       </div>
+      @if($count<= 0)
+      <div class="right">
+        <div class="content-title"> 
+          <h1>Pelatihan Terbaru</h1>
+        </div>
+        <div class="card">
+            <div class="card-title">
+                <h3>Belum Ada Pelatihan</h3>
+            </div>
+        </div>
+    </div>
+      @else 
       <div class="right">
           <div class="content-title"> 
             <h1>Pelatihan Terbaru</h1>
@@ -158,59 +170,33 @@
               </div>
           </div>
       </div>
+
+      @endif
+
+      
     </div>
     
     <div class="rowThird">
       <h1  style="background-color: white">Pelatihan Yang Telah Dilaksanakan</h1>
       <div class="content">
+        @foreach($latest_three as $latest)
         <div class="card">
-          <div class="pict">
-            <img src="/img/rect-16.png" alt="">
-          </div>
-          <div class="title-card">
-            <h3>Pelatihan Tenaga Pelatih Kesehatan</h3>
-          </div>
-          <div class="details">
-            <div class="place">
-               <h5>{{ $ws->place }}</h5>
-            </div>
-             <div class="time">
-                {{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}
-              </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="pict">
-            <img src="/img/rect-16.png" alt="">
-          </div>
-          <div class="title-card" >
-            <h3>Pelatihan Tenaga Pelatih Kesehatan</h3>
-          </div>
-          <div class="details">
-            <div class="place">
-               <h5>{{ $ws->place }}</h5>
-            </div>
-             <div class="time">
-                {{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}
-              </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="pict">
-            <img src="/img/rect-16.png" alt="">
-          </div>
-          <div class="title-card">
-            <h3>Pelatihan Tenaga Pelatih Kesehatan</h3>
-          </div>
-          <div class="details">
-            <div class="place">
-               <h5>{{ $ws->place }}</h5>
-            </div>
-             <div class="time">
-                {{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}
-              </div>
-          </div>
-        </div>
+                  
+                  <div class="title-card">
+                    <h3>{{ $latest->title }}</h3>
+                    <hr>
+                  </div>
+                  <div class="details">
+                    <div class="place">
+                      <h5>{{ $latest->place }}</h5>
+                    </div>
+                    <div class="time">
+                      <h5>{{ tgl_indo($latest->open_ws) }} - {{ tgl_indo($latest->close_ws) }}</h5>
+                      </div>
+                  </div>
+                </div>
+        @endforeach
+        
       </div>
     </div>
 

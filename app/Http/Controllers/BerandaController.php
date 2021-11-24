@@ -10,11 +10,19 @@ class BerandaController extends Controller
     public function index (){
         $latest= DB::table('workshops')->latest()->first();
         $count = DB::table('workshops')->count();
-       
+
+        $latest_three = DB::table('workshops')
+                        ->where('open_ws','<=', now())
+                        ->orderBy('created_at', 'DESC')
+                        ->limit(3)
+                        ->get();
+        
+        
         return view ('user.beranda',[
             "ws" => $latest,
             "title" => "Beranda",
-            "count" => $count
+            "count" => $count,
+            "latest_three" => $latest_three
         ]);
     }
     public function detail($id){

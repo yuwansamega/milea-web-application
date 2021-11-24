@@ -39,6 +39,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route('admin.account') }}" class="nav-link bg-primary">
+              <p>
+                Akun Pengguna
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ route('admin.verifikasi') }}" class="nav-link bg-primary">
               <p>
                 Verifikasi
