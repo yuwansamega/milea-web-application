@@ -45,7 +45,7 @@
           <a href="/beranda" class="selected">Beranda</a>
         </li>
         <li>
-          <a href="/daftar-kegiatan" >Pelatihan</a>
+          <a href="/daftar-kegiatan">Pelatihan</a>
         </li>
         <li>
           <a href="/kelas" >Kelas</a>
@@ -83,6 +83,11 @@
             </a>
           </li>
           <li>
+            <a href="/kelas">
+              <span class="material-icons-round">class</span>
+              <p>Kelas</p>
+            </a>
+          </li>
         </ul>
         <a href="/data-profil">
           <img src="../../assets/navbar-profile.png" alt="" width="19px" height="19px" />
@@ -91,7 +96,7 @@
         </a>
         <a href="/riwayat">
           <img src="../../assets/navbar-history.png" alt="" width="19px" height="19px" />
-          <span class="material-icons-round">history</span>
+          <span class="material-icons-round selected">history</span>
           <li>Riwayat</li>
         </a>
         <form method="POST" action="{{ route('logout') }}">
@@ -176,13 +181,13 @@
       
     </div>
     
-    <div class="rowThird">
-      <div class="content d-flex  align-items-start">
-        <h1>Pelatihan Yang Telah Dilaksanakan</h1>
+    <div class="rowThird d-flex justify-content-center">
+      <div class="content d-flex justify-content-center flex-column">
+        <h1 class="text-center">Pelatihan Yang Telah Dilaksanakan</h1>
         @foreach($latest_three as $latest)
-        <div class="card">
+        <div class="card d-flex justify-content-center">
                   
-                  <div class="title-card">
+                  <div class="title-card text-center">
                     <h3>{{ $latest->title }}</h3>
                     <hr>
                   </div>

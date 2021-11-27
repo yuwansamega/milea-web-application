@@ -35,7 +35,7 @@ main .desc p {
 main .key-component {
     padding: 3px;
 }
-main .key-component h5 {
+main .key-component main .key-component h5 {
     margin: 0;
 }
 main .key-component input {
@@ -227,5 +227,43 @@ footer #hubungi-kami li img {
         padding: 30px 0;
         margin: 0 !important;
         border: none;
+    }
+}
+@media only screen and (max-width: 440px) {
+    main .my-class .attention .card {
+        overflow: scroll;
+    }
+    main .my-class .attention .card .action {
+        display: flex;
+        flex-direction: column !important;
+        padding: 5px;
+    }
+    main .my-class .attention .card .action a .btn-success,
+    main .my-class .attention .card .action form .btn-danger {
+        /* height: 15px !important; */
+        margin: 5px 0px;
+    }
+}
+@media only screen and (max-width: 345px) {
+    main .key-component .material-icons-round {
+        display: none;
+    }
+    main .key-component h5 {
+        display: none;
+    }
+    main .key-component {
+        width: 80% !important;
+    }
+    main .key-component form .inputText {
+        width: 100% !important;
+        text-align: center;
+        border: solid 1px black !important;
+    }
+    main .key-component form input::-webkit-input-placeholder {
+        font-size: 10px !important;
+    }
+    main .key-component form .btn-success {
+        width: 100% !important;
+        padding: 10px 5px !important;
     }
 }

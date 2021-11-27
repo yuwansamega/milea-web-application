@@ -289,7 +289,10 @@ footer #hubungi-kami li img {
     }
 }
 @media screen and (max-width: 395px) {
+    .kedua .container {
+        margin-top: 60px !important;
+    }
     .keempat .container {
-        margin-top: 330px !important;
+        margin-top: 380px !important;
     }
 }

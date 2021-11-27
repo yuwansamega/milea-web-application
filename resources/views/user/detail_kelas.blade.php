@@ -226,7 +226,7 @@
             <div class="col flex-grow-0 p-0">
               <img src="../../assets/footer-icons/Gmail.png" alt="" style="min-width:18px">
             </div>
-            <div class="col">
+            <div class="col overflow-hidden">
               <a href="mailto:sdm.rsudsumsel@gmail.com">
                   sdm.rsudsumsel@gmail.com
               </a>

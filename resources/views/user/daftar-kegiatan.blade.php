@@ -27,6 +27,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
     <title>MILEA | {{ $title }}</title>
   </head>
@@ -38,7 +39,7 @@
       </div>
       <ul id="pages">
         <li>
-          <a href="/beranda" >Beranda</a>
+          <a href="/beranda">Beranda</a>
         </li>
         <li>
           <a href="/daftar-kegiatan" class="selected">Pelatihan</a>
@@ -73,19 +74,24 @@
             </a>
           </li>
           <li>
-            <a href="/daftar-kegiatan" class="selected">
+            <a href="/daftar-kegiatan" class="selected d-flex align-items-center">
               <span class="material-icons-round">list</span>
               <p>Pelatihan</p>
             </a>
           </li>
           <li>
+            <a href="/kelas" class="d-flex align-items-center">
+              <span class="material-icons-round">class</span>
+              <p>Kelas</p>
+            </a>
+          </li>
         </ul>
-        <a href="/data-profil">
+        <a href="/data-profil" class="d-flex align-items-center">
           <img src="../../assets/navbar-profile.png" alt="" width="19px" height="19px" />
           <span class="material-icons-round">account_box</span>
           <li>Profil</li>
         </a>
-        <a href="/riwayat">
+        <a href="/riwayat" class="d-flex align-items-center">
           <img src="../../assets/navbar-history.png" alt="" width="19px" height="19px" />
           <span class="material-icons-round">history</span>
           <li>Riwayat</li>
@@ -217,7 +223,7 @@
               <div class="col flex-grow-0 p-0">
                 <img src="../../assets/footer-icons/Gmail.png" alt="" style="min-width:18px">
               </div>
-              <div class="col">
+              <div class="col overflow-hidden">
                 <a href="mailto:sdm.rsudsumsel@gmail.com">
                     sdm.rsudsumsel@gmail.com
                 </a>

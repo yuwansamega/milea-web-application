@@ -78,7 +78,12 @@
               <p>Pelatihan</p>
             </a>
           </li>
-          <li>
+           <li>
+            <a href="/kelas">
+              <span class="material-icons-round">class</span>
+              <p>Kelas</p>
+            </a>
+          </li>
         </ul>
         <a href="/data-profil">
           <img src="../../assets/navbar-profile.png" alt="" width="19px" height="19px" />
@@ -88,7 +93,7 @@
         <a href="/riwayat">
           <img src="../../assets/navbar-history.png" alt="" width="19px" height="19px" />
           <span class="material-icons-round selected">history</span>
-          <li>Riwayat</li>
+          <li><b>Riwayat</b></li>
         </a>
         <form method="POST" action="{{ route('logout') }}">
           @csrf
@@ -245,7 +250,7 @@
               <div class="col flex-grow-0 p-0">
                 <img src="../../assets/footer-icons/Gmail.png" alt="" style="min-width:18px">
               </div>
-              <div class="col">
+              <div class="col overflow-hidden">
                 <a href="mailto:sdm.rsudsumsel@gmail.com">
                     sdm.rsudsumsel@gmail.com
                 </a>

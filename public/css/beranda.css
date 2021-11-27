@@ -272,20 +272,20 @@ footer #hubungi-kami li {
 footer #hubungi-kami li img {
     margin-right: 20px;
 }
-@media screen and (max-width: 1520px){
+@media screen and (max-width: 1520px) {
     .rowFirst .col .group {
         margin-top: -60px;
     }
 }
-@media screen and (max-width: 1300px){
+@media screen and (max-width: 1300px) {
     .rowFirst .col .group {
         margin-top: -100px;
     }
-    .rowFirst .col .group h1{
+    .rowFirst .col .group h1 {
         font-size: 60px;
-        margin:0;
+        margin: 0;
     }
-    .rowFirst .col .group p{
+    .rowFirst .col .group p {
         font-size: 20px;
         margin-bottom: 25px;
     }
@@ -301,7 +301,7 @@ footer #hubungi-kami li img {
         display: flex;
         justify-content: space-between;
     }
-    .rowFirst .col{
+    .rowFirst .col {
         background-color: #f9f9f9;
     }
     .rowFirst .imgCol {
@@ -557,7 +557,7 @@ footer #hubungi-kami li img {
         color: #11543c;
         font-size: 30px;
         margin: 0;
-        
+
         margin-top: 50px;
     }
     .rowFirst .col .group p {
@@ -777,7 +777,7 @@ footer #hubungi-kami li img {
         font-weight: 300;
         color: #000000;
         width: 85%;
-        text-align: center  ;
+        text-align: center;
         font-size: 12px;
     }
     .rowFirst .col .group .ikuti-pelatihan {
@@ -889,10 +889,11 @@ footer #hubungi-kami li img {
     .rowThird h1 {
         text-align: center;
         font-weight: 700;
-        font-size: 24px;
+        font-size: 24px !important;
         margin: 0 !important;
         margin-top: 40px !important;
         color: #11543c;
+        margin-bottom: 5px !important;
     }
     .rowThird .content {
         display: flex;
@@ -923,7 +924,7 @@ footer #hubungi-kami li img {
     }
     .rowThird .content .card .title-card h3 {
         font-weight: 700;
-        font-size: 18px;
+        font-size: 15px;
         margin-top: 10px;
     }
     .rowThird .content .card .details .place h5 {

@@ -216,7 +216,7 @@
                             +628117117929
                         </a>
                     </li>
-                    <li class="row">
+                    <li class="row overflow-hidden">
                         <img src="../../assets/footer-icons/Gmail.png" alt="">
                         <a href="mailto:sdm.rsudsumsel@gmail.com"  target="output">
                             sdm.rsudsumsel@gmail.com

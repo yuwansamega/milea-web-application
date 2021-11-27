@@ -69,18 +69,23 @@
         <img id="addition" src="/img/dropdown-addition.png" alt="" />
         <ul id="pages-dropdown">
           <li>
-            <a href="/beranda" class="selected">
+            <a href="/beranda" >
               <span class="material-icons-round">home</span>
               <p>Beranda</p>
             </a>
           </li>
           <li>
-            <a href="/daftar-kegiatan">
+            <a href="/daftar-kegiatan" class="selected">
               <span class="material-icons-round selected">list</span>
               <p>Pelatihan</p>
             </a>
           </li>
           <li>
+            <a href="/kelas">
+              <span class="material-icons-round">class</span>
+              <p>Kelas</p>
+            </a>
+          </li>
         </ul>
         <a href="/data-profil">
           <img src="../../assets/navbar-profile.png" alt="" width="19px" height="19px" />
@@ -446,7 +451,7 @@
               <div class="col flex-grow-0 p-0">
                 <img src="../../assets/footer-icons/Gmail.png" alt="" style="min-width:18px">
               </div>
-              <div class="col">
+              <div class="col overflow-hidden">
                 <a href="mailto:sdm.rsudsumsel@gmail.com">
                     sdm.rsudsumsel@gmail.com
                 </a>

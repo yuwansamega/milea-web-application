@@ -85,8 +85,8 @@
             </a>
           </li>
           <li>
-            <a href="/daftar-kegiatan" class="selected">
-              <span class="material-icons-round">list</span>
+            <a href="/kelas" class="selected">
+              <span class="material-icons-round">class</span>
               <p>Kelas</p>
             </a>
           </li>
@@ -100,7 +100,7 @@
         <a href="/riwayat">
           <img src="../../assets/navbar-history.png" alt="" width="19px" height="19px" />
           <span class="material-icons-round">history</span>
-          <li>Riwayat</li>
+          <li style="color: black">Riwayat</li>
         </a>
         <form method="POST" action="{{ route('logout') }}">
           @csrf
@@ -120,11 +120,12 @@
         </div>
         <div class="key-component d-flex align-items-center border">
             <span class="material-icons-round" style="color: #198754; transform: rotate(320deg);">key</span>&nbsp;
-            <h5>|</h5>&nbsp;
+            <h5>|&nbsp;</h5>
             <form action="/check-enroll-key" method="post">
               @csrf
-            <input type="text" placeholder="Masukkan Kode Disini..." class="border-0" name="key" autocomplete="off">
-            <button type="submit" class="btn btn-success">Enroll</button></form>
+              <input type="text" placeholder="Masukkan Kode Disini..." class="inputText border-0 mb-2" name="key" autocomplete="off">
+              <button type="submit" class="btn btn-success">Enroll</button>
+            </form>
         </div>
         
         @if($count<=0)
@@ -147,6 +148,7 @@
               <?php $i=1; ?>
               @foreach($data as $d)
                 <div class="card d-flex flex-row align-items-center mb-2 mx-auto">
+                    
                     <div class="num">
                         <h4><?=$i++?>. </h4>
                     </div>
@@ -222,7 +224,7 @@
               <div class="col flex-grow-0 p-0">
                 <img src="../../assets/footer-icons/Gmail.png" alt="" style="min-width:18px">
               </div>
-              <div class="col">
+              <div class="col overflow-hidden">
                 <a href="mailto:sdm.rsudsumsel@gmail.com">
                     sdm.rsudsumsel@gmail.com
                 </a>

@@ -51,7 +51,7 @@
           <img id="addition" src="../../assets/dropdown-addition.png" alt="" />
           <ul id="pages-dropdown">
             <li>
-              <a href="/beranda" class="selected">
+              <a href="/beranda">
                 <span class="material-icons-round">home</span>
                 <p>Beranda</p>
               </a>
@@ -63,11 +63,16 @@
               </a>
             </li>
             <li>
+              <a href="/kelas">
+                <span class="material-icons-round">class</span>
+                <p>Kelas</p>
+              </a>
+            </li>
           </ul>
           <a href="/data-profil">
             <img src="../../assets/navbar-profile.png" alt="" width="19px" height="19px" />
             <span class="material-icons-round">account_box</span>
-            <li>Profil</li>
+            <li><b>Profil</b></li>
           </a>
           <a href="/riwayat">
             <img src="../../assets/navbar-history.png" alt="" width="19px" height="19px" />
@@ -309,7 +314,7 @@
                             +628117117929
                         </a>
                     </li>
-                    <li class="row">
+                    <li class="row overflow-hidden">
                         <img src="../../assets/footer-icons/Gmail.png" alt="">
                         <a href="mailto:sdm.rsudsumsel@gmail.com" target="output">
                             sdm.rsudsumsel@gmail.com
