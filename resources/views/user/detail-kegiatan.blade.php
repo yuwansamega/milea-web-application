@@ -325,6 +325,7 @@
                           class="form-control-file"
                           id="exampleFormControlFile1"
                           name="file_<?php echo $i++?>"
+                          accept="application/pdf"
                           required
                         />
                       </div>

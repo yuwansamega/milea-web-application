@@ -24,7 +24,6 @@ body {
     font-size: 85px;
     line-height: 108px;
     color: #11543c;
-    margin-top: 250px;
 }
 .rowFirst .col .group p {
     font-weight: 500;
@@ -52,7 +51,7 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .rowSecond {
-    background-color: #f9f9f9;
+    background-color: white;
     width: 100%;
     height: 600px;
     display: flex;
@@ -125,16 +124,17 @@ body {
 }
 .rowThird {
     width: 100%;
-    height: 400px;
+    height: 500px;
     margin-top: 100px;
+    background-color: #f9f9f9;
 }
-.rowThird h1 {
+.rowThird .content h1 {
     text-align: center;
     font-weight: 700;
     font-size: 30px;
-    margin-top: 50px;
-    margin-bottom: 50px;
     color: #11543c;
+    background-color: #f9f9f9;
+    margin-top: 60px;
 }
 .rowThird .content {
     display: flex;
@@ -272,6 +272,24 @@ footer #hubungi-kami li {
 footer #hubungi-kami li img {
     margin-right: 20px;
 }
+@media screen and (max-width: 1520px){
+    .rowFirst .col .group {
+        margin-top: -60px;
+    }
+}
+@media screen and (max-width: 1300px){
+    .rowFirst .col .group {
+        margin-top: -100px;
+    }
+    .rowFirst .col .group h1{
+        font-size: 60px;
+        margin:0;
+    }
+    .rowFirst .col .group p{
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+}
 @media screen and (max-width: 1024px) {
     body {
         width: 1023px;
@@ -283,6 +301,9 @@ footer #hubungi-kami li img {
         display: flex;
         justify-content: space-between;
     }
+    .rowFirst .col{
+        background-color: #f9f9f9;
+    }
     .rowFirst .imgCol {
         text-align: right;
         width: 50%;
@@ -293,14 +314,13 @@ footer #hubungi-kami li img {
     .rowFirst .col .group h1 {
         font-weight: 700;
         color: #11543c;
-        font-size: 25px;
+        font-size: 40px;
+        margin-top: 40px;
     }
     .rowFirst .col .group p {
         font-weight: 300;
         color: #000000;
-        margin-left: 120px;
-        width: 85%;
-        text-align: justify;
+        text-align: center;
         font-size: 20px;
     }
     .rowFirst .col .group .ikuti-pelatihan {
@@ -320,7 +340,6 @@ footer #hubungi-kami li img {
             #44b1c9 66.39%,
             #17bfe3 102.68%
         );
-        margin-left: 120px;
         mix-blend-mode: normal;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
@@ -401,6 +420,7 @@ footer #hubungi-kami li img {
     .rowThird {
         width: 100%;
         height: 250px;
+        background-color: white;
     }
     .rowThird h1 {
         text-align: center;
@@ -409,6 +429,7 @@ footer #hubungi-kami li img {
         margin-top: 50px;
         margin-bottom: 50px;
         color: #11543c;
+        background-color: white !important;
     }
     .rowThird .content {
         display: flex;
@@ -454,14 +475,15 @@ footer #hubungi-kami li img {
         width: 100%;
         height: 1000px;
         margin-top: 100px;
+        background-color: #f9f9f9;
+        padding: 50px;
     }
     .rowFourth h1 {
         text-align: center;
         font-weight: 700;
         font-size: 30px;
-        margin-top: 50px;
-        margin-bottom: 40px;
         color: #11543c;
+        margin: 0;
     }
     .rowFourth .content {
         display: flex;
@@ -533,18 +555,18 @@ footer #hubungi-kami li img {
     .rowFirst .col .group h1 {
         font-weight: 700;
         color: #11543c;
-        font-size: 25px;
+        font-size: 30px;
         margin: 0;
-        margin-left: 40px;
-        margin-top: 100px;
+        
+        margin-top: 50px;
     }
     .rowFirst .col .group p {
         font-weight: 300;
         color: #000000;
-        margin-left: 40px;
-        width: 85%;
-        text-align: justify;
+        text-align: center;
         font-size: 15px;
+        margin-top: -30px;
+        margin-bottom: 10px;
     }
     .rowFirst .col .group .ikuti-pelatihan {
         width: 130px;
@@ -563,7 +585,6 @@ footer #hubungi-kami li img {
             #44b1c9 66.39%,
             #17bfe3 102.68%
         );
-        margin-left: 40px;
         mix-blend-mode: normal;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
@@ -650,7 +671,6 @@ footer #hubungi-kami li img {
         text-align: center;
         font-weight: 700;
         font-size: 28px;
-        margin-top: 150px;
         margin-bottom: 50px;
         color: #11543c;
     }
@@ -696,7 +716,7 @@ footer #hubungi-kami li img {
     }
     .rowFourth {
         width: 100%;
-        height: 1000px;
+        height: 500px;
         margin-top: 100px;
     }
     .rowFourth h1 {
@@ -732,6 +752,7 @@ footer #hubungi-kami li img {
     }
     .rowFirst {
         background-color: rgb(255, 255, 255);
+        background-image: none;
         width: 100%;
         height: 280px;
         display: flex;
@@ -750,15 +771,13 @@ footer #hubungi-kami li img {
         color: #11543c;
         font-size: 20px;
         margin: 0;
-        margin-left: 20px;
-        margin-top: 60px;
+        margin-top: 100px;
     }
     .rowFirst .col .group p {
         font-weight: 300;
         color: #000000;
-        margin-left: 20px;
         width: 85%;
-        text-align: justify;
+        text-align: center  ;
         font-size: 12px;
     }
     .rowFirst .col .group .ikuti-pelatihan {
@@ -871,9 +890,7 @@ footer #hubungi-kami li img {
         text-align: center;
         font-weight: 700;
         font-size: 24px;
-        margin-bottom: 50px;
-
-        margin: 0;
+        margin: 0 !important;
         margin-top: 40px !important;
         color: #11543c;
     }

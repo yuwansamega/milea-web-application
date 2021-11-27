@@ -22,43 +22,8 @@ class DataUserController extends Controller
         ]);
     }
 
-    public function indexAdmin(){
-        
-        return view ('admin.account',[
-            "user" => User::all(),
-            "title" => "Akun Pengguna"
-        ]);
-    }
-
-    public function updateAccShow($id){
-        
-        return view ('admin.update-acc',[
-            "user" => DB::table('data_users')->where('user_id',$id)->first(),
-            "title" => "Akun Pengguna"
-        ]);
-    }
-    public function updateAcc($id, Request $request){
-        $request->validate([
-            "new_pass"  => "required | min:8",
-            "confirm_pass" => "same:new_pass",
-        ]);
-        $new_pass = Hash::make($request->new_pass);
-        DB::table('users')
-              ->where('id', $id)
-              ->update(['password' => $new_pass,
-            ]);
-
-            return redirect()->back()->with("success","Password telah diubah!");
-    }
-    public function deleteAcc($id){
-        DB::table('users')
-                    ->where('id', $id)
-                    ->delete();
-        DB::table('data_users')
-                    ->where('user_id', $id)
-                    ->delete();
-        return redirect()->back()->with("success","Akun sudah dihapus!");
-    }
+    
+    
     public function show (){
         $user_id = Auth::user()->id;
         

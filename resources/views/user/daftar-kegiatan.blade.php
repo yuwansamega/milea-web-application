@@ -124,15 +124,16 @@
             @foreach ($workshops as $ws)
         <tr>
         <td scope="row"><?= $workshops->firstItem() + $i++ ?></td>
-        <?php
-        if (date('Y-m-d')<=$ws->close_regist){?>
-          <td style="font-weight:bold; color: #198754 ;">Dibuka</td>
-        <?php 
-        }else{?>
-          <td style="font-weight:bold; color: rgb(240, 41, 41);">Tutup</td><?php 
-        }
+        @if(date('Y-m-d')<=$ws->open_regist)
+        <td style="font-weight:bold; color: black ;">Belum Dibuka</td>
+        @elseif(date('Y-m-d')<=$ws->close_regist)
+        <td style="font-weight:bold; color: #198754 ;">Dibuka</td>
+        @else
+        <td style="font-weight:bold; color: rgb(240, 41, 41);">Tutup</td>
+        @endif
         
-        ?>   
+        
+         
         
             <td>{{ $ws->title }}</td>
             <td>{{ tgl_indo($ws->open_regist) }} - {{ tgl_indo($ws->close_regist) }}</td>
@@ -140,7 +141,7 @@
             <td>{{ $ws->quota }}</td>
             <td>
               @php
-                  if (date('Y-m-d')<=$ws->close_regist) :
+                  if (date('Y-m-d')<=$ws->close_regist AND date('Y-m-d')>=$ws->open_regist) :
                   @endphp
                     <a href="/detail-kegiatan/{{ $ws->id }}" data-toggle="tooltip" data-placement="top" title="Detail"
                       >

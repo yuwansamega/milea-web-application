@@ -11,7 +11,7 @@ class PanelController extends Controller
     
     public function index(){
         if(Auth::user()->hasRole('user')){
-            return redirect('/lengkapi-profil');
+            return redirect('/beranda');
         }elseif(Auth::user()->hasRole('admin')){
             return redirect('/admin/dashboard');
         }

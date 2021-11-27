@@ -21,6 +21,7 @@ class SubmissionController extends Controller
                 ->where('user_id', $user_id)
                 ->where('ws_id', $id)
                 ->where('status_p', 'Menunggu Verifikasi') 
+                ->where('status_p', 'Diterima') 
                 ->count();
         
         $check_nik = DB::table('data_users')

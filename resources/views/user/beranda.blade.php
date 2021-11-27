@@ -107,10 +107,10 @@
 
     <!-- Content Start -->
     <div class="rowFirst">
-      <div class="col">
-        <div class="group">
+      <div class="col d-flex align-items-center">
+        <div class="group d-flex flex-column align-items-center justify-content-center">
           <h1>Selamat Datang di MILEA</h1>
-          <p>
+          <p style="text-center max-width: 80%">
             MILEA merupakan website pendaftaran resmi dari RSUD Siti Fatimah
             untuk mitra yang ingin mengikuti pelatihan, pendidikan dan
             pengembangan di RSUD Siti Fatimah.
@@ -177,8 +177,8 @@
     </div>
     
     <div class="rowThird">
-      <h1  style="background-color: white">Pelatihan Yang Telah Dilaksanakan</h1>
-      <div class="content">
+      <div class="content d-flex  align-items-start">
+        <h1>Pelatihan Yang Telah Dilaksanakan</h1>
         @foreach($latest_three as $latest)
         <div class="card">
                   

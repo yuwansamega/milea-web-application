@@ -167,7 +167,7 @@
                                 <div class="form-group">
                                   <div class="input-group d-flex row p-3 align-items-center">       
                                     <label for="first_name" class="mt-2 col-md-6">Bukti Pembayaran <span style="color: red">(jpg,png  max : 2Mb)</span> </label>
-                                    <input id="first_name" type="file" class="form-control" placeholder="First Name" name="payment_proof"/>
+                                    <input id="first_name" type="file" class="form-control" placeholder="First Name" name="payment_proof" accept='image/*'/>
                                     <small style="color: red" class="ml-4 mt-2">*Khusus Pegawai RSUD Siti Fatimah, Silakan Unggah Surat Bukti Penugasan pada lembar yang menunjukkan nama anda!</small>
                                   </div>
                                 </div>

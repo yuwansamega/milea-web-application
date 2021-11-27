@@ -17,10 +17,8 @@
     <main class="row">
         <section class="col center" id="left">
             <div class="group col">
-                <img src="../../assets/desktop-lp.png" alt="" id="desktop-img">
+                <img src="../../assets/login-img.png" alt="" id="desktop-img">
                 <img src="../../assets/mobile-lp.png" alt="" id="mobile-img">
-                <h1>MILEA</h1>
-                <h2>Mitra Lewat Dunia Maya</h2>
             </div>
         </section>
         <section class="col center" id="right">
