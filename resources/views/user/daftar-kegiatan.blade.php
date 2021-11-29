@@ -130,7 +130,7 @@
             @foreach ($workshops as $ws)
         <tr>
         <td scope="row"><?= $workshops->firstItem() + $i++ ?></td>
-        @if(date('Y-m-d')<=$ws->open_regist)
+        @if(date('Y-m-d')<$ws->open_regist)
         <td style="font-weight:bold; color: black ;">Belum Dibuka</td>
         @elseif(date('Y-m-d')<=$ws->close_regist)
         <td style="font-weight:bold; color: #198754 ;">Dibuka</td>

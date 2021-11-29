@@ -97,7 +97,8 @@ class MaterialController extends Controller
             $check_verif = DB::table('submissions')
                     ->where('user_id', $user_id)
                     ->where('ws_id', $id)
-                    ->where('status_p', 'Diterima') 
+                    ->where('status_p', 'Diterima')
+                    ->where('payment_status', 'Pembayaran Diterima')
                     ->count();
         }
        
@@ -116,7 +117,7 @@ class MaterialController extends Controller
                     return redirect('/kelas')->with('warning','Anda telah berada di dalam kelas tersebut!');
                 }
                 if($check_verif<=0){
-                    return redirect('/kelas')->with('warning','Anda belum mendaftar atau pendaftaran anda belum diverifikasi!');
+                    return redirect('/kelas')->with('warning','Anda tidak memiliki akses ke kelas ini!');
                 }
                 
             }

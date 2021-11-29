@@ -20,8 +20,10 @@ class SubmissionController extends Controller
         $count = DB::table('submissions')
                 ->where('user_id', $user_id)
                 ->where('ws_id', $id)
-                ->where('status_p', 'Menunggu Verifikasi') 
-                ->where('status_p', 'Diterima') 
+                ->where(function ($query) {
+                    $query->where('submissions.status_p', 'Menunggu Verifikasi')
+                          ->orWhere('submissions.status_p', 'Diterima');
+                })
                 ->count();
         
         $check_nik = DB::table('data_users')
