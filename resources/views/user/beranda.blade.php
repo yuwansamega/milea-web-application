@@ -183,25 +183,26 @@
     
     <div class="rowThird d-flex justify-content-center">
       <div class="content d-flex justify-content-center flex-column">
-        <h1 class="text-center">Pelatihan Yang Telah Dilaksanakan</h1>
-        @foreach($latest_three as $latest)
-        <div class="card d-flex justify-content-center">
-                  
-                  <div class="title-card text-center">
-                    <h3>{{ $latest->title }}</h3>
-                    <hr>
-                  </div>
-                  <div class="details">
-                    <div class="place">
-                      <h5>{{ $latest->place }}</h5>
+        <h1 class="text-center mb-5">Pelatihan Yang Telah Dilaksanakan</h1>
+        <div class="row d-flex justify-content-center">
+          @foreach($latest_three as $latest)
+          <div class="card d-flex justify-content-center mb-3">
+                    
+                    <div class="title-card text-center">
+                      <h3>{{ $latest->title }}</h3>
+                      <hr>
                     </div>
-                    <div class="time">
-                      <h5>{{ tgl_indo($latest->open_ws) }} - {{ tgl_indo($latest->close_ws) }}</h5>
+                    <div class="details">
+                      <div class="place">
+                        <h5>{{ $latest->place }}</h5>
                       </div>
+                      <div class="time">
+                        <h5>{{ tgl_indo($latest->open_ws) }} - {{ tgl_indo($latest->close_ws) }}</h5>
+                        </div>
+                    </div>
                   </div>
-                </div>
-        @endforeach
-        
+          @endforeach
+        </div>
       </div>
     </div>
 

@@ -124,7 +124,7 @@ body {
 }
 .rowThird {
     width: 100%;
-    height: 500px;
+    height: 400px;
     margin-top: 100px;
     background-color: #f9f9f9;
 }
@@ -690,6 +690,8 @@ footer #hubungi-kami li img {
         margin-left: 10px;
         margin-right: 10px;
         box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.2);
+        max-width: 435px;
+        width: 100%;
     }
     .rowThird .content .card .pict {
         height: 150px;
@@ -884,7 +886,8 @@ footer #hubungi-kami li img {
     .rowThird {
         width: 100%;
         /* height: 600px; */
-        margin: 0cm;
+        margin: 0;
+        margin-top: 50px !important;
     }
     .rowThird h1 {
         text-align: center;
@@ -903,6 +906,12 @@ footer #hubungi-kami li img {
         height: 320px;
         padding: 20px;
         margin-top: 0px;
+    }
+    .rowThird .content {
+        margin-top: 20px !important;
+    }
+    .rowThird .content .row {
+        margin-top: 20px !important;
     }
     .rowThird .content .card {
         /* height: 290px; */
