@@ -23,10 +23,13 @@ use App\Http\Controllers\TaskController;
 |
 */
 
-Route::get('/', function () {
-    return redirect('/login');
-});
+// Route::get('/', function () {
+//     return redirect('/login');
+// });
 
+Route::get('/', function () {
+    return view('/landing-page');
+});
 
 //For Booth
 Route::group(['middleware' => ['auth']], function(){

@@ -32,121 +32,63 @@
     <title>MILEA | {{ $title }}</title>
   </head>
   <body>
-   <nav>
-      <div id="logo">
-        <img src="/img/navbar-logo.png" alt="" height="68px" width="68px" />
-        <h1 class="new">MILEA</h1>
-      </div>
-      <ul id="pages">
-        <li>
-          <a href="/beranda">Beranda</a>
-        </li>
-        <li>
-          <a href="/daftar-kegiatan" class="selected">Pelatihan</a>
-        </li>
-        <li>
-          <a href="/kelas" >Kelas</a>
-        </li>
-      </ul>
-      <img
-        src="/img/navbar-toggle-black.png"
-        alt=""
-        id="toogle-white"
-        width="50px"
-        height="50px"
-        class="dropdown-toggle"
-      />
-      <img
-        src="/img/navbar-toggle-black.png"
-        alt=""
-        id="toogle-black"
-        width="50px"
-        height="50px"
-        class="dropdown-toggle"
-      />
-      <ul id="dropdown">
-        <img id="addition" src="/img/dropdown-addition.png" alt="" />
-        <ul id="pages-dropdown">
-          <li>
-            <a href="/beranda">
-              <span class="material-icons-round">home</span>
-              <p>Beranda</p>
-            </a>
-          </li>
-          <li>
-            <a href="/daftar-kegiatan" class="selected d-flex align-items-center">
-              <span class="material-icons-round">list</span>
-              <p>Pelatihan</p>
-            </a>
-          </li>
-          <li>
-            <a href="/kelas" class="d-flex align-items-center">
-              <span class="material-icons-round">class</span>
-              <p>Kelas</p>
-            </a>
-          </li>
+   <nav style="position: sticky">
+        <div id="logo">
+            <img src="/img/navbar-logo.png" alt="" height="68px" width="68px" />
+            <h1 class="new">MILEA</h1>
+        </div>
+        <ul id="pages">
+            <li>
+            <a href="/beranda">Beranda</a>
+            </li>
+            <li>
+            <a href="/daftar-kegiatan">Pelatihan</a>
+            </li>
         </ul>
-        <a href="/data-profil" class="d-flex align-items-center">
-          <img src="../../assets/navbar-profile.png" alt="" width="19px" height="19px" />
-          <span class="material-icons-round">account_box</span>
-          <li>Profil</li>
-        </a>
-        <a href="/riwayat" class="d-flex align-items-center">
-          <img src="../../assets/navbar-history.png" alt="" width="19px" height="19px" />
-          <span class="material-icons-round">history</span>
-          <li>Riwayat</li>
-        </a>
-        <form method="POST" action="{{ route('logout') }}">
-          @csrf
-          <a href="route('logout')" id="sign-out" onclick="event.preventDefault();
-          this.closest('form').submit();">
-            <img src="/img/navbar-signout.png" alt="" width="19px" height="19px" />
-            <span class="material-icons-round">logout</span>
-          <li>Keluar</li>
-        </a></form>
-      </ul>
-  </nav>
+        <button type="button" class="btn btn-outline-success">Masuk</button>
+    </nav>
 
-  <main>
-    <div class="main-content">
-      <div class="container">
-        <h2>Agenda Pelatihan</h2>
-        <?php $i = 0 ?>
-        @if($count!=0)
-        <table class="table table-borderless table-responsive table-striped">
-          <thead>
+
+    <main>
+        <div class="main-content">
+        <div class="container">
+            <h2>Agenda Pelatihan</h2>
+            <?php $i = 0 ?>
+            @if($count!=0)
+            <table class="table table-borderless table-responsive table-striped">
+            <thead>
+                <tr>
+                <th scope="col">No</th>
+                <th scope="col">Status</th>
+                <th scope="col">Nama Pelatihan</th>
+                <th scope="col">Periode Pendaftaran</th>
+                <th scope="col">Periode Pelaksanaan</th>
+                <th scope="col">Kuota</th>
+                <th scope="col">Detail</th>
+                </tr>
+            </thead>
+            <tbody> 
+                            
+                @foreach ($workshops as $ws)
             <tr>
-              <th scope="col">No</th>
-              <th scope="col">Status</th>
-              <th scope="col">Nama Pelatihan</th>
-              <th scope="col">Periode Pendaftaran</th>
-              <th scope="col">Periode Pelaksanaan</th>
-              <th scope="col">Kuota</th>
-              <th scope="col">Detail</th>
-            </tr>
-          </thead>
-          <tbody> 
-                        
-            @foreach ($workshops as $ws)
-        <tr>
-        <td scope="row"><?= $workshops->firstItem() + $i++ ?></td>
-        @if(date('Y-m-d')<$ws->open_regist)
-        <td style="font-weight:bold; color: black ;">Belum Dibuka</td>
-        @elseif(date('Y-m-d')<=$ws->close_regist)
-        <td style="font-weight:bold; color: #198754 ;">Dibuka</td>
-        @else
-        <td style="font-weight:bold; color: rgb(240, 41, 41);">Tutup</td>
-        @endif
-        
-        
-         
-        
-            <td>{{ $ws->title }}</td>
-            <td>{{ tgl_indo($ws->open_regist) }} - {{ tgl_indo($ws->close_regist) }}</td>
-            <td>{{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</td>
-            <td>{{ $ws->quota }}</td>
-            <td>
-              @php
+            <td scope="row"><?= $workshops->firstItem() + $i++ ?></td>
+            @if(date('Y-m-d')<$ws->open_regist)
+            <td style="font-weight:bold; color: black ;">Belum Dibuka</td>
+            @elseif(date('Y-m-d')<=$ws->close_regist)
+            <td style="font-weight:bold; color: #198754 ;">Dibuka</td>
+            @else
+            <td style="font-weight:bold; color: rgb(240, 41, 41);">Tutup</td>
+            @endif
+            
+            
+            
+            
+                <td>{{ $ws->title }}</td>
+                <td>{{ tgl_indo($ws->open_regist) }} - {{ tgl_indo($ws->close_regist) }}</td>
+                <td>{{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</td>
+                <td>{{ $ws->quota }}</td>
+                <td>
+                 @php
                   if (date('Y-m-d')<=$ws->close_regist AND date('Y-m-d')>=$ws->open_regist) :
                   @endphp
                     <a href="/detail-kegiatan/{{ $ws->id }}" data-toggle="tooltip" data-placement="top" title="Detail"
@@ -160,23 +102,23 @@
                       @php
                           endif;
                       @endphp
-            </td>
-            </tr>
-            @endforeach
-            @else
-            <tr>
-            <div class="alert alert-danger" role="alert" style="width: 1000px">
-                Tidak Ada Pelatihan Tersedia
-              </div></tr>
-            @endif
-        </tbody>
-        </table>
-        <div class="d-flex justify-content-center" id="links"> {{ $workshops->links() }} </div>
-      </div>
-    </div>
-  </main>
+                </td>
+                </tr>
+                @endforeach
+                @else
+                <tr>
+                <div class="alert alert-danger" role="alert" style="width: 1000px">
+                    Tidak Ada Pelatihan Tersedia
+                </div></tr>
+                @endif
+            </tbody>
+            </table>
+            <div class="d-flex justify-content-center" id="links"> {{ $workshops->links() }} </div>
+        </div>
+        </div>
+    </main>
 
-   <!-- Footer -->
+    <!-- Footer -->
     <footer>
       <div class="row">
         <div class="col">
@@ -249,34 +191,5 @@
         </div>
       </div>
     </footer>
-
-
-    <script src="/js/utility.js"></script>
-    <?php
-function tgl_indo($tanggal){
-	$bulan = array (
-		1 =>   'Januari',
-		'Februari',
-		'Maret',
-		'April',
-		'Mei',
-		'Juni',
-		'Juli',
-		'Agustus',
-		'September',
-		'Oktober',
-		'November',
-		'Desember'
-	);
-	$pecahkan = explode('-', $tanggal);
-	
-	// variabel pecahkan 0 = tahun
-	// variabel pecahkan 1 = bulan
-	// variabel pecahkan 2 = tanggal
- 
-	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
-}
-?>
-@include('sweetalert::alert')
   </body>
 </html>
