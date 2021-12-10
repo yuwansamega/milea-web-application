@@ -67,10 +67,12 @@ footer #icons {
     display: flex;
     align-items: center;
     padding-bottom: 0;
+    margin-right: 15px !important;
 }
 
 footer #icons a {
     margin-right: 15px;
+    width: 20px !important;
 }
 
 footer #hubungi-kami li {
@@ -88,4 +90,25 @@ footer #hubungi-kami li img {
 .btn-outline-success:hover {
     background-color: #11543c;
     border-color: #11543c;
+}
+.title h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #11543cda;
+}
+.title p {
+    font-size: 18px;
+}
+.header {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    color: #11543cda;
+}
+.accordion-button:not(.collapsed) {
+    color: #11543c !important;
+    background-color: #f2faf7 !important;
+}
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(194, 245, 219, 0.25) !important;
 }

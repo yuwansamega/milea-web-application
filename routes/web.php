@@ -28,9 +28,11 @@ use App\Http\Controllers\TaskController;
 // });
 
 Route::get('/', function () {
+    return view('/faq');
+});
+Route::get('/lan', function () {
     return view('/landing-page');
 });
-
 //For Booth
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboard', [PanelController::class, 'index'])->name('dashboard');
