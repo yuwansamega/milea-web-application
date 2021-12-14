@@ -38,16 +38,18 @@
 </head>
 <body>
     <nav style="position: sticky">
-        <div id="logo">
-            <img src="/img/navbar-logo.png" alt="" height="68px" width="68px" />
-            <h1 class="new">MILEA</h1>
-        </div>
+        <a href="/">
+          <div id="logo">
+              <img src="/img/navbar-logo.png" alt="" height="68px" width="68px" />
+              <h1 class="new">MILEA</h1>
+          </div>
+        </a>
         <ul id="pages">
             <li>
-            <a href="/beranda">Beranda</a>
+            <a href="/beranda-guest">Beranda</a>
             </li>
             <li>
-            <a href="/daftar-kegiatan">Pelatihan</a>
+            <a href="/pelatihan-guest">Pelatihan</a>
             </li>
         </ul>
         <button type="button" class="btn btn-outline-success">Masuk</button>

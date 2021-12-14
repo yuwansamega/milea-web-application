@@ -11,7 +11,7 @@ use App\Http\Controllers\AdminDVerifikasiController;
 use App\Http\Controllers\AdminVerifikasiController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\TaskController;
-
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,21 +23,53 @@ use App\Http\Controllers\TaskController;
 |
 */
 
-// Route::get('/', function () {
+// Route::get('/login', function () {
 //     return redirect('/login');
 // });
 
+//Guest
 Route::get('/', function () {
-    return view('/faq');
+        return view('/landing-page');
 });
-Route::get('/lan', function () {
-    return view('/landing-page');
+Route::get('/beranda-guest', function () {
+    $latest= DB::table('workshops')->latest()->first();
+        $count = DB::table('workshops')->count();
+
+        $latest_three = DB::table('workshops')
+                        ->where('open_ws','<=', now())
+                        ->orderBy('created_at', 'DESC')
+                        ->limit(3)
+                        ->get();
+    
+    
+    return view('/beranda-guest', [
+        "ws" => $latest,
+            "title" => "Beranda",
+            "count" => $count,
+            "latest_three" => $latest_three
+    ]);
+});
+Route::get('/pelatihan-guest', function () {
+    $ws = DB::table('workshops')
+        ->orderBy('id', 'DESC')
+        ->paginate(10);
+        $count = DB::table('workshops')->count();
+    return view('/pelatihan-guest', [
+        "workshops" => $ws,
+            "title" => "Daftar Pelatihan",
+            "count" => $count
+    ]);
+
 });
 //For Booth
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboard', [PanelController::class, 'index'])->name('dashboard');
     // Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
     
+});
+
+Route::get('/faq', function () {
+    return view('faq');
 });
 
 //For User

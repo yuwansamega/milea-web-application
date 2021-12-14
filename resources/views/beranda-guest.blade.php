@@ -32,23 +32,27 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>MILEA</title>
+    <title>MILEA | Beranda - Guest</title>
   </head>
   <body>
     <nav style="position: sticky">
-        <div id="logo">
-            <img src="/img/navbar-logo.png" alt="" height="68px" width="68px" />
-            <h1 class="new">MILEA</h1>
-        </div>
+        <a href="/">
+          <div id="logo">
+              <img src="/img/navbar-logo.png" alt="" height="68px" width="68px" />
+              <h1 class="new">MILEA</h1>
+          </div>
+        </a>
         <ul id="pages">
             <li>
-            <a href="/beranda">Beranda</a>
+            <a href="/beranda-guest">Beranda</a>
             </li>
             <li>
-            <a href="/daftar-kegiatan">Pelatihan</a>
+            <a href="/pelatihan-guest">Pelatihan</a>
             </li>
         </ul>
-        <button type="button" class="btn btn-outline-success">Masuk</button>
+        <a href="/login">
+          <button type="button" class="btn btn-outline-success">Masuk</button>
+        </a>
     </nav>
 
     <!-- Content Start -->
@@ -62,10 +66,7 @@
             pengembangan di RSUD Siti Fatimah.
           </p>
           <button class="ikuti-pelatihan"><a href="/daftar-kegiatan"> Ikuti Pelatihan </a>
-            <svg width="20" height="20" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.375 14H23.625" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M15.75 6.125L23.625 14L15.75 21.875" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+    
         </button>
         </div>
       </div>
@@ -182,9 +183,9 @@
         </div>
         <div class="col px-sm-5" style="min-width: 200px; margin-bottom:15px">
           <p class=""><b>Navigasi</b></p>
-            <a href="/beranda">Beranda</a>
+            <a href="/beranda-guest">Beranda</a>
             <br><br>
-            <a href="/daftar-kegiatan">Pelatihan</a>
+            <a href="/pelatihan-guest">Pelatihan</a>
             <br><br>
             <a href="/faq">FAQ</a>
         </div>
@@ -231,6 +232,32 @@
         </div>
       </div>
     </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/js/utility.js"></script>
+    <?php
+    function tgl_indo($tanggal){
+      $bulan = array (
+        1 =>   'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+      );
+      $pecahkan = explode('-', $tanggal);
+      // variabel pecahkan 0 = tahun
+      // variabel pecahkan 1 = bulan
+      // variabel pecahkan 2 = tanggal
+     
+      return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+    }
+    ?>
   </body>
 </html>
 

@@ -33,19 +33,23 @@
   </head>
   <body>
    <nav style="position: sticky">
-        <div id="logo">
-            <img src="/img/navbar-logo.png" alt="" height="68px" width="68px" />
-            <h1 class="new">MILEA</h1>
-        </div>
+        <a href="/">
+          <div id="logo">
+              <img src="/img/navbar-logo.png" alt="" height="68px" width="68px" />
+              <h1 class="new">MILEA</h1>
+          </div>
+        </a>
         <ul id="pages">
             <li>
-            <a href="/beranda">Beranda</a>
+            <a href="/beranda-guest">Beranda</a>
             </li>
             <li>
-            <a href="/daftar-kegiatan">Pelatihan</a>
+            <a href="/pelatihan-guest">Pelatihan</a>
             </li>
         </ul>
-        <button type="button" class="btn btn-outline-success">Masuk</button>
+        <a href="/login">
+          <button type="button" class="btn btn-outline-success">Masuk</button>
+        </a>
     </nav>
 
 
@@ -138,15 +142,11 @@
         </div>
         <div class="col px-sm-5" style="min-width: 200px; margin-bottom:15px">
           <p class=""><b>Navigasi</b></p>
-            <a href="/beranda">Beranda</a>
+            <a href="/beranda-guest">Beranda</a>
             <br><br>
-            <a href="/daftar-kegiatan">Pelatihan</a>
+            <a href="/pelatihan-guest">Pelatihan</a>
             <br><br>
-            <a href="/data-profil">Profil</a>
-            <br><br>
-            <a href="/riwayat">Riwayat</a>
-            <br><br>
-            <a href="/kelas">Kelasku</a>
+            <a href="/faq">FAQ</a>
         </div>
         <div class="col">
           <p><b>Hubungi Kami</b></p>
@@ -191,5 +191,31 @@
         </div>
       </div>
     </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/js/utility.js"></script>
+    <?php
+    function tgl_indo($tanggal){
+      $bulan = array (
+        1 =>   'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+      );
+      $pecahkan = explode('-', $tanggal);
+      // variabel pecahkan 0 = tahun
+      // variabel pecahkan 1 = bulan
+      // variabel pecahkan 2 = tanggal
+     
+      return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+    }
+    ?>
   </body>
 </html>
