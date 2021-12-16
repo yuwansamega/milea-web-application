@@ -12,7 +12,7 @@ class BerandaController extends Controller
         $count = DB::table('workshops')->count();
 
         $latest_three = DB::table('workshops')
-                        ->where('open_ws','<=', now())
+                        ->where('open_ws','<=', date(now()))
                         ->orderBy('created_at', 'DESC')
                         ->limit(3)
                         ->get();

@@ -118,6 +118,11 @@ class TaskController extends Controller
 
         $zip = new ZipArchive;
         $filename = $data_t->speaker.'-'.$id.'.zip';
+
+        if(File::exists(public_path().'/zip/'. $data_t->speaker.'-'.$id.'.zip')){
+            File::delete(public_path().'/zip/'. $data_t->speaker.'-'.$id.'.zip');
+        }
+
         if($zip->open(public_path('zip/'.$filename),ZipArchive::CREATE) === TRUE){
             
             $files = File::files(public_path('user/tugas/'.$data_t->speaker.'-'.$id));

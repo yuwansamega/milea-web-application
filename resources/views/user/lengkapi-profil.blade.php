@@ -110,7 +110,7 @@
                 <a class="row allign-center" href="/ubah-pass">
                     <li class="row allign-center">
                         <span class="material-icons-round">vpn_key</span>
-                        <p>Ubah Password</p>
+                        <p>Ubah Kata Sandi</p>
                     </li>
                 </a>
                 <form method="POST" action="{{ route('logout') }}">
@@ -153,7 +153,7 @@
             <ul class="col" style="padding: 30px; background-color: rgba(255, 255, 255, 0.5)" >
                 <li class="row allign-center">
                     <label for="">Pas Foto</label>
-                    <input type="file" class="col center" name="image" style="background-color: white">
+                    <input type="file" class="col center" name="image" style="background-color: white" accept="image/*">
                 </li>
                 <li class="row allign-center">
                     <label for="">Nama</label>

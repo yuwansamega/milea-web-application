@@ -109,7 +109,7 @@
   </nav>
 
     <div class="container" style="margin-top: 200px">
-      <div class="row pertama justify-content-center">
+      <div class="row justify-content-center mb-4">
         <div class="container">
           <table class="table table-borderless">
             <thead>
@@ -135,7 +135,7 @@
         </div>
       </div>
 
-      <div class="row kedua" >
+      <div class="row" >
         <div class="container">
           <table class="table table-borderless">
             <thead>
@@ -183,7 +183,7 @@
           </table>
         </div>
       </div>
-      <div class="row keempat justify-content-center" style="margin-top: 50px">
+      <div class="row justify-content-center" style="margin-top: 50px">
         <div class="container">
           <table class="table table-borderless">
             <thead>
@@ -209,7 +209,7 @@
         </div>
       </div>
       
-      <div class="row ketiga">
+      <div class="row mb-5">
         <div class="col-sm-6 kiri">
           <table class="table table-borderless">
             <thead>
@@ -273,7 +273,16 @@
             </tbody>
           </table>
         </div>
-
+        @if (count($errors) > 0)
+              <div class="alert alert-danger">
+                  <strong>Whoops!</strong> There were some problems with your input.
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+          @endif
         <div class="col-sm-6 kanan">
           <table class="table table-borderless" style="height: 198.58px">
             <thead>
@@ -288,26 +297,13 @@
               </tr>
             </thead>
             <tbody>
-              @if ($message = Session::get('success'))
-              <div class="alert alert-success alert-block">
-                  <button type="button" class="close" data-dismiss="alert">×</button>
-                      <strong>{{ $message }}</strong>
-              </div>
-          @endif
-          @if (count($errors) > 0)
-              <div class="alert alert-danger">
-                  <strong>Whoops!</strong> There were some problems with your input.
-                  <ul>
-                      @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                      @endforeach
-                  </ul>
-              </div>
-          @endif
               <form action="/update_submission/{{ $ws->id }}" method="post" enctype="multipart/form-data">
                 @csrf
               
                 <?php $i=1;?>
+                <tr>
+                  <td style="color: red;" colspan="2">*Format pengunggahan .pdf, maks 2Mb</td>
+                </tr>
                 @if(count($label_upload)>0)
                   @foreach ($label_upload as $upload)
                   <tr>
@@ -362,7 +358,8 @@
           </table>
         </div>
       </div>
-      <div class="row kelima justify-content-center" style="margin-top: 50px">
+
+      <div class="row justify-content-center mt-4">
         <div class="container">
           <table class="table table-borderless">
             <thead>

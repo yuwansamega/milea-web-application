@@ -54,94 +54,105 @@
             <div class="col" id="right">
                 <form action="/admin/update-submissions/{{ $subm_id }}" id="form-pengajuan" method="POST">
                     @csrf
-                    <h1>Data Detail</h1>
-                    <ul>
-                        <li class="row">
-                            <h3>Nama Kegiatan</h3>
-                            <p>{{ $data->title }}</p>
-                            
-                        </li>
-                        <li class="row">
-                            <h3>Nama</h3>
-                            <p>{{ $data->fullname }}</p>
-                        </li>
-                        <li class="row">
-                            <h3>NIP</h3>
-                            <p>{{ $data->nip }}</p>
-                        </li>
-                        <li class="row">
-                            <h3>Nomor KTP</h3>
-                            <p>{{ $data->nik }}</p>
-                        </li>
-                        <li class="row">
-                            <h3>Status</h3>
-                            <p>{{ $data->status }}</p>
-                        </li>
-                        <li class="row">
-                            <h3>Jenis Kelamin</h3>
-                            <p>{{ $data->gender }}</p>
-                        </li>
-                        <li class="row">
-                            <h3>Tempat Tanggal Lahir</h3>
-                            <p>{{ $data->birth_place.", ".$data->birth_date }}</p>
-                        </li>
-                        <li class="row">
-                            <h3>Alamat Domisili</h3>
-                            <p>{{ $data->address }}</p>
-                        </li>
-                        <li class="row">
-                            <h3>Agama</h3>
-                            <p>{{ $data->religion }}</p>
-                        </li>
-                        <li class="row">
-                            <h3>Email</h3>
-                            <p>{{ $data->email }}</p>
-                        </li>
-                        <li class="row">
-                            <h3>No Telepon</h3>
-                            <p>{{ $data->phone }}</p>
-                        </li>
-                        <li class="row">
-                            <h3>Pendidikan Terakhir</h3>
-                            <p>{{ $data->edu }}</p>
-                        </li>
-                        <li class="row">
-                            <h3>Pangkat / Golongan</h3>
-                            <p>{{ $data->level }}</p>
-                        </li>
-                        <li class="row">
-                            <h3>Jabatan / Pekerjaan</h3>
-                            <p>{{ $data->position }}</p>
-                        </li>
-                        <li class="row">
-                            <h3>Nama Instansi</h3>
-                            <p>{{ $data->institute }}</p>
-                        </li>
-                        <li class="row">
-                            <h3>Alamat Instansi</h3>
-                            <p>{{ $data->institute_addr }}</p>
-                        </li>
-                        <li class="row">
-                            <h3>Telpon Instansi</h3>
-                            <p>{{ $data->institute_phone }}</p>
-                        </li>
-
-                        <li class="row">
-                            <h3>Keterangan</h3>
-                            <select name="status_p" id="keterangan">
-                                <option value="Ditolak">Ditolak</option>
-                                <option value="Diterima">Diterima</option>
+                <h1>Data Detail</h1>
+                <ul>
+                    <li class="row">
+                        <h3>Nama Kegiatan</h3>
+                        <p>{{ $data->title }}</p>
+                        
+                    </li>
+                    <li class="row">
+                        <h3>Nama</h3>
+                        <p>{{ $data->fullname }}</p>
+                    </li>
+                    <li class="row">
+                        <h3>NIP</h3>
+                        <p>{{ $data->nip }}</p>
+                    </li>
+                    <li class="row">
+                        <h3>Nomor KTP</h3>
+                        <p>{{ $data->nik }}</p>
+                    </li>
+                    <li class="row">
+                        <h3>Status</h3>
+                        <p>{{ $data->status }}</p>
+                    </li>
+                    <li class="row">
+                        <h3>Jenis Kelamin</h3>
+                        <p>{{ $data->gender }}</p>
+                    </li>
+                    <li class="row">
+                        <h3>Tempat Tanggal Lahir</h3>
+                        <p>{{ $data->birth_place.", ".$data->birth_date }}</p>
+                    </li>
+                    <li class="row">
+                        <h3>Alamat Domisili</h3>
+                        <p>{{ $data->address }}</p>
+                    </li>
+                    <li class="row">
+                        <h3>Agama</h3>
+                        <p>{{ $data->religion }}</p>
+                    </li>
+                    <li class="row">
+                        <h3>Email</h3>
+                        <p>{{ $data->email }}</p>
+                    </li>
+                    <li class="row">
+                        <h3>No Telepon</h3>
+                        <p>{{ $data->phone }}</p>
+                    </li>
+                    <li class="row">
+                        <h3>Pendidikan Terakhir</h3>
+                        <p>{{ $data->edu }}</p>
+                    </li>
+                    <li class="row">
+                        <h3>Pangkat / Golongan</h3>
+                        <p>{{ $data->level }}</p>
+                    </li>
+                    <li class="row">
+                        <h3>Jabatan / Pekerjaan</h3>
+                        <p>{{ $data->position }}</p>
+                    </li>
+                    <li class="row">
+                        <h3>Nama Instansi</h3>
+                        <p>{{ $data->institute }}</p>
+                    </li>
+                    <li class="row">
+                        <h3>Alamat Instansi</h3>
+                        <p>{{ $data->institute_addr }}</p>
+                    </li>
+                    <li class="row">
+                        <h3>Telpon Instansi</h3>
+                        <p>{{ $data->institute_phone }}</p>
+                    </li>
+                    @if($data->status_p === "Menunggu Verifikasi")
+                    <li class="row">
+                        <h3>Status Berkas</h3>
+                        <select name="status_p" id="keterangan">
+                            <option value="Menunggu Verifikasi" disabled>Menunggu Verifikasi</option>
+                            <option value="Diterima" selected>Diterima</option>
+                            <option value="Ditolak">Ditolak</option>
                             </select>
                         </li>
                         <li class="row">
                             <h3>Pesan</h3>
-                            <textarea name="message" id="" cols="1" rows="1" placeholder="Masukan Pesan Jika Perlu ..."></textarea>
+                            <textarea name="message" id="" cols="1" rows="1" placeholder="Masukan Pesan Jika Perlu ...">{{ $data->message }}</textarea>
                         </li>
                     </ul>
                     <div class="row">
                         <button type="submit">Simpan</button>
                     </div>
                 </form>
+                @else
+                <li class="row">
+                    <h3>Status Berkas</h3>
+                    <p>{{ $data->status_p }}</p>
+                </li>
+                <li class="row">
+                    <h3>Pesan</h3>
+                    <p>{{ $data->message }}</p>
+                </li>
+                @endif
             </div>
         </div>
         

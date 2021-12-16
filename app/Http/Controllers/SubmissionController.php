@@ -17,6 +17,17 @@ class SubmissionController extends Controller
 
 
         //Cek user apakah sudah daftar atau belum
+        $regist_period = DB::table('workshops')
+                        ->where('id', $id)
+                        ->select('open_regist', 'close_regist', 'quota')
+                        ->first();
+        
+        // $count_quota = DB::table('submissions')
+        //                 ->where('ws_id', $id)
+        //                 ->where('submissions.payment_status', 'Pembayaran Diterima')
+        //                 ->count();
+        
+
         $count = DB::table('submissions')
                 ->where('user_id', $user_id)
                 ->where('ws_id', $id)
@@ -30,11 +41,18 @@ class SubmissionController extends Controller
                 ->where('user_id', $user_id)
                 ->first();
 
+        if($regist_period->open_regist > date('Y-m-d') or $regist_period->close_regist < date('Y-m-d')){
+            return back()->with('warning','Tidak dalam periode pendaftaran!');
+        }
+        // if($regist_period->quota==$count_quota){
+        //     return back()->with('warning','Kuota Pelatihan Penuh!');
+        // }
         if($check_nik->nik === ""){
 
             return redirect('/lengkapi-profil')->with('warning','Anda belum melengkapi profil untuk mendaftar pelatihan');
         
         }
+        
         else{
             if($count===0){
                 $request->validate([

@@ -45,7 +45,7 @@ class AdminDVerifikasiController extends Controller
             ->where('submissions.id', $sub_id)
             ->join('data_users', 'submissions.user_id', '=', 'data_users.user_id')
             ->join('workshops', 'submissions.ws_id', '=', 'workshops.id')
-            ->select('submissions.file_1', 'submissions.file_2', 'submissions.file_3', 'submissions.status_p',  'workshops.title', 'workshops.label_upload_1','workshops.label_upload_2', 'workshops.label_upload_3','data_users.*' )
+            ->select('submissions.file_1', 'submissions.file_2', 'submissions.file_3', 'submissions.status_p','submissions.message',  'workshops.title', 'workshops.label_upload_1','workshops.label_upload_2', 'workshops.label_upload_3','data_users.*' )
             ->first();
         
         $data->birth_date = $this->tgl_indo($data->birth_date);

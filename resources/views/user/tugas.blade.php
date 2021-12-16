@@ -84,20 +84,20 @@
           </li>
           <li>
             <a href="/daftar-kegiatan" class="selected">
-              <span class="material-icons-round">list</span>
+              <span class="material-icons-round">class</span>
               <p>Kelas</p>
             </a>
           </li>
           <li>
         </ul>
         <a href="/data-profil">
-          <img src="../../assets/navbar-profile.png" alt="" width="19px" height="19px" />
-          <span class="material-icons-round">account_box</span>
+          <img src="/assets/navbar-profile.png" alt="" width="19px" height="19px" />
+          {{-- <span class="material-icons-round">account_box</span> --}}
           <li>Profil</li>
         </a>
         <a href="/riwayat">
-          <img src="../../assets/navbar-history.png" alt="" width="19px" height="19px" />
-          <span class="material-icons-round">history</span>
+          <img src="/assets/navbar-history.png" alt="" width="19px" height="19px" />
+          {{-- <span class="material-icons-round">history</span> --}}
           <li>Riwayat</li>
         </a>
         <form method="POST" action="{{ route('logout') }}">
@@ -105,7 +105,7 @@
           <a href="route('logout')" id="sign-out" onclick="event.preventDefault();
           this.closest('form').submit();">
             <img src="/img/navbar-signout.png" alt="" width="19px" height="19px" />
-            <span class="material-icons-round">logout</span>
+            {{-- <span class="material-icons-round">logout</span> --}}
           <li>Keluar</li>
         </a></form>
       </ul>
@@ -181,7 +181,7 @@
                 </label>
                 <input type="hidden" name="task_id" id="task_id" value="{{ $task->id }}">
             
-            <button type="submit" class="btn btn-success mt-2" style="width: 100%">Serahkan</button>
+            <button type="submit" class="btn btn-success mt-2" style="width: 100%" id="refresh">Serahkan</button>
           </form>
           @endif
         </div>
@@ -333,12 +333,18 @@ function diff($since){
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
+
+    const refresh = document.getElementById('refresh');
+
+    refresh.addEventListener('click', ()=> {
+        location.reload();
+    })
  
      $('.show_confirm').click(function(event) {
           var form =  $(this).closest("form");
           var name = $(this).data("name");
           event.preventDefault();
-          swal({
+          swal({  
               title: `Apakah anda yakin?`,
               text: "",
               icon: "warning",

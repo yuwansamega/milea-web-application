@@ -52,7 +52,7 @@
             <a href="/pelatihan-guest">Pelatihan</a>
             </li>
         </ul>
-        <button type="button" class="btn btn-outline-success">Masuk</button>
+        <a href="/login"><button type="button" class="btn btn-outline-success">Masuk</button></a>
     </nav>
 
 

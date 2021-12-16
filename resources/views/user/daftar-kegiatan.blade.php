@@ -145,21 +145,11 @@
             <td>{{ tgl_indo($ws->open_regist) }} - {{ tgl_indo($ws->close_regist) }}</td>
             <td>{{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</td>
             <td>{{ $ws->quota }}</td>
-            <td>
-              @php
-                  if (date('Y-m-d')<=$ws->close_regist AND date('Y-m-d')>=$ws->open_regist) :
-                  @endphp
-                    <a href="/detail-kegiatan/{{ $ws->id }}" data-toggle="tooltip" data-placement="top" title="Detail"
-                      >
-                      <h5 style="font-weight: 600; font-size: 16px; text-decoration: underline">Lihat</h5>
-                    </a>
-                  @php
-                      
-                      else : @endphp
-                      Tutup
-                      @php
-                          endif;
-                      @endphp
+            <td id="lihat">
+              <a href="/detail-kegiatan/{{ $ws->id }}" data-toggle="tooltip" data-placement="top" title="Detail"
+                >
+                <b>Lihat</b>
+              </a>
             </td>
             </tr>
             @endforeach
@@ -181,7 +171,7 @@
       <div class="row">
         <div class="col">
           <p><b>Tentang Kami</b></p>
-          <p>RSUD Siti Fatimah merupakan Rumah Sakit Umum Daerah milik Provinsi Sumatera Selatan. Rumah Sakit milik pemerintah daerah terbesar di Indonesia ini berdiri di atas lahan seluas 4,1 Hektar dengan area bangunan seluas 52,952,11 m2.<br> <br> Lahir sebagai bukti dari keseriusan pemerintah daerah untuk meningkatkan derajat kesehatan masyarakat khususnya di wilayah Provinsi Sumatera Selatan (Sumsel).</p>
+          <p>RSUD Siti Fatimah merupakan Rumah Sakit Umum Daerah milik Provinsi Sumatera Selatan. Rumah Sakit milik pemerintah daerah terbesar di Indonesia ini berdiri di atas lahan seluas 4,1 Hektar dengan area bangunan seluas 52,952,11 m2.<br> <br> Lahir sebagai bukti dari keseriusan pemerintah daerah untuk meningkatkan derajat kesehatan masyarakat khususnya di wilayah Provinsi Sumatera Selatan (Sumsel).</p>
           <div class="row" id="icons">
             <a href="https://www.facebook.com/RSUDSitiFatimah" target="output">
                 <img src="../../assets/footer-icons/Facebook.png" alt="">

@@ -110,7 +110,7 @@
                 <a class="row allign-center" href="/ubah-pass">
                     <li class="row allign-center active">
                         <span class="material-icons-round">vpn_key</span>
-                        <p>Ubah Password</p>
+                        <p>Ubah Kata Sandi</p>
                     </li>
                 </a>
                 <form method="POST" action="{{ route('logout') }}">

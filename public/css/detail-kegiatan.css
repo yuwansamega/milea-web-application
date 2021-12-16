@@ -3,16 +3,6 @@ body {
     background-color: #f9f9f9 !important;
 }
 
-.pertama {
-    height: 400px;
-}
-.kedua {
-    margin-top: -80px;
-    height: 415px;
-}
-.ketiga {
-    margin-top: 40px;
-}
 .kiri {
     height: 250px;
 }
@@ -120,20 +110,10 @@ footer #hubungi-kami li img {
     margin-right: 20px;
 }
 @media screen and (max-width: 990px) {
-    .pertama {
-        margin-top: -20px;
-    }
-    .kedua {
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-    .keempat .container {
-        margin-top: 80px;
-    }
-    .ketiga .kiri .table th {
+    .kiri .table th {
         font-size: 15px !important;
     }
-    .ketiga .kanan .table th {
+    .kanan .table th {
         font-size: 15px !important;
     }
     #unduhan {
@@ -145,9 +125,6 @@ footer #hubungi-kami li img {
         font-size: 15px !important;
         margin-left: 30px;
         margin-top: -10px;
-    }
-    .kelima {
-        margin-top: -20px !important;
     }
     footer #footer-container {
         flex-direction: column !important;
@@ -160,40 +137,31 @@ footer #hubungi-kami li img {
     }
 }
 @media screen and (max-width: 767px) {
-    .pertama {
-        margin-top: -90px;
-    }
-    .container .pertama .container .table td {
+    .container .container .table td {
         font-size: 15px !important;
     }
-    .kedua {
-        margin-bottom: 20px;
-    }
-    .kedua .container .table td {
+    .container .table td {
         font-size: 15px;
         padding: 9px 30px;
     }
-    .kedua .container .table .tb-kiri {
+    .container .table .tb-kiri {
         max-width: 250px !important;
         text-align: left;
     }
-    .ketiga .kiri .table th {
+    .kiri .table th {
         font-size: 10px !important;
     }
-    .ketiga .kanan .table th {
+     .kanan .table th {
         font-size: 10px !important;
     }
-    .keempat .container {
-        margin-top: 100px;
-    }
-    .keempat .container .table td {
+      .container .table td {
         font-size: 15px !important;
         text-align: justify;
     }
-    .kelima .container .table li {
+      .container .table li {
         font-size: 15px !important;
     }
-    .kelima .container .table .form-check {
+      .container .table .form-check {
         font-size: 15px !important;
     }
     #unduhan {
@@ -206,43 +174,21 @@ footer #hubungi-kami li img {
         margin-left: 30px;
         margin-top: -10px;
     }
-    .kelima {
-        margin-top: -20px !important;
-    }
     #warning {
         width: 60px;
     }
 }
 @media screen and (max-width: 575px) {
-    .container {
-        padding: 20px;
-    }
-    .pertama {
-        margin-top: -150px !important;
-    }
-    .kedua {
-        margin-top: 0px !important ;
-    }
-    .ketiga {
-        margin-top: 0px;
-    }
-    .keempat .container {
-        margin-top: 50px;
-    }
-    .kelima .container .table li {
+    
+      .container .table li {
         font-size: 12px !important;
     }
-    .kelima .container .table .form-check {
+      .container .table .form-check {
         font-size: 12px !important;
     }
 }
 @media screen and (max-width: 500px) {
-    .ketiga {
-        margin-top: 0px;
-    }
-    .keempat .container {
-        margin-top: 80px;
-    }
+    
     .copyright .text-center h6 {
         font-size: 10px;
         font-weight: 700;
@@ -256,21 +202,8 @@ footer #hubungi-kami li img {
         width: 15px;
     }
 }
-@media screen and (max-width: 486px) {
-    .kedua {
-        margin-top: 100px !important;
-    }
-}
 @media screen and (max-width: 414px) {
-    .container .pertama {
-        margin-top: 180px;
-    }
-    .kedua {
-        margin-top: 100px !important;
-    }
-    .keempat .container {
-        margin-top: 190px !important;
-    }
+    
     .container .container #btn-daftar {
         display: flex;
         justify-content: center !important;
@@ -289,10 +222,5 @@ footer #hubungi-kami li img {
     }
 }
 @media screen and (max-width: 395px) {
-    .kedua .container {
-        margin-top: 60px !important;
-    }
-    .keempat .container {
-        margin-top: 380px !important;
-    }
+    
 }

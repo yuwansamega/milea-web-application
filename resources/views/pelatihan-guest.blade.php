@@ -68,7 +68,7 @@
                 <th scope="col">Periode Pendaftaran</th>
                 <th scope="col">Periode Pelaksanaan</th>
                 <th scope="col">Kuota</th>
-                <th scope="col">Detail</th>
+                
                 </tr>
             </thead>
             <tbody> 
@@ -91,22 +91,7 @@
                 <td>{{ tgl_indo($ws->open_regist) }} - {{ tgl_indo($ws->close_regist) }}</td>
                 <td>{{ tgl_indo($ws->open_ws) }} - {{ tgl_indo($ws->close_ws) }}</td>
                 <td>{{ $ws->quota }}</td>
-                <td>
-                 @php
-                  if (date('Y-m-d')<=$ws->close_regist AND date('Y-m-d')>=$ws->open_regist) :
-                  @endphp
-                    <a href="/detail-kegiatan/{{ $ws->id }}" data-toggle="tooltip" data-placement="top" title="Detail"
-                      >
-                      <h5 style="font-weight: 600; font-size: 16px; text-decoration: underline">Lihat</h5>
-                    </a>
-                  @php
-                      
-                      else : @endphp
-                      Tutup
-                      @php
-                          endif;
-                      @endphp
-                </td>
+                
                 </tr>
                 @endforeach
                 @else
