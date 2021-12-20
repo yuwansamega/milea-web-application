@@ -303,6 +303,9 @@
                     <li>
                         <a href="/riwayat">Riwayat</a>
                     </li>
+                    <li>
+                        <a href="/faq">FAQ</a>
+                    </li>
                 </ul>
             </div>
             <div class="col">
@@ -310,14 +313,12 @@
                 <ul id="hubungi-kami">
                     <li class="row">
                         <img src="../../assets/footer-icons/Phone.png" alt="">
-                        <a href="tel:+628117117929"  target="output">
-                            +628117117929
-                        </a>
+                        <a href="https://wa.me/+6282184678527" target="_blank">+6282184678527</a>
                     </li>
                     <li class="row overflow-hidden">
                         <img src="../../assets/footer-icons/Gmail.png" alt="">
-                        <a href="mailto:sdm.rsudsumsel@gmail.com" target="output">
-                            sdm.rsudsumsel@gmail.com
+                         <a href="mailto:diklatrsudsitifatimah@gmail.com">
+                            diklatrsudsitifatimah@gmail.com
                         </a>
                     </li>
                     <li class="row">

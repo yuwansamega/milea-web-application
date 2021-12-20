@@ -233,6 +233,8 @@
             <a href="/riwayat">Riwayat</a>
             <br><br>
             <a href="/kelas">Kelas</a>
+            <br><br>
+            <a href="/faq">FAQ</a>
         </div>
         <div class="col">
           <p><b>Hubungi Kami</b></p>
@@ -242,7 +244,7 @@
                 <img src="../../assets/footer-icons/Phone.png" alt="" style="min-width:21px">
               </div>
               <div class="col">
-                <a href="tel:+628117117929">+628117117929</a>
+                <a href="https://wa.me/+6282184678527" target="_blank">+6282184678527</a>
               </div>
             </div>
             <br>
@@ -251,8 +253,8 @@
                 <img src="../../assets/footer-icons/Gmail.png" alt="" style="min-width:18px">
               </div>
               <div class="col overflow-hidden">
-                <a href="mailto:sdm.rsudsumsel@gmail.com">
-                    sdm.rsudsumsel@gmail.com
+                <a href="mailto:diklatrsudsitifatimah@gmail.com">
+                    diklatrsudsitifatimah@gmail.com
                 </a>
               </div>
             </div>
